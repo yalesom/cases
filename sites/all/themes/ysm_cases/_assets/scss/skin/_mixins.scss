@@ -1,0 +1,81 @@
+/* 
+* Custom Mixins 
+*/
+@mixin placeholder {
+  &.placeholder { @content }
+  &:-moz-placeholder { @content }
+  &::-webkit-input-placeholder { @content }
+}
+@mixin sans-serif {
+	font-family:"proxima-nova",Helvetica,Arial,sans-serif;
+	}
+@mixin font-icon($code){
+	&:before {
+		content:' ' + $code;
+		font-family: FontAwesome;
+		display:inline-block;
+	}
+}
+@mixin transparentBg {
+	background: $contentBg;
+	background: transparentize($contentBg,0.1);
+	.cssfilters.desktop & {
+		background: transparentize($contentBg,0.3);
+	}
+}
+@mixin clearfix() {
+  *zoom:1;
+  &:before, &:after { content: " "; display: table; }
+  &:after { clear: both; }
+}
+@mixin reHover {
+	.no-touch & {
+		&:hover {
+			color: $black;
+		}
+		&:active {
+			color: $highlightColor;
+		}
+	}
+}
+@mixin tooltip {
+	position: relative;
+	// Hover effects
+	&:hover {
+	    .tooltip {
+	    	visibility: visible;
+	    	@include opacity(1);
+	    }
+	}
+	.tooltip {
+		color: $lightGrey;
+		display: block;
+		min-width: 100px;
+		pointer-events: none;
+		position: absolute;
+		top:0;
+		visibility: hidden;
+		width: 100%;
+		z-index: 100;
+		@include opacity(0);
+		@include transform(translatey(-100%));
+		@include transition(opacity 0.25s ease-out);
+		&:after {
+		    border: 15px solid transparent;
+		    border-top-color: $black;
+		    content: '';
+		    display: block;
+		    height: 0;
+		    margin: -5px 0 -13px 0.5em;
+		    position: relative;
+		    width: 0;
+		}
+		.tooltext {
+		    background: $black;
+		    display: block;
+		    font-size: 0.88rem;
+		    line-height: 1.29rem;
+		    padding: 10px;
+		}
+	}
+}

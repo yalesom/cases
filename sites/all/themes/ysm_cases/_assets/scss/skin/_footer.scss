@@ -1,0 +1,84 @@
+/* !------------ Theme Footer ------------ */
+#page-footer {
+	margin: 1rem 0;
+	.case-details {
+		font-size: 0.86rem;
+		margin: 1rem 0;
+		text-align: right;
+		label {
+			color: $mediumGrey;
+			display: inline-block;
+			font-weight: $fontWeight;
+			margin-left: 1em;
+		}
+		.case-num {
+			float: left;
+			font-weight: 700;
+		}
+	}
+	.case-menu {
+		margin-top: 2.5rem;
+		.view-footer {
+			text-align: center;
+		}
+	}
+	.case-sponsors {
+		background: $lightGrey;
+		font-size: 0.88rem;
+		margin: 1rem 0;
+		padding: 2rem;
+		text-align: center;
+		.item-list {
+			ul {
+				list-style: none;
+				margin: 0;
+				li {
+					font-weight: 700;
+					margin: 0;
+				}
+			}
+		}
+		
+	}
+	.copyright {
+		.nav {
+			display: inline-block;
+			line-height: 1em;
+			li {
+				border-left: 1px $black solid;
+				display: inline-block;
+				padding: 0 0.5rem;
+				&:first-child{
+					border: none;
+				}
+				.not-logged-in & {
+					&.logout{
+						display: none;
+					}
+				}
+				a {
+					color: $black;
+					font-weight: 700;
+					&:hover {
+						color: $brand;
+					}
+				}
+			}
+		}
+	}
+	.disclaimer p {
+		color: $mediumGrey;
+		font-size: 0.75rem;
+	}
+	.footer-last {
+		border-top: 1px $lightGrey solid;
+		font-size: 0.88rem;
+		margin-top: 1rem;
+		padding-top: 1rem;
+		text-align: center;
+	}
+	.full-logo img {
+		display: block;
+		margin: 3rem auto; 
+	}
+}

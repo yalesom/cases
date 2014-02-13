@@ -1,0 +1,214 @@
+// !Color
+$black: #1f2021;
+$mediumGrey: #777777;
+$lightGrey: #ddd;
+$tintGrey:#f2f2f2;
+$tintBlue:#eef4f9;
+$white: #fff;
+
+$aqua:#42889b; 
+$brand:#00457c;
+$blue:#3775a4;
+$brown:#8b6a3f;
+$green:#79ba86;
+$ltblue:#7ab5b2;
+$ltgreen:#94ae70;
+$ltpurple:#9b6d9c;
+$orange:#dd8d66;
+$purple:#72717f;
+$red: #bf6f6f;
+$slate:#6fa2bf;
+$tan:#c9b579;
+
+$mainColor: $brand; 
+$secondaryColor: $blue; 
+$alertColor: $red; // Red
+$successColor: $green; // Green (default)
+$txtColor: $black;
+$highlightColor: $alertColor; // Yellow (default)
+
+
+
+//============================
+// !Default SCSS Variables
+//============================
+$row-width:     64em !default;
+$column-gutter: 1.875em !default;
+$total-columns: 12 !default;
+
+//============================
+// !Custom SCSS Variables
+//============================
+$radius: 5px !default;
+$fontFamily: "ff-meta-web-pro", clean, sans-serif;
+$fontWeight:200;
+$background:$mainColor;
+
+//============================
+// !Additional theme colors:
+//============================
+$contentBg:#365a77; // Dark, paler blue
+$navBg:#b6c3cd; // Pale, light blue/grey
+$navBgAlt:#cbd5dc; // Paler light blue/grey
+$sectionaryLink:#5db3f5; // Medium, bright blue
+$tertiaryLink:#86a5c0; // Medium, pale blue;
+$tintColor:#d2d2d2; //Pale grey
+
+/* !Media Queries */
+$phone-portrait: 568px !default;
+$small-screen: 768px !default;
+$tablet-landscape: 1024px !default;
+$medium-screen: 1280px !default;
+$large-screen: 1440px !default;
+
+$screen: "only screen" !default;
+$phone: "#{$screen} and (min-width: #{$phone-portrait})" !default;
+$small: "#{$screen} and (min-width: #{$small-screen})" !default;
+$medium: "#{$screen} and (min-width:#{$medium-screen})" !default;
+$large: "#{$screen} and (min-width:#{$large-screen})" !default;
+$landscape: "(orientation: landscape)" !default;
+$portrait: "(orientation: portrait)" !default;
+
+$phoneMax: "#{$screen} and (max-width: #{$phone-portrait})" !default;
+$smallMax: "#{$screen} and (max-width: #{$small-screen})" !default;
+$mediumMax: "#{$screen} and (max-width:#{$medium-screen})" !default;
+$largeMax: "#{$screen} and (max-width:#{$large-screen})" !default;
+
+$AndSmallMax: "and (max-width: #{$small-screen})" !default;
+$AndMediumMax: "and (max-width:#{$medium-screen})" !default;
+$AndLargeMax: "and (max-width:#{$large-screen})" !default;
+
+/*------------------------------------*\
+    $OBJECTS-AND-ABSTRACTIONS
+\*------------------------------------*/
+/**
+ * All of inuit.css’ objects and abstractions are initially turned off by
+ * default. This means that you start any project with as little as possible,
+ * and introducing objects and abstractions is as simple as switching the
+ * following variables to `true`.
+ */
+$use-grids:         true;
+$use-flexbox:       true;
+$use-columns:       true;
+$use-nav:           true;
+$use-options:       true;
+$use-pagination:    true;
+$use-breadcrumb:    true;
+$use-media:         false;
+$use-marginalia:    false;
+$use-island:        false;
+$use-block-list:    false;
+$use-matrix:        false;
+$use-split:         false;
+$use-this-or-this:  false;
+$use-link-complex:  false;
+$use-flyout:        false;
+$use-arrows:        false;
+$use-sprite:        false;
+$use-icon-text:     false;
+$use-beautons:      false;
+$use-lozenges:      true;
+$use-rules:         true;
+$use-stats:         false;
+$use-greybox:       false;
+
+
+
+/*------------------------------------*\
+    $OVERRIDES
+\*------------------------------------*/
+/**
+ * Place any variables that should override inuit.css’ defaults here.
+ */
+ 
+$base-font-size:    16px!default;
+$base-line-height:  30px!default;
+
+$base-font-family: $fontFamily;
+
+/**
+ * Responsive push and pull produce a LOT of code, only turn them on if you
+ * definitely need them.
+ */
+$push:              true!default;
+/**
+ * Note: `$push` variable above must be set to true before enabling these.
+ */
+$palm-push:         false!default;
+$lap-push:          true!default;
+$lap-and-up-push:   true!default;
+$portable-push:     true!default;
+$desk-push:         true!default;
+
+$pull:              true!default;
+/**
+ * Note: `$pull` variable above must be set to true before enabling these.
+ */
+$palm-pull:         false!default;
+$lap-pull:          true!default;
+$lap-and-up-pull:   true!default;
+$portable-pull:     true!default;
+$desk-pull:         true!default;
+ 
+$lap-start:         768px!default;
+//$desk-start:        1024px!default;
+$desk-wide-start:   1280px!default;
+
+$brand-color:       $brand!default;
+$brand-face:        $fontFamily!default;
+
+/*------------------------------------*\
+    $FONT-SIZES
+\*------------------------------------*/
+/**
+ * Font-sizes (in pixels). Refer to relevant sections for their implementations.
+ */
+$giga-size:         96px!default;
+$mega-size:         72px!default;
+$kilo-size:         48px!default;
+
+$h1-size:           36px!default; // .alpha
+$h2-size:           30px!default; // .beta
+$h3-size:           24px!default; // .gamma
+$h4-size:           20px!default; // .delta
+$h5-size:           16px!default; // .epsilon
+$h6-size:           14px!default; // .zeta
+
+$milli-size:        12px!default;
+$micro-size:        10px!default;
+
+/*------------------------------------*\
+    $QUOTES
+\*------------------------------------*/
+/**
+ * English quote marks?
+ */
+$english-quotes:    true!default;
+
+/**
+ * If you want English quotes then please do not edit these; they’re only here
+ * because Sass needs them.
+ */
+$open-quote:    null;
+$close-quote:   null;
+
+/**
+ * If you need non-English quotes, please alter the following values accordingly:
+ */
+@if $english-quotes != true{
+    $open-quote:    \00AB;
+    $close-quote:   \00BB;
+}
+
+
+/*------------------------------------*\
+    $FRAMEWORK
+\*------------------------------------*/
+/**
+ * inuit.css will work these next ones out for use within the framework.
+ *
+ * Assign our `$base-line-height` to a new spacing var for more transparency.
+ */
+$base-spacing-unit: 20px!default;
+$half-spacing-unit: $base-spacing-unit / 2!default;
+$line-height-ratio: $base-line-height / $base-font-size;

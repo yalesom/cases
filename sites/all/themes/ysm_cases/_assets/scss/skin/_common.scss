@@ -1,0 +1,189 @@
+/* ! ----------- Theme common tags ---------------- */
+html {
+}
+body {
+	background: $tintGrey;
+	color: $txtColor;
+}
+h1 {
+	font-weight: $fontWeight;
+}
+h2 {
+	color: $mediumGrey;
+}
+h3 {
+	color: $mediumGrey;
+	font-weight: $fontWeight;
+}
+h4 {
+	font-weight: 700;
+}
+h5 {
+}
+h6 {
+}
+
+a {
+	color: $secondaryColor;
+	position: relative;
+	text-decoration: none;
+	@include transition(all 0.25s ease-out);
+	.no-touch & {
+		&:hover, 
+		&:focus {
+			color: $black;
+		}
+		&:active {
+			color: $highlightColor;
+			outline: none;
+		}
+	}
+}
+b, strong {
+}
+i, em {
+	
+}
+blockquote {
+	border-left: 1px $ltblue solid;
+	color: $mediumGrey;
+	padding: 2rem;
+	quotes:"" "";
+	text-indent: 0;
+}
+figure {
+	text-align: center;
+}
+figcaption {
+	color: $mediumGrey;
+	font-size: $milli-size;
+	font-style: italic;
+	text-align: left;
+}
+
+
+::-moz-selection {
+	background:$black;
+	color:$white;
+	text-shadow:none
+}
+
+::selection {
+	background:$black;
+	color:$white;
+	text-shadow:none
+}
+small {
+}
+
+img {
+
+}
+
+.ie8 img {
+
+}
+/* ! ----------- Common elements ---------------- */
+// !Basic lists
+.body {
+	ul {
+		li {
+			&:before {
+				content: '\e811';
+				display: block; 
+				font-family: "fontello";
+				left: 0;
+				position: absolute;
+				top:0;
+			}
+		}
+	}
+	ol {
+		margin-left: 1em;
+		li {
+			list-style: decimal;
+		}
+	}
+	li {
+		color: $tintGrey;
+		font-size: 0.93em;
+		padding: 0 0 0.5em 1em;
+		position: relative;
+	}
+}
+// Button style
+.button {
+	border: none;
+	@include box-shadow(none);
+	color: $white;
+	display: block;
+	font-size: 1.29rem;
+	padding: 0.5em;
+	&:after {
+		content:"\f105";
+		display:inline-block;
+		font-family: FontAwesome;
+	    margin: 0 0.5em 0 2em;
+		}
+	.no-touch & {
+		&:hover {
+			background: $black;
+			color: $white;
+		}
+	}
+}
+.hide-title {
+	.block-title {
+		display: none;
+	}
+}
+// !Node tags
+.field-name-field-article-tags {
+	.links {
+		@include clearfix;
+		li {
+			float: left;
+			margin-right: 0.5em;
+		}
+	}
+}
+// !Colors
+.aqua {
+	background: $aqua;
+} 
+.yale {
+	background: $brand;
+} 
+.blue {
+	background: $blue;
+} 
+.brown {
+	background: $brown;
+} 
+.green {
+	background: $green;
+} 
+.ltblue {
+	background: $ltblue;
+} 
+.ltgreen {
+	background: $ltgreen;
+} 
+.ltpurple {
+	background: $ltpurple;
+} 
+.orange {
+	background: $orange;
+} 
+.purple {
+	background: $purple;
+} 
+.red {
+	background: $red;
+} 
+.slate {
+	background: $slate;
+} 
+.tan {
+	background: $tan;
+}

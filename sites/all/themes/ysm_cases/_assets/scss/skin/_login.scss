@@ -1,0 +1,86 @@
+/* !----------- Login ------------ */
+.not-front.not-logged-in {
+	#page-title {
+		display: none;
+	}
+	@media #{$small}{
+		#sidebar-second {
+			border-left: $lightGrey 1px solid;
+		}
+		.sidebar {
+			margin-top: 2rem;
+		}
+	}
+	.login-message {
+		color: $mediumGrey;
+		font-style: italic;
+		font-size: 0.75rem;
+		line-height: 1.25em;
+	}
+	.user-login {
+		margin-bottom: 3rem;
+		label,
+		.item-list {
+			display: none;
+		}
+		#edit-name,
+		#edit-pass {
+			border: 1px $lightGrey solid;
+			padding: 0.5rem;
+			&:focus {
+				border-color: $black;
+				outline: none;
+			}
+		}
+		#edit-submit {
+			@extend .button;
+			background: $brand;
+			font-size: 1rem;
+			padding-right: 5rem;
+			position: relative;
+			&:after {
+				position: absolute;
+				right: 0.5rem;
+				top:0.75rem;
+			}
+		}
+	}
+	// !CAS
+	#edit-cas-login-redirection-message {
+		display: none !important;
+	}
+	.form-item-cas-identifier {
+		display: block !important;
+		#edit-cas-identifier {
+			display: none;
+			&:checked + label {
+				color: $green;
+				@include font-icon('\f05d');
+			}
+			&:checked ~ .description {
+				display: block;
+				visibility: visible;
+				@include opacity(1);
+			}
+		}
+		label {
+			color: $lightGrey;
+			display: inline-block;
+			font-weight: 700;
+			@include transition(all 0.25s ease-out);
+			@include font-icon('\f10c');
+			&:before {
+				margin: 0 0.5rem 0 0;
+			}
+		}
+		.description {
+			display: none;
+			font-size: $milli-size;
+			line-height: 1em;
+			margin: 0;
+			visibility: hidden;
+			@include opacity(0);
+			@include transition(all 0.25s ease-out);
+		}
+	}
+}

@@ -1,0 +1,10 @@
+// !Drupal admin tabs
+.tabs.primary {
+	@extend .nav;
+	@extend .pagination;
+	line-height: 1em;
+	li.active {
+		background: $tintBlue;
+		color: $mainColor;
+	}
+}

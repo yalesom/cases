@@ -1,0 +1,56 @@
+/* !----------- Book outline menu ------------ */
+.case-menu {
+	font-size: 0.82rem;
+	margin-top: 0.75rem;
+	.attachment {
+		display: none;
+	}
+	.item-list {
+		ul {
+			list-style: none;
+			li {
+				margin: 0;
+				vertical-align: top;
+			}
+		}
+		.stem_class {
+			@extend .grid;
+			margin-left: -1rem;
+			padding: 0 0 0.5rem;
+			> li {
+				@extend .grid__item;
+				@extend .one-quarter;
+				@extend .palm-one-whole;
+				padding: 0 1rem 1rem;
+				a {
+					display: block;
+					&.active {
+						@include font-icon("\f041");
+						&:before {
+							margin-right: 0.5rem;
+						}
+						color: $black !important;
+						#page-footer & {
+							color: $mediumGrey !important;
+						}
+					}
+				}
+				> a {
+					border-top: 1px $lightGrey solid;
+					color: $brand;
+					font-weight: 700;
+					padding-top: 0.75rem;
+					@include reHover;
+				}
+			}
+			
+		}
+		.section {
+			li {
+				a {
+					padding: 0;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+name = EPUB Export Book
+description = Convert Core Books to EPUB.
+core = 7.x
+php = 5.3
+
+dependencies[] = epub_export
+dependencies[] = book
+
+; Information added by drupal.org packaging script on 2013-07-23
+version = "7.x-1.0-beta2"
+core = "7.x"
+project = "epub_export"
+datestamp = "1374540953"
+

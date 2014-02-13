@@ -1,0 +1,33 @@
+/* !----------- Breadcrumb menu ------------ */
+.breadcrumbs {
+	color: $mediumGrey;
+	font-size: 0.88rem;
+	margin-bottom: 1rem;
+	@extend .breadcrumb;
+	@extend .nav;
+	li:first-child {
+		span {
+			display: none;
+		}
+		a,
+		&.current {
+			@include font-icon("\f015");
+			font-size: 1.29rem;
+		}
+		&.current:after {
+			color: $lightGrey;
+			content:"\f105";
+			display:inline-block;
+			font-family: FontAwesome;
+		    margin: 0 0.5em;
+		}
+	}
+	> li + li {
+	    @include font-icon("\f105");
+	    &:before {
+		    color: $lightGrey;
+		    font-size: 1.29rem;
+		    margin: 0 0.5em;
+	    }
+	}
+}

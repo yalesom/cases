@@ -1,0 +1,15 @@
+diff --git a/sites/all/modules/compass/compass.inc b/sites/all/modules/compass/compass.inc
+index 6b90885..12e141a 100644
+--- a/sites/all/modules/compass/compass.inc
++++ b/sites/all/modules/compass/compass.inc
+@@ -49,7 +49,9 @@ function _compass_update($theme) {
+   if (variable_get('compass_relative_assets', FALSE)) {
+     $args['relative_assets'] = '';
+   }
+-  $args['load'] = getcwd() . '/' . dirname($themes[$theme->base_theme]->filename);
++  if (isset($theme->base_theme)) {
++    $args['load'] = getcwd() . '/' . dirname($themes[$theme->base_theme]->filename);
++  }
+ 
+   drupal_alter('compass_options', $args, $op);
+   return $command . ' ' . _compass_options($args);
