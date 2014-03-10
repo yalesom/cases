@@ -17,9 +17,16 @@
             t.editor = ed;
             t.url = pluginUrl;
 
-            loadScript(ed.getParam('mediacore_url') + '/api/chooser.js');
+            var siteUrl = ed.getParam('mediacore_url');
+
+            // Strip trailing slash to avoid chooser bug at //chooser
+            if (siteUrl.lastIndexOf('/') == siteUrl.length - 1) {
+              siteUrl = siteUrl.substring(0, siteUrl.length - 1);
+            }
+
+            loadScript(siteUrl + '/api/chooser.js');
             var params = {
-                'url': ed.getParam('mediacore_url') + '/chooser',
+                'url': siteUrl + '/chooser',
                 'mode': 'popup'
             };
 

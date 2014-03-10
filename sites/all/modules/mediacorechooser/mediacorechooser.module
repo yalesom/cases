@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Main file for mediacorechooser module.
+ * Main file for mediacorechooser module. Includes fixes by Derek - Yale SOM
  */
 
 include 'mediacorechoosersigning.php';
@@ -94,7 +94,11 @@ function mediacorechooser_admin_validate($form, &$form_state) {
  * Implementation of hook_permission().
  */
 function mediacorechooser_permission() {
-  return array('administer mediacorechooser');
+    return array('administer mediacorechooser' => array(
+        'title' => t('title placeholder'),
+        'description' => t('description placeholder'),
+    ),
+    );
 }
 
 
@@ -129,6 +133,21 @@ function mediacorechooser_wysiwyg_plugin($editor, $version) {
   return $plugins;
 }
 
+// Select CKeditor as our preferred editor
+// we are not using the wyswig module, details of 
+// this hack are in the README.md file - d
+$plugins['mediacorechooser'] = array(
+        'path' => drupal_get_path('module', 'mediacorechooser') . '/editors/ckeditor',
+        'filename' => 'plugin.js',
+        'buttons' => array('mediacorechooser' => t('MediaCore Chooser')),
+        'url' => 'http://mediacore.com/plugins/',
+        'load' => TRUE,
+                'options' => array(
+                        'mediacore_url' => variable_get('mediacorechooser_url', 'http://demo.mediacore.tv'),
+                )
+      );
+
+return $plugins;
 
 /**
  * Implementation of hook_filter_info().
@@ -141,7 +160,7 @@ function mediacorechooser_filter_info() {
     'process callback' => '_mediacorechooser_process',
     'settings callback' => '_mediacorechooser_settings',
     'tips callback'  => '_mediacorechooser_tips',
-    'cache' => FALSE,
+    'cache' => TRUE,
   );
   return $filters;
 
@@ -203,6 +222,8 @@ function _mediacorechooser_process($text, $filter, $format, $langcode, $cache, $
       </iframe>';
 
       $text = str_replace($code, $replacement, $text);
+      cache_clear_all('*','cache_filter', TRUE);
+      cache_clear_all('*','cache_field', TRUE);
 
     }
   }
