@@ -53,3 +53,6 @@ sftp-config.json
 .buildpath
 .project
 .settings*
+*.sublime-project
+*.sublime-workspace
+codekit-config.json
