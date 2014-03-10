@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Main file for mediacorechooser module.
+ * Main file for mediacorechooser module. Includes fixes by Derek - Yale SOM
  */
 
 include 'mediacorechoosersigning.php';
