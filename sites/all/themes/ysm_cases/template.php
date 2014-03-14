@@ -431,7 +431,7 @@ function ysm_cases_preprocess_html(&$variables) {
   //       'inline', array('group',JS_LIBRARY));
 
   // !Empty variable for Typekit
-  $variables['typekit'] = "hes1oxl";
+  $variables['typekit'] = "wxc1xmi";
 
 }
 function ysm_cases_process_html(&$vars) {
