@@ -48,19 +48,12 @@ define('DOMAIN_ALL', 'DOMAIN_ALL');
 define('DOMAIN_ACTIVE', 'DOMAIN_ACTIVE');
 
 /**
- * Module setup tasks.
- *
- * 1. Adds the domain user data to the $user object.
- * 2. Ensures that our custom_url_rewrite_outbound() is loaded.
+ * Ensures that our custom_url_rewrite_outbound() is loaded.
  *
  * @link http://drupal.org/node/529026
  * @link http://drupal.org/node/820062
  */
 function domain_boot() {
-  global $user;
-  // Load domain information to the $user object.
-  $user->domain_user = domain_get_user_domains($user);
-  // Properly load custom_url_rewrite_outbound().
   include_once('settings_custom_url.inc');
 }
 
@@ -562,6 +555,19 @@ function domain_user_load($users) {
 }
 
 /**
+ * Emsures that a user object has been loaded properly.
+ *
+ * @param $account
+ *   An account object.
+ */
+function domain_user_set($account) {
+  if (!isset($account->domain_user)) {
+    $accounts = array($account->uid => $account);
+    domain_user_load($accounts);
+  }
+}
+
+/**
  * Implements hook_user_insert().
  */
 function domain_user_insert(&$edit, $account, $category) {
@@ -618,6 +624,7 @@ function domain_user_delete($account) {
  * Implements hook_user_view().
  */
 function domain_user_view($account, $view_mode) {
+  domain_user_set($account);
   // Only show on full view.
   if ($view_mode != 'full') {
     return;
@@ -1464,8 +1471,16 @@ function domain_api($domain, $reset = FALSE) {
   // issues, so let's be certain to load those.
   if (!isset($modules) || $reset) {
     $modules = module_implements('domain_load');
-    $bootstrap = _domain_bootstrap_modules();
-    $modules = array_unique(array_merge($modules, $bootstrap));
+    if (function_exists('_domain_bootstrap_modules')) {
+      $bootstrap = _domain_bootstrap_modules();
+      $modules = array_unique(array_merge($modules, $bootstrap));
+    }
+    // If the function is missing, settings.php is likely not configured.
+    elseif (!variable_get('domain_hide_errors')) {
+      // Not reporting an error during install makes it easier for scripts.
+      $severity = drupal_installation_attempted() ? 'warning' : 'error';
+      drupal_set_message(t('Domain module installation is incomplete. See INSTALL.txt and check your settings.php file.'), $severity, FALSE);
+    }
   }
 
   // Now, call the hook invocations.
@@ -1965,9 +1980,7 @@ function domain_node_grants($account, $op) {
 
   // In some edge cases, the $account may not have domain information loaded,
   // so get it.
-  if (!isset($account->domain_user)) {
-    $account->domain_user = domain_get_user_domains($account);
-  }
+  domain_user_set($account);
 
   // By design, all users can see content sent to all affiliates,
   // but the $_domain['site_grant'] can be set to FALSE.
@@ -1977,7 +1990,9 @@ function domain_node_grants($account, $op) {
     }
 
     // Grant based on active domain.
-    $grants['domain_id'][] = $_domain['domain_id'];
+    if (isset($_domain['domain_id'])) {
+      $grants['domain_id'][] = $_domain['domain_id'];
+    }
 
     // In special cases, we grant the ability to view all nodes.  That is,
     // we simply get out of the way of other node_access rules.
@@ -2196,6 +2211,7 @@ function domain_set_default_grant($reset = FALSE) {
  * Splits the access checks by operation.
  */
 function domain_node_access($node, $op, $account) {
+  domain_user_set($account);
   if (empty($account->domain_user)) {
     return NODE_ACCESS_IGNORE;
   }
@@ -2213,6 +2229,7 @@ function domain_node_access($node, $op, $account) {
  * @see domain_node_access().
  */
 function domain_node_access_view($type, $node, $op, $account) {
+  domain_user_set($account);
   if (!empty($node->status)) {
     return NODE_ACCESS_IGNORE;
   }
@@ -2237,6 +2254,7 @@ function domain_node_access_view($type, $node, $op, $account) {
  * @see domain_node_access().
  */
 function domain_node_access_create($type, $node, $op, $account) {
+  domain_user_set($account);
   $_domain = domain_get_domain();
   if (!isset($account->domain_user[$_domain['domain_id']])) {
     return NODE_ACCESS_IGNORE;
@@ -2257,6 +2275,7 @@ function domain_node_access_create($type, $node, $op, $account) {
  * @see domain_node_access().
  */
 function domain_node_access_update($type, $node, $op, $account) {
+  domain_user_set($account);
   // The node must be assigned to a domain to continue.
   if (empty($node->domains)) {
     return NODE_ACCESS_IGNORE;
@@ -2406,6 +2425,7 @@ function domain_form_alter(&$form, &$form_state, $form_id) {
 
   // Grab the globals we need.
   global $user;
+  domain_user_set($user);
   $_domain = domain_get_domain();
 
   // Get the default assigned domains.
@@ -3629,7 +3649,7 @@ function domain_features_api() {
       'default_hook' => 'domain_default_domains',
       'default_file' => FEATURES_DEFAULTS_CUSTOM,
       'default_filename' => 'domains',
-      'features_source' => TRUE,
+      'feature_source' => TRUE,
       'file' => drupal_get_path('module', 'domain') . '/domain.features.inc',
     ),
   );
