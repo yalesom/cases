@@ -261,6 +261,9 @@ function scrollableElement(els) {
 	$('img:not(.loaded)').each(function() {
 		$(this).addClass('loaded').removeAttr('width').removeAttr('height').css({'height':'', 'width':''});
 	});
+
+	//Media Core iFrame unwrap
+	$('.mediacore-video-container iframe').unwrap();
 })(jQuery);
 
 /* **********************************************
