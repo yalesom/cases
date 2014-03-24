@@ -58,6 +58,16 @@
 	}
 }
 
+.not-logged-in {
+	#main-content {
+		.sidebar {
+			&.one-sidebar {
+				width: 25%;
+			}
+		}
+	}
+}
+
 .main-content {
 	article {
 		

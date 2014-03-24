@@ -1,10 +1,12 @@
 .sheetview {
 	padding-top: 10px;
 	margin-bottom: 1rem;
+	text-align: center;
 	table {
 		font-family: $fontFamily !important;
+		text-align: right;
 		padding: .3rem;
-		margin: 0;
+		margin: 0 auto;
 		line-height: normal;
 		border-width: 0;
 		border-top: 0;
@@ -85,6 +87,7 @@
 
 .sheetnode-export-links {
 	display: block;
+	text-align: center;
 
 	a {
 		display: inline-block;
