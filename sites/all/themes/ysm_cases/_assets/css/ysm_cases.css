@@ -1444,7 +1444,7 @@ blockquote { border-left: 1px #7ab5b2 solid; color: #777777; padding: 2rem; quot
 
 figure { text-align: center; }
 
-figcaption { color: #777777; font-size: 12px; font-style: italic; text-align: left; }
+figcaption { color: #777777; font-size: 12px; line-height: 14px; font-style: normal; font-weight: bold; text-align: left; }
 
 ::-moz-selection { background: #1f2021; color: white; text-shadow: none; }
 
@@ -1568,14 +1568,19 @@ figcaption { color: #777777; font-size: 12px; font-style: italic; text-align: le
 .case-menu .item-list ul li { margin: 0; vertical-align: top; }
 .case-menu .item-list .stem_class { margin-left: -1rem; padding: 0 0 0.5rem; }
 .case-menu .item-list .stem_class > li { padding: 0 1rem 1rem; }
-.case-menu .item-list .stem_class > li a { display: block; }
-.case-menu .item-list .stem_class > li a.active { color: #1f2021 !important; }
+.case-menu .item-list .stem_class > li a { display: block; line-height: 1.05rem; }
+.case-menu .item-list .stem_class > li a.active { padding: .5rem 0 0 1rem; color: #1f2021 !important; }
 .case-menu .item-list .stem_class > li a.active:before { content: " \f041"; font-family: FontAwesome; display: inline-block; }
-.case-menu .item-list .stem_class > li a.active:before { margin-right: 0.5rem; }
+.case-menu .item-list .stem_class > li a.active:before { margin-right: 0.5rem; margin-left: -1rem; }
 #page-footer .case-menu .item-list .stem_class > li a.active { color: #777777 !important; }
-.case-menu .item-list .stem_class > li > a { border-top: 1px #cccccc solid; color: #00457c; font-weight: 700; padding-top: 0.75rem; }
+.case-menu .item-list .stem_class > li > a { border-top: 1px #cccccc solid; color: #00457c; font-weight: 700; padding-top: 0.5rem; }
 .no-touch .case-menu .item-list .stem_class > li > a:hover { color: #1f2021; }
 .no-touch .case-menu .item-list .stem_class > li > a:active { color: #bf6f6f; }
+.case-menu .item-list .stem_class > li .item-list { margin-top: .25rem; }
+.case-menu .item-list .stem_class > li .item-list ul li { line-height: 1.05rem; margin-bottom: .25rem; }
+.case-menu .item-list .stem_class > li .item-list ul li a.active { padding: 0 0 0 1rem !important; }
+.case-menu .item-list .stem_class > li .item-list ul li a.active:before { content: " \f041"; font-family: FontAwesome; display: inline-block; }
+.case-menu .item-list .stem_class > li .item-list ul li a.active:before { margin-right: 0.5rem; margin-left: -1rem; }
 .case-menu .item-list .section li a { padding: 0; }
 
 /* !----------- Breadcrumb menu ------------ */

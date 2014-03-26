@@ -57,7 +57,9 @@ figure {
 figcaption {
 	color: $mediumGrey;
 	font-size: $milli-size;
-	font-style: italic;
+	line-height: $h6-size;
+	font-style: normal;
+	font-weight: bold;
 	text-align: left;
 }
 

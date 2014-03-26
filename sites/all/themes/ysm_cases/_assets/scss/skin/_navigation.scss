@@ -24,10 +24,13 @@
 				padding: 0 1rem 1rem;
 				a {
 					display: block;
+					line-height: 1.05rem;
 					&.active {
 						@include font-icon("\f041");
+						padding: .5rem 0 0 1rem;
 						&:before {
 							margin-right: 0.5rem;
+							margin-left: -1rem;
 						}
 						color: $black !important;
 						#page-footer & {
@@ -39,8 +42,27 @@
 					border-top: 1px $lightGrey solid;
 					color: $brand;
 					font-weight: 700;
-					padding-top: 0.75rem;
+					padding-top: 0.5rem;
 					@include reHover;
+				}
+				.item-list {
+					margin-top: .25rem;
+					ul {
+						li {
+							line-height: 1.05rem;
+							margin-bottom: .25rem;
+							a {
+								&.active {
+									@include font-icon("\f041");
+									padding: 0 0 0 1rem !important;
+									&:before {
+										margin-right: 0.5rem;
+										margin-left: -1rem;	
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 			

@@ -13,43 +13,47 @@
 // @codekit-append "parts/jquery.highcharts.plotter.js"
 // @codekit-append "parts/document-tiles.js"
 // @codekit-append "parts/jquery.loadGallery.js"
+// @codekit-append "parts/figures.js"
+// @XXcodekit-append "parts/browser-detect.js"
 
 
 /* **********************************************
      Begin page-layout.js
 ********************************************** */
 
-//(function($) {
-	// !Identify desktop devices
-	var mobile = IsMobile.detect();
-	if(!mobile){
-		jQuery('html').addClass('desktop');
+// !Identify desktop devices
+var mobile = IsMobile.detect();
+if(!mobile){
+	jQuery('html').addClass('desktop');
+} else {
+	jQuery('html').addClass('mobile');
+};
+
+// !Page resize
+function pageResize(){
+	// ! Move navigation container based on document width
+	if (document.body.clientWidth <= 568 && mobile) {
+		jQuery('.primary-nav > .block-views').height(window.innerHeight);
+	} 
+};
+
+//Login form reposition CAS
+jQuery('#edit-cas-login-redirection-message').appendTo('form#user-login-form');
+jQuery('div.form-item-cas-identifier').appendTo('form#user-login-form');
+
+// !Login form toggle
+jQuery('#edit-cas-identifier').change(function(){
+	if ( jQuery(this).is(':checked') ) {
+		jQuery('#user-login-form .form-item-name').fadeOut(250);
+		jQuery('#user-login-form .form-item-pass').fadeOut(250);
 	} else {
-		jQuery('html').addClass('mobile');
-	};
+		jQuery('#user-login-form .form-item-name').fadeIn(250);
+		jQuery('#user-login-form .form-item-pass').fadeIn(250);
+	}
+});
 
-	// !Page resize
-	function pageResize(){
-		// ! Move navigation container based on document width
-		if (document.body.clientWidth <= 568 && mobile) {
-			jQuery('.primary-nav > .block-views').height(window.innerHeight);
-		} 
-	};
-
-	// !Login form toggle
-	jQuery('#edit-cas-identifier').change(function(){
-		if ( jQuery(this).is(':checked') ) {
-			jQuery('#user-login-form .form-item-name').fadeOut(250);
-			jQuery('#user-login-form .form-item-pass').fadeOut(250);
-		} else {
-			jQuery('#user-login-form .form-item-name').fadeIn(250);
-			jQuery('#user-login-form .form-item-pass').fadeIn(250);
-		}
-	});
-
-	// !Call resize
-	jQuery(window).bind("resize orientationchange", pageResize);
-//})(jQuery);
+// !Call resize
+jQuery(window).bind("resize orientationchange", pageResize);
 
 /* **********************************************
      Begin headers.js
@@ -785,3 +789,14 @@ function loadGallery() {
 					});
 		return mySlider;
 }
+
+/* **********************************************
+     Begin figures.js
+********************************************** */
+
+jQuery(document).ready(function($) {
+	//set the figure captions width to match the image
+	$('figure figcaption').each(function(){
+		this.width(this.prev().width());
+	});
+});
