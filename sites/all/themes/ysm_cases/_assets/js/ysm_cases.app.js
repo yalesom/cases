@@ -13,3 +13,5 @@
 // @codekit-append "parts/jquery.highcharts.plotter.js"
 // @codekit-append "parts/document-tiles.js"
 // @codekit-append "parts/jquery.loadGallery.js"
+// @codekit-append "parts/figures.js"
+// @XXcodekit-append "parts/browser-detect.js"
