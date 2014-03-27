@@ -46,11 +46,11 @@
 					@include reHover;
 				}
 				.item-list {
-					margin-top: .25rem;
+					margin-top: .5rem;
 					ul {
 						li {
 							line-height: 1.05rem;
-							margin-bottom: .25rem;
+							margin-bottom: .5rem;
 							a {
 								&.active {
 									@include font-icon("\f041");

@@ -52,7 +52,18 @@ blockquote {
 	text-indent: 0;
 }
 figure {
-	text-align: center;
+	text-align: left;
+	margin-bottom: 1rem;
+
+	&.figure-right {
+		float: right;
+		margin-left: 2rem;
+	}
+
+	&.figure-left {
+		float: left;
+		margin-right: 2rem;
+	}
 }
 figcaption {
 	color: $mediumGrey;
@@ -61,6 +72,8 @@ figcaption {
 	font-style: normal;
 	font-weight: bold;
 	text-align: left;
+	display: inline-block;
+	margin-bottom: .5rem;
 }
 
 
