@@ -1444,7 +1444,7 @@ figure { text-align: left; margin-bottom: 1rem; }
 figure.figure-right { float: right; margin-left: 2rem; }
 figure.figure-left { float: left; margin-right: 2rem; }
 
-figcaption { color: #777777; font-size: 13px; line-height: 14px; font-style: normal; font-weight: bold; text-align: left; display: inline-block; margin-bottom: .5rem; }
+figcaption { color: #777777; font-size: 13px; line-height: 14px; font-style: normal; font-weight: bold; text-align: left; display: inline-block; margin-bottom: .5rem; margin-top: .5rem; }
 
 ::-moz-selection { background: #1f2021; color: white; text-shadow: none; }
 
