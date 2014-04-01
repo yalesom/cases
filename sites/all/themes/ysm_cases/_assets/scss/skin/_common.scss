@@ -52,13 +52,29 @@ blockquote {
 	text-indent: 0;
 }
 figure {
-	text-align: center;
+	text-align: left;
+	margin-bottom: 1rem;
+
+	&.figure-right {
+		float: right;
+		margin-left: 2rem;
+	}
+
+	&.figure-left {
+		float: left;
+		margin-right: 2rem;
+	}
 }
 figcaption {
 	color: $mediumGrey;
-	font-size: $milli-size;
-	font-style: italic;
+	font-size: 13px;
+	line-height: $h6-size;
+	font-style: normal;
+	font-weight: bold;
 	text-align: left;
+	display: inline-block;
+	margin-bottom: .5rem;
+	margin-top: .5rem;
 }
 
 
