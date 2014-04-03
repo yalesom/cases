@@ -185,3 +185,30 @@
 		border-top-color: $lightGrey;
 	}
 }
+
+.browser-detect-notice {
+	background: $white;
+	border: 4px solid $orange;
+	height: 5em;
+	margin-bottom: 1em;
+	padding: 1em;
+	margin-top: 1em;
+
+	.warning-icon {
+		float: left;
+		width: 3em;
+		height: 4em;
+		margin-right: 1em;
+
+		i {
+			color: $red;
+			font-size: 3em;
+		}
+	}
+}
+
+html.lt-ie9 {
+	aside#sidebar-second {
+		display: none;
+	}
+}

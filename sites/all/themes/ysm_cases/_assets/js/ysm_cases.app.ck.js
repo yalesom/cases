@@ -14,7 +14,7 @@
 // @codekit-append "parts/document-tiles.js"
 // @codekit-append "parts/jquery.loadGallery.js"
 // @codekit-append "parts/figures.js"
-// @XXcodekit-append "parts/browser-detect.js"
+// @codekit-append "parts/browser-detect.js"
 
 
 /* **********************************************
@@ -810,4 +810,21 @@ jQuery(document).ready(function($) {
 		var captionDOM = '<figcaption>' + thisIMG.attr('alt') + '</figcaption>';
 		thisIMG.parent('figure').append(captionDOM);
 	});
+});
+
+/* **********************************************
+     Begin browser-detect.js
+********************************************** */
+
+//detect ie8 and show modal to suggest chrome
+jQuery(document).ready(function($){
+	console.info($('html.lt-ie9'));
+	if ($('html.lt-ie9').length > 0){
+		console.info('IE8 yikes!');
+
+		$.get( "/sites/all/themes/ysm_cases/_assets/partials/browser-detect.html", function( data ) {
+			$('article.main-content').prepend(data);
+		});
+		
+	}
 });
