@@ -1561,6 +1561,8 @@ figcaption { color: #777777; font-size: 13px; line-height: 14px; font-style: nor
 
 .sticky-wrapper { overflow: visible !important; }
 
+html.lt-ie9 .sticky-wrapper { display: none; }
+
 /* !----------- Book outline menu ------------ */
 .case-menu { font-size: 0.82rem; margin-top: 0.75rem; }
 .case-menu .attachment { display: none; }
@@ -1676,6 +1678,12 @@ figcaption { color: #777777; font-size: 13px; line-height: 14px; font-style: nor
 .book-navigation { font-size: 0.88em; margin: 2rem 0 0; }
 .book-navigation .page-links { border-bottom: none; border-top-color: #cccccc; }
 
+.browser-detect-notice { background: white; border: 4px solid #dd8d66; height: 5em; margin-bottom: 1em; padding: 1em; margin-top: 1em; }
+.browser-detect-notice .warning-icon { float: left; width: 3em; height: 4em; margin-right: 1em; }
+.browser-detect-notice .warning-icon i { color: #bf6f6f; font-size: 3em; }
+
+html.lt-ie9 aside#sidebar-second { display: none; }
+
 /* !------------- Homepage styles ------------- */
 /* !----------- Login ------------ */
 .not-logged-in #page-title { display: none; }
@@ -1720,6 +1728,8 @@ figcaption { color: #777777; font-size: 13px; line-height: 14px; font-style: nor
 #page-footer .footer-last { border-top: 1px #cccccc solid; font-size: 0.88rem; margin-top: 1rem; padding-top: 1rem; text-align: center; }
 #page-footer .full-logo img { display: block; margin: 3rem auto; }
 
+html.lt-ie9 .full-logo { display: none; }
+
 .modal { min-height: 0em; height: 0em; top: -20em; overflow: hidden; border-bottom: 1px solid #cccccc; padding-top: 2.5rem; padding-bottom: 1rem; position: absolute; background-color: #f2f2f2; }
 .modal:first-child { margin-top: -1.75em; }
 .modal.open { top: 0em; min-height: 20em; height: auto; position: relative; -webkit-transition: all 0.25s ease-out; -moz-transition: all 0.25s ease-out; -o-transition: all 0.25s ease-out; transition: all 0.25s ease-out; }
@@ -1751,6 +1761,8 @@ figcaption { color: #777777; font-size: 13px; line-height: 14px; font-style: nor
 #page-footer .disclaimer p { color: #777777; font-size: 0.75rem; }
 #page-footer .footer-last { border-top: 1px #cccccc solid; font-size: 0.88rem; margin-top: 1rem; padding-top: 1rem; text-align: center; }
 #page-footer .full-logo img { display: block; margin: 3rem auto; }
+
+html.lt-ie9 .full-logo { display: none; }
 
 .chart-footnote { border-top: 1px solid #cccccc; margin-top: 0.625rem; }
 
