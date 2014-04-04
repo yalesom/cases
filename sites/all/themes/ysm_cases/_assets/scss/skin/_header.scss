@@ -157,3 +157,9 @@
 	//position: relative;
 	//z-index: 1;
 }
+
+html.lt-ie9 {
+	.sticky-wrapper {
+		display: none;
+	}
+}
