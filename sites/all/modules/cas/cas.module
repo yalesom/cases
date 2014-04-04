@@ -99,7 +99,7 @@ function cas_login_check($force_authentication = TRUE) {
   if (empty($cas_user['login']) || empty($cas_user['name'])) {
     // Only set a warning if we forced login.
     if ($force_authentication) {
-      drupal_set_message(t('The user account %name is not available on this site.', array('%name' => $cas_name)), 'error');
+      drupal_set_message(t('The user account %name is not available on this site.', array('%name' => $cas_user['name'])), 'error');
     }
     return;
   }
@@ -179,7 +179,7 @@ function cas_login_check($force_authentication = TRUE) {
     $user = drupal_anonymous_user();
     // Only display error messages only if the user intended to log in.
     if ($force_authentication) {
-      drupal_set_message(t('No account found for %cas_name.', array('%cas_name' => $cas_name)));
+      drupal_set_message(t('No account found for %cas_name.', array('%cas_name' => $cas_name)), 'error');
     }
   }
 }
@@ -264,6 +264,14 @@ function cas_phpcas_init() {
   else {
     phpCAS::client($server_version, $server_cas_server, $server_port, $server_uri, $start_session);
   }
+
+  //Add CAS proxy lists allowed
+  $proxy_list = variable_get('cas_proxy_list', '');
+  if ($proxy_list) {
+    $proxy_list = explode("\n", $proxy_list);
+    phpCAS::allowProxyChain(new CAS_ProxyChain($proxy_list));
+  }
+
   // force CAS authentication
   if ($cas_cert = variable_get('cas_cert', '')) {
     phpCAS::setCasServerCACert($cas_cert);
@@ -773,33 +781,35 @@ function _cas_allow_check_for_login() {
   }
 
   // Check to see if we've got a search bot.
-  $crawlers = array(
-    'Google',
-    'msnbot',
-    'Rambler',
-    'Yahoo',
-    'AbachoBOT',
-    'accoona',
-    'AcoiRobot',
-    'ASPSeek',
-    'CrocCrawler',
-    'Dumbot',
-    'FAST-WebCrawler',
-    'GeonaBot',
-    'Gigabot',
-    'Lycos',
-    'MSRBOT',
-    'Scooter',
-    'AltaVista',
-    'IDBot',
-    'eStyle',
-    'Scrubby',
-    'gsa-crawler',
-    );
-  // Return on the first find.
-  foreach ($crawlers as $c) {
-    if (stripos($_SERVER['HTTP_USER_AGENT'], $c) !== FALSE) {
-      return FALSE;
+  if (isset($_SERVER['HTTP_USER_AGENT'])) {
+    $crawlers = array(
+      'Google',
+      'msnbot',
+      'Rambler',
+      'Yahoo',
+      'AbachoBOT',
+      'accoona',
+      'AcoiRobot',
+      'ASPSeek',
+      'CrocCrawler',
+      'Dumbot',
+      'FAST-WebCrawler',
+      'GeonaBot',
+      'Gigabot',
+      'Lycos',
+      'MSRBOT',
+      'Scooter',
+      'AltaVista',
+      'IDBot',
+      'eStyle',
+      'Scrubby',
+      'gsa-crawler',
+      );
+    // Return on the first find.
+    foreach ($crawlers as $c) {
+      if (stripos($_SERVER['HTTP_USER_AGENT'], $c) !== FALSE) {
+        return FALSE;
+      }
     }
   }
 
@@ -879,7 +889,6 @@ function _cas_force_login() {
  */
 function cas_form_alter(&$form, &$form_state, $form_id) {
 
-  //drupal_set_message($form_id.'<pre>'.print_r($form,1).'</pre>');
   switch ($form_id) {
     case 'user_login':
     case 'user_login_block':
@@ -963,13 +972,15 @@ function cas_form_alter(&$form, &$form_state, $form_id) {
         }
         if (variable_get('cas_hide_password', 0)) {
           $form['account']['pass']['#access'] = FALSE;
-
-          // Also remove requirement to validate your current password before
-          // changing your e-mail address.
-          $form['account']['current_pass']['#access'] = FALSE;
-          $form['account']['current_pass_required_values']['#access'] = FALSE;
-          $form['#validate'] = array_diff($form['#validate'], array('user_validate_current_pass'));
         }
+      }
+      if (cas_is_external_user($account) && variable_get('cas_hide_password', 0)) {
+        // Also remove requirement to validate your current password before
+        // changing your e-mail address.
+        $form['account']['current_pass']['#access'] = FALSE;
+        $form['account']['current_pass_required_values']['#access'] = FALSE;
+        $form['account']['current_pass_required_values']['#value'] = array();
+        $form['#validate'] = array_diff($form['#validate'], array('user_validate_current_pass'));
       }
       break;
 

@@ -135,6 +135,12 @@ function cas_server_login() {
  * This provides the simple non-xml based
  */
 function cas_server_validate() {
+  // Prevent this page from being cached.
+  drupal_page_is_cacheable(FALSE);
+
+  // Set content type.
+  drupal_add_http_header('Content-Type', 'text/plain; charset=utf-8');
+
   //Obtain the ticket from the url and validate it.
   $ticket = isset($_REQUEST['ticket']) ? $_REQUEST['ticket'] : '';
   $service = isset($_REQUEST['service']) ? $_REQUEST['service'] : '';
@@ -153,13 +159,18 @@ function cas_server_validate() {
  * Returns data in xml
  */
 function cas_server_service_validate() {
+  // Prevent this page from being cached.
+  drupal_page_is_cacheable(FALSE);
+
+  // Set content type.
+  drupal_add_http_header('Content-Type', 'text/xml; charset=utf-8');
+
   $ticket = isset($_REQUEST['ticket']) ? $_REQUEST['ticket'] : '';
   $service = isset($_REQUEST['service']) ? $_REQUEST['service'] : '';
   $user_name = _cas_server_validate($service, $ticket);
   if (!$user_name) $cas_error='INVALID_TICKET';
   if (!$ticket || !$service) $cas_error='INVALID_REQUEST';
 
-  header('Content-type:', 'text/xml');
   if ($user_name) {
     //@TODO Generate proxy granting ticket
     $account = user_load_by_name($user_name);

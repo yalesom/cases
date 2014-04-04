@@ -1790,5 +1790,6 @@ html.lt-ie9 .full-logo { display: none; }
 
 body:last-child .sheetview .defaultPeer { border-collapse: separate; filter: none; }
 
+.mediacore-video-container h3.modal-header { display: none; }
 .mediacore-video-container iframe { float: left; }
 .mediacore-video-container p { float: right; width: 40%; }
