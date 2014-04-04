@@ -204,7 +204,7 @@ function _mediacorechooser_process($text, $filter, $format, $langcode, $cache, $
 	  $secret_key = variable_get('mediacorechooser_secret_key');
 
 	  if ($enable_signing && $key_id && $secret_key) {
-		  $signed_qs = mcore_get_signed_qs($video['source'] . '/embed_player', 'iframe=True', $key_id, $secret_key, $ttl=60);
+		  $signed_qs = mcore_get_signed_qs($video['source'] . '/embed_player', 'iframe=True', $key_id, $secret_key, $ttl=600); // change to 600
 		  $replacement = '
 			  <iframe src="' . $video['source'] . '/embed_player?' . $signed_qs . '"';
 	  }
