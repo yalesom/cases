@@ -818,10 +818,7 @@ jQuery(document).ready(function($) {
 
 //detect ie8 and show modal to suggest chrome
 jQuery(document).ready(function($){
-	console.info($('html.lt-ie9'));
 	if ($('html.lt-ie9').length > 0){
-		console.info('IE8 yikes!');
-
 		$.get( "/sites/all/themes/ysm_cases/_assets/partials/browser-detect.html", function( data ) {
 			$('article.main-content').prepend(data);
 		});
