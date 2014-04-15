@@ -40,6 +40,8 @@ a .icon-stack,a .icon-spin{display:inline-block;text-decoration:none;}
 .icon-flip-horizontal:before{-webkit-transform:scale(-1, 1);-moz-transform:scale(-1, 1);-ms-transform:scale(-1, 1);-o-transform:scale(-1, 1);transform:scale(-1, 1);}
 .icon-flip-vertical:before{-webkit-transform:scale(1, -1);-moz-transform:scale(1, -1);-ms-transform:scale(1, -1);-o-transform:scale(1, -1);transform:scale(1, -1);}
 a .icon-rotate-90:before,a .icon-rotate-180:before,a .icon-rotate-270:before,a .icon-flip-horizontal:before,a .icon-flip-vertical:before{display:inline-block;}
+
+/* Icons */
 .icon-glass:before{content:"\f000";}
 .icon-music:before{content:"\f001";}
 .icon-search:before{content:"\f002";}
