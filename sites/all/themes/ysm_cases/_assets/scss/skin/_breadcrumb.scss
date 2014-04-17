@@ -3,8 +3,10 @@
 	color: $mediumGrey;
 	font-size: 0.88rem;
 	margin-bottom: 1rem;
+	vertical-align: middle;
 	@extend .breadcrumb;
 	@extend .nav;
+
 	li:first-child {
 		span {
 			display: none;
@@ -18,8 +20,8 @@
 			color: $lightGrey;
 			content:"\f105";
 			display:inline-block;
-			font-family: FontAwesome;
-		    margin: 0 0.5em;
+			font-family: 'ysm118-icomoon';
+			margin: 0 0.5em;
 		}
 	}
 	> li + li {

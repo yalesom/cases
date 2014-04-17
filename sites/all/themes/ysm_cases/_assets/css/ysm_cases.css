@@ -1586,11 +1586,11 @@ html.lt-ie9 .sticky-wrapper { display: none; }
 .case-menu .item-list .section li a { padding: 0; }
 
 /* !----------- Breadcrumb menu ------------ */
-.breadcrumbs { color: #777777; font-size: 0.88rem; margin-bottom: 1rem; }
+.breadcrumbs { color: #777777; font-size: 0.88rem; margin-bottom: 1rem; vertical-align: middle; }
 .breadcrumbs li:first-child span { display: none; }
 .breadcrumbs li:first-child a, .breadcrumbs li:first-child.current { font-size: 1.29rem; }
 .breadcrumbs li:first-child a:before, .breadcrumbs li:first-child.current:before { content: " \f015"; font-family: "ysm118-icomoon"; display: inline-block; }
-.breadcrumbs li:first-child.current:after { color: #cccccc; content: "\f105"; display: inline-block; font-family: FontAwesome; margin: 0 0.5em; }
+.breadcrumbs li:first-child.current:after { color: #cccccc; content: "\f105"; display: inline-block; font-family: 'ysm118-icomoon'; margin: 0 0.5em; }
 .breadcrumbs > li + li:before { content: " \f105"; font-family: "ysm118-icomoon"; display: inline-block; }
 .breadcrumbs > li + li:before { color: #cccccc; font-size: 1.29rem; margin: 0 0.5em; }
 
