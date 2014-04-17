@@ -249,6 +249,17 @@ function scrollableElement(els) {
 			tile.addClass('no-img').find('img').attr('src','/sites/all/themes/ysm_cases/_assets/images/blank-sq.gif');
 		} 
 	});
+	//remove icon from tiles with no image and no icon-class
+	$('.case-tiles .tile.no-img').each(function(){
+		$(this).find('i').each(function(){
+			console.info($(this).attr('class'));
+			if ($(this).attr('class') == '') {
+				$(this).closest('div.tile.no-img').addClass('no-icon');
+			}
+		});
+	})
+
+
 	// !Count number of tiles and set related width class
 	$('.document-tiles').each(function(){
 		var container = $(this);

@@ -12,7 +12,7 @@
 @mixin font-icon($code){
 	&:before {
 		content:' ' + $code;
-		font-family: FontAwesome;
+		font-family: "ysm118-icomoon";
 		display:inline-block;
 	}
 }

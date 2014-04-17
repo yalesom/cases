@@ -50,7 +50,7 @@
 					bottom: 0;
 					content:"\f067";
 					display:block;
-					font-family: FontAwesome;
+					font-family: 'ysm118-icomoon';
 				    margin: 0.5em;
 				    position: absolute;
 				    right: 0;
@@ -75,6 +75,11 @@
 				}
 				i {
 					display: block;
+				}
+			}
+			&.no-icon {
+				i {
+					display: none;
 				}
 			}
 			// Hover effects

@@ -1572,7 +1572,7 @@ html.lt-ie9 .sticky-wrapper { display: none; }
 .case-menu .item-list .stem_class > li { padding: 0 1rem 1rem; }
 .case-menu .item-list .stem_class > li a { display: block; line-height: 1.05rem; }
 .case-menu .item-list .stem_class > li a.active { padding: .5rem 0 0 1rem; color: #1f2021 !important; }
-.case-menu .item-list .stem_class > li a.active:before { content: " \f041"; font-family: FontAwesome; display: inline-block; }
+.case-menu .item-list .stem_class > li a.active:before { content: " \f041"; font-family: "ysm118-icomoon"; display: inline-block; }
 .case-menu .item-list .stem_class > li a.active:before { margin-right: 0.5rem; margin-left: -1rem; }
 #page-footer .case-menu .item-list .stem_class > li a.active { color: #777777 !important; }
 .case-menu .item-list .stem_class > li > a { border-top: 1px #cccccc solid; color: #00457c; font-weight: 700; padding-top: 0.5rem; }
@@ -1581,7 +1581,7 @@ html.lt-ie9 .sticky-wrapper { display: none; }
 .case-menu .item-list .stem_class > li .item-list { margin-top: .5rem; }
 .case-menu .item-list .stem_class > li .item-list ul li { line-height: 1.05rem; margin-bottom: .5rem; }
 .case-menu .item-list .stem_class > li .item-list ul li a.active { padding: 0 0 0 1rem !important; }
-.case-menu .item-list .stem_class > li .item-list ul li a.active:before { content: " \f041"; font-family: FontAwesome; display: inline-block; }
+.case-menu .item-list .stem_class > li .item-list ul li a.active:before { content: " \f041"; font-family: "ysm118-icomoon"; display: inline-block; }
 .case-menu .item-list .stem_class > li .item-list ul li a.active:before { margin-right: 0.5rem; margin-left: -1rem; }
 .case-menu .item-list .section li a { padding: 0; }
 
@@ -1589,9 +1589,9 @@ html.lt-ie9 .sticky-wrapper { display: none; }
 .breadcrumbs { color: #777777; font-size: 0.88rem; margin-bottom: 1rem; }
 .breadcrumbs li:first-child span { display: none; }
 .breadcrumbs li:first-child a, .breadcrumbs li:first-child.current { font-size: 1.29rem; }
-.breadcrumbs li:first-child a:before, .breadcrumbs li:first-child.current:before { content: " \f015"; font-family: FontAwesome; display: inline-block; }
+.breadcrumbs li:first-child a:before, .breadcrumbs li:first-child.current:before { content: " \f015"; font-family: "ysm118-icomoon"; display: inline-block; }
 .breadcrumbs li:first-child.current:after { color: #cccccc; content: "\f105"; display: inline-block; font-family: FontAwesome; margin: 0 0.5em; }
-.breadcrumbs > li + li:before { content: " \f105"; font-family: FontAwesome; display: inline-block; }
+.breadcrumbs > li + li:before { content: " \f105"; font-family: "ysm118-icomoon"; display: inline-block; }
 .breadcrumbs > li + li:before { color: #cccccc; font-size: 1.29rem; margin: 0 0.5em; }
 
 /* !----------- Theme sidebars ------------ */
@@ -1603,11 +1603,12 @@ html.lt-ie9 .sticky-wrapper { display: none; }
 .case-tiles .view-content .tile .img { position: relative; overflow: hidden; }
 .case-tiles .view-content .tile .text { background: #1f2021; background: rgba(31, 32, 33, 0.8); bottom: 0; color: #cccccc; height: 33%; padding: 1em; position: absolute; width: 100%; -webkit-transition: all 0.25s ease-out; -moz-transition: all 0.25s ease-out; -o-transition: all 0.25s ease-out; transition: all 0.25s ease-out; }
 .case-tiles .view-content .tile .header { color: white; margin-bottom: 0.5em; }
-.case-tiles .view-content .tile .header:after { bottom: 0; content: "\f067"; display: block; font-family: FontAwesome; margin: 0.5em; position: absolute; right: 0; }
+.case-tiles .view-content .tile .header:after { bottom: 0; content: "\f067"; display: block; font-family: 'ysm118-icomoon'; margin: 0.5em; position: absolute; right: 0; }
 .case-tiles .view-content .tile .teaser { visibility: hidden; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); opacity: 0; -webkit-transition: opacity 0.25s ease-out; -moz-transition: opacity 0.25s ease-out; -o-transition: opacity 0.25s ease-out; transition: opacity 0.25s ease-out; }
 .case-tiles .view-content .tile .button, .case-tiles .view-content .tile .not-logged-in .user-login #edit-submit, .not-logged-in .user-login .case-tiles .view-content .tile #edit-submit { bottom: 0; position: absolute; right: 0; visibility: hidden; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); opacity: 0; }
 .case-tiles .view-content .tile.no-img .text { background: transparent; }
 .case-tiles .view-content .tile.no-img i { display: block; }
+.case-tiles .view-content .tile.no-icon i { display: none; }
 .case-tiles .view-content .tile:hover .text { background: #1f2021; background: rgba(31, 32, 33, 0.8); height: 100%; }
 .case-tiles .view-content .tile:hover .teaser, .case-tiles .view-content .tile:hover .button, .case-tiles .view-content .tile:hover .not-logged-in .user-login #edit-submit, .not-logged-in .user-login .case-tiles .view-content .tile:hover #edit-submit { visibility: visible; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100); opacity: 1; }
 .case-tiles .view-content .tile:hover .header:after { display: none; }
@@ -1700,10 +1701,10 @@ html.lt-ie9 aside#sidebar-second { display: none; }
 .not-logged-in .form-item-cas-identifier { display: block !important; }
 .not-logged-in .form-item-cas-identifier #edit-cas-identifier { display: none; }
 .not-logged-in .form-item-cas-identifier #edit-cas-identifier:checked + label { color: #79ba86; }
-.not-logged-in .form-item-cas-identifier #edit-cas-identifier:checked + label:before { content: " \f05d"; font-family: FontAwesome; display: inline-block; }
+.not-logged-in .form-item-cas-identifier #edit-cas-identifier:checked + label:before { content: " \f05d"; font-family: "ysm118-icomoon"; display: inline-block; }
 .not-logged-in .form-item-cas-identifier #edit-cas-identifier:checked ~ .description { display: block; visibility: visible; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100); opacity: 1; }
 .not-logged-in .form-item-cas-identifier label { color: #ababab; display: inline-block; font-weight: 700; -webkit-transition: all 0.25s ease-out; -moz-transition: all 0.25s ease-out; -o-transition: all 0.25s ease-out; transition: all 0.25s ease-out; }
-.not-logged-in .form-item-cas-identifier label:before { content: " \f10c"; font-family: FontAwesome; display: inline-block; }
+.not-logged-in .form-item-cas-identifier label:before { content: " \f10c"; font-family: "ysm118-icomoon"; display: inline-block; }
 .not-logged-in .form-item-cas-identifier label:before { margin: 0 0.5rem 0 0; }
 .not-logged-in .form-item-cas-identifier .description { display: none; font-size: 12px; line-height: 1em; margin: 0; visibility: hidden; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); opacity: 0; -webkit-transition: all 0.25s ease-out; -moz-transition: all 0.25s ease-out; -o-transition: all 0.25s ease-out; transition: all 0.25s ease-out; }
 .not-logged-in .block-views-book-outline-block-1 { display: none; }
