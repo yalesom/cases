@@ -1,7 +1,7 @@
 {
 	"metadata": {
 		"name": "YSM118 - Yale SOM Cases",
-		"lastOpened": 1396895191338,
+		"lastOpened": 1396895749315,
 		"created": 1381083457739
 	},
 	"iconSets": [
@@ -345,7 +345,12 @@
 				},
 				{
 					"id": 20,
-					"order": 0
+					"order": 17,
+					"prevSize": 32,
+					"code": 61461,
+					"name": "home",
+					"tempChar": "",
+					"ligatures": ""
 				},
 				{
 					"id": 21,
@@ -516,7 +521,7 @@
 					"prevSize": 32,
 					"code": 61505,
 					"name": "map-marker",
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": ""
 				},
 				{
@@ -585,11 +590,21 @@
 				},
 				{
 					"id": 78,
-					"order": 0
+					"order": 19,
+					"prevSize": 32,
+					"code": 61523,
+					"name": "chevron-left",
+					"tempChar": "",
+					"ligatures": ""
 				},
 				{
 					"id": 79,
-					"order": 0
+					"order": 18,
+					"prevSize": 32,
+					"code": 61524,
+					"name": "chevron-right",
+					"tempChar": "",
+					"ligatures": ""
 				},
 				{
 					"id": 80,
@@ -613,7 +628,7 @@
 					"prevSize": 32,
 					"code": 61529,
 					"name": "question",
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": ""
 				},
 				{
@@ -634,7 +649,7 @@
 					"prevSize": 32,
 					"code": 61533,
 					"name": "check-circle",
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": ""
 				},
 				{
@@ -719,7 +734,7 @@
 					"prevSize": 32,
 					"code": 61555,
 					"name": "calendar",
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": ""
 				},
 				{
@@ -999,7 +1014,12 @@
 				},
 				{
 					"id": 177,
-					"order": 0
+					"order": 22,
+					"prevSize": 32,
+					"code": 61641,
+					"name": "reorder",
+					"tempChar": "",
+					"ligatures": ""
 				},
 				{
 					"id": 178,
@@ -1220,11 +1240,21 @@
 				},
 				{
 					"id": 232,
-					"order": 0
+					"order": 21,
+					"prevSize": 32,
+					"code": 61700,
+					"name": "angle-left",
+					"tempChar": "",
+					"ligatures": ""
 				},
 				{
 					"id": 233,
-					"order": 0
+					"order": 20,
+					"prevSize": 32,
+					"code": 61701,
+					"name": "angle-right",
+					"tempChar": "",
+					"ligatures": ""
 				},
 				{
 					"id": 234,
@@ -1256,7 +1286,7 @@
 					"prevSize": 32,
 					"code": 61708,
 					"name": "circle",
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": ""
 				},
 				{
