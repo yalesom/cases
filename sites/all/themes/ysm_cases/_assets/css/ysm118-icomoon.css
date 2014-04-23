@@ -96,6 +96,9 @@ a .icon-rotate-90:before,a .icon-rotate-180:before,a .icon-rotate-270:before,a .
 .icon-play-circle:before {
 	content: "\f144";
 }
+.icon-play-sign:before {
+	content: "\f144";
+}
 .icon-dollar:before {
 	content: "\f155";
 }
