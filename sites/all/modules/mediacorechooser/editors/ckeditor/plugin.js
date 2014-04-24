@@ -18,8 +18,7 @@
           var t = this;
           t.editor = editor;
 
-          //var siteUrl = editor.config['mediacore_url'];
-          var siteUrl = 'http://media.som.yale.edu';
+          var siteUrl = editor.config['mediacore_url'];
 
           // Strip trailing slash to avoid chooser bug at //chooser
           if (siteUrl.lastIndexOf('/') == siteUrl.length - 1) {
