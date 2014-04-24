@@ -70,15 +70,15 @@
 	  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <?php endif; ?> 
   
-<script src="http://dev-cases.som.yale.edu/sites/all/modules/sheetnode/socialcalc/formatnumber2.js?n085kg"></script>
-<script src="http://dev-cases.som.yale.edu/sites/all/modules/sheetnode/socialcalc/formula1.js?n085kg"></script>
-<script src="http://dev-cases.som.yale.edu/sites/all/modules/sheetnode/socialcalc/socialcalcconstants.js?n085kg"></script>
-<script src="http://dev-cases.som.yale.edu/sites/all/modules/sheetnode/socialcalc/socialcalc-3.js?n085kg"></script>
-<script src="http://dev-cases.som.yale.edu/sites/all/modules/sheetnode/socialcalc/socialcalctableeditor.js?n085kg"></script>
-<script src="http://dev-cases.som.yale.edu/sites/all/modules/sheetnode/socialcalc/socialcalcpopup.js?n085kg"></script>
-<script src="http://dev-cases.som.yale.edu/sites/all/modules/sheetnode/socialcalc/socialcalcspreadsheetcontrol.js?n085kg"></script>
-<script src="http://dev-cases.som.yale.edu/sites/all/modules/sheetnode/socialcalc/socialcalcviewer.js?n085kg"></script>
-<script src="http://dev-cases.som.yale.edu/sites/all/modules/sheetnode/sheetnode.js?n085kg"></script>
+<script src="/sites/all/modules/sheetnode/socialcalc/formatnumber2.js"></script>
+<script src="/sites/all/modules/sheetnode/socialcalc/formula1.js"></script>
+<script src="/sites/all/modules/sheetnode/socialcalc/socialcalcconstants.js"></script>
+<script src="/sites/all/modules/sheetnode/socialcalc/socialcalc-3.js"></script>
+<script src="/sites/all/modules/sheetnode/socialcalc/socialcalctableeditor.js"></script>
+<script src="/sites/all/modules/sheetnode/socialcalc/socialcalcpopup.js"></script>
+<script src="/sites/all/modules/sheetnode/socialcalc/socialcalcspreadsheetcontrol.js"></script>
+<script src="/sites/all/modules/sheetnode/socialcalc/socialcalcviewer.js"></script>
+<script src="/sites/all/modules/sheetnode/sheetnode.js"></script>
 
 </body>
 </html>
