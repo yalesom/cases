@@ -1,7 +1,7 @@
 {
 	"metadata": {
 		"name": "YSM118 - Yale SOM Cases",
-		"lastOpened": 1396895749315,
+		"lastOpened": 1397745867760,
 		"created": 1381083457739
 	},
 	"iconSets": [
@@ -84,7 +84,7 @@
 					"order": 8,
 					"prevSize": 32,
 					"code": 61764,
-					"name": "play-circle",
+					"name": "play-sign",
 					"tempChar": "",
 					"ligatures": ""
 				},
@@ -20306,7 +20306,7 @@
 			"quickUsageToken": false,
 			"showMetrics": true,
 			"showMetadata": false,
-			"autoHost": true,
+			"autoHost": false,
 			"includeMetadata": true,
 			"embed": true,
 			"useClassSelector": false,
