@@ -160,7 +160,7 @@ function mediacorechooser_filter_info() {
     'process callback' => '_mediacorechooser_process',
     'settings callback' => '_mediacorechooser_settings',
     'tips callback'  => '_mediacorechooser_tips',
-    'cache' => TRUE,
+    'cache' => FALSE,
   );
   return $filters;
 
