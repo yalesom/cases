@@ -14,18 +14,26 @@ function pageResize(){
 	} 
 };
 
-//Login form reposition CAS
-jQuery('#edit-cas-login-redirection-message').appendTo('form#user-login-form');
-jQuery('div.form-item-cas-identifier').appendTo('form#user-login-form');
+jQuery(document).ready(function($) {
 
-// !Login form toggle
-jQuery('#edit-cas-identifier').change(function(){
-	if ( jQuery(this).is(':checked') ) {
-		jQuery('#user-login-form .form-item-name').fadeOut(250);
-		jQuery('#user-login-form .form-item-pass').fadeOut(250);
-	} else {
-		jQuery('#user-login-form .form-item-name').fadeIn(250);
-		jQuery('#user-login-form .form-item-pass').fadeIn(250);
+	//Login form reposition CAS
+	jQuery('#edit-cas-login-redirection-message').appendTo('form#user-login-form');
+	jQuery('div.form-item-cas-identifier').appendTo('form#user-login-form');
+
+	// !Login form toggle
+	jQuery('#edit-cas-identifier').change(function(){
+		if ( jQuery(this).is(':checked') ) {
+			jQuery('#user-login-form .form-item-name').fadeOut(250);
+			jQuery('#user-login-form .form-item-pass').fadeOut(250);
+		} else {
+			jQuery('#user-login-form .form-item-name').fadeIn(250);
+			jQuery('#user-login-form .form-item-pass').fadeIn(250);
+		}
+	});
+
+	console.info(jQuery('div.show-sponsor').text());
+	if(jQuery('div.show-sponsor').text() == '0'){ 
+		jQuery('div.sponsor').hide(); 
 	}
 });
 
