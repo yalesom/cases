@@ -1,7 +1,7 @@
 {
 	"metadata": {
 		"name": "YSM118 - Yale SOM Cases",
-		"lastOpened": 1397745867760,
+		"lastOpened": 1398181017447,
 		"created": 1381083457739
 	},
 	"iconSets": [
@@ -1577,7 +1577,12 @@
 				},
 				{
 					"id": 312,
-					"order": 0
+					"order": 23,
+					"prevSize": 32,
+					"code": 61787,
+					"name": "file",
+					"tempChar": "",
+					"ligatures": ""
 				},
 				{
 					"id": 313,

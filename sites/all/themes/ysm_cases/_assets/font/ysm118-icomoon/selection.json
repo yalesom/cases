@@ -176,7 +176,7 @@
 				"order": 8,
 				"prevSize": 32,
 				"code": 61764,
-				"name": "play-circle",
+				"name": "play-sign",
 				"ligatures": ""
 			},
 			"setIdx": 0,
@@ -499,6 +499,29 @@
 			},
 			"setIdx": 2,
 			"iconIdx": 177
+		},
+		{
+			"icon": {
+				"paths": [
+					"M731.429 438.857v457.143q0 22.857-16 38.857t-38.857 16h-621.714q-22.857 0-38.857-16t-16-38.857v-768q0-22.857 16-38.857t38.857-16h310.857v310.857q0 22.857 16 38.857t38.857 16h310.857zM729.714 365.714h-290.857v-290.857q46.857 8.571 75.429 37.143l178.286 178.286q28.571 28.571 37.143 75.429z"
+				],
+				"width": 731,
+				"tags": [
+					"file"
+				],
+				"defaultCode": 61787,
+				"grid": 14
+			},
+			"properties": {
+				"id": 312,
+				"order": 23,
+				"prevSize": 32,
+				"code": 61787,
+				"name": "file",
+				"ligatures": ""
+			},
+			"setIdx": 2,
+			"iconIdx": 312
 		}
 	],
 	"height": 1024,
@@ -524,7 +547,7 @@
 			"quickUsageToken": false,
 			"showMetrics": true,
 			"showMetadata": false,
-			"autoHost": true,
+			"autoHost": false,
 			"includeMetadata": true,
 			"embed": true,
 			"useClassSelector": false,
