@@ -1457,7 +1457,7 @@ figcaption { color: #777777; font-size: 13px; line-height: 14px; font-style: nor
 .body li { color: #f2f2f2; font-size: 0.93em; padding: 0 0 0.5em 1em; position: relative; }
 
 .button, .not-logged-in .user-login #edit-submit { border: none; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; color: white; display: block; font-size: 1.29rem; padding: 0.5em; }
-.button:after, .not-logged-in .user-login #edit-submit:after { content: "\f105"; display: inline-block; font-family: FontAwesome; margin: 0 0.5em 0 2em; }
+.button:after, .not-logged-in .user-login #edit-submit:after { content: "\f105"; display: inline-block; font-family: 'ysm118-icomoon'; margin: 0 0.5em 0 2em; }
 .no-touch .button:hover, .no-touch .not-logged-in .user-login #edit-submit:hover, .not-logged-in .user-login .no-touch #edit-submit:hover { background: #1f2021; color: white; }
 
 .hide-title .block-title { display: none; }
@@ -1786,7 +1786,7 @@ html.lt-ie9 .full-logo { display: none; }
 
 .sheetnode-export-links { display: block; text-align: center; }
 .sheetnode-export-links a { display: inline-block; font-size: .7rem; text-decoration: none; margin-right: 3rem; line-height: 1rem; vertical-align: middle; }
-.sheetnode-export-links a:before { content: "\f15b"; font-family: 'FontAwesome'; font-size: 1rem; vertical-align: middle; margin-right: .25rem; }
+.sheetnode-export-links a:before { content: "\f15b"; font-family: 'ysm118-icomoon'; font-size: 1rem; vertical-align: middle; margin-right: .25rem; }
 
 .sheetview-fullscreen { display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; margin: 0; padding: 0; background: inherit; }
 
