@@ -1,0 +1,43 @@
+/**
+ * Yale School of Management, GNAM case studies custom stylesheet.
+ * Author: Square360
+ * Version: 1
+ *
+ */
+
+/* !Libraries ========================*/
+@import "compass/css3";           // Uncomment to use CSS3 mixins (http://compass-style.org/reference/compass/css3/)
+// @import "partials/mixins";        // Uncomment to call your own mixins partial (check your /partials directory)
+// @import "sprites/smart";          // Uncomment to call your 'smart' sprite (check your /images/sprites directory)
+
+/* !Local mixins and variables ======================*/
+@import "skin/settings";
+@import "skin/mixins";
+
+/*	!Framework styles ============ */
+@import "../../../ysm_cases/_assets/scss/inuit.css-master/inuit";
+
+/*	!Theme styles ============ */
+@import "../../../ysm_cases/_assets/scss/skin/common";
+@import "../../../ysm_cases/_assets/scss/skin/structure";
+@import "../../../ysm_cases/_assets/scss/skin/admin";
+
+@import "skin/header";
+@import "skin/navigation";
+
+@import "../../../ysm_cases/_assets/scss/skin/breadcrumb";
+
+@import "skin/sidebars";
+@import "skin/case";
+@import "skin/page";
+@import "skin/homepage";
+
+@import "../../../ysm_cases/_assets/scss/skin/login";
+
+@import "skin/footer";
+@import "skin/modal-panel";
+
+@import "../../../ysm_cases/_assets/scss/skin/bxslider";
+@import "../../../ysm_cases/_assets/scss/skin/highcharts";
+@import "../../../ysm_cases/_assets/scss/skin/sheetnode";
+@import "../../../ysm_cases/_assets/scss/skin/mediacore";

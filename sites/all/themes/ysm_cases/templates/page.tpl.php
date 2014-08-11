@@ -166,3 +166,11 @@
 		</div>
 	</div>
 </div>
+
+<?php
+if(isset($node->book)) {
+	if (!empty($bookParent->field_google_analytics)) {
+		print $bookParent->field_google_analytics['und'][0]['value']; 
+	}
+}
+?>
