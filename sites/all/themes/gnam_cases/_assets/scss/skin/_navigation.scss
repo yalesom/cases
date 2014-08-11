@@ -1,5 +1,6 @@
 /* !----------- Book outline menu ------------ */
 .case-menu {
+	font-family: pragmatica-web-condensed, Helvetica, Arial, sans-serif;
 	font-size: 0.82rem;
 	margin-top: 0.75rem;
 	.attachment {
@@ -64,6 +65,8 @@
 						}
 					}
 				}
+
+				&.last { padding-right: 0; }
 			}
 			
 		}

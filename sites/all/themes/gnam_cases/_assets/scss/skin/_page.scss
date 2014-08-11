@@ -21,7 +21,7 @@
 	&.one-third {
 		.view-content {
 			.tile {
-				@extend .one-half;
+				@extend .one-whole;
 			}
 		}
 	}
@@ -158,6 +158,7 @@
 	.field-name-body {
 		@media #{$phone}{
 			width: 66.666%;
+			padding-right: 8.333%;
 		}
 	}
 }

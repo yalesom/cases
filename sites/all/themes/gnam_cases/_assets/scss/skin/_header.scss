@@ -1,5 +1,6 @@
 /* !----------- Theme header ------------ */
 #page-header {
+	font-family: pragmatica-web-condensed, Helvetica, Arial, sans-serif;
 	background: $white;
 	color: $blue;
 	border-bottom: 1px solid transparentize($blue,0.9);
@@ -13,9 +14,9 @@
 		top:1.125rem;
 		z-index: 11;
 		img {
-			max-width: 460px;
+			max-width: 400px;
 			@media #{$small}{
-				max-width: 480px;
+				max-width: 400px;
 			}
 		}
 	}
@@ -39,21 +40,30 @@
 	// !Case details
 	.case-details {
 		i {
-			font-size: 1.63rem;
+			font-weight: 200;
+			font-size: 1.75rem;
 			position: absolute;
+			display: none;
 		}
 		.case-name,
 		.case-num {
-			padding-left: 1.85rem;
+			font-weight: 200;
+			// padding-left: 1.85rem;
 			margin-bottom: 0rem;
 		}
+		
+		.case-name {
+			font-size: 1.75rem;
+		}
+
 		.case-num {
-			font-size: 0.88rem;
+			font-weight: normal;
+			font-size: 0.875rem;
 		}
 	}
 	// !Case study menu
 	.case-menu {
-		padding-left: 1.85rem;
+		// padding-left: 1.85rem;
 	}
 	// !Close button
 	.icon-remove{
@@ -64,8 +74,9 @@
 		line-height: 1rem;
 		padding: 0.5rem;
 		position: absolute;
-		right: 1.625rem;
+		right: 5px;
 		text-align: center;
+		display: block;
 		@include border-radius(100px);
 		@include transition(all 0.25s ease-in);
 		&:hover {
@@ -81,6 +92,11 @@
 	}
 	&.overlay {
 		z-index: 100;
+	}
+	&.closed {
+		.icon-remove {
+			display: none;
+		}
 	}
 }
 // !Shift page-wrapper for left toggle nav
