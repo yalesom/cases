@@ -21,7 +21,7 @@
 		}
 	}
 	.section-wrap {
-		min-height: 4rem;
+		min-height: 5rem;
 		padding: 0.75rem 5px;
 	}
 	.header-main {
@@ -47,6 +47,7 @@
 		}
 		.case-name,
 		.case-num {
+			@extend .five-eighths;
 			font-weight: 200;
 			// padding-left: 1.85rem;
 			margin-bottom: 0rem;
