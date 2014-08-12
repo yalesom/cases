@@ -46,15 +46,21 @@
 			display: none;
 		}
 		.case-name,
-		.case-num {
+		.case-num,
+		.case-subtitle {
 			@extend .five-eighths;
 			font-weight: 200;
 			// padding-left: 1.85rem;
 			margin-bottom: 0rem;
 		}
 		
+		.case-subtitle {
+			font-weight: 900;
+		}
+
 		.case-name {
-			font-size: 1.75rem;
+			font-size: 2.5rem;
+			line-height: 2.5rem;
 		}
 
 		.case-num {
