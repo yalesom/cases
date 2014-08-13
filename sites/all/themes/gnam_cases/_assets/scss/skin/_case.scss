@@ -223,11 +223,22 @@
 		}
 	}
 }
-.sponsor {
+
+.sponsors {
+	font-size: 0.86rem;
+	h3 {
+		margin-bottom: 1rem;
+		text-transform: uppercase;
+	}
+	
 	border: 2px $lightGrey solid;
-	padding: 2rem;
-	text-align: center;
+	padding: 1.5rem;
+	
 	.name {
 		display: block;
+	}
+
+	p:last-child {
+		margin-bottom: 0;
 	}
 }

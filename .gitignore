@@ -58,3 +58,4 @@ sftp-config.json
 codekit-config.json
 
 config.codekit
+.codekit-cache
