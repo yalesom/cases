@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /**
  * Yale School of Management, GNAM case studies custom stylesheet.
  * Author: Square360
@@ -1751,7 +1750,7 @@ label,
  * Grid wrapper
  */
 /* line 41, ../../../ysm_cases/_assets/scss/inuit.css-master/objects/_grids.scss */
-.grid, #main-content .section-wrap, .case-menu .item-list .stem_class, .case-tiles .view-content, .document-list .view-content {
+.grid, #main-content .section-wrap, .case-menu .item-list .stem_class, .case-tiles .view-content, .document-tiles .view-content, .document-list .view-content, .produced-by-collection {
   margin-left: -20px;
   list-style: none;
   margin-bottom: 0; }
@@ -1760,14 +1759,14 @@ label,
  * Very infrequently occuring grid wrappers as children of grid wrappers.
  */
 /* line 51, ../../../ysm_cases/_assets/scss/inuit.css-master/objects/_grids.scss */
-.grid > .grid, #main-content .section-wrap > .grid, .case-menu .item-list .stem_class > .grid, .case-tiles .view-content > .grid, .document-list .view-content > .grid, #main-content .grid > .section-wrap, #main-content .section-wrap > .section-wrap, .case-menu .item-list #main-content .stem_class > .section-wrap, #main-content .case-menu .item-list .stem_class > .section-wrap, .case-tiles #main-content .view-content > .section-wrap, #main-content .case-tiles .view-content > .section-wrap, .document-list #main-content .view-content > .section-wrap, #main-content .document-list .view-content > .section-wrap, .case-menu .item-list .grid > .stem_class, #main-content .case-menu .item-list .section-wrap > .stem_class, .case-menu .item-list #main-content .section-wrap > .stem_class, .case-menu .item-list .stem_class > .stem_class, .case-tiles .case-menu .item-list .view-content > .stem_class, .case-menu .item-list .case-tiles .view-content > .stem_class, .document-list .case-menu .item-list .view-content > .stem_class, .case-menu .item-list .document-list .view-content > .stem_class, .case-tiles .grid > .view-content, #main-content .case-tiles .section-wrap > .view-content, .case-tiles #main-content .section-wrap > .view-content, .case-menu .item-list .case-tiles .stem_class > .view-content, .case-tiles .case-menu .item-list .stem_class > .view-content, .case-tiles .view-content > .view-content, .document-list .grid > .view-content, #main-content .document-list .section-wrap > .view-content, .document-list #main-content .section-wrap > .view-content, .case-menu .item-list .document-list .stem_class > .view-content, .document-list .case-menu .item-list .stem_class > .view-content, .document-list .view-content > .view-content {
+.grid > .grid, #main-content .section-wrap > .grid, .case-menu .item-list .stem_class > .grid, .case-tiles .view-content > .grid, .document-tiles .view-content > .grid, .document-list .view-content > .grid, .produced-by-collection > .grid, #main-content .grid > .section-wrap, #main-content .section-wrap > .section-wrap, .case-menu .item-list #main-content .stem_class > .section-wrap, #main-content .case-menu .item-list .stem_class > .section-wrap, .case-tiles #main-content .view-content > .section-wrap, #main-content .case-tiles .view-content > .section-wrap, .document-tiles #main-content .view-content > .section-wrap, #main-content .document-tiles .view-content > .section-wrap, .document-list #main-content .view-content > .section-wrap, #main-content .document-list .view-content > .section-wrap, #main-content .produced-by-collection > .section-wrap, .case-menu .item-list .grid > .stem_class, #main-content .case-menu .item-list .section-wrap > .stem_class, .case-menu .item-list #main-content .section-wrap > .stem_class, .case-menu .item-list .stem_class > .stem_class, .case-tiles .case-menu .item-list .view-content > .stem_class, .case-menu .item-list .case-tiles .view-content > .stem_class, .document-tiles .case-menu .item-list .view-content > .stem_class, .case-menu .item-list .document-tiles .view-content > .stem_class, .document-list .case-menu .item-list .view-content > .stem_class, .case-menu .item-list .document-list .view-content > .stem_class, .case-menu .item-list .produced-by-collection > .stem_class, .case-tiles .grid > .view-content, #main-content .case-tiles .section-wrap > .view-content, .case-tiles #main-content .section-wrap > .view-content, .case-menu .item-list .case-tiles .stem_class > .view-content, .case-tiles .case-menu .item-list .stem_class > .view-content, .case-tiles .view-content > .view-content, .case-tiles .produced-by-collection > .view-content, .document-tiles .grid > .view-content, #main-content .document-tiles .section-wrap > .view-content, .document-tiles #main-content .section-wrap > .view-content, .case-menu .item-list .document-tiles .stem_class > .view-content, .document-tiles .case-menu .item-list .stem_class > .view-content, .document-tiles .view-content > .view-content, .document-tiles .produced-by-collection > .view-content, .document-list .grid > .view-content, #main-content .document-list .section-wrap > .view-content, .document-list #main-content .section-wrap > .view-content, .case-menu .item-list .document-list .stem_class > .view-content, .document-list .case-menu .item-list .stem_class > .view-content, .document-list .view-content > .view-content, .document-list .produced-by-collection > .view-content, .grid > .produced-by-collection, #main-content .section-wrap > .produced-by-collection, .case-menu .item-list .stem_class > .produced-by-collection, .case-tiles .view-content > .produced-by-collection, .document-tiles .view-content > .produced-by-collection, .document-list .view-content > .produced-by-collection, .produced-by-collection > .produced-by-collection {
   margin-left: 0; }
 
 /**
  * Grid
  */
 /* line 59, ../../../ysm_cases/_assets/scss/inuit.css-master/objects/_grids.scss */
-.grid__item, #main-content .highlight, #main-content .main-content, #main-content .sidebar, .case-menu .item-list .stem_class > li, .case-tiles .view-content .tile, .document-list .view-content .view-grouping {
+.grid__item, #main-content .highlight, #main-content .main-content, #main-content .sidebar, .case-menu .item-list .stem_class > li, .case-tiles .view-content .tile, .document-tiles .view-content .tile, .document-list .view-content .view-grouping, .produced-by-collection .produced-by-info {
   display: inline-block;
   width: 100%;
   padding-left: 20px;
@@ -2263,7 +2262,7 @@ html.flexbox {
 * Whole
 */
 /* line 17, ../../../ysm_cases/_assets/scss/inuit.css-master/generic/_widths.scss */
-.one-whole, #main-content .highlight, .case-tiles .view-content .tile.xlarge {
+.one-whole, #main-content .highlight, .case-tiles .view-content .tile.xlarge, .document-tiles.one-sixth .view-content .tile, .document-tiles.two-twelfths .view-content .tile, .document-tiles .view-content .document-tiles.tile .view-content .tile, .document-tiles.one-third .view-content .tile, .document-tiles.two-sixths .view-content .tile, .document-tiles.four-twelfths .view-content .tile, .case-tiles .view-content .document-tiles.tile.small .view-content .tile, .produced-by-collection .document-tiles.produced-by-info .view-content .tile {
   width: 100%; }
 
 /**
@@ -2277,7 +2276,7 @@ html.flexbox {
 * Thirds
 */
 /* line 29, ../../../ysm_cases/_assets/scss/inuit.css-master/generic/_widths.scss */
-.one-third, .two-sixths, .four-twelfths, .case-tiles .view-content .tile.small {
+.one-third, .two-sixths, .four-twelfths, .case-tiles .view-content .tile.small, .document-tiles.one-half .view-content .tile, .document-tiles.two-quarters .view-content .tile, .document-tiles.three-sixths .view-content .tile, .document-tiles.four-eighths .view-content .tile, .document-tiles.five-tenths .view-content .tile, .document-tiles.six-twelfths .view-content .tile, .produced-by-collection .produced-by-info {
   width: 33.333%; }
 
 /* line 30, ../../../ysm_cases/_assets/scss/inuit.css-master/generic/_widths.scss */
@@ -2318,7 +2317,7 @@ html.flexbox {
 * Sixths
 */
 /* line 53, ../../../ysm_cases/_assets/scss/inuit.css-master/generic/_widths.scss */
-.one-sixth, .two-twelfths {
+.one-sixth, .two-twelfths, .document-tiles .view-content .tile {
   width: 16.666%; }
 
 /* line 57, ../../../ysm_cases/_assets/scss/inuit.css-master/generic/_widths.scss */
@@ -2410,7 +2409,7 @@ html.flexbox {
   * Halves
   */
   /* line 23, ../../../ysm_cases/_assets/scss/inuit.css-master/generic/_widths.scss */
-  .palm-one-half, .palm-two-quarters, .palm-three-sixths, .palm-four-eighths, .palm-five-tenths, .palm-six-twelfths {
+  .palm-one-half, .palm-two-quarters, .palm-three-sixths, .palm-four-eighths, .palm-five-tenths, .palm-six-twelfths, .document-tiles .view-content .tile {
     width: 50%; }
 
   /**
@@ -4937,7 +4936,7 @@ figcaption {
 
 /* Intuit grid hack */
 /* line 84, ../../../ysm_cases/_assets/scss/skin/_structure.scss */
-.grid, #main-content .section-wrap, .case-menu .item-list .stem_class, .case-tiles .view-content, .document-list .view-content {
+.grid, #main-content .section-wrap, .case-menu .item-list .stem_class, .case-tiles .view-content, .document-tiles .view-content, .document-list .view-content, .produced-by-collection {
   letter-spacing: -0.31em; }
 
 /* Opera hack */
@@ -4947,11 +4946,13 @@ figcaption {
 #main-content .section-wrap,
 .case-menu .item-list .stem_class,
 .case-tiles .view-content,
-.document-list .view-content {
+.document-tiles .view-content,
+.document-list .view-content,
+.produced-by-collection {
   word-spacing: -0.43em; }
 
 /* line 94, ../../../ysm_cases/_assets/scss/skin/_structure.scss */
-.grid__item, #main-content .highlight, #main-content .main-content, #main-content .sidebar, .case-menu .item-list .stem_class > li, .case-tiles .view-content .tile, .document-list .view-content .view-grouping,
+.grid__item, #main-content .highlight, #main-content .main-content, #main-content .sidebar, .case-menu .item-list .stem_class > li, .case-tiles .view-content .tile, .document-tiles .view-content .tile, .document-list .view-content .view-grouping, .produced-by-collection .produced-by-info,
 .messages {
   letter-spacing: normal;
   word-spacing: normal; }
@@ -5239,10 +5240,6 @@ html.lt-ie9 .sticky-wrapper {
   .case-menu .item-list .section li a {
     padding: 0; }
 
-/* line 85, ../scss/skin/_navigation.scss */
-.block-book-helper .book-navigation ul {
-  display: none; }
-
 /* !----------- Breadcrumb menu ------------ */
 /* line 2, ../../../ysm_cases/_assets/scss/skin/_breadcrumb.scss */
 .breadcrumbs {
@@ -5509,14 +5506,19 @@ html.lt-ie9 .sticky-wrapper {
 /* line 2, ../scss/skin/_page.scss */
 .document-tiles {
   border-top: #cccccc 5px solid;
-  padding-top: 0.75rem;
-  float: right;
-  width: 30%; }
+  padding-top: 0.75rem; }
+  @media only screen and (min-width: 568px) {
+    /* line 2, ../scss/skin/_page.scss */
+    .document-tiles {
+      margin-left: 8.333%; }
+      /* line 7, ../scss/skin/_page.scss */
+      .document-tiles.processed {
+        float: right; } }
   @media only screen and (max-width: 568px) {
     /* line 2, ../scss/skin/_page.scss */
     .document-tiles {
       width: 100% !important; } }
-  /* line 13, ../scss/skin/_page.scss */
+  /* line 37, ../scss/skin/_page.scss */
   .document-tiles .view-content .tile {
     margin-bottom: 20px;
     position: relative; }
@@ -5563,17 +5565,17 @@ html.lt-ie9 .sticky-wrapper {
         font-size: 0.88rem;
         line-height: 1.29rem;
         padding: 10px; }
-    /* line 16, ../scss/skin/_page.scss */
+    /* line 43, ../scss/skin/_page.scss */
     .document-tiles .view-content .tile .tile-wrap {
       position: relative; }
-    /* line 20, ../scss/skin/_page.scss */
+    /* line 47, ../scss/skin/_page.scss */
     .document-tiles .view-content .tile a {
       display: block; }
-    /* line 23, ../scss/skin/_page.scss */
+    /* line 50, ../scss/skin/_page.scss */
     .document-tiles .view-content .tile img {
       display: block;
       width: 100%; }
-    /* line 27, ../scss/skin/_page.scss */
+    /* line 54, ../scss/skin/_page.scss */
     .document-tiles .view-content .tile i {
       color: white;
       display: none;
@@ -5581,12 +5583,12 @@ html.lt-ie9 .sticky-wrapper {
       left: 0.5em;
       position: absolute;
       top: 0.25em; }
-    /* line 35, ../scss/skin/_page.scss */
+    /* line 62, ../scss/skin/_page.scss */
     .document-tiles .view-content .tile .img {
       display: block;
       position: relative;
       overflow: hidden; }
-    /* line 40, ../scss/skin/_page.scss */
+    /* line 67, ../scss/skin/_page.scss */
     .document-tiles .view-content .tile .text {
       background: #1f2021;
       background: rgba(31, 32, 33, 0.8);
@@ -5599,39 +5601,36 @@ html.lt-ie9 .sticky-wrapper {
       -o-transition: all 0.25s ease-out;
       -webkit-transition: all 0.25s ease-out;
       transition: all 0.25s ease-out; }
-    /* line 50, ../scss/skin/_page.scss */
+    /* line 77, ../scss/skin/_page.scss */
     .document-tiles .view-content .tile .header {
       color: white;
       line-height: 1.25em;
       display: inline-block; }
-    /* line 57, ../scss/skin/_page.scss */
+    /* line 84, ../scss/skin/_page.scss */
     .document-tiles .view-content .tile.no-img .text {
       background: transparent; }
-    /* line 60, ../scss/skin/_page.scss */
+    /* line 87, ../scss/skin/_page.scss */
     .document-tiles .view-content .tile.no-img i {
       display: block; }
-    /* line 64, ../scss/skin/_page.scss */
-    .document-tiles .view-content .tile.no-img .img img {
-      height: 200px; }
-    /* line 72, ../scss/skin/_page.scss */
+    /* line 94, ../scss/skin/_page.scss */
     .document-tiles .view-content .tile:hover .header:after {
       display: none; }
 
-/* line 83, ../scss/skin/_page.scss */
+/* line 105, ../scss/skin/_page.scss */
 .document-list .view-content .view-grouping {
   margin-bottom: 20px; }
-/* line 93, ../scss/skin/_page.scss */
+/* line 115, ../scss/skin/_page.scss */
 .document-list .view-content .view-grouping-header {
   display: none; }
-/* line 96, ../scss/skin/_page.scss */
+/* line 118, ../scss/skin/_page.scss */
 .document-list .view-content .view-grouping-content {
   border-top: #cccccc 5px solid;
   padding-top: 0.75rem; }
-/* line 100, ../scss/skin/_page.scss */
+/* line 122, ../scss/skin/_page.scss */
 .document-list .view-content h3 {
   margin-bottom: 0.5rem;
   text-transform: uppercase; }
-/* line 106, ../scss/skin/_page.scss */
+/* line 128, ../scss/skin/_page.scss */
 .document-list .item-list .item {
   position: relative; }
   /* line 45, ../scss/skin/_mixins.scss */
@@ -5677,68 +5676,51 @@ html.lt-ie9 .sticky-wrapper {
       font-size: 0.88rem;
       line-height: 1.29rem;
       padding: 10px; }
-  /* line 108, ../scss/skin/_page.scss */
+  /* line 130, ../scss/skin/_page.scss */
   .document-list .item-list .item a {
     display: inline-block;
     line-height: 1.25rem;
     padding-top: 0.375rem;
     padding-left: 1.5rem;
     position: relative; }
-    /* line 114, ../scss/skin/_page.scss */
+    /* line 136, ../scss/skin/_page.scss */
     .document-list .item-list .item a i {
       position: absolute;
       left: 0;
       top: 0.5rem; }
-  /* line 120, ../scss/skin/_page.scss */
+  /* line 142, ../scss/skin/_page.scss */
   .document-list .item-list .item .filetype,
   .document-list .item-list .item .filesize {
     color: #777777;
     font-size: 0.86rem; }
-  /* line 125, ../scss/skin/_page.scss */
+  /* line 147, ../scss/skin/_page.scss */
   .document-list .item-list .item .filetype {
     text-transform: uppercase; }
 
-/* line 132, ../scss/skin/_page.scss */
+/* line 154, ../scss/skin/_page.scss */
 .page-node #page-title {
   border-top: 1px #cccccc solid;
   padding-top: 0.5rem; }
-/* line 137, ../scss/skin/_page.scss */
-.page-node .primary-image {
-  float: right;
-  width: 30%; }
-  /* line 141, ../scss/skin/_page.scss */
-  .page-node .primary-image img {
-    width: 100%; }
-  /* line 145, ../scss/skin/_page.scss */
-  .page-node .primary-image figcaption {
-    display: block; }
 @media only screen and (min-width: 568px) {
-  /* line 149, ../scss/skin/_page.scss */
+  /* line 158, ../scss/skin/_page.scss */
   .page-node .field-name-body {
-    width: 70%;
-    padding-right: 6%; } }
-/* line 154, ../scss/skin/_page.scss */
-.page-node .field-name-body p {
-  font-size: 1rem;
-  line-height: 1.5rem; }
-/* line 159, ../scss/skin/_page.scss */
-.page-node .field-name-body ul li {
-  font-size: .9rem; }
+    width: 66.666%;
+    padding-right: 8.333%; } }
 
 /* ! Book pager */
-/* line 166, ../scss/skin/_page.scss */
+/* line 167, ../scss/skin/_page.scss */
 .book-navigation {
   font-size: 0.88em;
   margin: 2rem 0 0; }
-  /* line 167, ../scss/skin/_page.scss */
+  /* line 168, ../scss/skin/_page.scss */
   .book-navigation .menu {
     display: none; }
-  /* line 172, ../scss/skin/_page.scss */
+  /* line 173, ../scss/skin/_page.scss */
   .book-navigation .page-links {
     border-bottom: none;
     border-top-color: #cccccc; }
 
-/* line 178, ../scss/skin/_page.scss */
+/* line 179, ../scss/skin/_page.scss */
 .browser-detect-notice {
   background: white;
   border: 4px solid #dd8d66;
@@ -5746,28 +5728,24 @@ html.lt-ie9 .sticky-wrapper {
   margin-bottom: 1em;
   padding: 1em;
   margin-top: 1em; }
-  /* line 186, ../scss/skin/_page.scss */
+  /* line 187, ../scss/skin/_page.scss */
   .browser-detect-notice .warning-icon {
     float: left;
     width: 3em;
     height: 4em;
     margin-right: 1em; }
-    /* line 192, ../scss/skin/_page.scss */
+    /* line 193, ../scss/skin/_page.scss */
     .browser-detect-notice .warning-icon i {
       color: #bf6f6f;
       font-size: 3em; }
 
-/* line 200, ../scss/skin/_page.scss */
+/* line 201, ../scss/skin/_page.scss */
 html.lt-ie9 aside#sidebar-second {
   display: none; }
 
-/* line 205, ../scss/skin/_page.scss */
+/* line 206, ../scss/skin/_page.scss */
 div.show-sponsor {
   display: none; }
-
-/* line 209, ../scss/skin/_page.scss */
-.breadcrumbs > li > a > span {
-  vertical-align: middle; }
 
 /* !------------- Homepage styles ------------- */
 /* !----------- Login ------------ */
@@ -6025,6 +6003,11 @@ html.lt-ie9 .full-logo {
         /* line 76, ../scss/skin/_modal-panel.scss */
         .modal .tile-wrapper a.icon-remove:hover {
           border-color: #777777; }
+
+/* line 4, ../scss/skin/_produced-by.scss */
+.produced-by-collection .produced-by-info {
+  display: inline-block;
+  vertical-align: middle; }
 
 /* line 1, ../../../ysm_cases/_assets/scss/skin/_highcharts.scss */
 .chart-footnote {

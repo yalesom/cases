@@ -1,0 +1,10 @@
+.produced-by-collection {
+	@extend .grid;
+
+	.produced-by-info {
+		@extend .grid__item;
+		@extend .one-third;
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
