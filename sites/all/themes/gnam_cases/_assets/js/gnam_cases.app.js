@@ -14,4 +14,5 @@
 // @codekit-append "../../../ysm_cases/_assets/js/parts/browser-detect.js"
 
 // @codekit-append "parts/document-tiles.js"
-// @codekit-append "parts/case-titles.js";
+// @codekit-append "parts/case-tiles.js";
+// @codekit-append "parts/admin-roam.js";
