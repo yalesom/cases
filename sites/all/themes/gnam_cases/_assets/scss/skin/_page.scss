@@ -5,68 +5,109 @@
 	float: right;
 	width: 30%;
 	
-	@media #{$phoneMax}{
-		width: 100% !important;
-	}
+	@media #{$phoneMax}{ width: 100% !important; }
 	.view-content {
 		
 		.tile {
 			margin-bottom: $base-spacing-unit;
-			@include tooltip;
-			.tile-wrap {
-				position: relative;
-			}
-			// Basic tile attributes
-			a {
+						
+			a { 
 				display: block;
-			}
-			img {
-				display: block;
-				width: 100%;
-			}
-			i {
 				color: $white;
-				display: none;
-				font-size: 2.57rem;
-				left: 0.5em;
-				position: absolute;
-				top:0.25em;
-			}
-			.img {
-				display: block;
-				position: relative;
-				overflow: hidden;
-			}
-			.text {
-				background: $black;
-				background: transparentize($black, 0.2);
-				bottom: 0;
-				color: $lightGrey;
-				padding: 0.5em;
-				position: absolute;
-				width: 100%;
-				@include transition(all 0.25s ease-out);
-			}
-			.header {
-				color: $white;
-				line-height: 1.25em;
-				display: inline-block;
 			}
 			
-			&.no-img {
-				.text {
-					background: transparent;
-				}
-				i {
-					display: block;
-				}
+			i {	display: none; }
+
+			// temp
+			// .tooltip { display: none; }
+
+			.text {
+				width: 100%;
+				padding: 0.5rem;
+				position: absolute;
+				bottom: 0;
+				background: $black;
+				background: transparentize($black, 0.2);
+				// @include transition(all 0.25s ease-out);
+		
+				.header { line-height: 0.875rem; }
+			}
+
+			@include tooltip;
+		
+			.tile-wrap {
+				position: relative;
+
+				&.yale { @include setToolTipColor($brand); }
+				&.green { @include setToolTipColor($green); }
+				&.aqua { @include setToolTipColor($aqua); } 
+				&.blue { @include setToolTipColor($blue); } 
+				&.brown { @include setToolTipColor($brown); } 
+				&.ltblue { @include setToolTipColor($ltblue); } 
+				&.ltgreen { @include setToolTipColor($ltgreen); } 
+				&.ltpurple { @include setToolTipColor($ltpurple); } 
+				&.orange { @include setToolTipColor($orange); } 
+				&.purple { @include setToolTipColor($purple); } 
+				&.red { @include setToolTipColor($red); } 
+				&.slate { @include setToolTipColor($slate); } 
+				&.tan { @include setToolTipColor($tan); }
+				&.gold { @include setToolTipColor($gold); }
+				
 				.img {
+					display: block;
+					position: relative;
+					overflow: hidden;
+					max-height: 150px;
+
 					img {
-						height: 200px;
+						display: block;
+						width: 100%;
 					}
 				}
 			}
-			// Hover effects
+			
+			// overrides for no image tiles
+			&.no-img {
+
+				.tile-wrap {
+					border-style: solid;
+					border-width: 0px;
+					border-left-width: 3px;
+					border-bottom-width: 1px;
+
+					background: $white;
+
+					.text {
+						position: inherit;
+						display: block;
+						background: transparent;
+					}
+
+					i {
+						padding: 0.5rem;
+						padding-bottom: 0;
+						font-size: 2.57rem;
+						display: block;
+					}
+					
+					&.yale { @include setTileColors($brand); }
+					&.green { @include setTileColors($green); }
+					&.aqua { @include setTileColors($aqua); } 
+					&.blue { @include setTileColors($blue); } 
+					&.brown { @include setTileColors($brown); } 
+					&.ltblue { @include setTileColors($ltblue); } 
+					&.ltgreen { @include setTileColors($ltgreen); } 
+					&.ltpurple { @include setTileColors($ltpurple); } 
+					&.orange { @include setTileColors($orange); } 
+					&.purple { @include setTileColors($purple); } 
+					&.red { @include setTileColors($red); } 
+					&.slate { @include setTileColors($slate); } 
+					&.tan { @include setTileColors($tan); }
+					&.gold { @include setTileColors($gold); }
+				}
+			}
+		
+		// 	// Hover effects
 			&:hover {
 				.header {
 					&:after {
@@ -74,6 +115,7 @@
 					}
 				}
 			}
+		
 		}
 	}
 }
