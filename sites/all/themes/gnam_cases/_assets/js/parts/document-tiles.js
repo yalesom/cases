@@ -6,9 +6,7 @@ jQuery(document).ready(function($) {
 		$(this).find('a').click(function(evt){
 			evt.preventDefault();
 
-			// disable page scroll
-			$('html').css('overflow', 'hidden');
-
+			
 			var url = $(this).attr('href'),
 				template,
 				tileID,
@@ -21,6 +19,9 @@ jQuery(document).ready(function($) {
 				return false;
 
 			} else {
+				// disable page scroll
+				$('html').css('overflow', 'hidden');
+
 				// clone the template
 				template 	= $('#template').clone();
 				
