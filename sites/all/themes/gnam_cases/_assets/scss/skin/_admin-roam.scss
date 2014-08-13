@@ -1,6 +1,14 @@
 html.admin-roam {
-	body {
+	/* body.logged-in{
 		padding-top: 0px !important;
+
+		.toolbar, .toobar-drawer {
+			display: none;
+		}
+
+		header#page-header {
+			top: 0px;
+		}
 
 		nav#navbar-administration {
 			display: none;
@@ -17,17 +25,26 @@ html.admin-roam {
 		div#block-workbench-block {
 			display: none;
 		}
-	}
+	} */
 }
 
 .admin-tool-toggle {
+	display: none;
+	clear: both;
+	margin-top: 4rem;
+
+	h2 {
+		display: none;
+	}
+
 	p {
 		text-align: left;
 	}
 	a {
 		margin-left: 1rem;
 		padding: .5rem;
-		background-color:  $ltblue;
+		background-color:  $mediumGrey;
+		color: $white;
 		text-decoration: none;
 		cursor: pointer;
 		i {
