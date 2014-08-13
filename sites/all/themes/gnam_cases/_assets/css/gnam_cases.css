@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * Yale School of Management, GNAM case studies custom stylesheet.
  * Author: Square360
@@ -5686,23 +5687,40 @@ html.lt-ie9 .sticky-wrapper {
 .page-node #page-title {
   border-top: 1px #cccccc solid;
   padding-top: 0.5rem; }
+/* line 159, ../scss/skin/_page.scss */
+.page-node .primary-image {
+  float: right;
+  width: 30%; }
+  /* line 163, ../scss/skin/_page.scss */
+  .page-node .primary-image img {
+    width: 100%; }
+  /* line 167, ../scss/skin/_page.scss */
+  .page-node .primary-image figcaption {
+    display: block; }
 @media only screen and (min-width: 568px) {
-  /* line 158, ../scss/skin/_page.scss */
+  /* line 171, ../scss/skin/_page.scss */
   .page-node .field-name-body {
-    width: 66.666%;
-    padding-right: 8.333%; } }
+    width: 70%;
+    padding-right: 6%; } }
+/* line 176, ../scss/skin/_page.scss */
+.page-node .field-name-body p {
+  font-size: 1rem;
+  line-height: 1.5rem; }
+/* line 181, ../scss/skin/_page.scss */
+.page-node .field-name-body ul li {
+  font-size: .9rem; }
 
 /* ! Book pager */
-/* line 167, ../scss/skin/_page.scss */
+/* line 188, ../scss/skin/_page.scss */
 .book-navigation {
   font-size: 0.88em;
   margin: 2rem 0 0; }
-  /* line 170, ../scss/skin/_page.scss */
+  /* line 191, ../scss/skin/_page.scss */
   .book-navigation .page-links {
     border-bottom: none;
     border-top-color: #cccccc; }
 
-/* line 176, ../scss/skin/_page.scss */
+/* line 197, ../scss/skin/_page.scss */
 .browser-detect-notice {
   background: white;
   border: 4px solid #dd8d66;
@@ -5710,24 +5728,28 @@ html.lt-ie9 .sticky-wrapper {
   margin-bottom: 1em;
   padding: 1em;
   margin-top: 1em; }
-  /* line 184, ../scss/skin/_page.scss */
+  /* line 205, ../scss/skin/_page.scss */
   .browser-detect-notice .warning-icon {
     float: left;
     width: 3em;
     height: 4em;
     margin-right: 1em; }
-    /* line 190, ../scss/skin/_page.scss */
+    /* line 211, ../scss/skin/_page.scss */
     .browser-detect-notice .warning-icon i {
       color: #bf6f6f;
       font-size: 3em; }
 
-/* line 198, ../scss/skin/_page.scss */
+/* line 219, ../scss/skin/_page.scss */
 html.lt-ie9 aside#sidebar-second {
   display: none; }
 
-/* line 203, ../scss/skin/_page.scss */
+/* line 224, ../scss/skin/_page.scss */
 div.show-sponsor {
   display: none; }
+
+/* line 228, ../scss/skin/_page.scss */
+.breadcrumbs > li > a > span {
+  vertical-align: middle; }
 
 /* !------------- Homepage styles ------------- */
 /* !----------- Login ------------ */

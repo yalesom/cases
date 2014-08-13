@@ -154,11 +154,32 @@
 	#page-title {
 		border-top: 1px $lightGrey solid;
 		padding-top: 0.5rem;
+
+	}
+	.primary-image {
+		float: right;
+		width: 30%;
+
+		img {
+			width: 100%;
+		}
+
+		figcaption {
+			display: block;
+		}
 	}
 	.field-name-body {
 		@media #{$phone}{
-			width: 66.666%;
-			padding-right: 8.333%;
+			width: 70%;
+			padding-right: 6%;
+		}
+		p {
+			font-size: 1rem;
+			line-height: 1.5rem;
+		}
+
+		ul li {
+			font-size: .9rem;
 		}
 	}
 }
@@ -202,4 +223,8 @@ html.lt-ie9 {
 
 div.show-sponsor {
 	display: none;
+}
+
+.breadcrumbs > li > a > span {
+	vertical-align: middle;
 }
