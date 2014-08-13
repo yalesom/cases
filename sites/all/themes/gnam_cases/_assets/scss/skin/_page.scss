@@ -2,43 +2,16 @@
 .document-tiles {
 	border-top: $lightGrey 5px solid;
 	padding-top: 0.75rem;
-	@media #{$phone}{
-		margin-left: 8.333%;
-		&.processed {
-			float: right;
-		}
-	}
+	float: right;
+	width: 30%;
+	
 	@media #{$phoneMax}{
 		width: 100% !important;
 	}
-	&.one-sixth {
-		.view-content {
-			.tile {
-				@extend .one-whole;
-			}
-		}
-	}
-	&.one-third {
-		.view-content {
-			.tile {
-				@extend .one-whole;
-			}
-		}
-	}
-	&.one-half {
-		.view-content {
-			.tile {
-				@extend .one-third;
-			}
-		}
-	}
 	.view-content {
-		@extend .grid;
+		
 		.tile {
 			margin-bottom: $base-spacing-unit;
-			@extend .grid__item;
-			@extend .one-sixth;
-			@extend .palm-one-half;
 			@include tooltip;
 			.tile-wrap {
 				position: relative;
@@ -86,6 +59,11 @@
 				}
 				i {
 					display: block;
+				}
+				.img {
+					img {
+						height: 200px;
+					}
 				}
 			}
 			// Hover effects
