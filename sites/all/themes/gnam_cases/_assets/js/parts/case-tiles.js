@@ -28,7 +28,8 @@
 	$('.document-tiles .tile').each(function(){
 		var tile = $(this);
 		if ( tile.find('img').attr('src') == ''){
-			tile.addClass('no-img').find('img').attr('src','/sites/all/themes/ysm_cases/_assets/images/blank-sq.gif');
+			tile.find('img').remove();
+			tile.addClass('no-img'); //.find('img').attr('src','/sites/all/themes/ysm_cases/_assets/images/blank-sq.gif');
 		} 
 	});
 	//remove icon from tiles with no image and no icon-class

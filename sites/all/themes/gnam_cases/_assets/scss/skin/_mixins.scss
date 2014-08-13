@@ -48,7 +48,7 @@
 	    }
 	}
 	.tooltip {
-		color: $lightGrey;
+		color: $white;
 		display: block;
 		min-width: 100px;
 		pointer-events: none;
@@ -77,5 +77,19 @@
 		    line-height: 1.29rem;
 		    padding: 10px;
 		}
+	}
+}
+
+@mixin setTileColors($color) {
+	a { color: $color; }
+	border-color: $color;
+
+	@include setToolTipColor($color);
+}
+
+@mixin setToolTipColor($color) {
+	.tooltip {
+		.tooltext { background: $color; }
+		&:after { border-top-color: $color; }
 	}
 }
