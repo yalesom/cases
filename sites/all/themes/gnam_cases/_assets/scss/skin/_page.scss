@@ -2,43 +2,16 @@
 .document-tiles {
 	border-top: $lightGrey 5px solid;
 	padding-top: 0.75rem;
-	@media #{$phone}{
-		margin-left: 8.333%;
-		&.processed {
-			float: right;
-		}
-	}
+	float: right;
+	width: 30%;
+	
 	@media #{$phoneMax}{
 		width: 100% !important;
 	}
-	&.one-sixth {
-		.view-content {
-			.tile {
-				@extend .one-whole;
-			}
-		}
-	}
-	&.one-third {
-		.view-content {
-			.tile {
-				@extend .one-whole;
-			}
-		}
-	}
-	&.one-half {
-		.view-content {
-			.tile {
-				@extend .one-third;
-			}
-		}
-	}
 	.view-content {
-		@extend .grid;
+		
 		.tile {
 			margin-bottom: $base-spacing-unit;
-			@extend .grid__item;
-			@extend .one-sixth;
-			@extend .palm-one-half;
 			@include tooltip;
 			.tile-wrap {
 				position: relative;
@@ -86,6 +59,11 @@
 				}
 				i {
 					display: block;
+				}
+				.img {
+					img {
+						height: 200px;
+					}
 				}
 			}
 			// Hover effects
@@ -154,11 +132,32 @@
 	#page-title {
 		border-top: 1px $lightGrey solid;
 		padding-top: 0.5rem;
+
+	}
+	.primary-image {
+		float: right;
+		width: 30%;
+
+		img {
+			width: 100%;
+		}
+
+		figcaption {
+			display: block;
+		}
 	}
 	.field-name-body {
 		@media #{$phone}{
-			width: 66.666%;
-			padding-right: 8.333%;
+			width: 70%;
+			padding-right: 6%;
+		}
+		p {
+			font-size: 1rem;
+			line-height: 1.5rem;
+		}
+
+		ul li {
+			font-size: .9rem;
 		}
 	}
 }
@@ -205,4 +204,8 @@ html.lt-ie9 {
 
 div.show-sponsor {
 	display: none;
+}
+
+.breadcrumbs > li > a > span {
+	vertical-align: middle;
 }
