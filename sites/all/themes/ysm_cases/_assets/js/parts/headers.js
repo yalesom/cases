@@ -17,8 +17,7 @@ function resizeHeader(){
 		pageHeader = jQuery('#page-header');
 		if ( pageHeader.hasClass('closed') ){
 			oneAtATime = true;
-			pageHeader.removeClass('closed')
-			.find('.primary-nav').height(0).show();
+			pageHeader.removeClass('closed').find('.primary-nav').height(0).show();
 			headerHeight = pageHeader.find('.section-wrap').outerHeight(true) + pageHeader.find('.primary-nav > .block').outerHeight(true);
 			navHeight = pageHeader.find('.primary-nav > .block').outerHeight(true);
 		} else {
