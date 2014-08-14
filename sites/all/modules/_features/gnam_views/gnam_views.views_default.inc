@@ -197,18 +197,8 @@ function gnam_views_views_default_views() {
   $handler->display->display_options['defaults']['group_by'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'semanticviews_default';
-  $handler->display->display_options['style_options']['grouping'] = array(
-    0 => array(
-      'field' => 'nothing_1',
-      'rendered' => 1,
-      'rendered_strip' => 0,
-    ),
-    1 => array(
-      'field' => 'field_produced_by_name',
-      'rendered' => 1,
-      'rendered_strip' => 0,
-    ),
-  );
+  $handler->display->display_options['style_options']['group']['element_type'] = '';
+  $handler->display->display_options['style_options']['group']['class'] = '';
   $handler->display->display_options['style_options']['row']['element_type'] = '';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
@@ -254,6 +244,9 @@ function gnam_views_views_default_views() {
   $handler->display->display_options['fields']['field_case_subtitle']['field'] = 'field_case_subtitle';
   $handler->display->display_options['fields']['field_case_subtitle']['label'] = '';
   $handler->display->display_options['fields']['field_case_subtitle']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_case_subtitle']['group_columns'] = array(
+    'value' => 'value',
+  );
   /* Field: Content: Global Network Case */
   $handler->display->display_options['fields']['field_case_number']['id'] = 'field_case_number';
   $handler->display->display_options['fields']['field_case_number']['table'] = 'field_data_field_case_number';
@@ -263,6 +256,20 @@ function gnam_views_views_default_views() {
   $handler->display->display_options['fields']['field_case_number']['alter']['text'] = 'Global Network Case [field_case_number]';
   $handler->display->display_options['fields']['field_case_number']['alter']['trim_whitespace'] = TRUE;
   $handler->display->display_options['fields']['field_case_number']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_case_number']['group_columns'] = array(
+    'value' => 'value',
+  );
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'bid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'book_root';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
 
   /* Display: Abstract */
   $handler = $view->new_display('block', 'Abstract', 'block_2');
@@ -346,8 +353,8 @@ function gnam_views_views_default_views() {
   $handler->display->display_options['fields']['field_disclaimer']['element_class'] = 'disclaimer';
   $handler->display->display_options['fields']['field_disclaimer']['element_label_colon'] = FALSE;
 
-  /* Display: Produced By */
-  $handler = $view->new_display('block', 'Produced By', 'block_4');
+  /* Display: Produced By Logos */
+  $handler = $view->new_display('block', 'Produced By Logos', 'block_4');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'produced-by-collection';
@@ -430,6 +437,76 @@ function gnam_views_views_default_views() {
 <a href="[field_produced_by_url]" target="_blank" title="[field_produced_by_name]"><img class="logo" src="[field_produced_by_logo]" alt="[field_produced_by_name]" /></a>
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+
+  /* Display: Produced By Names */
+  $handler = $view->new_display('block', 'Produced By Names', 'block_5');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'produced-by-collection-names';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'semanticviews_default';
+  $handler->display->display_options['style_options']['row']['element_type'] = '';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'semanticviews_fields';
+  $handler->display->display_options['row_options']['skip_blank'] = 0;
+  $handler->display->display_options['row_options']['semantic_html'] = array(
+    'field_case_number' => array(
+      'element_type' => 'div',
+      'class' => 'case-num',
+    ),
+    'field_updated' => array(
+      'element_type' => '',
+      'class' => '',
+      'label_element_type' => 'label',
+      'label_class' => '',
+    ),
+    'field_publish_date' => array(
+      'element_type' => '',
+      'class' => '',
+      'label_element_type' => 'label',
+      'label_class' => '',
+    ),
+  );
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Book: Top level book */
+  $handler->display->display_options['relationships']['bid']['id'] = 'bid';
+  $handler->display->display_options['relationships']['bid']['table'] = 'book';
+  $handler->display->display_options['relationships']['bid']['field'] = 'bid';
+  /* Relationship: Content: Produced By (field_produced_by) */
+  $handler->display->display_options['relationships']['field_produced_by_value']['id'] = 'field_produced_by_value';
+  $handler->display->display_options['relationships']['field_produced_by_value']['table'] = 'field_data_field_produced_by';
+  $handler->display->display_options['relationships']['field_produced_by_value']['field'] = 'field_produced_by_value';
+  $handler->display->display_options['relationships']['field_produced_by_value']['relationship'] = 'bid';
+  $handler->display->display_options['relationships']['field_produced_by_value']['delta'] = '-1';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Field collection item: Name */
+  $handler->display->display_options['fields']['field_produced_by_name']['id'] = 'field_produced_by_name';
+  $handler->display->display_options['fields']['field_produced_by_name']['table'] = 'field_data_field_produced_by_name';
+  $handler->display->display_options['fields']['field_produced_by_name']['field'] = 'field_produced_by_name';
+  $handler->display->display_options['fields']['field_produced_by_name']['relationship'] = 'field_produced_by_value';
+  $handler->display->display_options['fields']['field_produced_by_name']['label'] = '';
+  $handler->display->display_options['fields']['field_produced_by_name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_produced_by_name']['element_label_colon'] = FALSE;
+  /* Field: Field collection item: URL */
+  $handler->display->display_options['fields']['field_produced_by_url']['id'] = 'field_produced_by_url';
+  $handler->display->display_options['fields']['field_produced_by_url']['table'] = 'field_data_field_produced_by_url';
+  $handler->display->display_options['fields']['field_produced_by_url']['field'] = 'field_produced_by_url';
+  $handler->display->display_options['fields']['field_produced_by_url']['relationship'] = 'field_produced_by_value';
+  $handler->display->display_options['fields']['field_produced_by_url']['label'] = '';
+  $handler->display->display_options['fields']['field_produced_by_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_produced_by_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_produced_by_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_produced_by_url']['type'] = 'link_plain';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="[field_produced_by_url]" target="_blank" title="[field_produced_by_name]">[field_produced_by_name]</a>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $translatables['gnam_case_details'] = array(
     t('Master'),
     t('more'),
@@ -450,11 +527,13 @@ function gnam_views_views_default_views() {
     t('Abstract'),
     t('field_tile'),
     t('Disclaimer'),
-    t('Produced By'),
+    t('Produced By Logos'),
     t('field collection item from field_produced_by'),
     t('<div class="produced-by-info">
 <a href="[field_produced_by_url]" target="_blank" title="[field_produced_by_name]"><img class="logo" src="[field_produced_by_logo]" alt="[field_produced_by_name]" /></a>
 </div>'),
+    t('Produced By Names'),
+    t('<a href="[field_produced_by_url]" target="_blank" title="[field_produced_by_name]">[field_produced_by_name]</a>'),
   );
   $export['gnam_case_details'] = $view;
 
