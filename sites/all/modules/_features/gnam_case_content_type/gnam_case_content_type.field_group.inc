@@ -27,8 +27,9 @@ function gnam_case_content_type_field_group_info() {
       1 => 'field_case_number',
       2 => 'field_publish_date',
       3 => 'field_updated',
-      4 => 'field_sponsor_byline',
-      5 => 'field_show_sponsors',
+      4 => 'field_case_subtitle',
+      5 => 'field_sponsors',
+      6 => 'field_disclaimer',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -53,11 +54,12 @@ function gnam_case_content_type_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Case',
-    'weight' => '2',
+    'weight' => '1',
     'children' => array(
       0 => 'group_case_details',
       1 => 'group_tiles',
       2 => 'group_credits',
+      3 => 'group_produced_by',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(
@@ -95,6 +97,33 @@ function gnam_case_content_type_field_group_info() {
     ),
   );
   $export['group_credits|node|book|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_produced_by|node|book|form';
+  $field_group->group_name = 'group_produced_by';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'book';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_case';
+  $field_group->data = array(
+    'label' => 'Produced By',
+    'weight' => '6',
+    'children' => array(
+      0 => 'field_produced_by',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-produced-by field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_produced_by|node|book|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */

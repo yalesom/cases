@@ -19,7 +19,7 @@ function gnam_case_content_type_ctools_plugin_api($module = NULL, $api = NULL) {
 function gnam_case_content_type_node_info() {
   $items = array(
     'book' => array(
-      'name' => t('Case study'),
+      'name' => t('Global Networks Case Study'),
       'base' => 'node_content',
       'description' => t('Start a new <em>Case study</em>. Be sure to select <create new book> in the <em>Book outline</em> section at the bottom of the page. '),
       'has_title' => '1',
