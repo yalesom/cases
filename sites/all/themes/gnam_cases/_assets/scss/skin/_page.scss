@@ -18,9 +18,6 @@
 			
 			i {	display: none; }
 
-			// temp
-			// .tooltip { display: none; }
-
 			.text {
 				width: 100%;
 				padding: 0.5rem;
@@ -104,6 +101,13 @@
 					&.slate { @include setTileColors($slate); } 
 					&.tan { @include setTileColors($tan); }
 					&.gold { @include setTileColors($gold); }
+				}
+			}
+
+			&.inline {
+				.header {
+					border-bottom: 1px solid $mediumGrey;
+					margin-bottom: $base-spacing-unit/2;
 				}
 			}
 		
