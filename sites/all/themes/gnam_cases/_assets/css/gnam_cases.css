@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * Yale School of Management, GNAM case studies custom stylesheet.
  * Author: Square360
@@ -5934,7 +5935,7 @@ html.lt-ie9 .sticky-wrapper {
   border-top: #cccccc 5px solid;
   padding-top: 0.75rem;
   float: right;
-  width: 30%; }
+  width: 30% !important; }
   @media only screen and (max-width: 568px) {
     /* line 2, ../scss/skin/_page.scss */
     .document-tiles {
@@ -6736,6 +6737,59 @@ html.lt-ie9 .full-logo {
   .produced-by-collection-names .view-content a:last-child:before {
     content: " and ";
     margin-left: 0; }
+
+/* line 1, ../scss/skin/_admin-roam.scss */
+html.admin-roam {
+  	/* body.logged-in{
+  		padding-top: 0px !important;
+  
+  		.toolbar, .toobar-drawer {
+  			display: none;
+  		}
+  
+  		header#page-header {
+  			top: 0px;
+  		}
+  
+  		nav#navbar-administration {
+  			display: none;
+  		}
+  
+  		div#tabs {
+  			display: none;
+  		}
+  
+  		div.edit-page-button {
+  			display: none;
+  		}
+  
+  		div#block-workbench-block {
+  			display: none;
+  		}
+  	} */ }
+
+/* line 31, ../scss/skin/_admin-roam.scss */
+.admin-tool-toggle {
+  display: none;
+  clear: both;
+  margin-top: 4rem; }
+  /* line 36, ../scss/skin/_admin-roam.scss */
+  .admin-tool-toggle h2 {
+    display: none; }
+  /* line 40, ../scss/skin/_admin-roam.scss */
+  .admin-tool-toggle p {
+    text-align: left; }
+  /* line 43, ../scss/skin/_admin-roam.scss */
+  .admin-tool-toggle a {
+    margin-left: 1rem;
+    padding: .5rem;
+    background-color: #777777;
+    color: white;
+    text-decoration: none;
+    cursor: pointer; }
+    /* line 57, ../scss/skin/_admin-roam.scss */
+    .admin-tool-toggle a.active {
+      background-color: #00457c; }
 
 /* line 1, ../../../ysm_cases/_assets/scss/skin/_highcharts.scss */
 .chart-footnote {
