@@ -98,7 +98,7 @@ jQuery('#page-header .primary-nav').height( jQuery('#page-header .primary-nav > 
 jQuery('#page-header').parent().height( jQuery('#page-header .section-wrap').outerHeight(true) );
 
 // ! Set conditions for interior 
-jQuery('#page-header').not('.node-type-book  #page-header').addClass('overlay').addClass('closed');
+// jQuery('#page-header').not('.node-type-book  #page-header').addClass('overlay').addClass('closed');
 
 // !Navigation click/touch event
 jQuery('.logged-in #page-header, .logged-in .primary-nav').bind('touch click', function(){
