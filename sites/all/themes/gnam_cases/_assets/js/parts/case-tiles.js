@@ -1,6 +1,6 @@
 (function($) {
 	/*
-	* Case tile scripts
+	* Case tile scripts not tittles
 	*/
 
 	// !Reposition toplevel book in case outline to section list

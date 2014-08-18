@@ -1,4 +1,5 @@
 (function($) {
+	// not working yet for cases
 	$( document ).ready(function( ) {
 		//see if localStorage item exists
 		if(localStorage.getItem('adminRoamView') == null) {

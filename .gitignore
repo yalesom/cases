@@ -1,19 +1,11 @@
-# Ignore paths that contain user-generated content.
 /sites/*/files
 /sites/*/private
 /files/*
 /cache
-
-# ** Only works in OSs that support newer versions of fnmatch (Bash 4+)
 /sites/default/**/files
 /sites/default/**/private
-
-# Private settings files
 /sites/*/local.settings.php
 /sites/*/prod.settings.php
-
-# Packages #
-############
 *.7z
 *.dmg
 *.gz
@@ -24,30 +16,15 @@
 *.tar
 *.zip
 *.tgz
-
-# Logs and databases #
-######################
 *.log
 *.sql
-
-# OS generated files #
-######################
 .DS_Store*
 ehthumbs.db
 Icon?
 Thumbs.db
 ._*
-
-# Vim generated files #
-######################
 *.un~
-
-# SASS #
-##########
 .sass-cache
-
-# SUBL & other editors #
-########################
 sftp-config.json
 .idea
 .buildpath
@@ -56,6 +33,6 @@ sftp-config.json
 *.sublime-project
 *.sublime-workspace
 codekit-config.json
-
 config.codekit
 .codekit-cache
+node_modules

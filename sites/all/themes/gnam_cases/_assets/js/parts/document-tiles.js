@@ -1,5 +1,5 @@
 /**
- * Hijack tile a hrefs
+ * Hijack tile a hrefs not tittles
  */
 jQuery(document).ready(function($) {
 	$('.view-document-grid').find('.tile').each(function(){
