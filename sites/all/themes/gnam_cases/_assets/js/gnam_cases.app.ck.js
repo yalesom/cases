@@ -1,17 +1,25 @@
-/**
- * GNAM - Merge of Cases Platform and GNAM styles
- * @version 0.1.0
- * @build 2014-08-19 | 095115
- * @author Square360, Inc.
- * @client Yale School of Management
- */
 /* Yale Case Studies base scripts.
  * Author: Square360
- * version 1.40
- * compiled with Gulp
+ * square360.com
+ *	version 1.2
  */
  
 // !----- Site Specific Custom JS parts -----
+
+// @codekit-append "../../../ysm_cases/_assets/js/parts/page-layout.js";
+// @codekit-append "../../../ysm_cases/_assets/js/parts/headers.js";
+// @codekit-append "../../../ysm_cases/_assets/js/parts/jquery.highcharts.plotter.js"
+// @codekit-append "../../../ysm_cases/_assets/js/parts/jquery.loadGallery.js"
+// @codekit-append "../../../ysm_cases/_assets/js/arts/figures.js"
+// @codekit-append "../../../ysm_cases/_assets/js/parts/browser-detect.js"
+
+// @codekit-append "parts/document-tiles.js"
+// @codekit-append "parts/case-tiles.js";
+
+/* **********************************************
+     Begin page-layout.js
+********************************************** */
+
 // !Identify desktop devices
 var mobile = IsMobile.detect();
 if(!mobile){
@@ -45,7 +53,7 @@ jQuery(document).ready(function($) {
 		}
 	});
 
-	void 0;
+	console.info(jQuery('div.show-sponsor').text());
 	if(jQuery('div.show-sponsor').text() == '0'){ 
 		jQuery('div.sponsor').hide(); 
 	}
@@ -53,6 +61,10 @@ jQuery(document).ready(function($) {
 
 // !Call resize
 jQuery(window).bind("resize orientationchange", pageResize);
+
+/* **********************************************
+     Begin headers.js
+********************************************** */
 
 //(function($) {
 /*
@@ -154,7 +166,7 @@ jQuery('#page-header .primary-nav').height( jQuery('#page-header .primary-nav > 
 jQuery('#page-header').parent().height( jQuery('#page-header .section-wrap').outerHeight(true) );
 
 // ! Set conditions for interior 
-jQuery('#page-header').not('.node-type-book  #page-header').addClass('overlay').addClass('closed');
+// jQuery('#page-header').not('.node-type-book  #page-header').addClass('overlay').addClass('closed');
 
 // !Navigation click/touch event
 jQuery('.logged-in #page-header, .logged-in .primary-nav').bind('touch click', function(){
@@ -206,6 +218,10 @@ function scrollableElement(els) {
 }
 //})(jQuery);
 
+/* **********************************************
+     Begin jquery.highcharts.plotter.js
+********************************************** */
+
 var highchartColors = [
 	'#00457c', // dark blue 
 	'#c9b579', // light brown
@@ -234,7 +250,7 @@ function readInChartCSV() {
 		dataType: 'text',
 		success: function(result) {
 			var parseResult = $.parse(result,{header: false, dynamicTyping: true})
-			void 0;
+			console.info(parseResult);
 			var chartArray = parseResult.results;
 
 			$('#chart-data').html(result);
@@ -254,7 +270,7 @@ function readInChartCSV() {
 			};
 		},
 		error: function(error) {
-			void 0
+			console.log(error.status + ' ' + error.statusText)
 		}
 	});
 }
@@ -605,6 +621,10 @@ function stockChartPlotter(seriesOptions) {
 	});
 };
 
+/* **********************************************
+     Begin jquery.loadGallery.js
+********************************************** */
+
 var galleryContainer;
 
 function loadGallery() {
@@ -621,13 +641,16 @@ function loadGallery() {
 						autoControls: options.showplaypause,
 						autoControlsCombine: true,
 						onSliderLoad: function() {
-							void 0
+							console.log('loaded')
 						}
 					});
 		return mySlider;
 }
 
-//= require "../../../ysm_cases/_assets/js/aprts/figures.js"
+/* **********************************************
+     Begin browser-detect.js
+********************************************** */
+
 //detect ie8 and show modal to suggest chrome
 jQuery(document).ready(function($){
 	if ($('html.lt-ie9').length > 0){
@@ -638,17 +661,19 @@ jQuery(document).ready(function($){
 	}
 });
 
+/* **********************************************
+     Begin document-tiles.js
+********************************************** */
+
 /**
- * Hijack tile a hrefs not tittles
+ * Hijack tile a hrefs
  */
 jQuery(document).ready(function($) {
 	$('.view-document-grid').find('.tile').each(function(){
 		$(this).find('a').click(function(evt){
 			evt.preventDefault();
 
-			// disable page scroll
-			$('html').css('overflow', 'hidden');
-
+			
 			var url = $(this).attr('href'),
 				template,
 				tileID,
@@ -661,6 +686,9 @@ jQuery(document).ready(function($) {
 				return false;
 
 			} else {
+				// disable page scroll
+				$('html').css('overflow', 'hidden');
+
 				// clone the template
 				template 	= $('#template').clone();
 				
@@ -762,9 +790,13 @@ jQuery(document).ready(function($) {
 	});
 });
 
+/* **********************************************
+     Begin case-tiles.js
+********************************************** */
+
 (function($) {
 	/*
-	* Case tile scripts not tittles
+	* Case tile scripts
 	*/
 
 	// !Reposition toplevel book in case outline to section list
@@ -799,7 +831,7 @@ jQuery(document).ready(function($) {
 	//remove icon from tiles with no image and no icon-class
 	$('.case-tiles .tile.no-img').each(function(){
 		$(this).find('i').each(function(){
-			void 0;
+			console.info($(this).attr('class'));
 			if ($(this).attr('class') == '') {
 				$(this).closest('div.tile.no-img').addClass('no-icon');
 			}
@@ -810,7 +842,7 @@ jQuery(document).ready(function($) {
 	// !Count number of tiles and set related width class
 	$('.document-tiles').each(function(){
 		var container = $(this);
-		void 0;
+		console.info('looking at caae tiles');
 		container.addClass('one-third');
 
 	});
@@ -822,36 +854,3 @@ jQuery(document).ready(function($) {
 	//Media Core iFrame unwrap
 	$('.mediacore-video-container iframe').unwrap();
 })(jQuery);
-
-(function($) {
-	// not working yet for cases
-	$( document ).ready(function( ) {
-		//see if localStorage item exists
-		if(localStorage.getItem('adminRoamView') == null) {
-			//if not create it and make it false
-			localStorage.setItem('adminRoamView','false');
-		} else {
-			if (localStorage.getItem('adminRoamView') == 'true') {
-				$('html').addClass('admin-roam');
-				$('footer a#btnAdminToggle').addClass('active');
-			}
-		}
-
-
-		$("footer a#btnAdminToggle").click(function(){ 
-			if (localStorage.getItem('adminRoamView') == 'true') {
-				//console.info('turning admin roam view off');
-				localStorage.setItem('adminRoamView','false');
-				$('html').removeClass('admin-roam');
-				$('body').css('padding-top','39px');
-				$('footer a#btnAdminToggle').toggleClass('active');
-			} else {
-				//console.info('turning admin roam view on');
-				localStorage.setItem('adminRoamView','true');
-				$('html').addClass('admin-roam');
-				$('body').css('padding-top','0px');
-				$('footer a#btnAdminToggle').toggleClass('active');
-			}
-		});
-	});
-}(jQuery));

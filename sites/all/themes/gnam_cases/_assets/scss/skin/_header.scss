@@ -31,9 +31,9 @@
 	.primary-nav,
 	.header-sections {
 		margin-right: 4.29rem;
-		.not-front & {
-			display: none;
-		}
+		// .not-front & {
+		// 	display: none;
+		// }
 		.not-front.node-type-book & {
 			display: block;
 		}

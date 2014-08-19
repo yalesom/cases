@@ -1694,7 +1694,6 @@ figcaption { color: #777777; font-size: 13px; line-height: 14px; font-style: nor
 #page-header .section-wrap { min-height: 4rem; padding: 0.75rem 5px; }
 #page-header .header-main { margin-right: 4.29rem; }
 #page-header .primary-nav, #page-header .header-sections { margin-right: 4.29rem; }
-.not-front #page-header .primary-nav, .not-front #page-header .header-sections { display: none; }
 .not-front.node-type-book #page-header .primary-nav, .not-front.node-type-book #page-header .header-sections { display: block; }
 #page-header .case-details i { font-size: 1.63rem; position: absolute; }
 #page-header .case-details .case-name, #page-header .case-details .case-num { padding-left: 1.85rem; margin-bottom: 0rem; }
