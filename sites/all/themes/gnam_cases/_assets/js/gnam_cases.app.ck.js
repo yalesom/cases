@@ -1,13 +1,13 @@
 /**
  * GNAM - Merge of Cases Platform and GNAM styles
  * @version 0.1.0
- * @build 2014-08-18 | 083019
+ * @build 2014-08-19 | 095115
  * @author Square360, Inc.
  * @client Yale School of Management
  */
 /* Yale Case Studies base scripts.
  * Author: Square360
- * version 1.37
+ * version 1.40
  * compiled with Gulp
  */
  
