@@ -9,7 +9,7 @@ base theme = ysm_cases
 screenshot = _assets/images/screenshot.png
 
 ; Styles
-stylesheets[all][] = _assets/css/gnam_cases.css
+stylesheets[all][] = _assets/css/gnam_cases.min.css
 stylesheets[all][] = _assets/css/ysm_cases.css
 
 ; Scripts

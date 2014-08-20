@@ -39,41 +39,46 @@ getMeDate = function(){
 
 gulp.task('styles',function() {
 	pkg.build = getMeDate();
-	return gulp.src('scss/gnam_cases.scss')
+	return gulp.src('_src/scss/gnam_cases.scss')
 		.pipe(compass({
 			project: path.join(__dirname,"."),
-			css: 'css',
-			sass: 'scss',
+			css: '_src/temp',
+			sass: '_src/scss',
 			comments: function(){
-				return (pkg.environment == 'production') ? true : false;
+				return (pkg.environment == 'production') ? false : true;
 			},
 			environment: pkg.environment
 		}))
 		.pipe(gulpif(pkg.environment == 'production', minifyCSS({keepSpecialComments: 0})))
 		.pipe(header(banner, {pkg: pkg}))
+		.pipe(rename({
+			suffix: ".min"
+		}))
 		.pipe(gulp.dest('css'))
-		.pipe(notify({ message: 'SCSS done, Master'}));
+		.pipe(notify({ message: 'SCSS file: <%= file.relative %> compiled, Master'}));
 });
 
 gulp.task('scripts',function() {
 	pkg.build = getMeDate();
-	return gulp.src('js/gnam_cases.include.js')
+	return gulp.src('_src/js/*.app.js')
 	.pipe(include())
-	.pipe(rename('gnam_cases.app.ck.js'))
 	.pipe(stripDebug())
 	.pipe(header(banner, {pkg: pkg}))
+	.pipe(rename({
+		suffix: ".ck"
+	}))
 	.pipe(gulp.dest("js"))
-	.pipe(notify({message: 'Scripts done.'}));
+	.pipe(notify({message: 'Script file: <%= file.relative %> compiled, sir!'}));
 })
 
 gulp.task('cleanCSS', function(){
 	return gulp.src(['css/gnam*.css'],{read: false}).pipe(rimraf());
 });
 gulp.task('cleanJS', function(){
-	return gulp.src(['js/gnam_cases.app.ck.js'],{read: false}).pipe(rimraf());
+	return gulp.src(['js/gnam_cases.*.js'],{read: false}).pipe(rimraf());
 });
 
 gulp.task('default', function() {
-	gulp.watch('scss/**/*.scss', ['cleanCSS','styles']);
-	gulp.watch(['js/gnam_cases.include.js','js/parts/**/*.js'],['cleanJS','scripts']);
+	gulp.watch('_src/scss/**/*.scss', ['cleanCSS','styles']);
+	gulp.watch(['_src/js/*.app.js','_src/js/parts/**/*.js'],['cleanJS','scripts']);
 });

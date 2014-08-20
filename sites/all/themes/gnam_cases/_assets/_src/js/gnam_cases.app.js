@@ -1,7 +1,5 @@
 /* Yale Case Studies base scripts.
- * Author: Square360
- * version 1.40
- * compiled with Gulp
+
  */
  
 // !----- Site Specific Custom JS parts -----
