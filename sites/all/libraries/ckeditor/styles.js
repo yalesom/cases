@@ -13,7 +13,7 @@
 // Otherwise it is strongly recommended to customize this file to match your
 // website requirements and design properly.
 
-CKEDITOR.stylesSet.add( 'default', [
+CKEDITOR.addstylesSet.add( 'drupal', [
 	/* Block Styles */
 
 	// These styles are already available in the "Format" combo ("format" plugin),
@@ -32,18 +32,6 @@ CKEDITOR.stylesSet.add( 'default', [
 	{ name: 'Address',			element: 'address' },
 	*/
 
-	{ name: 'Italic Title',		element: 'h2', styles: { 'font-style': 'italic' } },
-	{ name: 'Subtitle',			element: 'h3', styles: { 'color': '#aaa', 'font-style': 'italic' } },
-	{
-		name: 'Special Container',
-		element: 'div',
-		styles: {
-			padding: '5px 10px',
-			background: '#eee',
-			border: '1px solid #ccc'
-		}
-	},
-
 	/* Inline Styles */
 
 	// These are core styles available as toolbar buttons. You may opt enabling
@@ -56,7 +44,7 @@ CKEDITOR.stylesSet.add( 'default', [
 	{ name: 'Strikethrough',	element: 'strike' },
 	{ name: 'Subscript',		element: 'sub' },
 	{ name: 'Superscript',		element: 'sup' },
-	*/
+	
 
 	{ name: 'Marker',			element: 'span', attributes: { 'class': 'marker' } },
 
@@ -77,8 +65,9 @@ CKEDITOR.stylesSet.add( 'default', [
 
 	{ name: 'Language: RTL',	element: 'span', attributes: { 'dir': 'rtl' } },
 	{ name: 'Language: LTR',	element: 'span', attributes: { 'dir': 'ltr' } },
-
-	/* Object Styles */
+	*/
+	
+	/* Object Styles 
 
 	{
 		name: 'Styled image (left)',
@@ -107,6 +96,6 @@ CKEDITOR.stylesSet.add( 'default', [
 	},
 
 	{ name: 'Borderless Table',		element: 'table',	styles: { 'border-style': 'hidden', 'background-color': '#E6E6FA' } },
-	{ name: 'Square Bulleted List',	element: 'ul',		styles: { 'list-style-type': 'square' } }
+	{ name: 'Square Bulleted List',	element: 'ul',		styles: { 'list-style-type': 'square' } }*/
 ] );
 

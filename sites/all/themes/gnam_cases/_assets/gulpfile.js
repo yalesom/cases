@@ -42,12 +42,13 @@ gulp.task('styles',function() {
 	return gulp.src('_src/scss/gnam_cases.scss')
 		.pipe(compass({
 			project: path.join(__dirname,"."),
+			//config_file: 'config.rb',
 			css: '_src/temp',
 			sass: '_src/scss',
 			comments: function(){
 				return (pkg.environment == 'production') ? false : true;
 			},
-			environment: pkg.environment
+			environment: pkg.environment,
 		}))
 		.pipe(gulpif(pkg.environment == 'production', minifyCSS({keepSpecialComments: 0})))
 		.pipe(header(banner, {pkg: pkg}))
