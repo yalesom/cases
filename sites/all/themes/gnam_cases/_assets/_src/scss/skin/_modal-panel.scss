@@ -22,22 +22,22 @@
 	}
 
 	.tile-wrapper {
-		h3 {
-			color: $white;
-		}
-
 		color: $white;
 		max-width: 64em;
 		min-height: 15em;
 		height: auto;
 		overflow: hidden;
-		margin: 0 auto;
+		margin: 1rem auto;
 		position: relative;
 
 		background: $white url('../images/ajax-loader.gif') no-repeat center center;
+		
+		
+		
 
 		.tile-target {
 			margin-bottom: 4rem;
+			text-align: center;
 
 			.infographic-container {
 
@@ -50,6 +50,23 @@
 					font-size: .875rem;
 					display: block;
 					margin-top: 1rem;
+				}
+			}
+
+			.tile-content {
+				text-align: center;
+				overflow:  hidden;
+				position: relative;
+
+				h3 {
+					color: $white;
+				}
+
+				p {
+					text-align: left;
+					width: 80%;
+					line-height: 1.6rem;
+					margin: .5rem auto;
 				}
 			}
 		}

@@ -1,0 +1,16 @@
+.mediacore-video-container {
+	h3.modal-header {
+		display:none;
+	}
+
+	iframe {
+		margin: 0;
+	}
+
+	p {
+		overflow: hidden;
+		margin: 1rem auto;
+		color: $white;
+		width: 50%;
+	}
+}

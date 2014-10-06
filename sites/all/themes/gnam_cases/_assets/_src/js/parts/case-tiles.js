@@ -56,5 +56,5 @@
 	});
 
 	//Media Core iFrame unwrap
-	$('.mediacore-video-container iframe').unwrap();
+	//$('.mediacore-video-container iframe').unwrap();
 })(jQuery);

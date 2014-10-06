@@ -66,7 +66,7 @@ jQuery(document).ready(function($) {
 							break;
 
 							case 'mediacore-video-container':
-								$('#' + tileID).find('iframe').unwrap();
+								//$('#' + tileID).find('iframe').unwrap();
 							break;
 							/*case 'infographic-container':
 							break;*/

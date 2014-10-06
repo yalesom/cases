@@ -2557,3 +2557,20 @@ body.adminimal-backend .chosen-container-active .chosen-choices {
 body.adminimal-backend .chosen-container .chosen-results li.group-result {
 	background: #eaeaea;
 }
+
+#edit-field-access-control-und.form-radios {
+   -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+
+     -webkit-column-gap: 10px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 10px; /* Firefox */
+    column-gap: 10px;
+    border: 1px solid #dedede;
+}
+
+#edit-field-access-control-und.form-radios > div.form-type-radio {
+  display: list-item;
+  list-style: none;
+  padding-left:.25rem;
+}
