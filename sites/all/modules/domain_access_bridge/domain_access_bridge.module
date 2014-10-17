@@ -100,8 +100,10 @@ function domain_access_bridge_node_grants_alter(&$grants, $account, $op) {
   foreach ($domain_grants as $domain_realm => $domain_gids) {
     foreach ($access_grants as $access_realm => $access_gids) {
       foreach ($domain_gids as $domain_gid) {
+        // If realm is 'domain_id', use the global domain_id as domain_gid
+        $domain_gid = ($domain_realm == 'domain_id') ? $_domain['domain_id'] : $domain_gid;
         foreach ($access_gids as $access_gid) {
-          $gids[] = domain_access_bridge_get_grant_id($domain_realm, $_domain['domain_id'], $access_realm, $access_gid);
+          $gids[] = domain_access_bridge_get_grant_id($domain_realm, $domain_gid, $access_realm, $access_gid);
         }
       }
     }
