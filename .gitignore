@@ -36,3 +36,4 @@ codekit-config.json
 config.codekit
 .codekit-cache
 node_modules
+temp

@@ -13,6 +13,8 @@ function resizeHeader(){
 	} 
 	// Desktop dropdown toggle
 	else {
+		console.log('here');
+
 		// ! Test if header is open or closed
 		pageHeader = jQuery('#page-header');
 		if ( pageHeader.hasClass('closed') ){
@@ -58,7 +60,7 @@ jQuery('.toolbar #page-header').waypoint('sticky', {
 jQuery('#page-header').not('.toolbar #page-header').waypoint('sticky');
 
 var oneAtATime = true;
-jQuery('.node-type-book #main-content').waypoint(function(direction){
+jQuery('.node-type-book #main-content, .node-type-page #main-content').waypoint(function(direction){
 	if (direction === 'down' && oneAtATime) {
 		oneAtATime = false;
 		//console.log(direction);
