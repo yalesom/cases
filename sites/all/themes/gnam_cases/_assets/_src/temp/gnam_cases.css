@@ -8067,20 +8067,55 @@ body:last-child .sheetview .defaultPeer {
   filter: none;
 }
 
-/* line 2, ../scss/skin/_mediacore.scss */
+/* line 1, ../scss/skin/_mediacore.scss */
+.mediacore-video-container {
+  text-align: center;
+}
+/* line 3, ../scss/skin/_mediacore.scss */
 .mediacore-video-container h3.modal-header {
   display: none;
 }
-/* line 6, ../scss/skin/_mediacore.scss */
+/* line 7, ../scss/skin/_mediacore.scss */
 .mediacore-video-container iframe {
-  margin: 0;
+  margin: 0 auto;
 }
-/* line 10, ../scss/skin/_mediacore.scss */
+/* line 11, ../scss/skin/_mediacore.scss */
 .mediacore-video-container p {
   overflow: hidden;
   margin: 1rem auto;
+  color: #1f2021;
+  width: 65%;
+  text-align: left;
+}
+
+/* line 21, ../scss/skin/_mediacore.scss */
+.modal .tile-wrapper .tile-target .tile-content.mediacore-video-container {
+  padding-top: 2rem;
+}
+/* line 23, ../scss/skin/_mediacore.scss */
+.modal .tile-wrapper .tile-target .tile-content.mediacore-video-container p {
   color: #fff;
-  width: 50%;
+  width: 55%;
+}
+
+/* line 2, ../scss/skin/_modal-embedded-html.scss */
+.tile-content.html-embedded-content-container figure {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+}
+/* line 7, ../scss/skin/_modal-embedded-html.scss */
+.tile-content.html-embedded-content-container figure img {
+  max-width: 100% !important;
+}
+
+/* line 17, ../scss/skin/_modal-embedded-html.scss */
+.modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container p {
+  color: #fff;
+}
+/* line 21, ../scss/skin/_modal-embedded-html.scss */
+.modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h1, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h2, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h3, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h4, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h5, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h6 {
+  color: #fff;
 }
 
 /*# sourceMappingURL=gnam_cases.css.map */

@@ -1,16 +1,28 @@
 .mediacore-video-container {
+	text-align:  center;
 	h3.modal-header {
 		display:none;
 	}
 
 	iframe {
-		margin: 0;
+		margin: 0 auto;
 	}
 
 	p {
 		overflow: hidden;
 		margin: 1rem auto;
-		color: $white;
-		width: 50%;
+		color: $black;
+		width: 65%;
+		text-align: left;
+	}
+}
+
+.modal .tile-wrapper .tile-target .tile-content  {
+	&.mediacore-video-container  {
+		padding-top: 2rem;
+		p {
+			color: $white;
+			width: 55%;
+		}
 	}
 }
