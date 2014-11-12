@@ -72,7 +72,8 @@ figcaption {
 	font-style: normal;
 	font-weight: bold;
 	text-align: left;
-	display: inline-block;
+	display: table-caption;
+  	caption-side: bottom;
 	margin-bottom: .5rem;
 	margin-top: .5rem;
 }
