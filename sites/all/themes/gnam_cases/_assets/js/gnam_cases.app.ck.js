@@ -1,7 +1,7 @@
 /**
  * GNAM - Merge of Cases Platform and GNAM styles
  * @version 0.1.0
- * @build 2014-11-12 | 123122
+ * @build 2014-11-12 | 134953
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
 		}
 	});
 
-	void 0;
+	console.info(jQuery('div.show-sponsor').text());
 	if(jQuery('div.show-sponsor').text() == '0'){ 
 		jQuery('div.sponsor').hide(); 
 	}
@@ -63,7 +63,7 @@ function resizeHeader(){
 	} 
 	// Desktop dropdown toggle
 	else {
-		void 0;
+		console.log('here');
 
 		// ! Test if header is open or closed
 		pageHeader = jQuery('#page-header');
@@ -230,7 +230,7 @@ function readInChartCSV() {
 		dataType: 'text',
 		success: function(result) {
 			var parseResult = $.parse(result,{header: false, dynamicTyping: true})
-			void 0;
+			console.info(parseResult);
 			var chartArray = parseResult.results;
 
 			$('#chart-data').html(result);
@@ -250,7 +250,7 @@ function readInChartCSV() {
 			};
 		},
 		error: function(error) {
-			void 0
+			console.log(error.status + ' ' + error.statusText)
 		}
 	});
 }
@@ -617,13 +617,34 @@ function loadGallery() {
 						autoControls: options.showplaypause,
 						autoControlsCombine: true,
 						onSliderLoad: function() {
-							void 0
+							console.log('loaded')
 						}
 					});
 		return mySlider;
 }
 
-//= require "../../../../ysm_cases/_assets/js/aprts/figures.js"
+// JQuery page modifications for figures with images and captions
+
+jQuery(document).ready(function($) {
+	//set the figure captions width to match the image
+	$('.field-name-body figure').each(function(){
+		var thisIMG = $(this).find('img');
+
+		console.info(thisIMG);
+		var styleString = thisIMG.width() + 'px';
+
+		$(this).attr('width',styleString);
+
+		//find float info
+		if ($(this).attr('style') == 'float:left') {
+			$(this).addClass('left');
+		}
+		if ($(this).attr('style') == 'float:right') {
+			$(this).addClass('right');
+		}
+	});
+});
+
 //detect ie8 and show modal to suggest chrome
 jQuery(document).ready(function($){
 	if ($('html.lt-ie9').length > 0){
@@ -795,7 +816,7 @@ jQuery(document).ready(function($) {
 	//remove icon from tiles with no image and no icon-class
 	$('.case-tiles .tile.no-img').each(function(){
 		$(this).find('i').each(function(){
-			void 0;
+			console.info($(this).attr('class'));
 			if ($(this).attr('class') == '') {
 				$(this).closest('div.tile.no-img').addClass('no-icon');
 			}
@@ -806,7 +827,7 @@ jQuery(document).ready(function($) {
 	// !Count number of tiles and set related width class
 	$('.document-tiles').each(function(){
 		var container = $(this);
-		void 0;
+		console.info('looking at caae tiles');
 		container.addClass('one-third');
 
 	});

@@ -63,7 +63,7 @@ gulp.task('scripts',function() {
 	pkg.build = getMeDate();
 	return gulp.src('_src/js/*.app.js')
 	.pipe(include())
-	.pipe(stripDebug())
+	.pipe(gulpif(pkg.environment == 'production', stripDebug()))
 	.pipe(header(banner, {pkg: pkg}))
 	.pipe(rename({
 		suffix: ".ck"
