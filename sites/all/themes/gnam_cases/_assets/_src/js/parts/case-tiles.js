@@ -51,7 +51,7 @@
 
 	});
 	// !Responsive images
-	$('.case-tiles img:not(.loaded)').each(function() {
+	$('.case-tiles img:not(.loaded), .field-collection-item-field-primary-image img:not(.loaded)').each(function() {
 		$(this).addClass('loaded').removeAttr('width').removeAttr('height').css({'height':'', 'width':''});
 	});
 
