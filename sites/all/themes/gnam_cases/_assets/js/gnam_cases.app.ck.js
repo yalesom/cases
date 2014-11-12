@@ -1,14 +1,10 @@
 /**
  * GNAM - Merge of Cases Platform and GNAM styles
  * @version 0.1.0
- * @build 2014-10-22 | 140458
+ * @build 2014-11-12 | 121320
  * @author Square360, Inc.
  * @client Yale School of Management
  */
-/* Yale Case Studies base scripts.
-
- */
- 
 // !----- Site Specific Custom JS parts -----
 // !Identify desktop devices
 var mobile = IsMobile.detect();
@@ -706,7 +702,7 @@ jQuery(document).ready(function($) {
 							break;
 
 							case 'mediacore-video-container':
-								$('#' + tileID).find('iframe').unwrap();
+								//$('#' + tileID).find('iframe').unwrap();
 							break;
 							/*case 'infographic-container':
 							break;*/
@@ -820,7 +816,7 @@ jQuery(document).ready(function($) {
 	});
 
 	//Media Core iFrame unwrap
-	$('.mediacore-video-container iframe').unwrap();
+	//$('.mediacore-video-container iframe').unwrap();
 })(jQuery);
 
 (function($) {
