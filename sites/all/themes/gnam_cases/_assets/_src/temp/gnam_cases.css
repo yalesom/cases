@@ -8123,7 +8123,7 @@ body:last-child .sheetview .defaultPeer {
 .main-content .field-name-body figure {
   overflow: hidden;
   margin-bottom: 2rem;
-  display: table;
+  display: inline-block;
 }
 /* line 8, ../scss/skin/_main-content-figures.scss */
 .main-content .field-name-body figure.left {
