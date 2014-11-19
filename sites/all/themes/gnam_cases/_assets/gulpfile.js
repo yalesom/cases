@@ -43,7 +43,7 @@ gulp.task('styles',function() {
 		.pipe(compass({
 			project: path.join(__dirname,"."),
 			//config_file: 'config.rb',
-			css: '_src/temp',
+			css: '_src/css',
 			sass: '_src/scss',
 			comments: function(){
 				return (pkg.environment == 'production') ? true : false;

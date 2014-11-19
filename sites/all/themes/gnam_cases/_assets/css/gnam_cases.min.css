@@ -1,7 +1,7 @@
 /**
  * GNAM - Merge of Cases Platform and GNAM styles
  * @version 0.1.0
- * @build 2014-11-12 | 144007
+ * @build 2014-11-19 | 152707
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -1130,7 +1130,7 @@ hgroup .hN {
  */
 /* line 20, ../../../../ysm_cases/_assets/scss/inuit.css-master/base/_quotes.scss */
 q {
-  quotes: "‘" "’" "" "";
+  quotes: "‘" "’" "\\201C" "\\201D";
 }
 /* line 23, ../../../../ysm_cases/_assets/scss/inuit.css-master/base/_quotes.scss */
 q:before {
@@ -1155,11 +1155,11 @@ q q:after {
 
 /* line 42, ../../../../ysm_cases/_assets/scss/inuit.css-master/base/_quotes.scss */
 blockquote {
-  quotes: "" "";
+  quotes: "\\201C" "\\201D";
 }
 /* line 45, ../../../../ysm_cases/_assets/scss/inuit.css-master/base/_quotes.scss */
 blockquote p:before {
-  content: "";
+  content: "\\201C";
   content: open-quote;
 }
 /* line 49, ../../../../ysm_cases/_assets/scss/inuit.css-master/base/_quotes.scss */
@@ -1169,7 +1169,7 @@ blockquote p:after {
 }
 /* line 53, ../../../../ysm_cases/_assets/scss/inuit.css-master/base/_quotes.scss */
 blockquote p:last-of-type:after {
-  content: "";
+  content: "\\201D";
   content: close-quote;
 }
 /* line 58, ../../../../ysm_cases/_assets/scss/inuit.css-master/base/_quotes.scss */
@@ -8145,5 +8145,3 @@ body:last-child .sheetview .defaultPeer {
   width: 100%;
   white-space: normal;
 }
-
-/*# sourceMappingURL=gnam_cases.css.map */

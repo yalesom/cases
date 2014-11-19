@@ -1257,8 +1257,6 @@ function ajax_command_update_build_id($form) {
     'new' => $form['#build_id'],
   );
 }
-<<<<<<< HEAD
-=======
 
 /**
  * Creates a Drupal Ajax 'add_css' command.
@@ -1282,4 +1280,4 @@ function ajax_command_add_css($styles) {
     'data' => $styles,
   );
 }
->>>>>>> b85f15d738a51db394459de4aca4c2bc9205b9da
+
