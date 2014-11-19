@@ -1,10 +1,3 @@
-/**
- * Yale School of Management, case studies custom stylesheet.
- * Author: Square360
- * Version: 1.2
- *
- */
-
 /* !Libraries ========================*/
 @import "compass/css3";           // Uncomment to use CSS3 mixins (http://compass-style.org/reference/compass/css3/)
 // @import "partials/mixins";        // Uncomment to call your own mixins partial (check your /partials directory)
@@ -18,6 +11,7 @@
 @import "inuit.css-master/inuit";
 
 /*	!Theme styles ============ */
+@import "skin/ysm118-icomoon";
 @import "skin/common";
 @import "skin/structure";
 @import "skin/admin";

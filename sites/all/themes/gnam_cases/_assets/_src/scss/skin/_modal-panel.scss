@@ -1,0 +1,97 @@
+.modal {
+	padding-top: 4.5rem;
+	top: 0;
+	position: fixed;
+	background-color: rgba(#000, 0.8);
+	height: 100%;
+	width: 100%;
+
+	z-index: 100;
+
+	&.open {
+		// @include transition(all .25s ease-out);
+		
+		.tile-wrapper {
+			.icon-remove{
+				opacity: 1;
+			}
+		}
+		+ .section-wrap {
+			padding-top: 1.75rem;
+		}
+	}
+
+	.tile-wrapper {
+		color: $white;
+		max-width: 64em;
+		min-height: 15em;
+		height: auto;
+		overflow: hidden;
+		margin: 1rem auto;
+		position: relative;
+
+		background: $white url('../images/ajax-loader.gif') no-repeat center center;
+		
+		
+		
+
+		.tile-target {
+			margin-bottom: 4rem;
+			text-align: center;
+
+			.infographic-container {
+
+				img.scaled {
+					width: 100%;
+				}
+
+				.infographic-caption {
+					color: $white;
+					font-size: .875rem;
+					display: block;
+					margin-top: 1rem;
+				}
+			}
+
+			.tile-content {
+				text-align: center;
+				overflow:  hidden;
+				position: relative;
+
+				h3 {
+					color: $white;
+				}
+
+				p {
+					text-align: left;
+					width: 80%;
+					line-height: 1.6rem;
+					margin: .5rem auto;
+				}
+			}
+		}
+
+		// !Close button
+		a {
+			color: $white;
+			&:hover { color: $mediumGrey; }
+
+			&.icon-remove {
+				opacity: 0;
+				border: 1px solid $white;
+				cursor: pointer;
+				font-size: 1.25rem;
+				line-height: 1rem;
+				padding: 0.5rem;
+				margin-top: .5rem;
+				text-align: center;
+				position: absolute;
+				right: 0em;
+				bottom: .5em;
+				@include border-radius(100px);
+				@include transition(all 0.25s ease-in);
+				&:hover { border-color: $mediumGrey; }
+			}
+		}
+	}	
+}

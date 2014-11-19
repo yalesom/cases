@@ -1,0 +1,22 @@
+.main-content {
+	.field-name-body{
+		figure {
+			overflow: hidden;
+			margin-bottom: 2rem;
+			display: inline-block;
+
+			&.left {
+				margin-right:  2rem;
+			}
+
+			&.right {
+				margin-left: 2rem;
+			}
+
+			figcaption {
+				width: 100%;
+				white-space: normal;
+			}
+		}
+	}
+} 

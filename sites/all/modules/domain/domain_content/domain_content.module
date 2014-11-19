@@ -29,15 +29,17 @@ function domain_content_menu() {
     'access callback' => 'domain_content_menu_check',
     'file' => 'domain_content.admin.inc',
   );
-  $items['admin/domain/content/all'] = array(
-    'title' => 'Content assigned to all affiliates',
-    'page callback' => 'domain_content_view',
-    'page arguments' => array(NULL, TRUE),
-    'access callback' => 'domain_content_menu_check',
-    'file' => 'domain_content.admin.inc',
-    'description' => 'View content assigned to all affiliate sites.',
-    'weight' => -10
-  );
+  if (variable_get('domain_use_all_affiliates', 1)) {
+    $items['admin/domain/content/all'] = array(
+      'title' => 'Content assigned to all affiliates',
+      'page callback' => 'domain_content_view',
+      'page arguments' => array(NULL, TRUE),
+      'access callback' => 'domain_content_menu_check',
+      'file' => 'domain_content.admin.inc',
+      'description' => 'View content assigned to all affiliate sites.',
+      'weight' => -10
+    );
+  }
   // Generate the list of active domains as menu items.
   // We must wrap this check, otherwise the uninstall fails.
   // See http://drupal.org/node/1003430.
@@ -219,15 +221,17 @@ function domain_content_add_form_widget(&$form) {
     '#description' => t('Defines how new grants will be applied to the updated nodes.'),
     '#default_value' => 0,
   );
-  $form['domain']['domain_site'] = array(
-    '#type' => 'checkbox',
-    '#prefix' => t('<p><b>Publishing options:</b>'),
-    '#suffix' => '</p>',
-    '#title' => t('Send to all affiliates'),
-    '#required' => FALSE,
-    '#description' => t('Select if this content can be shown to all affiliates.  This setting will override the options below.'),
-    '#default_value' => DOMAIN_INSTALL_RULE,
-  );
+  if (variable_get('domain_use_all_affiliates', 1)) {
+    $form['domain']['domain_site'] = array(
+      '#type' => 'checkbox',
+      '#prefix' => t('<p><b>Publishing options:</b>'),
+      '#suffix' => '</p>',
+      '#title' => t('Send to all affiliates'),
+      '#required' => FALSE,
+      '#description' => t('Select if this content can be shown to all affiliates.  This setting will override the options below.'),
+      '#default_value' => DOMAIN_INSTALL_RULE,
+    );
+  }
   $form['domain']['domains'] = array(
     '#type' => empty($format) ? 'checkboxes' : 'select',
     '#title' => t('Publish to'),
@@ -253,7 +257,7 @@ function domain_content_process_nodes($form, &$form_state) {
   }
   $options = array();
   $options['domain_site'] = FALSE;
-  if ($form_state['values']['domain_site']) {
+  if (!empty($form_state['values']['domain_site'])) {
     $options['domain_site'] = TRUE;
   }
   $options['domain_id'] = array_filter($form_state['values']['domains']);
