@@ -11,7 +11,6 @@ $isInline 	= $fields['field_inline_show']->content;
 $inlineHTML = $fields['field_inline_html']->content;
 ?>
 
-
 <?php if ($isInline == 0 and $href != ''): ?>
 
 	<div class="tile">
