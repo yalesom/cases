@@ -8113,8 +8113,14 @@ body:last-child .sheetview .defaultPeer {
 /* line 17, ../scss/skin/_modal-embedded-html.scss */
 .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container p {
   color: #fff;
+  padding: 0 10%;
+  width: 100%;
 }
-/* line 21, ../scss/skin/_modal-embedded-html.scss */
+/* line 23, ../scss/skin/_modal-embedded-html.scss */
+.modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container img {
+  max-width: 100%;
+}
+/* line 25, ../scss/skin/_modal-embedded-html.scss */
 .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h1, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h2, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h3, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h4, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h5, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h6 {
   color: #fff;
 }
@@ -8122,7 +8128,7 @@ body:last-child .sheetview .defaultPeer {
 /* line 3, ../scss/skin/_main-content-figures.scss */
 .main-content .field-name-body figure {
   overflow: hidden;
-  margin-bottom: 2rem;
+  margin-bottom: 0.3rem;
   display: inline-block;
   position: relative;
 }
@@ -8130,13 +8136,14 @@ body:last-child .sheetview .defaultPeer {
 .main-content .field-name-body figure.left {
   margin-right: 2rem;
 }
-/* line 13, ../scss/skin/_main-content-figures.scss */
+/* line 10, ../scss/skin/_main-content-figures.scss */
 .main-content .field-name-body figure.right {
   margin-left: 2rem;
 }
-/* line 17, ../scss/skin/_main-content-figures.scss */
+/* line 12, ../scss/skin/_main-content-figures.scss */
 .main-content .field-name-body figure figcaption {
   width: 100%;
   white-space: normal;
   display: inline-block;
+  line-height: 1.25rem;
 }

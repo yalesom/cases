@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2014-10-22 | 153526
+ * @build 2014-11-21 | 105842
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -277,7 +277,7 @@ function scrollableElement(els) {
 	});
 
 	// !Responsive images
-	$('img:not(.loaded)').each(function() {
+	$('.case-tiles img:not(.loaded)').each(function() {
 		$(this).addClass('loaded').removeAttr('width').removeAttr('height').css({'height':'', 'width':''});
 	});
 
@@ -821,21 +821,28 @@ function loadGallery() {
 		return mySlider;
 }
 
+// JQuery page modifications for figures with images and captions
+
 jQuery(document).ready(function($) {
 	//set the figure captions width to match the image
-	$('img.has-caption').each(function(){
-		var thisIMG = $(this);
-		var classString = 'figure';
-		if (thisIMG.css('float') != undefined ) { classString += ' figure-' + thisIMG.css('float')};
-		//console.info(classString);
-		var styleString = 'width: ' + thisIMG.width() + 'px';
+	$('.field-name-body figure').each(function(){
+		var thisIMG = $(this).find('img');
 
-		var figureDOM = "<figure class='" + classString +"' style='" + styleString + "'></figure>";
-		//console.info(figureDOM);
-		thisIMG.wrap(figureDOM);
-		
-		var captionDOM = '<figcaption>' + thisIMG.attr('alt') + '</figcaption>';
-		thisIMG.parent('figure').append(captionDOM);
+		void 0;
+		var styleString = ' ; width: ' + thisIMG.width() + 'px;';
+
+		//$(this).attr('width',styleString);
+
+		//find float info
+		if ($(this).attr('style') == 'float:left') {
+			$(this).addClass('left');
+			void 0;
+			$(this).attr('style', $(this).attr('style') + styleString);
+		}
+		if ($(this).attr('style') == 'float:right') {
+			$(this).addClass('right');
+			$(this).attr('style', $(this).attr('style') + styleString);
+		}
 	});
 });
 

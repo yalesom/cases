@@ -1,62 +1,62 @@
 /**
  * Hijack tile a hrefs not tittles
  */
+var tileID;
+
 jQuery(document).ready(function($) {
-	$('.view-document-grid').find('.tile').each(function(){
-		$(this).find('a').click(function(evt){
+	jQuery('.view-document-grid').find('.tile').each(function(){
+		jQuery(this).find('a').click(function(evt){
 			evt.preventDefault();
 
 			// disable page scroll
-			$('html').css('overflow', 'hidden');
+			jQuery('html').css('overflow', 'hidden');
 
-			var url = $(this).attr('href'),
+			var url = jQuery(this).attr('href'),
 				template,
-				tileID,
 				containerID;
 
 			if (url.indexOf(location.host) == '-1' || url.indexOf('files') > 0) {
 				window.open(url);
 			
-			} else if ($(this).hasClass('in-use')) {
-				return false;
+			// } else if ($(this).hasClass('in-use')) {
+			// 	return false;
 
 			} else {
 				// clone the template
-				template 	= $('#template').clone();
+				template 	= jQuery('#template').clone();
 				
 				// create unique ID
 				uid			= Math.floor(Math.random()*100)+1;
 
 				// generate a tileID
 				tileID		= 'tile-' + uid;
-
-				// generate a buttonID
-				buttonID	= 'button-' + uid;
-
-				// update button attributes
-				$(this).attr('id', buttonID);
-				$(this).attr('class', 'in-use');
 				
 				// update the cloned template with the new tileID
 				template.attr('id', tileID);
 				
 				// add the cloned template the DOM structure
-				$('#main-content').before(template);
+				jQuery('#main-content').before(template);
 
 				//timer delay for a tad
 				setTimeout(function() {
-					$('#' + tileID).addClass('open');
+					jQuery('#' + tileID).addClass('open');
 				},500);
 				
-				$('#' + tileID + ' .tile-target').load(url + ' .tile-content', function(response, status, xhr) {
+				jQuery('#' + tileID + ' .tile-target').load(url + ' .tile-content', function(response, status, xhr) {
 					if (status == 'success') {
-						containerID = $('#' + $('#' + tileID).find('.tile-content').attr('id'));
+						jQuery(document).bind('keyup', function(key) {
+							if (key.keyCode == 27) {
+								closeModalWindow();
+							}
+						});
+						
+						containerID = jQuery('#' + jQuery('#' + tileID).find('.tile-content').attr('id'));
 
-						$('html, body').animate({ scrollTop: $('#' + tileID).offset().top + $('#page-header').height }, 1000);
+						jQuery('html, body').animate({ scrollTop: jQuery('#' + tileID).offset().top + jQuery('#page-header').height }, 1000);
 
-						switch($('#' + tileID).find('.tile-content').attr('class').split(' ')[0]) {
+						switch(jQuery('#' + tileID).find('.tile-content').attr('class').split(' ')[0]) {
 							case 'chart-container':
-								chartContainer 		= $('#' + $(this).find('.chart-target').attr('id'));
+								chartContainer 		= jQuery('#' + jQuery(this).find('.chart-target').attr('id'));
 								readInChartCSV();
 							break;
 							
@@ -66,7 +66,7 @@ jQuery(document).ready(function($) {
 							break;
 
 							case 'mediacore-video-container':
-								//$('#' + tileID).find('iframe').unwrap();
+								//jQuery('#' + tileID).find('iframe').unwrap();
 							break;
 							/*case 'infographic-container':
 							break;*/
@@ -97,7 +97,7 @@ jQuery(document).ready(function($) {
 							break;
 						};
 
-						$('#' + tileID + ' .tile-wrapper').css('background', 'none');
+						jQuery('#' + tileID + ' .tile-wrapper').css('background', 'none');
 					}
 				});
 			}
@@ -105,19 +105,19 @@ jQuery(document).ready(function($) {
 	});
 	
 	// remove the modal window
-	$(document).on('click', '.modal-close', function(evt) {
+	jQuery(document).on('click', '.modal-close', function(evt) {
 		evt.preventDefault();
 
-
-		// remove the "in-use" class from the correct button ID
-		// using the closed modal ID
-		$('#button-' + $(this).closest('.modal').attr('id').split('-')[1]).removeClass('in-use');
-		
-		// destory the modal
-		$(this).closest('.modal').remove();
-
-		// enable page scroll
-		$('html').css('overflow', 'auto');
-
+		closeModalWindow();
 	});
 });
+
+function closeModalWindow() {
+	// destory the modal
+	jQuery('#' + tileID).remove();
+
+	// enable page scroll
+	jQuery('html').css('overflow', 'auto');
+
+	jQuery(document).unbind('keyup');
+}
