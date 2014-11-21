@@ -6,16 +6,19 @@ jQuery(document).ready(function($) {
 		var thisIMG = $(this).find('img');
 
 		console.info(thisIMG);
-		var styleString = thisIMG.width() + 'px';
+		var styleString = ' ; width: ' + thisIMG.width() + 'px;';
 
-		$(this).attr('width',styleString);
+		//$(this).attr('width',styleString);
 
 		//find float info
 		if ($(this).attr('style') == 'float:left') {
 			$(this).addClass('left');
+			console.info(styleString);
+			$(this).attr('style', $(this).attr('style') + styleString);
 		}
 		if ($(this).attr('style') == 'float:right') {
 			$(this).addClass('right');
+			$(this).attr('style', $(this).attr('style') + styleString);
 		}
 	});
 });

@@ -4,6 +4,7 @@
 			overflow: hidden;
 			margin-bottom: 2rem;
 			display: inline-block;
+			position: relative;
 
 			&.left {
 				margin-right:  2rem;
@@ -16,6 +17,7 @@
 			figcaption {
 				width: 100%;
 				white-space: normal;
+				display: inline-block;
 			}
 		}
 	}

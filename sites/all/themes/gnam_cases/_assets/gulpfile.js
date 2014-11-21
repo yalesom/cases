@@ -46,7 +46,7 @@ gulp.task('styles',function() {
 			css: '_src/css',
 			sass: '_src/scss',
 			comments: function(){
-				return (pkg.environment == 'production') ? true : false;
+				return (pkg.environment == 'production') ? false : true;
 			},
 			environment: pkg.environment,
 		}))

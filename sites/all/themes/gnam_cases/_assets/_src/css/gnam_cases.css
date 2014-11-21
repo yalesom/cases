@@ -8124,17 +8124,19 @@ body:last-child .sheetview .defaultPeer {
   overflow: hidden;
   margin-bottom: 2rem;
   display: inline-block;
+  position: relative;
 }
-/* line 8, ../scss/skin/_main-content-figures.scss */
+/* line 9, ../scss/skin/_main-content-figures.scss */
 .main-content .field-name-body figure.left {
   margin-right: 2rem;
 }
-/* line 12, ../scss/skin/_main-content-figures.scss */
+/* line 13, ../scss/skin/_main-content-figures.scss */
 .main-content .field-name-body figure.right {
   margin-left: 2rem;
 }
-/* line 16, ../scss/skin/_main-content-figures.scss */
+/* line 17, ../scss/skin/_main-content-figures.scss */
 .main-content .field-name-body figure figcaption {
   width: 100%;
   white-space: normal;
+  display: inline-block;
 }
