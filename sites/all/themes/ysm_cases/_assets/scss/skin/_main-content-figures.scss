@@ -1,0 +1,20 @@
+.main-content {
+	.field-name-body{
+		figure {
+			overflow: hidden;
+			margin-bottom: 0.3rem;
+			display: inline-block;
+			position: relative;
+
+			&.left { margin-right: 2rem; }
+			&.right { margin-left: 2rem; }
+
+			figcaption {
+				width: 100%;
+				white-space: normal;
+				display: inline-block;
+				line-height: 1.25rem;
+			}
+		}
+	}
+} 
