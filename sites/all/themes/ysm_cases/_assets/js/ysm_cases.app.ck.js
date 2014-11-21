@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2014-11-21 | 104634
+ * @build 2014-11-21 | 105842
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -829,16 +829,19 @@ jQuery(document).ready(function($) {
 		var thisIMG = $(this).find('img');
 
 		void 0;
-		var styleString = thisIMG.width() + 'px';
+		var styleString = ' ; width: ' + thisIMG.width() + 'px;';
 
-		$(this).attr('width',styleString);
+		//$(this).attr('width',styleString);
 
 		//find float info
 		if ($(this).attr('style') == 'float:left') {
 			$(this).addClass('left');
+			void 0;
+			$(this).attr('style', $(this).attr('style') + styleString);
 		}
 		if ($(this).attr('style') == 'float:right') {
 			$(this).addClass('right');
+			$(this).attr('style', $(this).attr('style') + styleString);
 		}
 	});
 });
