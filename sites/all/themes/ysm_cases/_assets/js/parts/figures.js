@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
 		var myImgWidth = myImg.attr('width');
 
 		if (myImgWidth > 725) {myImgWidth = 725;}
-		var myStyleString = 'width: ' . myImgWidth . 'px;');
+		var myStyleString = 'width: ' + myImgWidth + 'px;';
 
 		$(this).attr('style',myStyleString);
  	});
