@@ -21,15 +21,4 @@ jQuery(document).ready(function($) {
 			$(this).attr('style', $(this).attr('style') + styleString);
 		}
 	});
-
-	$('#main-content .node-page figure.primary-image').each(function(){
-		//pull the image width from attributes and add it to the css of the figure
-		var myImg = $(this).find('.field-collection-item-field-primary-image img');
-		var myImgWidth = myImg.attr('width');
-
-		if (myImgWidth > 725) {myImgWidth = 725;}
-		var myStyleString = 'width: ' . myImgWidth . 'px;');
-
-		$(this).attr('style',myStyleString);
- 	});
 });
