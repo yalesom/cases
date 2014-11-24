@@ -17,7 +17,7 @@
 		width: auto;
 		background: white !important;
 		vertical-align: top;
-		@include single-box-shadow(rgba(0,0,0,0.3),2px,2px,2px,1px,false);
+		@include single-box-shadow(2px,2px,2px,1px,rgba(0,0,0,0.3),false);
 
 		tbody { border: none; }
 
@@ -81,7 +81,7 @@
 		}
 	}
 	.defaultPeer {
-		@include single-box-shadow(blue,0,0,0,2px,true);
+		@include single-box-shadow(0,0,0,2px,blue,true);
 	}
 }
 

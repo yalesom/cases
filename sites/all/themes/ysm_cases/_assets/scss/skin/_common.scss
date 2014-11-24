@@ -64,6 +64,13 @@ figure {
 		float: left;
 		margin-right: 2rem;
 	}
+
+	&.primary-image {
+		float: left;
+		margin-right: 2rem;
+		max-width: 725px;
+		overflow: hidden;
+	}
 }
 figcaption {
 	color: $mediumGrey;
@@ -72,8 +79,6 @@ figcaption {
 	font-style: normal;
 	font-weight: bold;
 	text-align: left;
-	display: table-caption;
-  	caption-side: bottom;
 	margin-bottom: .5rem;
 	margin-top: .5rem;
 }

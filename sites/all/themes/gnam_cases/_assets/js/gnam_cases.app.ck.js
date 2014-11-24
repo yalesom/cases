@@ -1,7 +1,7 @@
 /**
  * GNAM - Merge of Cases Platform and GNAM styles
  * @version 0.1.0
- * @build 2014-11-21 | 114038
+ * @build 2014-11-24 | 102815
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -623,31 +623,7 @@ function loadGallery() {
 		return mySlider;
 }
 
-// JQuery page modifications for figures with images and captions
-
-jQuery(document).ready(function($) {
-	//set the figure captions width to match the image
-	$('.field-name-body figure').each(function(){
-		var thisIMG = $(this).find('img');
-
-		console.info(thisIMG);
-		var styleString = ' ; width: ' + thisIMG.width() + 'px;';
-
-		//$(this).attr('width',styleString);
-
-		//find float info
-		if ($(this).attr('style') == 'float:left') {
-			$(this).addClass('left');
-			console.info(styleString);
-			$(this).attr('style', $(this).attr('style') + styleString);
-		}
-		if ($(this).attr('style') == 'float:right') {
-			$(this).addClass('right');
-			$(this).attr('style', $(this).attr('style') + styleString);
-		}
-	});
-});
-
+//= require ".parts/figures.js"
 //detect ie8 and show modal to suggest chrome
 jQuery(document).ready(function($){
 	if ($('html.lt-ie9').length > 0){
@@ -875,5 +851,3 @@ function closeModalWindow() {
 		});
 	});
 }(jQuery));
-
-
