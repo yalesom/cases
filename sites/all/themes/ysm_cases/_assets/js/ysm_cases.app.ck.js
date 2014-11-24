@@ -1,25 +1,11 @@
-/* Yale Case Studies base scripts.
- * Author: Square360
- * square360.com
- *	version 1.1
+/**
+ * YaleSOM - Cases Platform
+ * @version 0.1.0
+ * @build 2014-11-24 | 104321
+ * @author Square360, Inc.
+ * @client Yale School of Management
  */
- 
-
-
 // !----- Site Specific Custom JS parts -----
-// @codekit-append "parts/page-layout.js";
-// @codekit-append "parts/headers.js";
-// @codekit-append "parts/case-titles.js";
-// @codekit-append "parts/jquery.highcharts.plotter.js"
-// @codekit-append "parts/document-tiles.js"
-// @codekit-append "parts/jquery.loadGallery.js"
-// @codekit-append "parts/figures.js"
-// @codekit-append "parts/browser-detect.js"
-
-/* **********************************************
-     Begin page-layout.js
-********************************************** */
-
 // !Identify desktop devices
 var mobile = IsMobile.detect();
 if(!mobile){
@@ -53,7 +39,7 @@ jQuery(document).ready(function($) {
 		}
 	});
 
-	console.info(jQuery('div.show-sponsor').text());
+	void 0;
 	if(jQuery('div.show-sponsor').text() == '0'){ 
 		jQuery('div.sponsor').hide(); 
 	}
@@ -61,10 +47,6 @@ jQuery(document).ready(function($) {
 
 // !Call resize
 jQuery(window).bind("resize orientationchange", pageResize);
-
-/* **********************************************
-     Begin headers.js
-********************************************** */
 
 //(function($) {
 /*
@@ -81,12 +63,13 @@ function resizeHeader(){
 	} 
 	// Desktop dropdown toggle
 	else {
+		void 0;
+
 		// ! Test if header is open or closed
 		pageHeader = jQuery('#page-header');
 		if ( pageHeader.hasClass('closed') ){
 			oneAtATime = true;
-			pageHeader.removeClass('closed')
-			.find('.primary-nav').height(0).show();
+			pageHeader.removeClass('closed').find('.primary-nav').height(0).show();
 			headerHeight = pageHeader.find('.section-wrap').outerHeight(true) + pageHeader.find('.primary-nav > .block').outerHeight(true);
 			navHeight = pageHeader.find('.primary-nav > .block').outerHeight(true);
 		} else {
@@ -127,7 +110,7 @@ jQuery('.toolbar #page-header').waypoint('sticky', {
 jQuery('#page-header').not('.toolbar #page-header').waypoint('sticky');
 
 var oneAtATime = true;
-jQuery('.node-type-book #main-content').waypoint(function(direction){
+jQuery('.node-type-book #main-content, .node-type-page #main-content').waypoint(function(direction){
 	if (direction === 'down' && oneAtATime) {
 		oneAtATime = false;
 		//console.log(direction);
@@ -167,7 +150,7 @@ jQuery('#page-header .primary-nav').height( jQuery('#page-header .primary-nav > 
 jQuery('#page-header').parent().height( jQuery('#page-header .section-wrap').outerHeight(true) );
 
 // ! Set conditions for interior 
-jQuery('#page-header').not('.node-type-book  #page-header').addClass('overlay').addClass('closed');
+// jQuery('#page-header').not('.node-type-book  #page-header').addClass('overlay').addClass('closed');
 
 // !Navigation click/touch event
 jQuery('.logged-in #page-header, .logged-in .primary-nav').bind('touch click', function(){
@@ -219,10 +202,6 @@ function scrollableElement(els) {
 }
 //})(jQuery);
 
-/* **********************************************
-     Begin case-titles.js
-********************************************** */
-
 (function($) {
 	/*
 	* Case tile scripts
@@ -259,7 +238,7 @@ function scrollableElement(els) {
 	//remove icon from tiles with no image and no icon-class
 	$('.case-tiles .tile.no-img').each(function(){
 		$(this).find('i').each(function(){
-			console.info($(this).attr('class'));
+			void 0;
 			if ($(this).attr('class') == '') {
 				$(this).closest('div.tile.no-img').addClass('no-icon');
 			}
@@ -268,29 +247,43 @@ function scrollableElement(els) {
 
 
 	// !Count number of tiles and set related width class
-	$('.document-tiles').each(function(){
+	// $('.document-tiles').each(function(){
+	// 	var container = $(this);
+	// 	container.addClass('processed');
+	// 	if ( container.find('.view-content').children().length == 1 ){
+	// 		container.addClass('one-sixth');
+	// 	} else if ( container.find('.view-content').children().length == 2 ){
+	// 		container.addClass('one-third');
+	// 	} else if( container.find('.view-content').children().length > 2 ){
+	// 		container.addClass('one-half');
+	// 	}
+	// });
+
+	// read the first tile and checks it's classes
+	$('.document-tiles').each(function() {
 		var container = $(this);
+
 		container.addClass('processed');
-		if ( container.find('.view-content').children().length == 1 ){
-			container.addClass('one-sixth');
-		} else if ( container.find('.view-content').children().length == 2 ){
+
+		if (container.find('.view-content .tile').first().hasClass('tile-1of1')) {
+			container.addClass('one-sixth');	
+		
+		} else if (container.find('.view-content .tile').first().hasClass('tile-1of2')) {
 			container.addClass('one-third');
-		} else if( container.find('.view-content').children().length > 2 ){
+
+		} else if (container.find('.view-content .tile').first().hasClass('tile-1of3')) {
 			container.addClass('one-half');
 		}
 	});
+
 	// !Responsive images
-	$('img:not(.loaded)').each(function() {
+	$('.case-tiles img:not(.loaded)').each(function() {
 		$(this).addClass('loaded').removeAttr('width').removeAttr('height').css({'height':'', 'width':''});
 	});
 
 	//Media Core iFrame unwrap
 	$('.mediacore-video-container iframe').unwrap();
 })(jQuery);
-
-/* **********************************************
-     Begin jquery.highcharts.plotter.js
-********************************************** */
 
 var highchartColors = [
 	'#00457c', // dark blue 
@@ -320,7 +313,7 @@ function readInChartCSV() {
 		dataType: 'text',
 		success: function(result) {
 			var parseResult = $.parse(result,{header: false, dynamicTyping: true})
-			console.info(parseResult);
+			void 0;
 			var chartArray = parseResult.results;
 
 			$('#chart-data').html(result);
@@ -340,7 +333,7 @@ function readInChartCSV() {
 			};
 		},
 		error: function(error) {
-			console.log(error.status + ' ' + error.statusText)
+			void 0
 		}
 	});
 }
@@ -691,10 +684,6 @@ function stockChartPlotter(seriesOptions) {
 	});
 };
 
-/* **********************************************
-     Begin document-tiles.js
-********************************************** */
-
 /**
  * Hijack tile a hrefs
  */
@@ -810,10 +799,6 @@ jQuery(document).ready(function($) {
 	});
 });
 
-/* **********************************************
-     Begin jquery.loadGallery.js
-********************************************** */
-
 var galleryContainer;
 
 function loadGallery() {
@@ -830,37 +815,48 @@ function loadGallery() {
 						autoControls: options.showplaypause,
 						autoControlsCombine: true,
 						onSliderLoad: function() {
-							console.log('loaded')
+							void 0
 						}
 					});
 		return mySlider;
 }
 
-/* **********************************************
-     Begin figures.js
-********************************************** */
+// JQuery page modifications for figures with images and captions
 
 jQuery(document).ready(function($) {
 	//set the figure captions width to match the image
-	$('img.has-caption').each(function(){
-		var thisIMG = $(this);
-		var classString = 'figure';
-		if (thisIMG.css('float') != undefined ) { classString += ' figure-' + thisIMG.css('float')};
-		//console.info(classString);
-		var styleString = 'width: ' + thisIMG.width() + 'px';
+	$('.field-name-body figure').each(function(){
+		var thisIMG = $(this).find('img');
 
-		var figureDOM = "<figure class='" + classString +"' style='" + styleString + "'></figure>";
-		//console.info(figureDOM);
-		thisIMG.wrap(figureDOM);
-		
-		var captionDOM = '<figcaption>' + thisIMG.attr('alt') + '</figcaption>';
-		thisIMG.parent('figure').append(captionDOM);
+		void 0;
+		var styleString = ' ; width: ' + thisIMG.width() + 'px;';
+
+		//$(this).attr('width',styleString);
+
+		//find float info
+		if ($(this).attr('style') == 'float:left') {
+			$(this).addClass('left');
+			void 0;
+			$(this).attr('style', $(this).attr('style') + styleString);
+		}
+		if ($(this).attr('style') == 'float:right') {
+			$(this).addClass('right');
+			$(this).attr('style', $(this).attr('style') + styleString);
+		}
 	});
+
+	$('#main-content .node-page figure.primary-image').each(function(){
+		//pull the image width from attributes and add it to the css of the figure
+		var myImg = $(this).find('.field-collection-item-field-primary-image img');
+		var myImgWidth = myImg.attr('width');
+
+		if (myImgWidth > 725) {myImgWidth = 725;}
+		var myStyleString = 'width: ' + myImgWidth + 'px;';
+
+		$(this).attr('style',myStyleString);
+ 	});
 });
 
-/* **********************************************
-     Begin browser-detect.js
-********************************************** */
 
 //detect ie8 and show modal to suggest chrome
 jQuery(document).ready(function($){

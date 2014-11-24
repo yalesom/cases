@@ -1,0 +1,48 @@
+.produced-by-collection {
+	@extend .grid;
+
+	.view-content { text-align: center; }
+
+	.produced-by-info {
+		@extend .grid__item;
+		@extend .one-quarter;
+		display: inline-block;
+		vertical-align: middle;
+		margin-bottom: $base-spacing-unit;
+	}
+}
+
+.produced-by-collection-names {
+	float: right;
+	clear: both;
+	font-weight: normal;
+	font-size: 0.875rem;
+	margin-top: -26px;
+	margin-right: 2.5rem;
+
+	.view-content {
+		&:before { 
+			content: "Produced By:";
+			margin-right: 0.20rem;
+		 }
+
+		a {
+			&:before { 
+				content: ", ";
+				margin-left: -0.20rem;
+			}
+			
+			&:first-child {
+				&:before { content: ""; }
+			}
+
+			&:last-child {
+				&:before { 
+					content: " and ";
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}
+

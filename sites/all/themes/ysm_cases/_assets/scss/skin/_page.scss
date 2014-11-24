@@ -29,6 +29,7 @@
 		.view-content {
 			.tile {
 				@extend .one-third;
+				@extend .palm-one-half;
 			}
 		}
 	}
