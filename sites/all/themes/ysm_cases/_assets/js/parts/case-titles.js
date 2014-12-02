@@ -43,19 +43,37 @@
 
 
 	// !Count number of tiles and set related width class
-	$('.document-tiles').each(function(){
+	// $('.document-tiles').each(function(){
+	// 	var container = $(this);
+	// 	container.addClass('processed');
+	// 	if ( container.find('.view-content').children().length == 1 ){
+	// 		container.addClass('one-sixth');
+	// 	} else if ( container.find('.view-content').children().length == 2 ){
+	// 		container.addClass('one-third');
+	// 	} else if( container.find('.view-content').children().length > 2 ){
+	// 		container.addClass('one-half');
+	// 	}
+	// });
+
+	// read the first tile and checks it's classes
+	$('.document-tiles').each(function() {
 		var container = $(this);
+
 		container.addClass('processed');
-		if ( container.find('.view-content').children().length == 1 ){
-			container.addClass('one-sixth');
-		} else if ( container.find('.view-content').children().length == 2 ){
+
+		if (container.find('.view-content .tile').first().hasClass('tile-1of1')) {
+			container.addClass('one-sixth');	
+		
+		} else if (container.find('.view-content .tile').first().hasClass('tile-1of2')) {
 			container.addClass('one-third');
-		} else if( container.find('.view-content').children().length > 2 ){
+
+		} else if (container.find('.view-content .tile').first().hasClass('tile-1of3')) {
 			container.addClass('one-half');
 		}
 	});
+
 	// !Responsive images
-	$('img:not(.loaded)').each(function() {
+	$('.case-tiles img:not(.loaded)').each(function() {
 		$(this).addClass('loaded').removeAttr('width').removeAttr('height').css({'height':'', 'width':''});
 	});
 

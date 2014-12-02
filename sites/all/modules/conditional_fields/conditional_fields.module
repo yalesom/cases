@@ -258,6 +258,9 @@ function conditional_fields_element_after_build($element, &$form_state) {
     $entity_type = $field['#entity_type'];
     $bundle = $field['#bundle'];
   }
+  elseif (isset($field[0]) && isset($field[0]['#entity_type']) && $bundle = _conditional_fields_find_parent_bundle($field)) {
+    $entity_type = $field[0]['#entity_type'];
+  }
   elseif (isset($form['#entity_type'], $form['#bundle'])) {
     $entity_type = $form['#entity_type'];
     $bundle = $form['#bundle'];
@@ -272,11 +275,13 @@ function conditional_fields_element_after_build($element, &$form_state) {
     return $element;
   }
 
-  // Attach dependent.
+  $field_parents_key = conditional_fields_flatten_array($field['#field_parents']);
+
   if (isset($dependencies['dependents'][$field['#field_name']])) {
+  // Attach dependent.
     foreach ($dependencies['dependents'][$field['#field_name']] as $id => $dependency) {
-      if (!isset($form['#conditional_fields'][$field['#field_name']]['dependees'][$id])) {
-        conditional_fields_attach_dependency($form, array('#field_name' => $dependency['dependee']), $field, $dependency['options'], $id);
+      if (!isset($form['#conditional_fields'][$field_parents_key][$field['#field_name']]['dependees'][$id])) {
+        conditional_fields_attach_dependency($form, array('#field_name' => $dependency['dependee']), $field, $dependency['options'], $field_parents_key, $id);
       }
     }
   }
@@ -287,8 +292,8 @@ function conditional_fields_element_after_build($element, &$form_state) {
   // define per-element sets of dependency values.
   if (isset($dependencies['dependees'][$field['#field_name']])) {
     foreach ($dependencies['dependees'][$field['#field_name']] as $id => $dependency) {
-      if (!isset($form['#conditional_fields'][$field['#field_name']]['dependents'][$id])) {
-        conditional_fields_attach_dependency($form, $field, array('#field_name' => $dependency['dependent']), $dependency['options'], $id);
+      if (!isset($form['#conditional_fields'][$field_parents_key][$field['#field_name']]['dependents'][$id])) {
++        conditional_fields_attach_dependency($form, $field, array('#field_name' => $dependency['dependent']), $dependency['options'], $field_parents_key, $id);
       }
     }
   }
@@ -366,7 +371,7 @@ function conditional_fields_element_after_build($element, &$form_state) {
  *   Note that you don't need to manually set all these options, since default
  *   settings are always provided.
  */
-function conditional_fields_attach_dependency(&$form, $dependee, $dependent, $options, $id = 0) {
+function conditional_fields_attach_dependency(&$form, $dependee, $dependent, $options, $field_parents_key, $id = 0) {
   $options += conditional_fields_dependency_default_options();
 
   // The absence of the $id parameter identifies a custom dependency.
@@ -397,8 +402,8 @@ function conditional_fields_attach_dependency(&$form, $dependee, $dependent, $op
   // Use the #parents property of the dependee instead of #field_parents since
   // we will need access to the full structure of the widget.
   if (isset($dependee['#parents'])) {
-    $form['#conditional_fields'][$dependee['#field_name']]['parents'] = $dependee['#parents'];
-    $form['#conditional_fields'][$dependee['#field_name']]['dependents'][$id] = array(
+    $form['#conditional_fields'][$field_parents_key][$dependee['#field_name']]['parents'] = $dependee['#parents'];
+    $form['#conditional_fields'][$field_parents_key][$dependee['#field_name']]['dependents'][$id] = array(
       'dependent' => $dependent['#field_name'],
       'options'   => $options,
     );
@@ -412,8 +417,8 @@ function conditional_fields_attach_dependency(&$form, $dependee, $dependent, $op
     $dependent_parents = $dependent['#parents'];
   }
   if (isset($dependent_parents)) {
-    $form['#conditional_fields'][$dependent['#field_name']]['field_parents'] = $dependent_parents;
-    $form['#conditional_fields'][$dependent['#field_name']]['dependees'][$id] = array(
+    $form['#conditional_fields'][$field_parents_key][$dependent['#field_name']]['field_parents'] = $dependent_parents;
+    $form['#conditional_fields'][$field_parents_key][$dependent['#field_name']]['dependees'][$id] = array(
       'dependee' => $dependee['#field_name'],
       'options'  => $options,
     );
@@ -441,13 +446,13 @@ function conditional_fields_form_after_build($form, &$form_state) {
   $state_handlers = conditional_fields_states_handlers();
 
   // Cycle all dependents.
-  foreach ($form['#conditional_fields'] as $dependent => $dependent_info) {
+  foreach ($form['#conditional_fields'] as $parent_dependent_key => $parent_dependent_info) {
+    foreach ($parent_dependent_info as $dependent => $dependent_info) {
     $states = array();
 
     if (empty($dependent_info['dependees'])) {
       continue;
     }
-
     $dependent_location = array_merge($dependent_info['field_parents'], array($dependent));
     $dependent_form_field = drupal_array_get_nested_value($form, $dependent_location);
 
@@ -455,11 +460,11 @@ function conditional_fields_form_after_build($form, &$form_state) {
     foreach ($dependent_info['dependees'] as $dependency) {
       $dependee = $dependency['dependee'];
 
-      if (empty($form['#conditional_fields'][$dependee])) {
+        if (empty($form['#conditional_fields'][$parent_dependent_key][$dependee])) {
         continue;
       }
 
-      $dependee_info = $form['#conditional_fields'][$dependee];
+        $dependee_info = $form['#conditional_fields'][$parent_dependent_key][$dependee];
       $dependee_form_field = drupal_array_get_nested_value($form, $dependee_info['parents']);
       $options = $dependency['options'];
 
@@ -548,10 +553,10 @@ function conditional_fields_form_after_build($form, &$form_state) {
             $handler($dependee_form_field, $dependee_form_state, $options, $state);
           }
         }
+        }
 
         // Add validation callback to element.
         _conditional_fields_element_add_property($dependent_form_field, '#element_validate', 'conditional_fields_dependent_validate', 'append');
-      }
 
       // Add the $state into the correct logic group in $states.
       foreach ($state as $key => $constraints) {
@@ -588,15 +593,13 @@ function conditional_fields_form_after_build($form, &$form_state) {
       }
     }
 
-    // Execute custom behaviors.
+    // Execute custom behaviors callbacks.
     if (!empty($behaviors)) {
       foreach ($behaviors as $behavior) {
-        // Custom behaviors are callbacks.
-        if (function_exists($$behavior)) {
-          $$behavior($form, $form_state, $dependent, $dependent_info);
-        }
-      }
+        $behavior($form, $form_state, $dependent, $dependent_info);
+      }      
     }
+
     unset($behaviors);
 
     if (empty($states)) {
@@ -640,6 +643,7 @@ function conditional_fields_form_after_build($form, &$form_state) {
     drupal_array_set_nested_value($form, array_merge($dependent_location, array('#states')), $states);
 
     $has_states = TRUE;
+  }
   }
 
   if (empty($has_states)) {
@@ -970,7 +974,7 @@ function conditional_fields_entity_view_alter(&$build, $type) {
 
           default:
             // Custom behaviors are callbacks.
-            $$behavior($dependee, $dependent, $is_triggered, $dependencies, $build, $type);
+            $behavior($dependee, $dependent, $is_triggered, $dependencies, $build, $type);
             break;
         }
 
@@ -1639,11 +1643,10 @@ function conditional_fields_behaviors($op = NULL) {
  * $options and $state.
  *
  * @see conditional_fields_field_attach_form()
- * @see conditional_fields_states_handler_select()
  */
 function conditional_fields_states_handlers() {
   $handlers = array(
-    'conditional_fields_states_handler_select' => array(
+    'conditional_fields_states_handler_select_multiple' => array(
       '#type' => 'select',
       '#multiple' => TRUE,
     ),
@@ -1684,7 +1687,7 @@ function conditional_fields_states_handlers() {
  * reference values of type Array are selected, a different selector must be
  * added for each value of a set for OR, XOR and NOT evaluations.
  */
-function conditional_fields_states_handler_select($field, $field_info, $options, &$state) {
+function conditional_fields_states_handler_select_multiple($field, $field_info, $options, &$state) {
   switch ($options['values_set']) {
     case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_WIDGET:
     case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_AND:
@@ -1990,4 +1993,32 @@ function conditional_fields_features_api() {
       'file' => drupal_get_path('module', 'conditional_fields') . '/includes/conditional_fields.features.inc',
     ),
   );
+}
+
+// need to return immediate parent as the bundle
+function _conditional_fields_find_parent_bundle($field) {
+  $field_parents = array_reverse($field[0]['#field_parents']);
+  foreach ($field_parents as $parent) {
+    if (!is_numeric($parent) && $parent != 'und') {
+      return $parent;
+    }
+  }
+  
+  return false;
+}
+
+/**
+ * Flatten a one-dimensional array.
+ */
+function conditional_fields_flatten_array($array, $delta = 0, $separator = ':') {
+  $array_string = 'root'.$separator;
+  $array_count  = count($array);
+  foreach ($array as $array_value) {
+    $array_string .= $array_value;
+      if ($delta != $array_count) {
+        $array_string .= $separator;
+      }
+    $delta++;
+  }
+  return $array_string;
 }

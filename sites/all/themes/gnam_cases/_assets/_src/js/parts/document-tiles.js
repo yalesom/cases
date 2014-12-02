@@ -1,0 +1,123 @@
+/**
+ * Hijack tile a hrefs not tittles
+ */
+var tileID;
+
+jQuery(document).ready(function($) {
+	jQuery('.view-document-grid').find('.tile').each(function(){
+		jQuery(this).find('a').click(function(evt){
+			evt.preventDefault();
+
+			// disable page scroll
+			jQuery('html').css('overflow', 'hidden');
+
+			var url = jQuery(this).attr('href'),
+				template,
+				containerID;
+
+			if (url.indexOf(location.host) == '-1' || url.indexOf('files') > 0) {
+				window.open(url);
+			
+			// } else if ($(this).hasClass('in-use')) {
+			// 	return false;
+
+			} else {
+				// clone the template
+				template 	= jQuery('#template').clone();
+				
+				// create unique ID
+				uid			= Math.floor(Math.random()*100)+1;
+
+				// generate a tileID
+				tileID		= 'tile-' + uid;
+				
+				// update the cloned template with the new tileID
+				template.attr('id', tileID);
+				
+				// add the cloned template the DOM structure
+				jQuery('#main-content').before(template);
+
+				//timer delay for a tad
+				setTimeout(function() {
+					jQuery('#' + tileID).addClass('open');
+				},500);
+				
+				jQuery('#' + tileID + ' .tile-target').load(url + ' .tile-content', function(response, status, xhr) {
+					if (status == 'success') {
+						jQuery(document).bind('keyup', function(key) {
+							if (key.keyCode == 27) {
+								closeModalWindow();
+							}
+						});
+						
+						containerID = jQuery('#' + jQuery('#' + tileID).find('.tile-content').attr('id'));
+
+						jQuery('html, body').animate({ scrollTop: jQuery('#' + tileID).offset().top + jQuery('#page-header').height }, 1000);
+
+						switch(jQuery('#' + tileID).find('.tile-content').attr('class').split(' ')[0]) {
+							case 'chart-container':
+								chartContainer 		= jQuery('#' + jQuery(this).find('.chart-target').attr('id'));
+								readInChartCSV();
+							break;
+							
+							case 'gallery-container':
+								galleryContainer	= containerID;
+								mySlider = loadGallery();
+							break;
+
+							case 'mediacore-video-container':
+								//jQuery('#' + tileID).find('iframe').unwrap();
+							break;
+							/*case 'infographic-container':
+							break;*/
+							case 'sheetnode-container':
+								var nid = containerID.data('nid'),
+									sheetnode = {},
+									sheetnodeValue = containerID.find('#sheetnode-value').html();
+
+								sheetnode['sheetnode-' + nid] = {
+									aliases: ['sheetnode'],
+									containerElement: 'sheetnode-' + nid,
+									context: {
+										'entity-name': 'node',
+										oid: '"' + nid + '"'
+									},
+									imagePrefix: '/sites/all/modules/sheetnode/socialcalc/images/sc-',
+									permissions: {
+										'edit sheetnode settings': true
+									},
+									saveElement: false,
+									showToolbar: 0,
+									value: sheetnodeValue,
+									viewMode: '2'
+								};
+								
+								Drupal.settings.sheetnode = sheetnode;
+								Drupal.behaviors.sheetnode.attach('#sn-container-' + nid, Drupal.settings);
+							break;
+						};
+
+						jQuery('#' + tileID + ' .tile-wrapper').css('background', 'none');
+					}
+				});
+			}
+		});
+	});
+	
+	// remove the modal window
+	jQuery(document).on('click', '.modal-close', function(evt) {
+		evt.preventDefault();
+
+		closeModalWindow();
+	});
+});
+
+function closeModalWindow() {
+	// destory the modal
+	jQuery('#' + tileID).remove();
+
+	// enable page scroll
+	jQuery('html').css('overflow', 'auto');
+
+	jQuery(document).unbind('keyup');
+}

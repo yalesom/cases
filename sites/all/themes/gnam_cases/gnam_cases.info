@@ -1,0 +1,44 @@
+; Theme Info --------------------------------------------------------------
+
+name = GNAM Case Studies
+description = A sub-theme of Yale SOM case studies.
+core = 7.x
+base theme = ysm_cases
+
+; Image appears on admin/appearance
+screenshot = _assets/images/screenshot.png
+
+; Styles
+stylesheets[all][] = _assets/css/gnam_cases.min.css
+stylesheets[all][] = _assets/css/ysm_cases.css
+
+; Scripts
+
+
+; Theme specific scripts
+scripts[] = _assets/js/gnam_cases.app.ck.js
+scripts[] = _assets/js/ysm_cases.app.ck.js
+
+; Regions are output in the page.tpl.php
+regions[header]         = Header
+regions[header_left]    = Header Left
+regions[header_right]   = Header Right
+regions[navigation]     = Navigation
+regions[help]           = Help
+regions[highlighted]    = Highlighted
+regions[content]        = Content
+regions[sidebar_first]  = Left Sidebar
+regions[sidebar_second] = Right Sidebar
+regions[footer_first]   = Footer first
+regions[footer_middle]  = Footer middle
+regions[footer_last]    = Footer last
+
+; Hidden regions
+regions_hidden[] = Page top
+regions_hidden[] = Page bottom
+
+; Information added by drupal.org packaging script on 2013-05-21
+; version = "7.x-1.0"
+; core = "7.x"
+; project = "gnamcases"
+; datestamp = "1369155612"
