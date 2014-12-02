@@ -64,15 +64,22 @@ figure {
 		float: left;
 		margin-right: 2rem;
 	}
+
+	&.primary-image {
+		float: left;
+		margin-right: 2rem;
+		max-width: 725px;
+		overflow: hidden;
+		margin-bottom: 0rem;
+	}
 }
 figcaption {
 	color: $mediumGrey;
 	font-size: 13px;
-	line-height: $h6-size;
+	line-height: 1.2em;
 	font-style: normal;
 	font-weight: bold;
 	text-align: left;
-	display: inline-block;
 	margin-bottom: .5rem;
 	margin-top: .5rem;
 }

@@ -1,0 +1,258 @@
+/* !------------- Page content type styles ------------- */
+.document-tiles {
+	border-top: $lightGrey 5px solid;
+	padding-top: 0.75rem;
+	float: right;
+	clear: both;
+	width: 30% !important;
+	
+	@media #{$phoneMax}{ width: 100% !important; }
+	.view-content {
+		
+		.tile {
+			margin-bottom: $base-spacing-unit;
+						
+			a { 
+				display: block;
+				color: $white;
+			}
+			
+			i {	display: none; }
+
+			.text {
+				width: 100%;
+				padding: 0.5rem;
+				position: absolute;
+				bottom: 0;
+				background: $black;
+				background: transparentize($black, 0.2);
+				// @include transition(all 0.25s ease-out);
+		
+				.header { line-height: 0.875rem; }
+			}
+
+			@include tooltip;
+		
+			.tile-wrap {
+				position: relative;
+
+				&.yale { @include setToolTipColor($brand); }
+				&.green { @include setToolTipColor($green); }
+				&.aqua { @include setToolTipColor($aqua); } 
+				&.blue { @include setToolTipColor($blue); } 
+				&.brown { @include setToolTipColor($brown); } 
+				&.ltblue { @include setToolTipColor($ltblue); } 
+				&.ltgreen { @include setToolTipColor($ltgreen); } 
+				&.ltpurple { @include setToolTipColor($ltpurple); } 
+				&.orange { @include setToolTipColor($orange); } 
+				&.purple { @include setToolTipColor($purple); } 
+				&.red { @include setToolTipColor($red); } 
+				&.slate { @include setToolTipColor($slate); } 
+				&.tan { @include setToolTipColor($tan); }
+				&.gold { @include setToolTipColor($gold); }
+				
+				.img {
+					display: block;
+					position: relative;
+					overflow: hidden;
+					max-height: 150px;
+
+					img {
+						display: block;
+						width: 100%;
+					}
+				}
+			}
+			
+			// overrides for no image tiles
+			&.no-img {
+
+				.tile-wrap {
+					border-style: solid;
+					border-width: 0px;
+					border-left-width: 3px;
+					border-bottom-width: 1px;
+
+					background: $white;
+
+					.text {
+						position: inherit;
+						display: block;
+						background: transparent;
+					}
+
+					i {
+						padding: 0.5rem;
+						padding-bottom: 0;
+						font-size: 2.57rem;
+						display: block;
+					}
+					
+					&.yale { @include setTileColors($brand); }
+					&.green { @include setTileColors($green); }
+					&.aqua { @include setTileColors($aqua); } 
+					&.blue { @include setTileColors($blue); } 
+					&.brown { @include setTileColors($brown); } 
+					&.ltblue { @include setTileColors($ltblue); } 
+					&.ltgreen { @include setTileColors($ltgreen); } 
+					&.ltpurple { @include setTileColors($ltpurple); } 
+					&.orange { @include setTileColors($orange); } 
+					&.purple { @include setTileColors($purple); } 
+					&.red { @include setTileColors($red); } 
+					&.slate { @include setTileColors($slate); } 
+					&.tan { @include setTileColors($tan); }
+					&.gold { @include setTileColors($gold); }
+				}
+			}
+
+			&.inline {
+				.header {
+					border-bottom: 1px solid $mediumGrey;
+					margin-bottom: $base-spacing-unit/2;
+				}
+			}
+		
+			// Hover effects
+			&:hover {
+				.header {
+					&:after {
+						display:none;
+					}
+				}
+			}
+		
+		}
+	}
+}
+.document-list {
+	.view-content {
+		@extend .grid; 
+	    .view-grouping {
+		    @extend .grid__item;
+		    @extend .one-quarter;
+		    @extend .palm-one-whole;
+			margin-bottom: $base-spacing-unit;
+			&:only-child {
+				@extend .three-quarters;
+				@extend .palm-one-whole;
+			}
+	    }
+	    .view-grouping-header {
+		    display:none; 
+	    }
+	    .view-grouping-content {
+		    border-top: $lightGrey 5px solid;
+		    padding-top: 0.75rem;
+	    }
+	    h3 {
+			margin-bottom: 0.5rem;
+	    	text-transform: uppercase;
+	    }
+	}
+	.item-list {
+		.item {
+			@include tooltip;
+			a {
+				display: inline-block;
+				line-height: 1.25rem;
+				padding-top: 0.375rem;
+				padding-left: 1.5rem;
+				position: relative;
+				i {
+					position: absolute;
+					left: 0;
+					top:0.5rem;
+				}
+			}
+			.filetype,
+			.filesize {
+				color: $mediumGrey;
+				font-size: 0.86rem;
+			}
+			.filetype {
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+.page-node {
+	#page-title {
+		border-top: 1px $lightGrey solid;
+		padding-top: 0.5rem;
+
+	}
+	.primary-image {
+		float: right;
+		width: 30%;
+
+		img {
+			width: 100%;
+		}
+
+		figcaption {
+			display: block;
+		}
+	}
+	.field-name-body {
+		@media #{$phone}{
+			width: 70%;
+			padding-right: 6%;
+		}
+		p {
+			font-size: 1rem;
+			line-height: 1.5rem;
+		}
+
+		ul li {
+			font-size: .9rem;
+		}
+	}
+}
+
+/* ! Book pager */
+.book-navigation {
+	.menu { display: none; }
+
+
+	font-size: 0.88em;
+	margin: 2rem 0 0;
+	.page-links {
+		border-bottom: none;
+		border-top-color: $lightGrey;
+	}
+}
+
+.browser-detect-notice {
+	background: $white;
+	border: 4px solid $orange;
+	height: 5em;
+	margin-bottom: 1em;
+	padding: 1em;
+	margin-top: 1em;
+
+	.warning-icon {
+		float: left;
+		width: 3em;
+		height: 4em;
+		margin-right: 1em;
+
+		i {
+			color: $red;
+			font-size: 3em;
+		}
+	}
+}
+
+html.lt-ie9 {
+	aside#sidebar-second {
+		display: none;
+	}
+}
+
+div.show-sponsor {
+	display: none;
+}
+
+.breadcrumbs > li > a > span {
+	vertical-align: middle;
+}

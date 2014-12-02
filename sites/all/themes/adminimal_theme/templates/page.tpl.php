@@ -47,25 +47,7 @@
 
 	<?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
-  <div id="content-wrapper">
-
-    <?php if (isset($page['sidebar_left'])): ?>
-      <div id="sidebar-left">
-        <?php print render($page['sidebar_left']); ?>
-      </div>
-    <?php endif; ?>
-
-    <div id="main-content">
-	    <?php print render($page['content']['system_main']); ?>
-	  </div>
-
-    <?php if (isset($page['sidebar_right'])): ?>
-      <div id="sidebar-right">
-        <?php print render($page['sidebar_right']); ?>
-      </div>
-    <?php endif; ?>
-	
-	</div>
+	<?php print render($page['content']['system_main']); ?>
 
 	<?php if (isset($page['content_after'])): ?>
 		<div id="content-after">

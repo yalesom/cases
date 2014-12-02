@@ -1,17 +1,10 @@
-/* Yale Case Studies base scripts.
- * Author: Square360
- * square360.com
- *	version 1.1
- */
- 
-
-
 // !----- Site Specific Custom JS parts -----
-// @codekit-append "parts/page-layout.js";
-// @codekit-append "parts/headers.js";
-// @codekit-append "parts/case-titles.js";
-// @codekit-append "parts/jquery.highcharts.plotter.js"
-// @codekit-append "parts/document-tiles.js"
-// @codekit-append "parts/jquery.loadGallery.js"
-// @codekit-append "parts/figures.js"
-// @codekit-append "parts/browser-detect.js"
+
+//= require "parts/page-layout.js"
+//= require "parts/headers.js"
+//= require "parts/case-titles.js"
+//= require "parts/jquery.highcharts.plotter.js"
+//= require "parts/document-tiles.js"
+//= require "parts/jquery.loadGallery.js"
+//= require "parts/figures.js"
+//= require "parts/browser-detect.js"

@@ -9,7 +9,7 @@ $conf['preprocess_js'] = 0;
 $conf['preprocess_css'] = 0;
 
 # Switch on error display
-$conf['error_level'] = 2;
+$conf['error_level'] = 0;
 
 # Turn on local email handling
 #$conf['mail_system'] = array( 'default-system' => 'DevelMailLog' );

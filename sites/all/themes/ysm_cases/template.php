@@ -615,3 +615,28 @@ function ysm_cases_js_alter(&$js) {
   //   $js[$key]['scope'] = 'footer';
   // }
 }
+
+/**
+ * Implements hook_preprocess_book_navigation()
+ */
+function ysm_cases_preprocess_book_navigation(&$variables) {
+  template_preprocess_book_navigation($variables);
+  
+  $currentPageType = node_load($variables['book_link']['nid'])->type;
+
+  if ($currentPageType != 'page') {
+    // redirect to first child
+    if($variables['current_depth']==2) {
+      $first_child_link = book_next($variables['book_link']);
+      if($first_child_link['link_path']) {
+        drupal_goto($first_child_link['link_path'],array(),301);
+      }
+    }
+    // Remove prev link for first child
+    // and remove up link for first level children
+    if($variables['current_depth']==3) {
+      if($variables['parent_url'] == $variables['prev_url']) $variables['prev_url']='';
+      $variables['parent_url']='';
+    }
+  }
+}
