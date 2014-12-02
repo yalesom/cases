@@ -1280,4 +1280,3 @@ function ajax_command_add_css($styles) {
     'data' => $styles,
   );
 }
-
