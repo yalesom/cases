@@ -12,10 +12,9 @@ function loadGallery() {
 						pause: options.transitiondelay,
 						adaptiveHeight: options.adaptiveheight,
 						autoControls: options.showplaypause,
-						autoControlsCombine: true,
-						onSliderLoad: function() {
-							console.log('loaded')
-						}
+						autoControlsCombine: true
 					});
 		return mySlider;
+
+		mySlider.reloadSlider();
 }
