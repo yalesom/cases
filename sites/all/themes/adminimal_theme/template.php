@@ -25,21 +25,63 @@ function adminimal_preprocess_html(&$vars) {
   // Get adminimal folder path.
   $adminimal_path = drupal_get_path('theme', 'adminimal');
 
+  // Add default styles.
+  drupal_add_css($adminimal_path . '/css/reset.css', array('group' => CSS_THEME, 'media' => 'all', 'weight' => -999));
+  drupal_add_css($adminimal_path . '/css/style.css', array('group' => CSS_THEME, 'media' => 'all', 'weight' => 1));
+
   // Add conditional CSS for IE8 and below.
-  drupal_add_css($adminimal_path . '/css/ie.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 8', '!IE' => FALSE), 'weight' => 999, 'preprocess' => FALSE));
+  drupal_add_css($adminimal_path . '/css/ie.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 8', '!IE' => FALSE), 'weight' => 999, 'preprocess' => TRUE));
 
   // Add conditional CSS for IE7 and below.
-  drupal_add_css($adminimal_path . '/css/ie7.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 7', '!IE' => FALSE), 'weight' => 999, 'preprocess' => FALSE));
+  drupal_add_css($adminimal_path . '/css/ie7.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 7', '!IE' => FALSE), 'weight' => 999, 'preprocess' => TRUE));
 
   // Add conditional CSS for IE6.
-  drupal_add_css($adminimal_path . '/css/ie6.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 6', '!IE' => FALSE), 'weight' => 999, 'preprocess' => FALSE));
+  drupal_add_css($adminimal_path . '/css/ie6.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 6', '!IE' => FALSE), 'weight' => 999, 'preprocess' => TRUE));
 
   // Add theme name to body class.
   $vars['classes_array'][] = 'adminimal-theme';
 
+  // Style checkbox and radio buttons in Webkit Browsers.
+  if (theme_get_setting('style_checkboxes')) {
+    $vars['classes_array'][] = 'style-checkboxes';
+  }
+
   // Add icons to the admin configuration page.
   if (theme_get_setting('display_icons_config')) {
-    drupal_add_css($adminimal_path . '/css/icons-config.css', array('group' => CSS_THEME, 'weight' => 10, 'preprocess' => FALSE));
+    drupal_add_css($adminimal_path . '/css/icons-config.css', array('group' => CSS_THEME, 'weight' => 10, 'preprocess' => TRUE));
+  }
+
+  // Define Default media queries.
+  $media_query_mobile = 'only screen and (max-width: 480px)';
+  $media_query_tablet = 'only screen and (min-width : 481px) and (max-width : 1024px)';
+
+  // Get custom media queries if set.
+  if (theme_get_setting('use_custom_media_queries')) {
+    $media_query_mobile = theme_get_setting('media_query_mobile');
+    $media_query_tablet = theme_get_setting('media_query_tablet');
+  }
+
+  // Load custom Adminimal skin.
+  $adminimal_skin = theme_get_setting('adminimal_theme_skin');
+  if ((!is_null($adminimal_skin))) {
+    drupal_add_css($adminimal_path . '/skins/' . $adminimal_skin . '/' . $adminimal_skin . '.css', array('group' => CSS_THEME, 'weight' => 900, 'preprocess' => TRUE));
+    drupal_add_js($adminimal_path . '/skins/' . $adminimal_skin . '/' . $adminimal_skin . '.js');
+    $vars['classes_array'][] = 'adminimal-skin-' . $adminimal_skin ;
+  }
+  else {
+    drupal_add_css($adminimal_path . '/skins/default/default.css', array('group' => CSS_THEME, 'weight' => 900, 'preprocess' => TRUE));
+    drupal_add_js($adminimal_path . '/skins/default/default.js');
+    $vars['classes_array'][] = 'adminimal-skin-default' ;
+  }
+
+  // Add responsive styles.
+  drupal_add_css($adminimal_path . '/css/mobile.css', array('group' => CSS_THEME, 'media' => $media_query_mobile, 'weight' => 1000));
+  drupal_add_css($adminimal_path . '/css/tablet.css', array('group' => CSS_THEME, 'media' => $media_query_tablet, 'weight' => 1000));
+
+  // Add custom CSS.
+  $custom_css_path = 'public://adminimal-custom.css';
+  if (theme_get_setting('custom_css') && file_exists($custom_css_path)) {
+    drupal_add_css($custom_css_path, array('group' => CSS_THEME, 'weight' => 9999, 'preprocess' => TRUE));
   }
 
   // Fix the viewport and zooming in mobile devices.
@@ -114,7 +156,7 @@ function adminimal_adminimal_block_content($variables) {
 
 /**
  * Implements theme_tablesort_indicator().
- * 
+ *
  * Use our own image versions, so they show up as black and not gray on gray.
  */
 function adminimal_tablesort_indicator($variables) {
