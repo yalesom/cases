@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2014-11-24 | 104321
+ * @build 2014-12-03 | 162130
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -813,12 +813,11 @@ function loadGallery() {
 						pause: options.transitiondelay,
 						adaptiveHeight: options.adaptiveheight,
 						autoControls: options.showplaypause,
-						autoControlsCombine: true,
-						onSliderLoad: function() {
-							void 0
-						}
+						autoControlsCombine: true
 					});
 		return mySlider;
+
+		mySlider.reloadSlider();
 }
 
 // JQuery page modifications for figures with images and captions
