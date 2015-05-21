@@ -1,7 +1,7 @@
 /**
  * GNAM - Merge of Cases Platform and GNAM styles
  * @version 0.1.0
- * @build 2014-11-24 | 102815
+ * @build 2015-05-13 | 085507
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -615,15 +615,40 @@ function loadGallery() {
 						pause: options.transitiondelay,
 						adaptiveHeight: options.adaptiveheight,
 						autoControls: options.showplaypause,
-						autoControlsCombine: true,
-						onSliderLoad: function() {
-							console.log('loaded')
-						}
+						autoControlsCombine: true
 					});
 		return mySlider;
+
+		mySlider.reloadSlider();
 }
 
-//= require ".parts/figures.js"
+// JQuery page modifications for figures with images and captions
+
+jQuery(document).ready(function($) {
+	//set the figure captions width to match the image
+	$('.field-name-body figure.image').each(function(){
+		var thisIMG = $(this).find('img');
+
+		console.info('found a  figure');
+		var styleString = ' ; width: ' + thisIMG.width() + 'px;';
+
+		//$(this).attr('width',styleString);
+
+		//find float info
+		if ($(this).attr('style') == 'float:left') {
+			console.info("format figure left")
+			$(this).addClass('left');
+			//console.info(styleString);
+			$(this).attr('style', $(this).attr('style') + styleString);
+		}
+		if ($(this).attr('style') == 'float:right') {
+			console.info("format figure right")
+			$(this).addClass('right');
+			$(this).attr('style', $(this).attr('style') + styleString);
+		}
+	});
+});
+
 //detect ie8 and show modal to suggest chrome
 jQuery(document).ready(function($){
 	if ($('html.lt-ie9').length > 0){

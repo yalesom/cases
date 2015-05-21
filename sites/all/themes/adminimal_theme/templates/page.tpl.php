@@ -17,14 +17,21 @@
 
 	<?php print render($title_suffix); ?>
 
-	<?php print render($primary_local_tasks); ?>
+</div>
+
+<div id="navigation">
+
+  <?php if ($primary_local_tasks): ?>
+    <?php print render($primary_local_tasks); ?>
+  <?php endif; ?>
+
+  <?php if ($secondary_local_tasks): ?>
+    <div class="tabs-secondary clearfix"><ul class="tabs secondary"><?php print render($secondary_local_tasks); ?></ul></div>
+  <?php endif; ?>
 
 </div>
 
 <div id="page">
-	<?php if ($secondary_local_tasks): ?>
-		<div class="tabs-secondary clearfix"><ul class="tabs secondary"><?php print render($secondary_local_tasks); ?></ul></div>
-	<?php endif; ?>
 
 	<div id="content" class="clearfix">
 		<div class="element-invisible"><a id="main-content"></a></div>
@@ -47,7 +54,25 @@
 
 	<?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
-	<?php print render($page['content']['system_main']); ?>
+  <div id="content-wrapper">
+
+    <?php if (isset($page['sidebar_left'])): ?>
+      <div id="sidebar-left">
+        <?php print render($page['sidebar_left']); ?>
+      </div>
+    <?php endif; ?>
+
+    <div id="main-content">
+	    <?php print render($page['content']); ?>
+	  </div>
+
+    <?php if (isset($page['sidebar_right'])): ?>
+      <div id="sidebar-right">
+        <?php print render($page['sidebar_right']); ?>
+      </div>
+    <?php endif; ?>
+	
+	</div>
 
 	<?php if (isset($page['content_after'])): ?>
 		<div id="content-after">
