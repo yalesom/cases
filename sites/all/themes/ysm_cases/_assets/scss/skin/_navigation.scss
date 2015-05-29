@@ -82,5 +82,11 @@
 		.menu {
 			display: none;
 		}
+
+		.page-links {
+			a.page-up {
+				display: none;
+			}
+		}
 	}
 }

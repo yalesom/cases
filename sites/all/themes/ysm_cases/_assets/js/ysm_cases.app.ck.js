@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2015-05-29 | 131507
+ * @build 2015-05-29 | 133631
  * @author Square360, Inc.
  * @client Yale School of Management
  */

@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2015-05-29 | 131731
+ * @build 2015-05-29 | 134646
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -5938,13 +5938,12 @@ figure.figure-left {
 /* line 68, ../scss/skin/_common.scss */
 figure.primary-image {
   float: left;
-  margin-right: 2rem;
   max-width: 725px;
   overflow: hidden;
   margin-bottom: 0rem;
 }
 
-/* line 76, ../scss/skin/_common.scss */
+/* line 75, ../scss/skin/_common.scss */
 figcaption {
   color: #777777;
   font-size: 13px;
@@ -5956,14 +5955,14 @@ figcaption {
   margin-top: .5rem;
 }
 
-/* line 88, ../scss/skin/_common.scss */
+/* line 87, ../scss/skin/_common.scss */
 ::-moz-selection {
   background: #1f2021;
   color: #fff;
   text-shadow: none;
 }
 
-/* line 94, ../scss/skin/_common.scss */
+/* line 93, ../scss/skin/_common.scss */
 ::selection {
   background: #1f2021;
   color: #fff;
@@ -5971,7 +5970,7 @@ figcaption {
 }
 
 /* ! ----------- Common elements ---------------- */
-/* line 114, ../scss/skin/_common.scss */
+/* line 113, ../scss/skin/_common.scss */
 .body ul li:before {
   content: '\e811';
   display: block;
@@ -5980,15 +5979,15 @@ figcaption {
   position: absolute;
   top: 0;
 }
-/* line 124, ../scss/skin/_common.scss */
+/* line 123, ../scss/skin/_common.scss */
 .body ol {
   margin-left: 1em;
 }
-/* line 126, ../scss/skin/_common.scss */
+/* line 125, ../scss/skin/_common.scss */
 .body ol li {
   list-style: decimal;
 }
-/* line 130, ../scss/skin/_common.scss */
+/* line 129, ../scss/skin/_common.scss */
 .body li {
   color: #f2f2f2;
   font-size: 0.93em;
@@ -5996,7 +5995,7 @@ figcaption {
   position: relative;
 }
 
-/* line 138, ../scss/skin/_common.scss */
+/* line 137, ../scss/skin/_common.scss */
 .button, .not-logged-in .user-login #edit-submit {
   border: none;
   -moz-box-shadow: none;
@@ -6007,25 +6006,25 @@ figcaption {
   font-size: 1.29rem;
   padding: 0.5em;
 }
-/* line 145, ../scss/skin/_common.scss */
+/* line 144, ../scss/skin/_common.scss */
 .button:after, .not-logged-in .user-login #edit-submit:after {
   content: "\f105";
   display: inline-block;
   font-family: 'ysm118-icomoon';
   margin: 0 0.5em 0 2em;
 }
-/* line 152, ../scss/skin/_common.scss */
+/* line 151, ../scss/skin/_common.scss */
 .no-touch .button:hover, .no-touch .not-logged-in .user-login #edit-submit:hover, .not-logged-in .user-login .no-touch #edit-submit:hover {
   background: #1f2021;
   color: #fff;
 }
 
-/* line 159, ../scss/skin/_common.scss */
+/* line 158, ../scss/skin/_common.scss */
 .hide-title .block-title {
   display: none;
 }
 
-/* line 165, ../scss/skin/_common.scss */
+/* line 164, ../scss/skin/_common.scss */
 .field-name-field-article-tags .links {
   *zoom: 1;
 }
@@ -6038,78 +6037,78 @@ figcaption {
 .field-name-field-article-tags .links:after {
   clear: both;
 }
-/* line 167, ../scss/skin/_common.scss */
+/* line 166, ../scss/skin/_common.scss */
 .field-name-field-article-tags .links li {
   float: left;
   margin-right: 0.5em;
 }
 
-/* line 174, ../scss/skin/_common.scss */
+/* line 173, ../scss/skin/_common.scss */
 .aqua {
   background: #42889b;
 }
 
-/* line 177, ../scss/skin/_common.scss */
+/* line 176, ../scss/skin/_common.scss */
 .yale {
   background: #00457c;
 }
 
-/* line 180, ../scss/skin/_common.scss */
+/* line 179, ../scss/skin/_common.scss */
 .blue {
   background: #3775a4;
 }
 
-/* line 183, ../scss/skin/_common.scss */
+/* line 182, ../scss/skin/_common.scss */
 .brown {
   background: #8b6a3f;
 }
 
-/* line 186, ../scss/skin/_common.scss */
+/* line 185, ../scss/skin/_common.scss */
 .green {
   background: #79ba86;
 }
 
-/* line 189, ../scss/skin/_common.scss */
+/* line 188, ../scss/skin/_common.scss */
 .ltblue {
   background: #7ab5b2;
 }
 
-/* line 192, ../scss/skin/_common.scss */
+/* line 191, ../scss/skin/_common.scss */
 .ltgreen {
   background: #94ae70;
 }
 
-/* line 195, ../scss/skin/_common.scss */
+/* line 194, ../scss/skin/_common.scss */
 .ltpurple {
   background: #9b6d9c;
 }
 
-/* line 198, ../scss/skin/_common.scss */
+/* line 197, ../scss/skin/_common.scss */
 .orange {
   background: #dd8d66;
 }
 
-/* line 201, ../scss/skin/_common.scss */
+/* line 200, ../scss/skin/_common.scss */
 .purple {
   background: #72717f;
 }
 
-/* line 204, ../scss/skin/_common.scss */
+/* line 203, ../scss/skin/_common.scss */
 .red {
   background: #bf6f6f;
 }
 
-/* line 207, ../scss/skin/_common.scss */
+/* line 206, ../scss/skin/_common.scss */
 .slate {
   background: #6fa2bf;
 }
 
-/* line 210, ../scss/skin/_common.scss */
+/* line 209, ../scss/skin/_common.scss */
 .tan {
   background: #c9b579;
 }
 
-/* line 213, ../scss/skin/_common.scss */
+/* line 212, ../scss/skin/_common.scss */
 .gold {
   background: #f0d63a;
 }
@@ -6522,6 +6521,10 @@ html.lt-ie9 .sticky-wrapper {
 
 /* line 82, ../scss/skin/_navigation.scss */
 .block-book-helper-book-helper-inline-navigation .book-navigation .menu {
+  display: none;
+}
+/* line 87, ../scss/skin/_navigation.scss */
+.block-book-helper-book-helper-inline-navigation .book-navigation .page-links a.page-up {
   display: none;
 }
 
