@@ -38,3 +38,4 @@ config.codekit
 node_modules
 temp
 .DS_Store
+.htacess
