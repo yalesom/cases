@@ -5930,29 +5930,34 @@ figure.figure-left {
   float: left;
   margin-right: 2rem;
 }
-
 /* line 68, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+figure.primary-image {
+  float: left;
+  max-width: 725px;
+  overflow: hidden;
+  margin-bottom: 0rem;
+}
+
+/* line 75, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 figcaption {
   color: #777777;
   font-size: 13px;
-  line-height: 14px;
+  line-height: 1.2em;
   font-style: normal;
   font-weight: bold;
   text-align: left;
-  display: table-caption;
-  caption-side: bottom;
   margin-bottom: .5rem;
   margin-top: .5rem;
 }
 
-/* line 82, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 87, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 ::-moz-selection {
   background: #1f2021;
   color: #fff;
   text-shadow: none;
 }
 
-/* line 88, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 93, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 ::selection {
   background: #1f2021;
   color: #fff;
@@ -5960,7 +5965,7 @@ figcaption {
 }
 
 /* ! ----------- Common elements ---------------- */
-/* line 108, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 113, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .body ul li:before {
   content: '\e811';
   display: block;
@@ -5969,15 +5974,15 @@ figcaption {
   position: absolute;
   top: 0;
 }
-/* line 118, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 123, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .body ol {
   margin-left: 1em;
 }
-/* line 120, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 125, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .body ol li {
   list-style: decimal;
 }
-/* line 124, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 129, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .body li {
   color: #f2f2f2;
   font-size: 0.93em;
@@ -5985,7 +5990,7 @@ figcaption {
   position: relative;
 }
 
-/* line 132, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 137, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .button, .not-logged-in .user-login #edit-submit {
   border: none;
   -moz-box-shadow: none;
@@ -5996,25 +6001,25 @@ figcaption {
   font-size: 1.29rem;
   padding: 0.5em;
 }
-/* line 139, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 144, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .button:after, .not-logged-in .user-login #edit-submit:after {
   content: "\f105";
   display: inline-block;
   font-family: 'ysm118-icomoon';
   margin: 0 0.5em 0 2em;
 }
-/* line 146, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 151, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .no-touch .button:hover, .no-touch .not-logged-in .user-login #edit-submit:hover, .not-logged-in .user-login .no-touch #edit-submit:hover {
   background: #1f2021;
   color: #fff;
 }
 
-/* line 153, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 158, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .hide-title .block-title {
   display: none;
 }
 
-/* line 159, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 164, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .field-name-field-article-tags .links {
   *zoom: 1;
 }
@@ -6027,78 +6032,78 @@ figcaption {
 .field-name-field-article-tags .links:after {
   clear: both;
 }
-/* line 161, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 166, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .field-name-field-article-tags .links li {
   float: left;
   margin-right: 0.5em;
 }
 
-/* line 168, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 173, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .aqua {
   background: #42889b;
 }
 
-/* line 171, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 176, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .yale {
   background: #00457c;
 }
 
-/* line 174, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 179, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .blue {
   background: #3775a4;
 }
 
-/* line 177, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 182, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .brown {
   background: #8b6a3f;
 }
 
-/* line 180, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 185, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .green {
   background: #79ba86;
 }
 
-/* line 183, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 188, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .ltblue {
   background: #7ab5b2;
 }
 
-/* line 186, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 191, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .ltgreen {
   background: #94ae70;
 }
 
-/* line 189, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 194, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .ltpurple {
   background: #9b6d9c;
 }
 
-/* line 192, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 197, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .orange {
   background: #dd8d66;
 }
 
-/* line 195, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 200, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .purple {
   background: #72717f;
 }
 
-/* line 198, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 203, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .red {
   background: #bf6f6f;
 }
 
-/* line 201, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 206, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .slate {
   background: #6fa2bf;
 }
 
-/* line 204, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 209, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .tan {
   background: #c9b579;
 }
 
-/* line 207, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
+/* line 212, ../../../../ysm_cases/_assets/scss/skin/_common.scss */
 .gold {
   background: #f0d63a;
 }
@@ -6519,6 +6524,10 @@ html.lt-ie9 .sticky-wrapper {
 
 /* line 85, ../scss/skin/_navigation.scss */
 .block-book-helper .book-navigation ul {
+  display: none;
+}
+/* line 90, ../scss/skin/_navigation.scss */
+.block-book-helper .book-navigation .page-links a.page-up {
   display: none;
 }
 

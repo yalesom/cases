@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 	$('.field-name-body figure.image').each(function(){
 		var thisIMG = $(this).find('img');
 
-		console.info('found a  figure');
+		//console.info('found a  figure');
 		var styleString = ' ; width: ' + thisIMG.width() + 'px;';
 
 		//$(this).attr('width',styleString);
