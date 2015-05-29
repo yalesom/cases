@@ -10,7 +10,7 @@
 <?php
 	print '<div id="html-embedded-content-' . $nid . '" class="html-embedded-content-container tile-content">';
 
-		print '<h3 class="modal-header">' . $title . '</h3>';
+		//print '<h3 class="modal-header">' . $title . '</h3>';
 
 		print render($content['field_content'][0]);
 

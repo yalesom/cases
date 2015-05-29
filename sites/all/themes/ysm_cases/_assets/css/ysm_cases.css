@@ -1,7 +1,14 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2015-05-29 | 131731
+ * @build 2015-05-29 | 133615
+ * @author Square360, Inc.
+ * @client Yale School of Management
+ */
+/**
+ * YaleSOM - Cases Platform
+ * @version 0.1.0
+ * @build 2015-05-29 | 133615
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -6522,6 +6529,10 @@ html.lt-ie9 .sticky-wrapper {
 
 /* line 82, ../scss/skin/_navigation.scss */
 .block-book-helper-book-helper-inline-navigation .book-navigation .menu {
+  display: none;
+}
+/* line 87, ../scss/skin/_navigation.scss */
+.block-book-helper-book-helper-inline-navigation .book-navigation .page-links .page-up {
   display: none;
 }
 
