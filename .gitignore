@@ -40,3 +40,4 @@ temp
 .DS_Store
 .htacess
 sites/all/themes/ysm_cases/_assets/.sass-cache*
+sites/all/themes/gnam_cases/_assets/.sass-cache*
