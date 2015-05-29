@@ -39,3 +39,4 @@ node_modules
 temp
 .DS_Store
 .htacess
+/sites/all/themes/ysm_cases/_assets/.sass-cache
