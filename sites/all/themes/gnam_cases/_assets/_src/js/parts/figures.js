@@ -6,19 +6,17 @@ jQuery(document).ready(function($) {
 		var thisIMG = $(this).find('img');
 
 		//console.info('found a  figure');
-		var styleString = ' ; width: ' + thisIMG.width() + 'px;';
-
-		//$(this).attr('width',styleString);
+		var styleString = ' ; width: ' + thisIMG.width() + 'px !important;';
 
 		//find float info
 		if ($(this).attr('style') == 'float:left') {
-			console.info("format figure left")
+			//console.info("format figure left")
 			$(this).addClass('left');
 			//console.info(styleString);
 			$(this).attr('style', $(this).attr('style') + styleString);
 		}
 		if ($(this).attr('style') == 'float:right') {
-			console.info("format figure right")
+			//console.info("format figure right")
 			$(this).addClass('right');
 			$(this).attr('style', $(this).attr('style') + styleString);
 		}
