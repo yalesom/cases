@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2014-11-24 | 104824
+ * @build 2015-05-29 | 131731
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -7718,4 +7718,30 @@ body:last-child .sheetview .defaultPeer {
   white-space: normal;
   display: inline-block;
   line-height: 1.25rem;
+}
+
+/* line 2, ../scss/skin/_modal-embedded-html.scss */
+.tile-content.html-embedded-content-container figure {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+}
+/* line 7, ../scss/skin/_modal-embedded-html.scss */
+.tile-content.html-embedded-content-container figure img {
+  max-width: 100% !important;
+}
+
+/* line 17, ../scss/skin/_modal-embedded-html.scss */
+.modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container p {
+  color: #fff;
+  padding: 0 10%;
+  width: 100%;
+}
+/* line 23, ../scss/skin/_modal-embedded-html.scss */
+.modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container img {
+  max-width: 100%;
+}
+/* line 25, ../scss/skin/_modal-embedded-html.scss */
+.modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h1, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h2, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h3, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h4, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h5, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h6 {
+  color: #fff;
 }
