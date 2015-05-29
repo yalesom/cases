@@ -1,7 +1,7 @@
 /**
  * GNAM - Merge of Cases Platform and GNAM styles
  * @version 0.1.0
- * @build 2015-05-13 | 085507
+ * @build 2015-05-29 | 144509
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -629,20 +629,18 @@ jQuery(document).ready(function($) {
 	$('.field-name-body figure.image').each(function(){
 		var thisIMG = $(this).find('img');
 
-		console.info('found a  figure');
-		var styleString = ' ; width: ' + thisIMG.width() + 'px;';
-
-		//$(this).attr('width',styleString);
+		//console.info('found a  figure');
+		var styleString = ' ; width: ' + thisIMG.width() + 'px !important;';
 
 		//find float info
 		if ($(this).attr('style') == 'float:left') {
-			console.info("format figure left")
+			//console.info("format figure left")
 			$(this).addClass('left');
 			//console.info(styleString);
 			$(this).attr('style', $(this).attr('style') + styleString);
 		}
 		if ($(this).attr('style') == 'float:right') {
-			console.info("format figure right")
+			//console.info("format figure right")
 			$(this).addClass('right');
 			$(this).attr('style', $(this).attr('style') + styleString);
 		}

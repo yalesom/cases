@@ -117,7 +117,7 @@
 		    display:none; 
 	    }
 	    .view-grouping-content {
-		    border-top: $lightGrey 5px solid;
+		    border-top: $lightGrey 10px solid;
 		    padding-top: 0.75rem;
 	    }
 	    h3 {
@@ -137,7 +137,8 @@
 				i {
 					position: absolute;
 					left: 0;
-					top:0.5rem;
+					top:0.3rem;
+					font-size: 125%;
 				}
 			}
 			.filetype,
