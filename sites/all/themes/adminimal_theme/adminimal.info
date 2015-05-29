@@ -4,7 +4,6 @@ core = 7.x
 scripts[] = js/jRespond.js
 scripts[] = js/adminimal_theme.js
 settings[shortcut_module_link] = 1
-settings[style_checkboxes] = 1
 settings[display_icons_config] = 1
 settings[custom_css] = 0
 settings[use_custom_media_queries] = 0
@@ -21,9 +20,9 @@ regions[page_bottom] = Page bottom
 regions[sidebar_first] = First sidebar
 regions_hidden[] = sidebar_first
 
-; Information added by Drupal.org packaging script on 2015-04-13
-version = "7.x-1.21+3-dev"
+; Information added by Drupal.org packaging script on 2015-03-01
+version = "7.x-1.21"
 core = "7.x"
 project = "adminimal_theme"
-datestamp = "1428946984"
+datestamp = "1425236582"
 

@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * @file
  * Theme setting callbacks for the Adminimal theme.
@@ -46,36 +47,6 @@ function adminimal_form_system_theme_settings_alter(&$form, &$form_state) {
     '#type' => 'fieldset',
     '#title' => t('Adminimal Customization'),
     '#weight' => -10,
-  );
-
-  $form['skin'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Adminimal skin'),
-    '#weight' => -11,
-  );
-
-  // Create the select list.
-  $form['skin']['adminimal_theme_skin'] = array(
-    '#type' => 'select',
-    '#title' => t('Skin selection'),
-    '#default_value' => theme_get_setting('adminimal_theme_skin'),
-    '#options' => array(
-      'default' => t('Default (No skin)'),
-      //'dark' => t('Dark'),
-      //'flat' => t('Flat'),
-      'material' => t('Material'),
-      //'alternative' => t('Alternative'),
-    ),
-    '#description' => t('Select desired skin style. Note that this feature is in beta stage and there might be some minor styling issues.'),
-    '#required' => FALSE,
-  );
-
-  $form['adminimal_custom']['style_checkboxes'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Style checkboxes and radio buttons in Webkit browsers.'),
-    '#description' => t('Enabling this option will style checkbox and radio buttons for Webkit browsers like Google Chrome, Safari, Opera and their mobile versions. 
-     Enabling this option will <strong>not</strong> have any negative impact on older browsers that dont support pure CSS styling of checkboxes like Internet Explorer or Firefox.'),
-    '#default_value' => theme_get_setting('style_checkboxes'),
   );
 
   $form['adminimal_custom']['display_icons_config'] = array(

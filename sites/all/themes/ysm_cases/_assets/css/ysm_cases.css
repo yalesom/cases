@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2015-05-29 | 142323
+ * @build 2015-05-29 | 153604
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -7737,7 +7737,7 @@ body:last-child .sheetview .defaultPeer {
 
 /* line 17, ../scss/skin/_modal-embedded-html.scss */
 .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container p {
-  color: #fff;
+  color: #777777;
   padding: 0 10%;
   width: 100%;
 }
@@ -7747,5 +7747,5 @@ body:last-child .sheetview .defaultPeer {
 }
 /* line 25, ../scss/skin/_modal-embedded-html.scss */
 .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h1, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h2, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h3, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h4, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h5, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h6 {
-  color: #fff;
+  color: #777777;
 }
