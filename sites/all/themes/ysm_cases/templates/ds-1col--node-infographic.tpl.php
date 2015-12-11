@@ -10,7 +10,7 @@
 <?php
 	print '<div id="infographic-' . $nid . '" class="infographic-container tile-content">';
 
-		print '<h3 class="modal-header">' . $title . '</h3>';
+		//print '<h3 class="modal-header">' . $title . '</h3>';
 
 		print '<img src="/sites/default/files/' . $node->field_infographic_image['und'][0]['filename'] .'" ';
 
