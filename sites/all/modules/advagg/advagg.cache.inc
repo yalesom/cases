@@ -450,7 +450,7 @@ function advagg_delete_orphaned_aggregates() {
 function advagg_delete_files_if_orphaned(array $files) {
   // Get the uri for the advagg_css/parts directory.
   list($css_path) = advagg_get_root_files_dir();
-  $parts_uri = $css_path[0] . '/parts';
+  $parts_uri = $css_path[0] . '/parts/';
 
   // Array used to record what files were deleted.
   $kill_list = $keyed_file_list = array();
@@ -469,7 +469,7 @@ function advagg_delete_files_if_orphaned(array $files) {
       $start = strpos($file->uri, $parts_uri);
       if ($start !== FALSE) {
         // Get the original filename.
-        $original_file = substr($file->uri, $start + strlen($parts_uri) + 1);
+        $original_file = substr($file->uri, $start + strlen($parts_uri));
         $original_file = preg_replace('/(.\\d+\\.css)$/i', '.css', $original_file);
         if (file_exists($original_file)) {
           // Original file exists, do not delete.
@@ -513,6 +513,10 @@ function advagg_delete_files_if_orphaned(array $files) {
       }
     }
   }
+
+  // Let other modules know about the removed files.
+  // Call hook_advagg_removed_aggregates().
+  module_invoke_all('advagg_removed_aggregates', $kill_list);
   return $kill_list;
 }
 
@@ -588,6 +592,113 @@ function advagg_cleanup_semaphore_table() {
     ->condition('expire', REQUEST_TIME - $fuzz_factor, '<')
     ->execute();
   return $results;
+}
+
+/**
+ * Delete leftover temp files.
+ *
+ * @return int
+ *   Count of the number of files removed
+ */
+function advagg_remove_temp_files() {
+  // Make sure advagg_get_root_files_dir() is available.
+  drupal_load('module', 'advagg');
+  // Make sure advagg_install_delete_empty_file_if_stale() is available.
+  module_load_include('install', 'advagg', 'advagg');
+
+  // Get the advagg paths.
+  $advagg_path = advagg_get_root_files_dir();
+  $total_count = 0;
+  // Get the top level path.
+  $top_level = substr($advagg_path[0][0], 0, strpos($advagg_path[0][0], 'advagg_css'));
+
+  // Remove empty temp files from public://.
+  $files = file_scan_directory($top_level, '/file.*|fil.*\.tmp/', array(
+    'recurse' => FALSE,
+    'callback' => 'advagg_install_delete_empty_file_if_stale',
+  ));
+  foreach ($files as $key => $file) {
+    if (file_exists($file->uri)) {
+      unset($files[$key]);
+    }
+  }
+  $total_count += count($files);
+
+  // Remove empty temp files from public://advagg_css.
+  $files = file_scan_directory($advagg_path[0][0], '/file.*|fil.*\.tmp/', array(
+    'recurse' => FALSE,
+    'callback' => 'advagg_install_delete_empty_file_if_stale',
+  ));
+  foreach ($files as $key => $file) {
+    if (file_exists($file->uri)) {
+      unset($files[$key]);
+    }
+  }
+  $total_count += count($files);
+
+  // Remove empty temp files from public://advagg_js.
+  $files = file_scan_directory($advagg_path[1][0], '/file.*|fil.*\.tmp/', array(
+    'recurse' => FALSE,
+    'callback' => 'advagg_install_delete_empty_file_if_stale',
+  ));
+  foreach ($files as $key => $file) {
+    if (file_exists($file->uri)) {
+      unset($files[$key]);
+    }
+  }
+  $total_count += count($files);
+
+  // Remove empty temp files from public://.
+  $files = file_scan_directory($top_level, '/file_advagg_.*/', array(
+    'recurse' => FALSE,
+    'callback' => 'advagg_delete_temp_file_if_stale',
+  ));
+  foreach ($files as $key => $file) {
+    if (file_exists($file->uri)) {
+      unset($files[$key]);
+    }
+  }
+  $total_count += count($files);
+
+  // Remove empty temp files from public://advagg_css.
+  $files = file_scan_directory($advagg_path[0][0], '/file_advagg_.*/', array(
+    'recurse' => FALSE,
+    'callback' => 'advagg_delete_temp_file_if_stale',
+  ));
+  foreach ($files as $key => $file) {
+    if (file_exists($file->uri)) {
+      unset($files[$key]);
+    }
+  }
+  $total_count += count($files);
+
+  // Remove empty temp files from public://advagg_js.
+  $files = file_scan_directory($advagg_path[1][0], '/file_advagg_.*/', array(
+    'recurse' => FALSE,
+    'callback' => 'advagg_delete_temp_file_if_stale',
+  ));
+  foreach ($files as $key => $file) {
+    if (file_exists($file->uri)) {
+      unset($files[$key]);
+    }
+  }
+  $total_count += count($files);
+
+  // Output info.
+  return $total_count;
+}
+
+/**
+ * Callback to delete files if modified more than 60 seconds ago.
+ *
+ * @param string $uri
+ *   Location of the file to check.
+ */
+function advagg_delete_temp_file_if_stale($uri) {
+  // Set stale file threshold to 60 seconds.
+  if (REQUEST_TIME - filemtime($uri) > 60) {
+    file_unmanaged_delete($uri);
+  }
 }
 
 /**

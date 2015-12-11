@@ -323,6 +323,20 @@ function advagg_js_compress_prep(&$contents, $filename, array $aggregate_setting
     }
   }
 
+  // Jsmin doesn't handle multi-byte characters before version 2, fall back to
+  // different compressor if jsmin version < 2 and $contents contains multi-
+  // byte characters.
+  if ($compressor == 3 && (version_compare(phpversion('jsmin'), '2.0.0', '<') &&advagg_js_compress_string_contains_multibyte_characters($contents))) {
+    if (defined('PHP_VERSION_ID') && constant('PHP_VERSION_ID') >= 50300) {
+      $compressor = 5;
+      watchdog('advagg_js_compress', 'The currently installed jsmin version does not handle multibyte characters, you may concider to upgrade the jsmin extension. Using JSqueeze fallback.');
+    }
+    else {
+      $compressor = 1;
+      watchdog('advagg_js_compress', 'The currently installed jsmin version does not handle multibyte characters, you may concider to upgrade the jsmin extension. Using JSmin+ fallback.');
+    }
+  }
+
   // Try cache.
   $info = advagg_get_info_on_files(array($filename), FALSE, FALSE);
   $info = $info[$filename];
@@ -383,6 +397,25 @@ function advagg_js_compress_prep(&$contents, $filename, array $aggregate_setting
       $contents = "/* Source and licensing information for the line(s) below can be found at $url. */\n" . $contents . ";\n/* Source and licensing information for the above line(s) can be found at $url. */\n";
     }
   }
+}
+
+/**
+ * Checks if string contains multibyte characters.
+ *
+ * @param string $string
+ *   String to check.
+ * @return bool
+ *   TRUE if string contains multibyte character.
+ */
+function advagg_js_compress_string_contains_multibyte_characters($string) {
+  // Check if there are multy-byte characters: If the UTF-8 encoded string has
+  // multybytes strlen() will return a byte-count greater than the actual
+  // character count, returned by drupal_strlen().
+  if (strlen($string) == drupal_strlen($string)) {
+    return FALSE;
+  }
+
+  return TRUE;
 }
 
 /**

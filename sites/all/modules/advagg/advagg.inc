@@ -175,6 +175,8 @@ function advagg_insert_update_files(array $files, $type) {
     }
   }
 
+  // Make drupal_get_installed_schema_version() available.
+  include_once DRUPAL_ROOT . '/includes/install.inc';
   foreach ($files as $filename => $file_meta_data) {
     // Create record.
     $record = array(
@@ -190,6 +192,11 @@ function advagg_insert_update_files(array $files, $type) {
     // Check the file in the database.
     if (empty($files_in_db[$filename])) {
       try {
+        // Add in filesize_processed if the schema is 7210 or higher.
+        if (drupal_get_installed_schema_version('advagg') >= 7210) {
+          $record['filesize_processed'] = advagg_generate_filesize_processed($filename, $type);
+        }
+
         // Insert into database.
         $record['changes'] = 1;
 
@@ -219,6 +226,28 @@ function advagg_insert_update_files(array $files, $type) {
         $diff['changes'] = $changes + 1;
         $diff['filename_hash'] = $record['filename_hash'];
 
+        // Add in filesize_processed if the schema is 7210 or higher.
+        if (drupal_get_installed_schema_version('advagg') >= 7210) {
+          $diff['filesize_processed'] = advagg_generate_filesize_processed($filename, $type);
+        }
+
+        $return = db_merge('advagg_files')
+          ->key(array(
+            'filename_hash' => $diff['filename_hash'],
+            ))
+          ->fields($diff)
+          ->execute();
+        if ($return) {
+          $write_done = TRUE;
+        }
+      }
+      elseif (drupal_get_installed_schema_version('advagg') >= 7210 && empty($files_in_db[$filename]['filesize_processed'])) {
+        $diff['filename_hash'] = $record['filename_hash'];
+        // Add in filesize_processed if the schema is 7210 or higher.
+        if (drupal_get_installed_schema_version('advagg') >= 7210) {
+          $diff['filesize_processed'] = advagg_generate_filesize_processed($filename, $type);
+        }
+
         $return = db_merge('advagg_files')
           ->key(array(
             'filename_hash' => $diff['filename_hash'],
@@ -232,6 +261,38 @@ function advagg_insert_update_files(array $files, $type) {
     }
   }
   return $write_done;
+}
+
+/**
+ * Given a filename calculate the processed filesize.
+ *
+ * @param string $filename
+ *   String; filename containing path information as well.
+ * @param string $type
+ *   String; css or js.
+ *
+ * @return int
+ *   Processed filesize.
+ */
+function advagg_generate_filesize_processed($filename, $type) {
+  // Make advagg_get_*_aggregate_contents() available.
+  module_load_include('inc', 'advagg', 'advagg.missing');
+  $aggregate_settings = advagg_current_hooks_hash_array();
+
+  $file_aggregate = array($filename => array());
+  if ($type === 'css') {
+    $contents = advagg_get_css_aggregate_contents($file_aggregate, $aggregate_settings);
+  }
+  elseif ($type === 'js') {
+    $contents = advagg_get_js_aggregate_contents($file_aggregate, $aggregate_settings);
+  }
+  if (!empty($contents)) {
+    $compressed = gzencode($contents, 9, FORCE_GZIP);
+    return strlen($compressed);
+  }
+  else {
+    return 0;
+  }
 }
 
 // File operations.
@@ -433,7 +494,7 @@ function advagg_get_info_on_files(array $files, $bypass_cache = FALSE, $run_alte
     advagg_clearstatcache($file);
 
     // Remove file in the cache if it does not exist.
-    if (!file_exists($file)) {
+    if (!file_exists($file) || is_dir($file)) {
       if (isset($cached_data[$cache_id])) {
         cache_clear_all($cache_id, 'cache_advagg_info', FALSE);
       }
@@ -452,7 +513,7 @@ function advagg_get_info_on_files(array $files, $bypass_cache = FALSE, $run_alte
     }
 
     // Get the file contents.
-    $file_contents = file_get_contents($file);
+    $file_contents = (string) @file_get_contents($file);
 
     $ext = pathinfo($file, PATHINFO_EXTENSION);
     if ($ext !== 'css' && $ext !== 'js') {
@@ -481,7 +542,7 @@ function advagg_get_info_on_files(array $files, $bypass_cache = FALSE, $run_alte
 
     // Build meta data array and set cache.
     $return[$file] = array(
-      'filesize' => filesize($file),
+      'filesize' => (int) @filesize($file),
       'mtime' => @filemtime($file),
       'filename_hash' => $filename_hash,
       'content_hash' => drupal_hash_base64($file_contents),
@@ -863,7 +924,13 @@ function advagg_split_css_file(array $file_info) {
       if ($last_chunk) {
         $file_info['split_last_part'] = TRUE;
       }
-      $parts[] = advagg_create_subfile($chunks, $overall_split, $file_info);
+      $subfile = advagg_create_subfile($chunks, $overall_split, $file_info);
+      if (empty($subfile)) {
+        // Somthing broke; do not create a subfile.
+        watchdog('advagg', 'Spliting up a CSS file failed. File info: <code>@info</code>', array('@info' => var_export($file_info, TRUE)));
+        return array();
+      }
+      $parts[] = $subfile;
       continue;
     }
 
@@ -978,7 +1045,13 @@ function advagg_split_css_file(array $file_info) {
         $file_info['split_last_part'] = TRUE;
       }
       // Write the data.
-      $parts[] = advagg_create_subfile($string_to_write, $overall_split, $file_info);
+      $subfile = advagg_create_subfile($string_to_write, $overall_split, $file_info);
+      if (empty($subfile)) {
+        // Somthing broke; do not create a subfile.
+        watchdog('advagg', 'Spliting up a CSS file failed. File info: <code>@info</code>', array('@info' => var_export($file_info, TRUE)));
+        return array();
+      }
+      $parts[] = $subfile;
       $first = FALSE;
     }
   }
@@ -996,7 +1069,7 @@ function advagg_split_css_file(array $file_info) {
  *   File info array from advagg_get_info_on_file().
  *
  * @return array
- *   Array with advagg_get_info_on_file data and split data.
+ *   Array with advagg_get_info_on_file data and split data; FALSE on failure.
  */
 function advagg_create_subfile($css, $overall_split, array $file_info) {
   static $parts_uri;
@@ -1015,6 +1088,9 @@ function advagg_create_subfile($css, $overall_split, array $file_info) {
 
   // Get the path from $file_info['data'].
   $uri_path = advagg_get_relative_path($file_info['data']);
+  if (!file_exists($uri_path) || is_dir($uri_path)) {
+    return FALSE;
+  }
 
   // Write the current chunk of the CSS into a file.
   $new_filename = str_ireplace('.css', '.' . $overall_split . '.css', $uri_path);
@@ -1167,6 +1243,10 @@ function advagg_build_aggregate_plans(array $files_to_aggregate, $type) {
     advagg_create_aggregate_files($plans, $type);
   }
 
+  // Run hooks to modify the plans.
+  // Call hook_advagg_build_aggregate_plans_post_alter().
+  drupal_alter('advagg_build_aggregate_plans_post', $plans);
+
   return $plans;
 }
 
@@ -1263,13 +1343,18 @@ function advagg_load_css_stylesheet($file, $optimize, array $aggregate_settings 
 
   // Get the parent directory of this file, relative to the Drupal root.
   $css_base_url = substr($file, 0, strrpos($file, '/'));
-  $url_parts = explode('advagg_css/parts/', $css_base_url);
+
+  // Handle split css files.
+  list($css_path) = advagg_get_root_files_dir();
+  $parts_path = $css_path[1] . '/parts/';
+  $url_parts = strpos($css_base_url, $parts_path);
   // If this CSS file is actually a part of a previously split larger CSS file,
   // don't use it to construct relative paths within the CSS file for
   // 'url( ... )' bits.
-  if (count($url_parts) === 2) {
-    $css_base_url = $url_parts[1];
+  if ($url_parts !== FALSE) {
+    $css_base_url = substr($css_base_url, $url_parts + strlen($parts_path));
   }
+
   // Replace the old base path with the one that was passed in.
   $pos = strpos($css_base_url, $old_base_path);
   if ($pos !== FALSE) {
