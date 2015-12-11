@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2015-05-29 | 153604
+ * @build 2015-06-01 | 163412
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -6831,6 +6831,11 @@ html.lt-ie9 .sticky-wrapper {
 /* line 230, ../scss/skin/_case.scss */
 .sponsor .name {
   display: block;
+}
+
+/* line 236, ../scss/skin/_case.scss */
+body.not-logged-in .sponsors {
+  display: none !important;
 }
 
 /* !------------- Page content type styles ------------- */

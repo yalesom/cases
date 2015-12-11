@@ -6845,6 +6845,11 @@ html.lt-ie9 .sticky-wrapper {
   margin-bottom: 0;
 }
 
+/* line 248, ../scss/skin/_case.scss */
+body.not-logged-in .sponsors {
+  display: none !important;
+}
+
 /* !------------- Page content type styles ------------- */
 /* line 2, ../scss/skin/_page.scss */
 .document-tiles {

@@ -138,6 +138,7 @@ body.adminimal-menu #admin-menu .dropdown li.admin-menu-action:first-child a {
 body.adminimal-menu #admin-menu .admin-menu-search input {
   background: #1B2327;
   box-shadow: inset 0px -2px 0px #64696C;
+  transition: all, 0.3s;
 }
 
 body.adminimal-menu #admin-menu .admin-menu-search input:focus {
@@ -207,15 +208,15 @@ body.adminimal-skin-material ul.action-links a {
   font-size: 15px;
   background: #2196f3;
   color: #FFFFFF;
-  padding: 5px 20px 5px;
+  padding: 3px 20px 2px;
   border-radius: 3px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
   display: inline-block;
 }
 
 body.adminimal-skin-material ul.action-links a:hover {
   background: #29B6F6;
   text-decoration: none;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
 }
 
 body.adminimal-skin-material .theme-selector {
@@ -252,6 +253,7 @@ body.adminimal-skin-material fieldset {
   border-radius: 3px;
   padding-top: 42px;
   position: relative;
+  margin-bottom: 20px;
 }
 
 body.adminimal-skin-material .fieldset-description {
@@ -356,23 +358,29 @@ body.page-admin-appearance.adminimal-skin-material .theme-selector .theme-descri
 body.page-admin-appearance.adminimal-skin-material .theme-selector .operations {
   padding: 0;
   position: absolute;
-  bottom: 16px;
+  bottom: 0px;
   font-size: 14px;
   width: 100%;
   font-weight: bold;
   margin: 0;
   left: 0px;
-  padding-top: 18px;
+  padding-top: 5px;
   border-top: 1px solid #eee;
 }
 
 body.page-admin-appearance.adminimal-skin-material .theme-selector .operations li {
   float: right;
   border: none;
+  padding: 0;
 }
 
-body.page-admin-appearance.adminimal-skin-material .theme-selector .operations li.first {
-  padding: 0 20px 0 0;
+body.page-admin-appearance.adminimal-skin-material .theme-selector .operations li a {
+  padding: 10px;
+}
+
+body.page-admin-appearance.adminimal-skin-material .theme-selector .operations li.first a{
+  padding: 10px;
+  margin-right: 10px;
 }
 
 body.page-admin-appearance.adminimal-skin-material .theme-selector .operations li a:hover{
@@ -543,7 +551,7 @@ body.adminimal-skin-material.style-checkboxes input[type=radio]:disabled:hover {
 }
 .waves-input-wrapper {
   border-radius: 0.2em;
-  vertical-align: bottom;
+  vertical-align: middle;
   z-index: 999;
   margin-right: 1em;
 }
@@ -580,31 +588,31 @@ a.waves-effect .waves-ripple {
   z-index: -1;
 }
 
-body.adminimal-skin-material ul.secondary {
+body.adminimal-skin-material #navigation ul.secondary {
   overflow: hidden;
 }
 
-body.adminimal-skin-material ul.secondary li {
+body.adminimal-skin-material #navigation ul.secondary li {
   height: 39px;
 }
 
-body.adminimal-skin-material ul.secondary li a {
+body.adminimal-skin-material #navigation ul.secondary li a {
   color: #777 !important;
   background: #fff;
 }
 
-body.adminimal-skin-material ul.secondary li a:hover {
+body.adminimal-skin-material #navigation ul.secondary li a:hover {
   color: #2196F3 !important;
   border-color: #2196F3 !important;
   background: #fff;
 }
 
-body.adminimal-skin-material ul.secondary li a.active {
+body.adminimal-skin-material #navigation ul.secondary li a.active {
   color: #000 !important;
   background: #fff;
 }
 
-body.adminimal-skin-material ul.secondary li a.active:hover {
+body.adminimal-skin-material #navigation ul.secondary li a.active:hover {
   border-color: #000 !important;
 }
 
@@ -649,32 +657,42 @@ input.form-submit,
 a.button,
 div.exposed-filters input#edit-submit {
   cursor: pointer;
-  background: #e3e3e3;
+  background: #BBBBBB;
   border: none;
   padding: 6px 18px;
-  color: #555;
+  color: #fff;
   text-align: center;
   font-size: 1.077em;
   font-family: Roboto, sans-serif;
   font-weight: 500;
   text-transform: uppercase;
   border-radius: 0.2rem;
-  margin: 0;
+  transition: all, 0.3s;
 }
 
 input[type="submit"]:hover,
 input.form-submit:hover,
 a.button:hover,
 div.exposed-filters input#edit-submit:hover {
-
+  box-shadow: 0 2px 6px rgba(0,0,0,.2);
 }
 
 input[type="submit"]:active,
 input.form-submit:active,
 a.button:active,
 div.exposed-filters input#edit-submit:active {
-
+  outline: none;
+  box-shadow: inset 0 0px 8px rgba(0,0,0,0.4);
 }
+
+input[type="submit"]:focus,
+input.form-submit:focus,
+a.button:focus,
+div.exposed-filters input#edit-submit:focus {
+  outline: none;
+  box-shadow: inset 0 0px 8px rgba(0,0,0,0.4);
+}
+
 
 /* Green Button */
 input[type="submit"][id^="edit-submit"],
@@ -691,13 +709,12 @@ input#edit-actions-save,
   text-align: center;
   font-weight: normal;
   font-size: 1.077em;
-  background: #009688;
+  background: #0E9C57;
   color: #fff;
   font-family: Roboto, sans-serif;
   font-weight: 500;
   text-transform: uppercase;
   border-radius: 0.2rem;
-  margin: 0;
 }
 
 input[type="submit"][id^="edit-submit"]:hover,
@@ -708,17 +725,31 @@ input#edit-save:hover,
 input#edit-submit:hover,
 input#edit-actions-save:hover,
 #media-browser-page a.button-yes:hover {
-
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
 }
 
-input#edit-submit:active,
+input[type="submit"][id^="edit-submit"]:active,
 input#edit-actions-submit:active,
 input[id^="save-continue"]:active,
 input[type="submit"][id^="edit-save"]:active,
 input#edit-save:active,
 input#edit-submit:active,
-input#edit-actions-save:active {
+input#edit-actions-save:active,
+#media-browser-page a.button-yes:active {
+  outline: none;
+  box-shadow: inset 0 0px 8px rgba(0,0,0,0.4);
+}
 
+input[type="submit"][id^="edit-submit"]:focus,
+input#edit-actions-submit:focus,
+input[id^="save-continue"]:focus,
+input[type="submit"][id^="edit-save"]:focus,
+input#edit-save:focus,
+input#edit-submit:focus,
+input#edit-actions-save:focus,
+#media-browser-page a.button-yes:focus {
+  outline: none;
+  box-shadow: inset 0 0px 8px rgba(0,0,0,0.4);
 }
 
 /* Red Button */
@@ -728,6 +759,7 @@ input#edit-remove,
 input#edit-clear,
 a.button.remove,
 input[id*="remove-button"],
+.page-node-delete input#edit-submit,
 .page-admin-modules-uninstall input#edit-submit {
   cursor: pointer;
   padding: 6px 18px;
@@ -741,7 +773,7 @@ input[id*="remove-button"],
   font-weight: 500;
   text-transform: uppercase;
   border-radius: 0.2rem;
-  margin: 0;
+  transition: all, 0.3s;
 }
 
 input#edit-delete:hover,
@@ -750,8 +782,9 @@ input#edit-remove:hover,
 input#edit-clear:hover,
 a.button.remove:hover,
 input[id*="remove-button"]:hover,
+.page-node-delete input#edit-submit:hover,
 body.page-admin-modules-uninstall input#edit-submit:hover {
-
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
 }
 
 input#edit-delete:active,
@@ -759,14 +792,28 @@ input#remove-button:active,
 input#edit-remove:active,
 input#edit-clear:active,
 input[id*="remove-button"]:active,
+.page-node-delete input#edit-submit:active,
 body.page-admin-modules-uninstall input#edit-submit:active {
+  outline: none;
+  box-shadow: inset 0 0px 8px rgba(0,0,0,0.4);
+}
 
+input#edit-delete:focus,
+input#remove-button:focus,
+input#edit-remove:focus,
+input#edit-clear:focus,
+input[id*="remove-button"]:focus,
+.page-node-delete input#edit-submit:focus,
+body.page-admin-modules-uninstall input#edit-submit:focus {
+  outline: none;
+  box-shadow: inset 0 0px 8px rgba(0,0,0,0.4);
 }
 
 /* Blue Button */
 input#edit-preview,
 input#edit-next,
 input#preview-submit,
+input.ief-entity-submit,
 input[type="submit"][id^="edit-return"] {
   cursor: pointer;
   border: none;
@@ -780,22 +827,37 @@ input[type="submit"][id^="edit-return"] {
   font-weight: 500;
   text-transform: uppercase;
   border-radius: 0.2rem;
-  margin: 0;
+  transition: all, 0.3s;
 }
 
 input#edit-preview:hover,
 input#edit-next:hover,
 input#preview-submit:hover,
+input.ief-entity-submit:hover,
 input[type="submit"][id^="edit-return"]:hover {
-
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
 }
 
 input#edit-preview:active,
 input#edit-next:active,
 input#preview-submit:active,
+input.ief-entity-submit:active,
 input[type="submit"][id^="edit-return"]:active {
   border: none;
   color: #fff;
+  outline: none;
+  box-shadow: inset 0 0px 8px rgba(0,0,0,0.4);
+}
+
+input#edit-preview:focus,
+input#edit-next:focus,
+input#preview-submit:focus,
+input.ief-entity-submit:focus,
+input[type="submit"][id^="edit-return"]:focus {
+  border: none;
+  color: #fff;
+  outline: none;
+  box-shadow: inset 0 0px 8px rgba(0,0,0,0.4);
 }
 
 /* Orange Button */
@@ -812,6 +874,7 @@ input#edit-buttons-revert,
   font-size: 1.077em;
   font-family: "Lucida Grande",Verdana,sans-serif;
   background: #f69231;
+  transition: all, 0.3s;
 }
 
 a#edit-cancel,a#edit-actions-cancel {
@@ -824,7 +887,7 @@ a#edit-cancel,a#edit-actions-cancel {
 #edit-actions-cancel:hover,
 input#edit-buttons-revert:hover,
 #media-browser-page a.button-no:hover {
-
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
 }
 
 #edit-cancel:active,
@@ -833,6 +896,18 @@ input#edit-buttons-revert:active {
   background: #333;
   border: none;
   color: #fff;
+  outline: none;
+  box-shadow: inset 0 0px 8px rgba(0,0,0,0.4);
+}
+
+#edit-cancel:focus,
+#edit-actions-cancel:focus,
+input#edit-buttons-revert:focus {
+  background: #333;
+  border: none;
+  color: #fff;
+  outline: none;
+  box-shadow: inset 0 0px 8px rgba(0,0,0,0.4);
 }
 
 .waves-input-wrapper input {
@@ -897,4 +972,72 @@ html.js body.adminimal-skin-material #module-filter-submit input {
 
 html.js body.adminimal-skin-material #module-filter-submit .form-actions {
   padding: 20px 0;
+}
+
+body.adminimal-skin-material .form-actions input {
+  height: 24px;
+  margin-right: 1rem;
+}
+
+body.adminimal-skin-material .block-search .form-actions input,
+body.adminimal-skin-material .exposed-filters input{
+  height: initial;
+}
+
+body.adminimal-skin-material.overlay #branding {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  box-shadow: none;
+}
+
+body.adminimal-skin-material.overlay div.breadcrumb a:hover {
+  color: #0074bd;
+}
+
+body.adminimal-skin-material.overlay #overlay-close,
+body.adminimal-skin-material.overlay #overlay-close:hover {
+  height: 44px;
+  background-position-y: 10px;
+  left: -36px;
+}
+
+body.adminimal-skin-material.overlay #overlay-tabs {
+  right: 2px;
+}
+
+body.adminimal-skin-material.overlay #overlay-tabs li:first-of-type a {
+  border-radius: 0.2em 0 0 0;
+}
+
+body.adminimal-skin-material.overlay #overlay-tabs li:last-of-type a {
+  border-radius: 0 0.2em 0 0;
+}
+
+body.adminimal-skin-material.overlay ul.secondary {
+  background: #F9F9F9;
+}
+
+body.adminimal-skin-material .rules-elements-add ul.action-links a,
+body.adminimal-skin-material ul.rules-operations a,
+body.adminimal-skin-material .rules-elements-add ul.action-links a {
+    background: transparent;
+    color: #2196F3;
+    box-shadow: none;
+    padding: 8px 18px;
+    margin: 5px 0 0 0;
+}
+
+body.adminimal-skin-material .rules-elements-add ul.action-links a:hover,
+body.adminimal-skin-material ul.rules-operations a:hover,
+body.adminimal-skin-material .rules-elements-add ul.action-links a:hover {
+    background: transparent;
+    color: #2196F3;
+    box-shadow: none;
+}
+
+body.adminimal-skin-material .rules-elements-add ul.action-links a:focus,
+body.adminimal-skin-material ul.rules-operations a:focus,
+body.adminimal-skin-material .rules-elements-add ul.action-links a:focus {
+  text-decoration: none;
 }

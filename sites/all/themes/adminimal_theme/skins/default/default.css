@@ -5,7 +5,7 @@
     -webkit-appearance:none;
     display: inline-block;
     position: relative;
-    top: 4px;
+    top: 3px;
     margin-right: 0.25em;
     padding: 0;
     background: #fff;
@@ -71,6 +71,7 @@ div.exposed-filters input#edit-submit {
   font-weight: normal;
   font-size: 1.077em;
   font-family: "Lucida Grande",Verdana,sans-serif;
+  transition: all, 0.3s;
 }
 
 input.form-submit:hover,
@@ -94,6 +95,7 @@ input[type="submit"][id^="edit-save"],
 input#edit-save,
 input#edit-submit,
 input#edit-actions-save,
+.field-widget-inline-entity-form .container-inline .form-submit,
 #media-browser-page a.button-yes {
   cursor: pointer;
   border-radius: 0;
@@ -107,6 +109,7 @@ input#edit-actions-save,
   font-size: 1.077em;
   font-family: "Lucida Grande",Verdana,sans-serif;
   background: #4d8f46;
+  transition: all, 0.3s;
 }
 
 input[type="submit"][id^="edit-submit"]:hover,
@@ -116,6 +119,7 @@ input[type="submit"][id^="edit-save"]:hover,
 input#edit-save:hover,
 input#edit-submit:hover,
 input#edit-actions-save:hover,
+.field-widget-inline-entity-form .container-inline .form-submit:hover,
 #media-browser-page a.button-yes:hover {
   background: #0a6700;
   border-radius: 0;
@@ -129,6 +133,7 @@ input[id^="save-continue"]:active,
 input[type="submit"][id^="edit-save"]:active,
 input#edit-save:active,
 input#edit-submit:active,
+.field-widget-inline-entity-form .container-inline .form-submit:active,
 input#edit-actions-save:active {
   box-shadow: 0 2px 2px rgba(0,0,0,0.75) inset;
   background: #333;
@@ -143,6 +148,7 @@ input#remove-button,
 input#edit-remove,
 input#edit-clear,
 a.button.remove,
+.page-node-delete input#edit-submit,
 input[id*="remove-button"],
 .page-admin-modules-uninstall input#edit-submit {
   cursor: pointer;
@@ -157,6 +163,7 @@ input[id*="remove-button"],
   font-size: 1.077em;
   font-family: "Lucida Grande",Verdana,sans-serif;
   background: #b73939;
+  transition: all, 0.3s;
 }
 
 input#edit-delete:hover,
@@ -164,6 +171,7 @@ input#remove-button:hover,
 input#edit-remove:hover,
 input#edit-clear:hover,
 a.button.remove:hover,
+.page-node-delete input#edit-submit:hover,
 input[id*="remove-button"]:hover,
 body.page-admin-modules-uninstall input#edit-submit:hover {
   background: #990000;
@@ -176,6 +184,7 @@ input#edit-delete:active,
 input#remove-button:active,
 input#edit-remove:active,
 input#edit-clear:active,
+.page-node-delete input#edit-submit:active,
 input[id*="remove-button"]:active,
 body.page-admin-modules-uninstall input#edit-submit:active {
   box-shadow: 0 2px 2px rgba(0,0,0,0.75) inset;
@@ -189,6 +198,7 @@ body.page-admin-modules-uninstall input#edit-submit:active {
 input#edit-preview,
 input#edit-next,
 input#preview-submit,
+input.ief-entity-submit,
 input[type="submit"][id^="edit-return"] {
   cursor: pointer;
   border-radius: 0;
@@ -202,11 +212,13 @@ input[type="submit"][id^="edit-return"] {
   font-size: 1.077em;
   font-family: "Lucida Grande",Verdana,sans-serif;
   background: #0074BD;
+  transition: all, 0.3s;
 }
 
 input#edit-preview:hover,
 input#edit-next:hover,
 input#preview-submit:hover,
+input.ief-entity-submit:hover,
 input[type="submit"][id^="edit-return"]:hover {
   background: #004c99;
   border-radius: 0;
@@ -217,6 +229,7 @@ input[type="submit"][id^="edit-return"]:hover {
 input#edit-preview:active,
 input#edit-next:active,
 input#preview-submit:active,
+input.ief-entity-submit:active,
 input[type="submit"][id^="edit-return"]:active {
   box-shadow: 0 2px 2px rgba(0,0,0,0.75) inset;
   background: #333;
@@ -242,6 +255,7 @@ input#edit-buttons-revert,
   font-size: 1.077em;
   font-family: "Lucida Grande",Verdana,sans-serif;
   background: #f69231;
+  transition: all, 0.3s;
 }
 
 a#edit-cancel,a#edit-actions-cancel {
@@ -285,4 +299,48 @@ body.page-admin-appearance-settings-omega fieldset {
   border-top: 3px solid #0074BD !important;
   padding: 12px !important;
   margin: 18px 0 !important;
+}
+
+div.breadcrumb a {
+  transition: all, 0.3s;
+}
+
+ul.action-links a {
+  padding: 0px 20px;
+  font-family: "Helvetica", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  background: #fff;
+  line-height: 30px;
+  border: 2px solid #0074BD;
+  margin: 5px auto;
+  border-radius: 100px;
+  display: block;
+  transition: all, 0.3s;
+}
+
+ul.action-links a:hover {
+  text-decoration: none;
+  background: #0074BD;
+  color: #fff;
+}
+
+#admin-menu {
+  box-shadow: none;
+  background: #2B2B2B;
+}
+
+#admin-menu .dropdown .admin-menu-toolbar-category > a.active-trail {
+  background: #0074BD;
+}
+
+.overlay #overlay-close,
+.overlay #overlay-close:hover {
+  height: 44px;
+  background-position-y: 10px;
+  left: -36px;
+}
+
+.overlay #overlay-tabs {
+  right: 2px;
 }
