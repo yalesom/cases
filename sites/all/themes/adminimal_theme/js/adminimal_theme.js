@@ -18,6 +18,16 @@ var jRes = jRespond([
   }
 ]);
 
+// Detect Operating system and add class to the body.
+Drupal.behaviors.adminimal_os_class = {
+  attach: function (context, settings) {
+    // Detect if OS is mac based.
+    if (navigator.userAgent.indexOf('Mac OS X') != -1) {
+      $("body").addClass("mac");
+    }
+  }
+};
+
 // Modify the Search field for module filter.
 Drupal.behaviors.adminimal_module_filter_box = {
   attach: function (context, settings) {

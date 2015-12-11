@@ -9,10 +9,12 @@ CONTENTS OF THIS FILE
 
  - Features & benefits
  - Configuration
+ - Additional options for drupal_add_css/js functions
  - JSMin PHP Extension
  - JavaScript Bookmarklet
  - Technical Details & Hooks
  - How to get a high PageSpeed score
+ - Settings that Drupal.org uses
  - nginx Configuration
  - Troubleshooting
 
@@ -98,15 +100,12 @@ Settings page is located at:
    page generation speeds when a new aggregate is created because the CSS/JS
    file creation will happen in a different process. If HTTPRL is installed it
    is Enabled by default; otherwise is it Disabled.
- - AdvAgg Cache Settings: As a reference, core takes about 7 ms to run.
-   Development will scan all files for a change on every page load ~ 100ms.
-   Normal is should be fine for all use cases ~ 10ms. Aggressive might break
-   depending on how various hook_alter's for CSS/JS are implemented ~ 4ms; to
-   see what modules are using css/js_alter you can go to the Information Page
-   and under 'AdvAgg CSS/JS hooks implemented by modules' modules using both of
-   these hooks will be listed near the bottom of that section; more information
-   about the Aggressive setting can be found in Technical Details under
-   Aggressive Cache Setting in this document.
+ - AdvAgg Cache Settings: As a reference, core takes about 25 ms to run.
+   Development will scan all files for a change on every page load. Normal is
+   fine for all use cases. Aggressive should be fine in almost all use cases;
+   if your inline css/js changes based off of a variable then the aggressive
+   cache hit ratio will be low; if that is the case consider using
+   Drupal.settings for a better cache hit ratio.
 
 **CSS Options & JS Options**
 
@@ -241,10 +240,36 @@ current defaults are shown.
     $conf['advagg_js_cdn_jquery'] = TRUE;
 
     // Value for the compression ratio test.
-    $conf['advagg_js_max_compress_ratio'] = 0.9;
+    $conf['advagg_js_compress_max_ratio'] = 0.9;
 
     // Value for the compression ratio test.
     $conf['advagg_js_compress_ratio'] = 0.1;
+
+    // Skip far future check on status page.
+    $conf['advagg_skip_far_future_check'] = FALSE;
+
+    // Skip preprocess and enabled checks.
+    $conf['advagg_skip_enabled_preprocess_check'] = FALSE;
+
+    // Default root dir for the advagg files; see advagg_get_root_files_dir().
+    $conf['advagg_root_dir_prefix'] = 'public://';
+
+
+ADDITIONAL OPTIONS FOR DRUPAL_ADD_CSS/JS FUNCTIONS
+--------------------------------------------------
+
+AdvAgg extends the available options inside of drupal_add_css and drupal_add_js.
+
+drupal_add_js - additional keys for $options.
+ - browsers: Works the same as the one found in drupal_add_css.
+ - onload: Run this js code when after the js file has loaded.
+ - onerror: Run this js code when if the js file did not load.
+ - async: TRUE - Load this file using async.
+ - no_defer: TRUE - Never defer or async load this js file.
+
+Both drupal_add_js + drupal_add_css - additional keys for $options.
+ - scope_lock: TRUE - Make sure the scope of this will not ever change.
+ - movable: FALSE - Make sure the ordering of this will not ever change.
 
 
 JSMIN PHP EXTENSION
@@ -301,12 +326,10 @@ TECHNICAL DETAILS & HOOKS
    by AdvAgg. The cache ID is set by this code:
 
        $hooks_hash = advagg_get_current_hooks_hash();
-       $css_hash = drupal_hash_base64(serialize($variables['css']));
-       $css_cache_id = 'advagg:css:full:' . $hooks_hash . ':' . $css_hash;
+       $css_cache_id_full = 'advagg:css:full:' . $hooks_hash . ':' . drupal_hash_base64(serialize($full_css));
 
        $hooks_hash = advagg_get_current_hooks_hash();
-       $js_hash = drupal_hash_base64(serialize($javascript));
-       $js_cache_id = 'advagg:js:full:' . $hooks_hash . ':' . $js_hash;
+       $js_cache_id_full = 'advagg:js:full:' . $hooks_hash . ':' . drupal_hash_base64(serialize($js_scope_array));
 
    The second and final hash value in this cache id is the css/js_hash value.
    This takes the input from drupal_add_css/js() and creates a hash value from
@@ -339,8 +362,9 @@ Modify file contents:
    aggregate before it gets written to a file. Useful for minification.
  - advagg_get_js_aggregate_contents_alter. Modify the data of the complete
    aggregate before it gets written to a file.Useful for minification.
- - advagg_save_aggregate. Modify the data of the complete aggregate allowing one
-   create multiple files from one base file. Useful for gzip compression.
+ - advagg_save_aggregate_alter. Modify the data of the complete aggregate
+   allowing one create multiple files from one base file. Useful for gzip
+   compression. Also useful for mirroring data.
 
 Modify file names and aggregate bundles:
  - advagg_current_hooks_hash_array_alter. Add in your own settings and hooks
@@ -354,13 +378,22 @@ Modify file names and aggregate bundles:
 Others:
  - advagg_hooks_implemented_alter. Tell advagg about other hooks related to
    advagg.
- - advagg_changed_files. Let other modules know about the changed files.
  - advagg_get_root_files_dir_alter. Allow other modules to alter css and js
    paths.
  - advagg_modify_css_pre_render_alter. Allow other modules to modify $children
    & $elements before they are rendered.
  - advagg_modify_js_pre_render_alter. Allow other modules to modify $children
    & $elements before they are rendered.
+ - advagg_changed_files. Let other modules know about the changed files.
+ - advagg_removed_aggregates. Let other modules know about removed aggregates.
+ - advagg_scan_for_changes. Let other modules see if files related to this file
+   has changed. Useful for detecting changes to referenced images in css.
+ - advagg_get_info_on_files_alter. Let other modules modify information about
+   the base CSS/JS files.
+ - advagg_context_alter. Allow other modules to swap important contextual
+   information on generation.
+ - advagg_bundler_analysis. If the bundler module is installed allow for other
+   modules to change the bundler analysis.
 
 
 HOW TO GET A HIGH PAGESPEED SCORE
@@ -384,9 +417,9 @@ Install AdvAgg Compress Javascript if not enabled and go to
 
 **Other things to consider**
 
-On the `admin/config/development/performance/advagg/mod` page there is the setting
-"Remove unused JavaScript tags if possible". This is a backport of D8 where it
-will not add any JS to the page if it is not being used.
+On the `admin/config/development/performance/advagg/mod` page there is the
+setting "Remove unused JavaScript tags if possible". This is a backport of D8
+where it will not add any JS to the page if it is not being used.
 https://drupal.org/node/1279226
 
 The AdvAgg Bundler module on the
@@ -403,16 +436,61 @@ using browser css/js conditionals (js browser conditionals backported from D8
 https://drupal.org/node/865536) then the bundler might not meet your set value.
 
 
+SETTINGS THAT DRUPAL.ORG USES
+-----------------------------
+
+Issue: https://www.drupal.org/node/2493801
+These will not give you the best PageSpeed score but they will give the best
+real world performance on slower connections. To expand on this, fourkitchens
+has an excellent article on inlining critical css:
+https://fourword.fourkitchens.com/article/use-grunt-and-advagg-inline-critical-css-drupal-7-theme
+
+Configuration:
+ - Enable advanced aggregation: Checked
+ - Use DNS Prefetch for external CSS/JS: Enabled, below charset=utf-8
+ - AdvAgg Cache Settings: Aggressive Render Cache ~ 10ms
+ - Combine CSS files by using media queries: Checked
+ - Fix improperly set type: Checked
+ - Cron Options: Default
+ - Obscure Options: Default
+
+Bundler:
+ - Bundler is Active: Checked
+ - Target Number Of CSS Bundles Per Page: 2
+ - Target Number Of JS Bundles Per Page: 5
+ - Grouping logic: File size
+
+JS Compression:
+ - File Compression: Select a Compressor: JSMin (~2ms)
+ - Inline Compression: Select a Compressor: JSMin (~2ms)
+ - Inline Compression: Use even if this page is not cacheable: Checked
+
+Modifications:
+ - Remove ajaxPageState CSS and JS data if ajax.js is not used on this page:
+   Checked
+ - Move all external scripts to the top of the execution order: Checked
+ - Move all inline scripts to the bottom of the execution order: Checked
+ - Move Google Analytics analytics.js code from inline to be a file: Checked
+ - Prefetch stats.g.doubleclick.net/robots.txt: Checked
+ - Move JS to the footer: All but what is in the $all_in_footer_list
+ - Deferred JavaScript Execution: Add The defer Tag To All Script Tags: All but
+   external scripts
+ - Deferred inline JavaScript Execution: Put a wrapper around inline JS so it
+   runs from a setTimeout call: Checked
+
+
 NGINX CONFIGURATION
 -------------------
 
 http://drupal.org/node/1116618
-Note that @drupal might be @rewrite depending on your servers configuration.
+Note that @drupal (last line of code below) might be @rewrite or @rewrites
+depending on your servers configuration.
 
     ###
     ### advagg_css and advagg_js support
     ###
     location ~* files/advagg_(?:css|js)/ {
+      access_log  off;
       gzip_static on;
       access_log  off;
       expires     max;
@@ -464,16 +542,16 @@ mod_headers, and mod_expires. Add the following code to the bottom of Drupal's
 core .htaccess file (located at the webroot level).
 
     <FilesMatch "^(css|js)__[A-Za-z0-9-_]{43}__[A-Za-z0-9-_]{43}__[A-Za-z0-9-_]{43}.(css|js)(\.gz)?">
-      # No mod_headers
+      # No mod_headers. Apache module headers is not enabled.
       <IfModule !mod_headers.c>
-        # No mod_expires
+        # No mod_expires. Apache module expires is not enabled.
         <IfModule !mod_expires.c>
           # Use ETags.
           FileETag MTime Size
         </IfModule>
       </IfModule>
 
-      # Use Expires Directive.
+      # Use Expires Directive if apache module expires is enabled.
       <IfModule mod_expires.c>
         # Do not use ETags.
         FileETag None
@@ -483,6 +561,7 @@ core .htaccess file (located at the webroot level).
         ExpiresDefault A31449600
       </IfModule>
 
+      # Use Headers Directive if apache module headers is enabled.
       <IfModule mod_headers.c>
         # Do not use etags for cache validation.
         Header unset ETag
@@ -510,3 +589,34 @@ aggregates of files to be ignored.
 
 If AdvAgg was installed via drush sometimes directory permissions need to be
 fixed. Using `chown -R` on the advagg directories usually solves this issue.
+
+
+If hosting on Pantheon, you might need to add this to your settings.php file if
+you get Numerous login prompts after enabling Adv Agg module on Pantheon Test
+and Live instances.
+
+    if (isset($_SERVER['PANTHEON_ENVIRONMENT'])) {
+      // NO trailing slash when setting the $base_url variable.
+      switch ($_SERVER['PANTHEON_ENVIRONMENT']) {
+        case 'dev':
+          $base_url = 'http://dev-sitename.gotpantheon.com';
+          break;
+
+        case 'test':
+          $base_url = 'http://test-sitename.gotpantheon.com';
+          break;
+
+        case 'live':
+          $base_url = 'http://www.domain.tld';
+          break;
+      }
+      // Remove a trailing slash if one was added.
+      if (!empty($base_url)) {
+        $base_url = rtrim($base_url, '/');
+      }
+    }
+
+
+If you're getting the "HTTP requests to advagg are not getting though" error,
+you can try to fix it by making sure the $base_url is correctly set for
+production and not production environments.
