@@ -289,7 +289,7 @@ class FieldCollectionItemEntity extends Entity {
   }
 
   protected function fetchHostDetails() {
-    if (!isset($this->hostEntityId)) {
+    if (!isset($this->hostEntityId) || (!$this->hostEntityId && $this->hostEntityRevisionId)) {
       if ($this->item_id) {
         // For saved field collections, query the field data to determine the
         // right host entity.
