@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'ysm118-icomoon';
-	src: url('../font/ysm118-icomoon.eot');
+	src: url('/sites/all/themes/ysm_cases/font/ysm118-icomoon.eot');
 }
 @font-face {
 	font-family: 'ysm118-icomoon';
@@ -68,6 +68,9 @@ a .icon-rotate-90:before,a .icon-rotate-180:before,a .icon-rotate-270:before,a .
 
 
 /* Icons */
+.icon-info-sign:before {
+	content: "\f144";
+}
 
 .icon-angle-double-up:before {
 	content: "\f102";
