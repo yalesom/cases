@@ -32,8 +32,8 @@ jQuery(document).ready(function($) {
 	});
 
 	console.info(jQuery('div.show-sponsor').text());
-	if(jQuery('div.show-sponsor').text() == '0'){ 
-		jQuery('div.sponsor').hide(); 
+	if(jQuery('div.show-sponsor').text() == 'hide'){ 
+		jQuery('div.sponsors').hide(); 
 	}
 });
 
