@@ -68,15 +68,6 @@ function jquery_update_library() {
     ),
     'version' => '2.1.2',
   );
-
-  // Load and configure the jQuery Migrate Plugin
-  $jquery_migrate_plugin_enabled = variable_get('jquery_update_jquery_migrate_plugin_enable', false);
-  if ($jquery_migrate_plugin_enabled) {
-    $jquery_update_path = drupal_get_path('module', 'jquery_update');
-    $min = variable_get('jquery_update_compression_type', 'min') == 'none' ? '' : '.min';
-    jquery_update_jquery_migrate_plugin_configure($libraries, $jquery_update_path, $min);
-  }
-
   return $libraries;
 }
 
@@ -86,6 +77,7 @@ function jquery_update_library() {
 function jquery_update_library_alter(&$javascript, $module) {
   $path = drupal_get_path('module', 'jquery_update');
   $version = variable_get('jquery_update_jquery_version', '1.10');
+
 
   // Modified System Library.
   if ($module === 'system') {
@@ -102,6 +94,13 @@ function jquery_update_library_alter(&$javascript, $module) {
         $version = $admin_version;
       }
     }
+    // If the ajax version is set then that one always win.
+    if (!empty($_POST['ajax_page_state']['jquery_version'])) {
+      $ajax_version = $_POST['ajax_page_state']['jquery_version'];
+      if (in_array($ajax_version, array('default', '1.5', '1.6', '1.7', '1.8', '1.9', '1.10'))) {
+        $version = $ajax_version;
+      }
+    }
 
     // Always add a new jquery_version array to ajaxPageState.
     // This is what we used to determine which version to use
@@ -111,13 +110,13 @@ function jquery_update_library_alter(&$javascript, $module) {
       'type' => 'setting',
     );
     $javascript['drupal.ajax']['dependencies'][] = array('jquery_update', 'jquery_update.ajax.fix');
-    jquery_update_jquery_replace($javascript, $cdn, $path, $min, $version);
 
-    // Add the jQuery Migrate Plugin as a dependency
-    $jquery_migrate_plugin_enabled = variable_get('jquery_update_jquery_migrate_plugin_enable', false);
-    if ($jquery_migrate_plugin_enabled) {
-      $javascript['jquery']['dependencies'][] = array('jquery_update', 'jquery.migrate');
+    // Don't replace anything if Drupal provided jQuery should be used
+    if ('default' == $version) {
+      return;
     }
+
+    jquery_update_jquery_replace($javascript, $cdn, $path, $min, $version);
 
     // Replace jQuery UI with CDN or local files. If from a CDN include all of
     // jQuery UI.
@@ -177,6 +176,7 @@ function jquery_update_settings_form() {
     '#type' => 'select',
     '#title' => t('Default jQuery Version'),
     '#options' => array(
+      'default' => t('Default (provided by Drupal)'),
       '1.5' => '1.5',
       '1.7' => '1.7',
       '1.8' => '1.8',
@@ -191,7 +191,8 @@ function jquery_update_settings_form() {
     '#type' => 'select',
     '#title' => t('Alternate jQuery version for administrative pages'),
     '#options' => array(
-      '' => t('Use the default'),
+      '' => t('Default jQuery Version'),
+      'default' => t('Default (provided by Drupal)'),
       '1.5' => '1.5',
       '1.7' => '1.7',
       '1.8' => '1.8',
@@ -208,6 +209,12 @@ function jquery_update_settings_form() {
       'min' => t('Production (minified)'),
       'none' => t('Development (uncompressed)'),
     ),
+    // Do not show this field if jQuery version is default
+    '#states' => array(
+      'invisible' => array(
+        ':input[name=jquery_update_jquery_version]' => array('value' => "default"),
+      ),
+    ),
     '#default_value' => variable_get('jquery_update_compression_type', 'min'),
   );
   $form['jquery_update_jquery_cdn'] = array(
@@ -219,45 +226,14 @@ function jquery_update_settings_form() {
       'microsoft' => t('Microsoft'),
       'jquery' => t('jQuery'),
     ),
+    // Do not show this field if jQuery version is default
+    '#states' => array(
+      'invisible' => array(
+        ':input[name=jquery_update_jquery_version]' => array('value' => "default"),
+      ),
+    ),
     '#default_value' => variable_get('jquery_update_jquery_cdn', 'none'),
     '#description' => t('Use jQuery and jQuery UI from a CDN. If the CDN is not available the local version of jQuery and jQuery UI will be used.'),
-  );
-
-  $form['jquery_migrate_plugin'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('jQuery Migrate Plugin'),
-  );
-
-  $form['jquery_migrate_plugin']['jquery_update_jquery_migrate_plugin_enable'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Enable jQuery Migrate Plugin'),
-    '#default_value' => variable_get('jquery_update_jquery_migrate_plugin_enable', false),
-    '#description' => t('Use the <a href="http://github.com/jquery/jquery-migrate/#readme">jQuery Migrate Plugin</a> for enhanced compatibility'),
-  );
-
-  $form['jquery_migrate_plugin']['jquery_update_jquery_migrate_plugin_cdn'] = array(
-    '#type' => 'select',
-    '#title' => t('jQuery Migrate Plugin CDN'),
-    '#options' => array(
-      'none' => t('None'),
-      'jquery' => t('jQuery'),
-    ),
-    '#default_value' => variable_get('jquery_update_jquery_migrate_plugin_cdn', 'none'),
-    '#description' => t('Use the jQuery Migrate Plugin from a CDN. If the CDN is not available the local version of the plugin will be used.'),
-  );
-
-  $form['jquery_migrate_plugin']['jquery_update_jquery_migrate_plugin_migrate_warnings'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Enable console warnings'),
-    '#default_value' => variable_get('jquery_update_jquery_migrate_plugin_migrate_warnings', true),
-    '#description' => t('Toggle the <a href="https://github.com/jquery/jquery-migrate/#migrate-plugin-api">generation of console warnings</a> when using the debug version of jQuery Migrate'),
-  );
-
-  $form['jquery_migrate_plugin']['jquery_update_jquery_migrate_plugin_migrate_trace'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Enable console trace'),
-    '#default_value' => variable_get('jquery_update_jquery_migrate_plugin_migrate_trace', true),
-    '#description' => t('Toggle the <a href="https://github.com/jquery/jquery-migrate/#migrate-plugin-api">generation of console trace messages</a> when using the debug version of jQuery Migrate'),
   );
 
   return system_settings_form($form);
@@ -282,13 +258,6 @@ function jquery_update_settings_form() {
  *   The version of jQuery to use.
  */
 function jquery_update_jquery_replace(&$javascript, $cdn, $path, $min, $version) {
-  // If the ajax version is set then that one always win.
-  if (!empty($_POST['ajax_page_state']['jquery_version'])) {
-    $ajax_version = $_POST['ajax_page_state']['jquery_version'];
-    if (in_array($ajax_version, array('1.5', '1.6', '1.7', '1.8', '1.9', '1.10'))) {
-      $version = $ajax_version;
-    }
-  }
 
   // Make sure to use the latest version in given branch.
   $trueversion = NULL;
@@ -298,11 +267,11 @@ function jquery_update_jquery_replace(&$javascript, $cdn, $path, $min, $version)
       break;
 
     case '1.7':
-      $trueversion = '1.7.1';
+      $trueversion = '1.7.2';
       break;
 
     case '1.8':
-      $trueversion = '1.8.2';
+      $trueversion = '1.8.3';
       break;
 
     case '1.9':
@@ -318,19 +287,19 @@ function jquery_update_jquery_replace(&$javascript, $cdn, $path, $min, $version)
   // Check for CDN support.
   switch ($cdn) {
     case 'google':
-      $javascript['jquery']['js']['misc/jquery.js']['data'] = 'https://ajax.googleapis.com/ajax/libs/jquery/' . $trueversion . '/jquery' . $min . '.js';
+      $javascript['jquery']['js']['misc/jquery.js']['data'] = '//ajax.googleapis.com/ajax/libs/jquery/' . $trueversion . '/jquery' . $min . '.js';
       $javascript['jquery']['js']['misc/jquery.js']['type'] = 'external';
       jquery_update_jquery_backup($javascript, $path, $min, $version);
       break;
 
     case 'microsoft':
-      $javascript['jquery']['js']['misc/jquery.js']['data'] = 'http://ajax.aspnetcdn.com/ajax/jQuery/jquery-' . $trueversion . $min . '.js';
+      $javascript['jquery']['js']['misc/jquery.js']['data'] = '//ajax.aspnetcdn.com/ajax/jQuery/jquery-' . $trueversion . $min . '.js';
       $javascript['jquery']['js']['misc/jquery.js']['type'] = 'external';
       jquery_update_jquery_backup($javascript, $path, $min, $version);
       break;
 
     case 'jquery':
-      $javascript['jquery']['js']['misc/jquery.js']['data'] = 'http://code.jquery.com/jquery-' . $trueversion . $min . '.js';
+      $javascript['jquery']['js']['misc/jquery.js']['data'] = '//code.jquery.com/jquery-' . $trueversion . $min . '.js';
       $javascript['jquery']['js']['misc/jquery.js']['type'] = 'external';
       jquery_update_jquery_backup($javascript, $path, $min, $version);
       break;
@@ -361,86 +330,6 @@ function jquery_update_jquery_backup(&$javascript, $path, $min, $version) {
     'type' => 'inline',
     'group' => JS_LIBRARY,
     'weight' => -19.999999999,
-  );
-}
-
-/**
- * Enable and configure the jQuery Migrate Plugin
- *
- * @param array $javascript
- *   The library definition array as seen in hook_library_alter().
- * @param string $path
- *   The path to the module where replacements can be found.
- * @param string $min
- *   The '.min' to include in the file name if we are requesting a minified
- *   version.
- */
-function jquery_update_jquery_migrate_plugin_configure(&$javascript, $path, $min) {
-  // Use a static version
-  $version = '1.2.1';
-  $local_path = $path . '/replace/jquery-migrate/' . $version . '/jquery-migrate' . $min . '.js';
-
-  // Add the plugin
-  // Note: Use a weight slightly heavier than the jQuery backup version (see
-  // jquery_update_jquery_backup).
-  $javascript['jquery.migrate'] = array(
-    'title' => 'jQuery Migrate',
-    'website' => 'http://plugins.jquery.com/migrate',
-    'version' => $version,
-    'js' => array(
-      $local_path => array('group' => JS_LIBRARY, 'weight' => -19.8),
-    ),
-  );
-
-  // Check for CDN support.
-  $cdn = variable_get('jquery_update_jquery_migrate_plugin_cdn', 'none');
-  switch ($cdn) {
-    case 'jquery':
-      $javascript['jquery.migrate']['js'][$local_path]['data'] = '//code.jquery.com/jquery-migrate-' . $version . $min . '.js';
-      $javascript['jquery.migrate']['js'][$local_path]['type'] = 'external';
-      jquery_update_jquery_migrate_plugin_backup($javascript, $path, $min, $version);
-      break;
-
-    case 'none':
-    default:
-      $javascript['jquery.migrate']['js'][$local_path]['data'] = $local_path;
-      break;
-  }
-
-  // Configuration via the jQuery Plugin API
-  // Note: This must be just below the backup version of the plugin
-  // Note: The Drupal UI and the internal variables use the 'enabled' tense in
-  // the name which is contrary to the jQuery.migrateMute parameter. Account
-  // for this when assigning the values.
-  $migrate_mute = variable_get('jquery_update_jquery_migrate_plugin_migrate_warnings', true) ? 'false' : 'true';
-  $migrate_trace = variable_get('jquery_update_jquery_migrate_plugin_migrate_trace', true) ? 'true' : 'false';
-  $javascript['jquery.migrate']['js'][] = array(
-    'data' => 'jQuery.migrateMute = ' . $migrate_mute . '; jQuery.migrateTrace = ' . $migrate_trace . ';',
-    'type' => 'inline',
-    'group' => JS_LIBRARY,
-    'weight' => -19.75,
-  );
-}
-
-/**
- * Add the local fallback in case the jQuery Migrate Plugin from the CDN is unavailable.
- *
- * @param array $javascript
- *   The $libraries array as seen in hook_library_alter()
- * @param string $path
- *   The path to the module where replacements can be found.
- * @param string $min
- *   The '.min' to include in the file name if we are requesting a minified
- *   version.
- * @param string $version
- *   The version of the jQuery Migrate Plugin to use.
- */
-function jquery_update_jquery_migrate_plugin_backup(&$javascript, $path, $min, $version) {
-  $javascript['jquery.migrate']['js'][] = array(
-    'data' => 'document.write("<script src=\'' . base_path() . $path . '/replace/jquery-migrate/' . $version . '/jquery-migrate' . $min . '.js\'>\x3C/script>")',
-    'type' => 'inline',
-    'group' => JS_LIBRARY,
-    'weight' => -19.7999999999,
   );
 }
 
@@ -508,22 +397,26 @@ function jquery_update_jqueryui_replace(&$javascript, $cdn, $path, $min) {
     'ui.accordion', 'ui.autocomplete', 'ui.button', 'ui.datepicker', 'ui.dialog', 'ui.draggable',
     'ui.droppable', 'ui.mouse', 'ui.position', 'ui.progressbar', 'ui.resizable', 'ui.selectable',
     'ui.slider', 'ui.sortable', 'ui.tabs', 'ui.widget', 'ui.spinner', 'ui.menu', 'ui.tooltip',
-    'effects.blind', 'effects.bounce', 'effects.clip', 'effects.drop', 'effects.explode', 'effects.fade',
-    'effects.fold', 'effects.highlight', 'effects.pulsate', 'effects.scale', 'effects.shake', 'effects.slide',
-    'effects.transfer',
   ));
   $names['ui'] = 'ui.core';
-  $names['effects'] = 'ui.effect';
+  $names['effects'] = array('effects.core', 'ui.effect'); // map[library_hook] = array(core_fn, updated_fn)
+  $names = jquery_update_make_library_hook_to_file_name_segment_map_for_effects($names);
 
   switch ($cdn) {
     case 'google':
-      $cdn = 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui' . $min . '.js';
+      $cdn = '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui' . $min . '.js';
       jquery_update_jqueryui_cdn($cdn, $javascript, $path, $min, $names);
       jquery_update_jqueryui_backup($javascript, $path, $min);
       break;
 
     case 'microsoft':
-      $cdn = 'http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.2/jquery-ui' . $min . '.js';
+      $cdn = '//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.2/jquery-ui' . $min . '.js';
+      jquery_update_jqueryui_cdn($cdn, $javascript, $path, $min, $names);
+      jquery_update_jqueryui_backup($javascript, $path, $min);
+      break;
+
+    case 'jquery':
+      $cdn = '//code.jquery.com/ui/1.10.2/jquery-ui' . $min . '.js';
       jquery_update_jqueryui_cdn($cdn, $javascript, $path, $min, $names);
       jquery_update_jqueryui_backup($javascript, $path, $min);
       break;
@@ -532,6 +425,30 @@ function jquery_update_jqueryui_replace(&$javascript, $cdn, $path, $min) {
       jquery_update_jqueryui_local($javascript, $path, $min, $names);
       break;
   }
+}
+
+/**
+ * Create a mapping from system.module library hooks to file name segments.
+ *
+ * @param array $map Optional. If given, append to it.
+ * @return array The keys are library hooks  and the values are each arrays of
+ * 2 file name segments as values. The first file name segment can be used to
+ * reach Drupal core's jQuery UI effect files, and the second file name segment
+ * can be used to construct a path to the equivalent replacement
+ * jQuery UI effect file provided by jquery_update.module.
+ */
+function jquery_update_make_library_hook_to_file_name_segment_map_for_effects($map = array()) {
+  $effect_names = array(
+    'blind', 'bounce', 'clip', 'drop', 'explode', 'fade', 'fold',
+    'highlight', 'pulsate', 'scale', 'shake', 'slide', 'transfer',
+  );
+  foreach ($effect_names as $effect_name) {
+    $library_hook = 'effects.' . $effect_name;
+    $file_name_segment_core = $library_hook; // Yes, for the effect files, this is indeed identical.
+    $file_name_segment_updated = 'ui.effect-' . $effect_name;
+    $map[$library_hook] = array($file_name_segment_core, $file_name_segment_updated);
+  }
+  return $map;
 }
 
 /**
@@ -578,7 +495,8 @@ function jquery_update_jqueryui_cdn($cdn, &$javascript, $path, $min, $names) {
   // Construct the jQuery UI path and replace the JavaScript.
   $jspath = $path . '/replace/ui/ui/' . ($min == '.min' ? 'minified/' : '');
   foreach ($names as $name => $file) {
-    $corefile = 'misc/ui/jquery.' . $file . '.min.js';
+    list($file_core, $file_updated) = is_array($file) ? $file : array($file, $file);
+    $corefile = 'misc/ui/jquery.' . $file_core . '.min.js';
     // Remove the core files.
     unset($javascript[$name]['js'][$corefile]);
     $javascript[$name]['version'] = '1.10.2';
@@ -618,8 +536,9 @@ function jquery_update_jqueryui_local(&$javascript, $path, $min, $names) {
   // Construct the jQuery UI path and replace the JavaScript.
   $jspath = $path . '/replace/ui/ui/' . ($min == '.min' ? 'minified/' : '');
   foreach ($names as $name => $file) {
-    $corefile = 'misc/ui/jquery.' . $file . '.min.js';
-    $javascript[$name]['js'][$corefile]['data'] = $jspath . 'jquery.' . $file . $min . '.js';
+    list($file_core, $file_updated) = is_array($file) ? $file : array($file, $file);
+    $corefile = 'misc/ui/jquery.' . $file_core . '.min.js';
+    $javascript[$name]['js'][$corefile]['data'] = $jspath . 'jquery.' . $file_updated . $min . '.js';
     $javascript[$name]['version'] = '1.10.2';
   }
 }

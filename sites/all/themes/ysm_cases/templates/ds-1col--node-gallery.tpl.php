@@ -20,7 +20,7 @@
 	// close the opening div tag
 	print '>';
 
-		print '<h3 class="modal-header">' . $title . '</h3>';
+		//print '<h3 class="modal-header">' . $title . '</h3>';
 
 		// start image list collection
 		print '<ul class="bxslider">';

@@ -6,13 +6,14 @@ Drupal.behaviors.adminimal_material_wave_effect = {
   attach: function (context, settings) {
     // Init Waves
     $( ".action-links li a" ).addClass("waves-effect waves-button waves-float waves-classic");
-    $( ".form-actions input" ).addClass("waves-effect");
-    $( 'input[type="submit"]' ).addClass("waves-effect");
+    //$( ".form-actions input" ).addClass("waves-effect");
+    //$( 'input[type="submit"]' ).addClass("waves-effect");
     $( "#navigation ul.tabs.primary li a" ).addClass("waves-effect waves-button waves-classic");
     $( "#navigation ul.tabs.secondary li a" ).addClass("waves-effect waves-button waves-classic");
     $( "#admin-menu a" ).addClass("waves-effect waves-button waves-light waves-classic");
     $( ".theme-info .operations a" ).addClass("waves-effect waves-button waves-classic");
     $( "table tbody td a" ).addClass("waves-effect waves-button waves-classic");
+    $( "#homebox-buttons a" ).addClass("waves-effect waves-button waves-classic");
   }
 };
 
@@ -20,11 +21,11 @@ Drupal.behaviors.adminimal_material_wave_effect = {
 
 /*!
  * Waves v0.6.6
- * http://fian.my.id/Waves 
- * 
- * Copyright 2014 Alfiana E. Sibuea and other contributors 
- * Released under the MIT license 
- * https://github.com/fians/Waves/blob/master/LICENSE 
+ * http://fian.my.id/Waves
+ *
+ * Copyright 2014 Alfiana E. Sibuea and other contributors
+ * Released under the MIT license
+ * https://github.com/fians/Waves/blob/master/LICENSE
  */
 
 ;(function(window, factory) {
@@ -116,7 +117,7 @@ Drupal.behaviors.adminimal_material_wave_effect = {
             var relativeY   = (e.pageY - pos.top);
             var relativeX   = (e.pageX - pos.left);
             var scale       = 'scale('+((el.clientWidth / 100) * 3)+')';
-            
+
             // Support for touch devices
             if ('touches' in e) {
               relativeY   = (e.touches[0].pageY - pos.top);
@@ -134,7 +135,7 @@ Drupal.behaviors.adminimal_material_wave_effect = {
                 'top': relativeY+'px',
                 'left': relativeX+'px'
             };
-            
+
             ripple.className = ripple.className + ' waves-notransition';
             ripple.setAttribute('style', convertStyle(rippleStyle));
             ripple.className = ripple.className.replace('waves-notransition', '');
@@ -160,7 +161,7 @@ Drupal.behaviors.adminimal_material_wave_effect = {
 
             var el = this;
             var width = el.clientWidth * 1.4;
-            
+
             // Get first ripple
             var ripple = null;
             var ripples = el.getElementsByClassName('waves-ripple');
@@ -198,7 +199,7 @@ Drupal.behaviors.adminimal_material_wave_effect = {
                     '-moz-transform': scale,
                     '-ms-transform': scale,
                     '-o-transform': scale,
-                    'transform': scale,
+                    'transform': scale
                 };
 
                 ripple.setAttribute('style', convertStyle(style));
@@ -217,7 +218,7 @@ Drupal.behaviors.adminimal_material_wave_effect = {
         wrapInput: function(elements) {
             for (var a = 0; a < elements.length; a++) {
                 var el = elements[a];
-                
+
                 if (el.tagName.toLowerCase() === 'input') {
                     var parent = el.parentNode;
 
@@ -237,7 +238,7 @@ Drupal.behaviors.adminimal_material_wave_effect = {
                     }
 
                     wrapper.setAttribute('style', elementStyle);
-                    
+
                     el.className = 'waves-button-input';
                     el.removeAttribute('style');
 
@@ -333,14 +334,14 @@ Drupal.behaviors.adminimal_material_wave_effect = {
         if ('duration' in options) {
             Effect.duration = options.duration;
         }
-        
+
         //Wrap input inside <i> tag
         Effect.wrapInput($$('.waves-effect'));
-        
+
         if ('ontouchstart' in window) {
             document.body.addEventListener('touchstart', showEffect, false);
         }
-        
+
         document.body.addEventListener('mousedown', showEffect, false);
     };
 
@@ -372,8 +373,7 @@ Drupal.behaviors.adminimal_material_wave_effect = {
 (function ($) {
   Drupal.behaviors.wavesInit = {
     attach: function (context, settings) {
-        Waves.displayEffect();             
-        //init();
+        Waves.displayEffect();
     }
   };
 })(jQuery);

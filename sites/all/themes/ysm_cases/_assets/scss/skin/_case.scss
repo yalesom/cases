@@ -231,3 +231,9 @@
 		display: block;
 	}
 }
+
+body.not-logged-in {
+	.sponsors  {
+		display: none !important;
+	}
+}

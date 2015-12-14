@@ -73,7 +73,7 @@ function advagg_drush_command() {
  *
  * Callback is called by using drush_hook_command() where
  * hook is the name of the module (advagg) and command is the name of
- * the Drush command with all "-" characters converted to "_" characters
+ * the Drush command with all "-" characters converted to "_" characters.
  */
 function drush_advagg_force_new_aggregates() {
   // Clear out the cache.
@@ -90,7 +90,7 @@ function drush_advagg_force_new_aggregates() {
  *
  * Callback is called by using drush_hook_command() where
  * hook is the name of the module (advagg) and command is the name of
- * the Drush command with all "-" characters converted to "_" characters
+ * the Drush command with all "-" characters converted to "_" characters.
  */
 function drush_advagg_clear_all_files() {
   // Clear out the cache.
@@ -112,7 +112,7 @@ function drush_advagg_clear_all_files() {
  *
  * Callback is called by using drush_hook_command() where
  * hook is the name of the module (advagg) and command is the name of
- * the Drush command with all "-" characters converted to "_" characters
+ * the Drush command with all "-" characters converted to "_" characters.
  */
 function drush_advagg_clear_db_cache() {
   // Run the command.
@@ -128,7 +128,7 @@ function drush_advagg_clear_db_cache() {
  *
  * Callback is called by using drush_hook_command() where
  * hook is the name of the module (advagg) and command is the name of
- * the Drush command with all "-" characters converted to "_" characters
+ * the Drush command with all "-" characters converted to "_" characters.
  */
 function drush_advagg_cron() {
   // Run AdvAgg cron job.
@@ -146,20 +146,48 @@ function drush_advagg_cron() {
     drush_log(dt('No stale aggregates found. Nothing was deleted.'), 'ok');
   }
 
-  // Output results from running advagg_remove_missing_files_from_db().
-  if (empty($output[1])) {
-    drush_log(dt('No missing files found and/or could be safely cleared out of the database.'), 'ok');
+  // Output results from running advagg_delete_orphaned_aggregates().
+  if (empty($output[1][0]) && empty($output[1][1])) {
+    drush_log(dt('All files have an associated db record; nothing was deleted.'), 'ok');
   }
   else {
-    drush_log(dt('Some missing files were found and could be safely cleared out of the database. @raw', array('@raw' => print_r($output[1], TRUE))), 'ok');
+    drush_log(dt('Some files had no associated db record and could be safely deleted from the file system. @raw', array('@raw' => print_r($output[1], TRUE))), 'ok');
+  }
+
+  // Output results from running advagg_remove_missing_files_from_db().
+  if (empty($output[2])) {
+    drupal_set_message(dt('All source files where found, no database entries where pruned.'), 'ok');
+  }
+  else {
+    // format_plural() not always available.
+    drupal_set_message(dt('Some source files are missing and as a result some unused aggregates were found. A total of %count database entries were removed.', array('%count' => count($output[2]))), 'ok');
   }
 
   // Output results from running advagg_remove_old_unused_aggregates().
-  if (empty($output[2])) {
-    drupal_set_message(t('No old and unused aggregates found. Nothing was deleted.'), 'ok');
+  if (empty($output[3])) {
+    drupal_set_message(dt('No old and unused aggregates found. Nothing was deleted.'), 'ok');
   }
   else {
-    drupal_set_message(t('Some old and unused aggregates were found. A total of %count database entries were removed.', array('%count' => $output[2])), 'ok');
+    // format_plural() not always available.
+    drupal_set_message(dt('Some old and unused aggregates were found. A total of %count database entries were removed.', array('%count' => $output[3])), 'ok');
+  }
+
+  // Output results from running advagg_cleanup_semaphore_table().
+  if (empty($output[4])) {
+    drupal_set_message(dt('No old semaphore locks found.'), 'ok');
+  }
+  else {
+    // format_plural() not always available.
+    drupal_set_message(dt('A total of %count old semaphore entries were removed.', array('%count' => count($output[4]))), 'ok');
+  }
+
+  // Output results from running advagg_remove_temp_files().
+  if (empty($output[5])) {
+    drupal_set_message(dt('No leftover temporary files found. Nothing was deleted.'), 'ok');
+  }
+  else {
+    // format_plural() not always available.
+    drupal_set_message(dt('Some oleftover temporary files were found. A total of %count temporary files were removed.', array('%count' => $output[5])), 'ok');
   }
 }
 
@@ -171,18 +199,33 @@ function drush_advagg_smart_cache_flush() {
   module_load_include('inc', 'advagg', 'advagg.cache');
   $flushed = advagg_push_new_changes();
 
-  // Report back the results.
-  if (empty($flushed)) {
-    drush_log(dt('No changes found. Nothing was cleared.'), 'ok');
-    return;
+  if (variable_get('advagg_cache_level', ADVAGG_CACHE_LEVEL) >= 0) {
+    // Display a simple message if not in Development mode.
+    drush_log('Advagg Cache Cleared', 'ok');
   }
-  foreach ($flushed as $filename => $data) {
-    $ext = pathinfo($filename, PATHINFO_EXTENSION);
-    drush_log(dt('The file %filename has changed. %db_usage aggregates are using this file. %db_count db cache entries and all %type full cache entries have been flushed from the cache bins.', array(
-      '%filename' => $filename,
-      '%db_usage' => count($data[0]),
-      '%db_count' => count($data[1]),
-      '%type' => $ext,
-    )), 'ok');
+  else {
+    list($css_path) = advagg_get_root_files_dir();
+    $parts_uri = $css_path[1] . '/parts';
+
+    // Report back the results.
+    foreach ($flushed as $filename => $data) {
+      if (strpos($filename, $parts_uri) === 0) {
+        // Do not report on css files manged in the parts directory.
+        unset($flushed[$filename]);
+        continue;
+      }
+      $ext = pathinfo($filename, PATHINFO_EXTENSION);
+      drush_log(dt('The file %filename has changed. %db_usage aggregates are using this file. %db_count db cache entries and all %type full cache entries have been flushed from the cache bins.', array(
+        '%filename' => $filename,
+        '%db_usage' => $data[0],
+        '%db_count' => $data[1],
+        '%type' => $ext,
+      )), 'ok');
+    }
+
+    if (empty($flushed)) {
+      drush_log(dt('No changes found. Nothing was cleared.'), 'ok');
+      return;
+    }
   }
 }
