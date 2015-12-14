@@ -12,14 +12,13 @@ function book_helper_help($path, $arg) {
     case 'node/%/delete':
       book_helper_display_delete_book_page_warning($arg[1]);
       break;
-
   }
 }
 
 /**
- * Implements of hook_permissions().
+ * Implements hook_permission().
  */
-function book_helper_perm() {
+function book_helper_permission() {
   return array(
     'administer own book outlines' => array(
       'title' => t('Administer Own Book Outlines'),
@@ -111,7 +110,7 @@ function book_helper_menu_link_alter(&$item, $menu) {
   // Book module does not support hidden pages so we need to manually
   // preserve it when a book page is updated outside of the book helper
   // module's node/%/order page.
-  if ($item['module'] == 'book' && isset($item['mlid']) && !isset($item['hidden'])) {
+  if (isset($item['module']) && $item['module'] == 'book' && isset($item['mlid']) && !isset($item['hidden'])) {
     $query = 'SELECT hidden FROM {menu_links} WHERE mlid=:mlid';
     $args = array(':mlid' => $item['mlid']);
     $item['hidden'] = db_query($query, $args)->fetchField() ? 1: 0;
@@ -228,6 +227,7 @@ function book_helper_node_view_alter(&$build) {
 function book_helper_block_info() {
   $blocks['book-helper-inline-navigation'] = array(
     'info' => t('Book (inline) navigation'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
   );
   return $blocks;
 }
@@ -301,7 +301,7 @@ function book_helper_form_node_form_alter(&$form, &$form_state) {
 
     $form['book']['book_helper_link_title_sync'] = array(
       '#type' => 'checkbox',
-      '#title' => t("Synconize this node's title with its book link title."),
+      '#title' => t("Synchronize this node's title with its book link title."),
       '#default_value' => $node->book_helper['link_title_sync'],
     );
   }
@@ -351,7 +351,9 @@ function book_helper_display_delete_book_page_warning($nid) {
  * Prevent book_navigation variables from being preprocessed multiple times.
  */
 function book_helper_theme_registry_alter(&$theme_registry) {
-  $theme_registry['book_navigation']['preprocess functions'] = array_diff($theme_registry['book_navigation']['preprocess functions'], array('template_preprocess_book_navigation'));
+  if (isset($theme_registry['book_navigation']['preprocess functions']) && is_array($theme_registry['book_navigation']['preprocess functions'])) {
+    $theme_registry['book_navigation']['preprocess functions'] = array_diff($theme_registry['book_navigation']['preprocess functions'], array('template_preprocess_book_navigation'));
+  }
 }
 
 /**

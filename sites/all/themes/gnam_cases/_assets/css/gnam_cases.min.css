@@ -1,7 +1,7 @@
 /**
  * GNAM - Merge of Cases Platform and GNAM styles
  * @version 0.1.0
- * @build 2015-05-29 | 134724
+ * @build 2015-12-12 | 151020
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -5351,7 +5351,7 @@ html.flexbox {
 /*	!Theme styles ============ */
 @font-face {
   font-family: 'ysm118-icomoon';
-  src: url("../font/ysm118-icomoon.eot");
+  src: url("/sites/all/themes/ysm_cases/font/ysm118-icomoon.eot");
 }
 @font-face {
   font-family: 'ysm118-icomoon';
@@ -5735,132 +5735,137 @@ a .icon-rotate-90:before, a .icon-rotate-180:before, a .icon-rotate-270:before, 
 }
 
 /* Icons */
-/* line 72, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 71, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+.icon-info-sign:before {
+  content: "\f144";
+}
+
+/* line 75, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-angle-double-up:before, #page-header i:before {
   content: "\f102";
 }
 
-/* line 75, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 78, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-angle-double-down:before, #page-header.closed .icon-remove:before {
   content: "\f103";
 }
 
-/* line 79, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 82, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-slide:before {
   content: "\e600";
 }
 
-/* line 82, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 85, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-book:before {
   content: "\f02d";
 }
 
-/* line 85, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 88, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-camera:before {
   content: "\f030";
 }
 
-/* line 88, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 91, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-picture:before {
   content: "\f03e";
 }
 
-/* line 91, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 94, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-bar-chart:before {
   content: "\f080";
 }
 
-/* line 94, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 97, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-external-link:before {
   content: "\f08e";
 }
 
-/* line 97, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 100, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-globe:before {
   content: "\f0ac";
 }
 
-/* line 100, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 103, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-table:before {
   content: "\f0ce";
 }
 
-/* line 103, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 106, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-play-circle:before {
   content: "\f144";
 }
 
-/* line 106, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 109, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-play-sign:before {
   content: "\f144";
 }
 
-/* line 109, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 112, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-dollar:before {
   content: "\f155";
 }
 
-/* line 112, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 115, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-remove:before {
   content: "\f067";
 }
 
-/* line 115, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 118, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-home:before {
   content: "\f015";
 }
 
-/* line 118, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 121, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-map-marker:before {
   content: "\f041";
 }
 
-/* line 121, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 124, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-chevron-left:before {
   content: "\f053";
 }
 
-/* line 124, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 127, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-chevron-right:before {
   content: "\f054";
 }
 
-/* line 127, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 130, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-question:before {
   content: "\f059";
 }
 
-/* line 130, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 133, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-check-circle:before {
   content: "\f05d";
 }
 
-/* line 133, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 136, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-calendar:before {
   content: "\f073";
 }
 
-/* line 136, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 139, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-reorder:before {
   content: "\f0c9";
 }
 
-/* line 139, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 142, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-angle-left:before {
   content: "\f104";
 }
 
-/* line 142, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 145, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-angle-right:before {
   content: "\f105";
 }
 
-/* line 145, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 148, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-circle:before {
   content: "\f10c";
 }
 
-/* line 148, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 151, ../../../../ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-file:before {
   content: "\f15b";
 }
@@ -6835,21 +6840,29 @@ html.lt-ie9 .sticky-wrapper {
 /* line 227, ../scss/skin/_case.scss */
 .sponsors {
   font-size: 0.86rem;
+  font-weight: bold;
+  text-align: center;
   border: 2px #ccc solid;
   padding: 1.5rem;
 }
-/* line 229, ../scss/skin/_case.scss */
+/* line 231, ../scss/skin/_case.scss */
 .sponsors h3 {
+  display: none;
   margin-bottom: 1rem;
   text-transform: uppercase;
 }
-/* line 237, ../scss/skin/_case.scss */
+/* line 240, ../scss/skin/_case.scss */
 .sponsors .name {
   display: block;
 }
-/* line 241, ../scss/skin/_case.scss */
+/* line 244, ../scss/skin/_case.scss */
 .sponsors p:last-child {
   margin-bottom: 0;
+}
+
+/* line 251, ../scss/skin/_case.scss */
+body.not-logged-in .sponsors {
+  display: none !important;
 }
 
 /* !------------- Page content type styles ------------- */
@@ -7840,8 +7853,12 @@ html.lt-ie9 .full-logo {
   vertical-align: middle;
   margin-bottom: 20px;
 }
+/* line 13, ../scss/skin/_produced-by.scss */
+.produced-by-collection .produced-by-info img.logo {
+  max-height: 100px;
+}
 
-/* line 15, ../scss/skin/_produced-by.scss */
+/* line 19, ../scss/skin/_produced-by.scss */
 .produced-by-collection-names {
   float: right;
   clear: both;
@@ -7850,21 +7867,21 @@ html.lt-ie9 .full-logo {
   margin-top: -26px;
   margin-right: 2.5rem;
 }
-/* line 24, ../scss/skin/_produced-by.scss */
+/* line 28, ../scss/skin/_produced-by.scss */
 .produced-by-collection-names .view-content:before {
   content: "Produced By:";
   margin-right: 0.20rem;
 }
-/* line 30, ../scss/skin/_produced-by.scss */
+/* line 34, ../scss/skin/_produced-by.scss */
 .produced-by-collection-names .view-content a:before {
   content: ", ";
   margin-left: -0.20rem;
 }
-/* line 36, ../scss/skin/_produced-by.scss */
+/* line 40, ../scss/skin/_produced-by.scss */
 .produced-by-collection-names .view-content a:first-child:before {
   content: "";
 }
-/* line 40, ../scss/skin/_produced-by.scss */
+/* line 44, ../scss/skin/_produced-by.scss */
 .produced-by-collection-names .view-content a:last-child:before {
   content: " and ";
   margin-left: 0;

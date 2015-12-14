@@ -138,7 +138,7 @@ function book_helper_admin_edit($form, $form_state, $node)  {
     else {
       $t_args['!add_child_page'] = t('add a child page');
     }
-    drupal_set_message(t('%title contains no child book pages. To create a sort-able book heirarchy, please !add_child_page to this book to this book.', $t_args), 'warning');
+    drupal_set_message(t('%title contains no child book pages. To create a sort-able book heirarchy, please !add_child_page to this book.', $t_args), 'warning');
     $description = t('%title may be added as a new book again using the Outline tab.', $t_args);
     return confirm_form($form, t('Do you want to revert %title from a book hierarchy?', $t_args), 'node/' . $node->nid, $description, t('Revert'));
   }
@@ -221,7 +221,6 @@ function book_helper_admin_edit_submit($form, &$form_state) {
       // Update the title if changed.
       if ($row['title']['#default_value'] != $values['title'] || $row['node_title']['#default_value'] != $values['node_title']) {
         $node = node_load($values['nid']);
-        $langcode = LANGUAGE_NONE;
         /* Over-ridden code: Do not delete.
         $node->title = $values['title'];
         $node->book['link_title'] = $values['title'];

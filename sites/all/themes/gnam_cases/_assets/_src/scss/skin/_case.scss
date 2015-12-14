@@ -226,7 +226,10 @@
 
 .sponsors {
 	font-size: 0.86rem;
+	font-weight: bold;
+	text-align: center;
 	h3 {
+		display: none;
 		margin-bottom: 1rem;
 		text-transform: uppercase;
 	}
@@ -240,5 +243,12 @@
 
 	p:last-child {
 		margin-bottom: 0;
+	}
+
+}
+
+body.not-logged-in {
+	.sponsors  {
+		display: none !important;
 	}
 }

@@ -17,3 +17,5 @@ $databases = array (
     ),
   ),
 );
+
+$conf['theme_debug'] = true;

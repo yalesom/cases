@@ -10,7 +10,7 @@
 <?php
 	print '<div id="mediacore-video-' . $nid . '" class="mediacore-video-container tile-content">';
 
-		print '<h3 class="modal-header">' . $title . '</h3>';
+		//print '<h3 class="modal-header">' . $title . '</h3>';
 
 		// render the media core url (the video)
 		print render($content['field_mediacore_url']);
