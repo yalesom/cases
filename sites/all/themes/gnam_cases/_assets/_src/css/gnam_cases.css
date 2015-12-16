@@ -5810,15 +5810,19 @@ figcaption {
 .not-logged-in #main-content .sidebar.one-sidebar {
   width: 25%;
 }
+/* line 70, ../../../../ysm_cases/_assets/scss/skin/_structure.scss */
+.not-logged-in .credit {
+  display: none;
+}
 
 /* Intuit grid hack */
-/* line 84, ../../../../ysm_cases/_assets/scss/skin/_structure.scss */
+/* line 88, ../../../../ysm_cases/_assets/scss/skin/_structure.scss */
 .grid, #main-content .section-wrap, .case-menu .item-list .stem_class, .case-tiles .view-content, .document-list .view-content, .produced-by-collection {
   letter-spacing: -0.31em;
 }
 
 /* Opera hack */
-/* line 89, ../../../../ysm_cases/_assets/scss/skin/_structure.scss */
+/* line 93, ../../../../ysm_cases/_assets/scss/skin/_structure.scss */
 .opera:-o-prefocus,
 .grid,
 #main-content .section-wrap,
@@ -5829,7 +5833,7 @@ figcaption {
   word-spacing: -0.43em;
 }
 
-/* line 94, ../../../../ysm_cases/_assets/scss/skin/_structure.scss */
+/* line 98, ../../../../ysm_cases/_assets/scss/skin/_structure.scss */
 .grid__item, #main-content .highlight, #main-content .main-content, #main-content .sidebar, .case-menu .item-list .stem_class > li, .case-tiles .view-content .tile, .document-list .view-content .view-grouping, .produced-by-collection .produced-by-info,
 .messages {
   letter-spacing: normal;

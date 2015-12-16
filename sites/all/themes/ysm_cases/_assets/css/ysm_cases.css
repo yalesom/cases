@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2015-12-16 | 135056
+ * @build 2015-12-16 | 142058
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -5815,15 +5815,19 @@ figcaption {
 .not-logged-in #main-content .sidebar.one-sidebar {
   width: 25%;
 }
+/* line 70, ../scss/skin/_structure.scss */
+.not-logged-in .credit {
+  display: none;
+}
 
 /* Intuit grid hack */
-/* line 84, ../scss/skin/_structure.scss */
+/* line 88, ../scss/skin/_structure.scss */
 .grid, #main-content .section-wrap, .case-menu .item-list .stem_class, .case-tiles .view-content, .document-tiles .view-content, .document-list .view-content {
   letter-spacing: -0.31em;
 }
 
 /* Opera hack */
-/* line 89, ../scss/skin/_structure.scss */
+/* line 93, ../scss/skin/_structure.scss */
 .opera:-o-prefocus,
 .grid,
 #main-content .section-wrap,
@@ -5834,7 +5838,7 @@ figcaption {
   word-spacing: -0.43em;
 }
 
-/* line 94, ../scss/skin/_structure.scss */
+/* line 98, ../scss/skin/_structure.scss */
 .grid__item, #main-content .highlight, #main-content .main-content, #main-content .sidebar, .case-menu .item-list .stem_class > li, .case-tiles .view-content .tile, .document-tiles .view-content .tile, .document-list .view-content .view-grouping,
 .messages {
   letter-spacing: normal;
