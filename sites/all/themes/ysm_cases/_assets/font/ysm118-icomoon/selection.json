@@ -18,8 +18,8 @@
 			"attrs": [],
 			"properties": {
 				"id": 441,
-				"order": 38,
-				"name": "info-circle",
+				"order": 1,
+				"name": "info-sign",
 				"prevSize": 28,
 				"code": 61530
 			},
@@ -42,7 +42,7 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 39,
+				"order": 2,
 				"id": 439,
 				"prevSize": 28,
 				"code": 61698,
@@ -68,7 +68,7 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 40,
+				"order": 3,
 				"id": 440,
 				"prevSize": 28,
 				"code": 61699,
@@ -95,7 +95,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 59,
-				"order": 41,
+				"order": 4,
 				"prevSize": 28,
 				"code": 61502,
 				"name": "picture",
@@ -120,7 +120,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 134,
-				"order": 42,
+				"order": 5,
 				"prevSize": 28,
 				"code": 61582,
 				"name": "external-link",
@@ -146,7 +146,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 45,
-				"order": 43,
+				"order": 6,
 				"prevSize": 28,
 				"code": 61488,
 				"name": "camera",
@@ -172,7 +172,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 42,
-				"order": 44,
+				"order": 7,
 				"prevSize": 28,
 				"code": 61485,
 				"name": "book",
@@ -198,7 +198,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 182,
-				"order": 45,
+				"order": 8,
 				"prevSize": 28,
 				"code": 61646,
 				"name": "table",
@@ -223,7 +223,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 162,
-				"order": 46,
+				"order": 9,
 				"prevSize": 28,
 				"code": 61612,
 				"name": "globe",
@@ -249,7 +249,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 120,
-				"order": 47,
+				"order": 10,
 				"prevSize": 28,
 				"code": 61568,
 				"name": "bar-chart",
@@ -274,7 +274,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 290,
-				"order": 48,
+				"order": 11,
 				"prevSize": 28,
 				"code": 61764,
 				"name": "play-sign",
@@ -301,7 +301,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 306,
-				"order": 49,
+				"order": 12,
 				"prevSize": 28,
 				"code": 61781,
 				"name": "dollar",
@@ -325,7 +325,7 @@
 			},
 			"attrs": [],
 			"properties": {
-				"order": 50,
+				"order": 13,
 				"id": 0,
 				"prevSize": 28,
 				"code": 58880,
@@ -351,7 +351,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 84,
-				"order": 51,
+				"order": 14,
 				"prevSize": 28,
 				"code": 61529,
 				"name": "question",
@@ -377,7 +377,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 13,
-				"order": 52,
+				"order": 15,
 				"prevSize": 28,
 				"code": 61543,
 				"name": "remove",
@@ -403,7 +403,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 108,
-				"order": 53,
+				"order": 16,
 				"prevSize": 28,
 				"code": 61555,
 				"name": "calendar",
@@ -428,7 +428,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 88,
-				"order": 54,
+				"order": 17,
 				"prevSize": 28,
 				"code": 61533,
 				"name": "check-circle",
@@ -453,7 +453,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 240,
-				"order": 55,
+				"order": 18,
 				"prevSize": 28,
 				"code": 61708,
 				"name": "circle",
@@ -479,7 +479,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 61,
-				"order": 56,
+				"order": 19,
 				"prevSize": 28,
 				"code": 61505,
 				"name": "map-marker",
@@ -505,7 +505,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 20,
-				"order": 57,
+				"order": 20,
 				"prevSize": 28,
 				"code": 61461,
 				"name": "home",
@@ -531,7 +531,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 79,
-				"order": 58,
+				"order": 21,
 				"prevSize": 28,
 				"code": 61524,
 				"name": "chevron-right",
@@ -557,7 +557,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 78,
-				"order": 59,
+				"order": 22,
 				"prevSize": 28,
 				"code": 61523,
 				"name": "chevron-left",
@@ -583,7 +583,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 233,
-				"order": 60,
+				"order": 23,
 				"prevSize": 28,
 				"code": 61701,
 				"name": "angle-right",
@@ -609,7 +609,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 232,
-				"order": 61,
+				"order": 24,
 				"prevSize": 28,
 				"code": 61700,
 				"name": "angle-left",
@@ -634,7 +634,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 177,
-				"order": 62,
+				"order": 25,
 				"prevSize": 28,
 				"code": 61641,
 				"name": "reorder",
@@ -660,7 +660,7 @@
 			"attrs": [],
 			"properties": {
 				"id": 312,
-				"order": 63,
+				"order": 26,
 				"prevSize": 28,
 				"code": 61787,
 				"name": "file",
@@ -694,13 +694,14 @@
 			"quickUsageToken": false,
 			"showMetrics": true,
 			"showMetadata": false,
-			"autoHost": false,
+			"autoHost": true,
 			"includeMetadata": true,
-			"embed": false,
+			"embed": true,
 			"useClassSelector": false,
 			"classSelector": ".icon",
 			"showVersion": false,
-			"showSelector": false
+			"showSelector": false,
+			"cssVars": true
 		},
 		"imagePref": {
 			"color": 0,
@@ -719,9 +720,14 @@
 		"showQuickUse": true,
 		"search": "",
 		"quickUsageToken": {
-			"YSOMCases": "YTZlY2QzZTkzMjdiMGU5OTExODQ3M2Y5MjA1NTkyZDUjMSMxNDQ5OTQ4OTk1IyMj"
+			"YSMCases": false
 		},
 		"showQuickUse2": true,
-		"showSVGs": true
+		"showSVGs": true,
+		"fontHostingName": "YSMCases",
+		"fontUploadTime": "12/13/2015, 4:46:46 PM",
+		"fontUrlS3": "https://s3.amazonaws.com/icomoon.io/34850/YSMCases/style.css?dun8zl",
+		"fontUrlCF": "https://d1azc1qln24ryf.cloudfront.net/34850/YSMCases/style-cf.css?dun8zl",
+		"fontUrlHash": "dun8zl"
 	}
 }
