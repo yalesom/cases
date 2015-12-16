@@ -47,10 +47,10 @@
 	}
 	// !CAS
 	#edit-cas-login-redirection-message {
-		display: none !important;
+		//display: none !important;
 	}
 	.form-item-cas-identifier {
-
+		display: block !important;
 		#edit-cas-identifier {
 			display: none;
 			&:checked + label {
