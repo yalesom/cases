@@ -6069,6 +6069,11 @@ html.lt-ie9 .sticky-wrapper {
   display: none;
 }
 
+/* line 193, ../scss/skin/_header.scss */
+.not-logged-in .icon-remove {
+  display: none;
+}
+
 /* !----------- Book outline menu ------------ */
 /* line 2, ../scss/skin/_navigation.scss */
 .case-menu {
