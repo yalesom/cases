@@ -15,4 +15,6 @@
     print drupal_render($form['actions']);
     ?>
 
+  
+
 <!-- /user-login-custom-form -->
