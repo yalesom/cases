@@ -1,3 +1,5 @@
+@import "variables"
+
 @font-face {
 	font-family: 'ysm118-icomoon';
 	src: url('fonts/ysm118-icomoon.eot');
@@ -24,82 +26,134 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-info-sign:before {
-	content: "\f05a";
+.icon-info-sign {
+	&:before {
+		content: $icon-info-sign;
+	}
 }
-.icon-angle-double-up:before {
-	content: "\f102";
+.icon-angle-double-up {
+	&:before {
+		content: $icon-angle-double-up;
+	}
 }
-.icon-angle-double-down:before {
-	content: "\f103";
+.icon-angle-double-down {
+	&:before {
+		content: $icon-angle-double-down;
+	}
 }
-.icon-picture:before {
-	content: "\f03e";
+.icon-picture {
+	&:before {
+		content: $icon-picture;
+	}
 }
-.icon-external-link:before {
-	content: "\f08e";
+.icon-external-link {
+	&:before {
+		content: $icon-external-link;
+	}
 }
-.icon-camera:before {
-	content: "\f030";
+.icon-camera {
+	&:before {
+		content: $icon-camera;
+	}
 }
-.icon-book:before {
-	content: "\f02d";
+.icon-book {
+	&:before {
+		content: $icon-book;
+	}
 }
-.icon-table:before {
-	content: "\f0ce";
+.icon-table {
+	&:before {
+		content: $icon-table;
+	}
 }
-.icon-globe:before {
-	content: "\f0ac";
+.icon-globe {
+	&:before {
+		content: $icon-globe;
+	}
 }
-.icon-bar-chart:before {
-	content: "\f080";
+.icon-bar-chart {
+	&:before {
+		content: $icon-bar-chart;
+	}
 }
-.icon-play-sign:before {
-	content: "\f144";
+.icon-play-sign {
+	&:before {
+		content: $icon-play-sign;
+	}
 }
-.icon-dollar:before {
-	content: "\f155";
+.icon-dollar {
+	&:before {
+		content: $icon-dollar;
+	}
 }
-.icon-slide:before {
-	content: "\e600";
+.icon-slide {
+	&:before {
+		content: $icon-slide;
+	}
 }
-.icon-question:before {
-	content: "\f059";
+.icon-question {
+	&:before {
+		content: $icon-question;
+	}
 }
-.icon-remove:before {
-	content: "\f067";
+.icon-remove {
+	&:before {
+		content: $icon-remove;
+	}
 }
-.icon-calendar:before {
-	content: "\f073";
+.icon-calendar {
+	&:before {
+		content: $icon-calendar;
+	}
 }
-.icon-check-circle:before {
-	content: "\f05d";
+.icon-check-circle {
+	&:before {
+		content: $icon-check-circle;
+	}
 }
-.icon-circle:before {
-	content: "\f10c";
+.icon-circle {
+	&:before {
+		content: $icon-circle;
+	}
 }
-.icon-map-marker:before {
-	content: "\f041";
+.icon-map-marker {
+	&:before {
+		content: $icon-map-marker;
+	}
 }
-.icon-home:before {
-	content: "\f015";
+.icon-home {
+	&:before {
+		content: $icon-home;
+	}
 }
-.icon-chevron-right:before {
-	content: "\f054";
+.icon-chevron-right {
+	&:before {
+		content: $icon-chevron-right;
+	}
 }
-.icon-chevron-left:before {
-	content: "\f053";
+.icon-chevron-left {
+	&:before {
+		content: $icon-chevron-left;
+	}
 }
-.icon-angle-right:before {
-	content: "\f105";
+.icon-angle-right {
+	&:before {
+		content: $icon-angle-right;
+	}
 }
-.icon-angle-left:before {
-	content: "\f104";
+.icon-angle-left {
+	&:before {
+		content: $icon-angle-left;
+	}
 }
-.icon-reorder:before {
-	content: "\f0c9";
+.icon-reorder {
+	&:before {
+		content: $icon-reorder;
+	}
 }
-.icon-file:before {
-	content: "\f15b";
+.icon-file {
+	&:before {
+		content: $icon-file;
+	}
 }
 
