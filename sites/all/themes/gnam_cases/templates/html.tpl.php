@@ -66,12 +66,9 @@
    <!-- JavaScript at the bottom for fast page loading -->
   <?php print $scripts; ?>
 
-  <?php $typekit = "kob7how"; ?>
+  <script type="text/javascript" src="//use.typekit.net/aka4bzm.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-  <?php if ($typekit): ?>
-	  <script type="text/javascript" src="//use.typekit.net/<?php print $typekit; ?>.js"></script>
-	  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <?php endif; ?> 
   
 <script src="/sites/all/modules/sheetnode/socialcalc/formatnumber2.js"></script>
 <script src="/sites/all/modules/sheetnode/socialcalc/formula1.js"></script>
