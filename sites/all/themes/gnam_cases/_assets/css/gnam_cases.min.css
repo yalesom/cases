@@ -1,7 +1,7 @@
 /**
  * GNAM - Merge of Cases Platform and GNAM styles
  * @version 0.1.0
- * @build 2015-12-16 | 142056
+ * @build 2015-12-16 | 211935
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -5923,18 +5923,19 @@ figcaption {
 /* line 58, ../scss/skin/_header.scss */
 #page-header .case-details .case-subtitle {
   font-weight: 900;
+  min-height: 1rem;
 }
-/* line 62, ../scss/skin/_header.scss */
+/* line 63, ../scss/skin/_header.scss */
 #page-header .case-details .case-name {
   font-size: 2.5rem;
   line-height: 2.5rem;
 }
-/* line 67, ../scss/skin/_header.scss */
+/* line 68, ../scss/skin/_header.scss */
 #page-header .case-details .case-num {
   font-weight: normal;
   font-size: 0.875rem;
 }
-/* line 78, ../scss/skin/_header.scss */
+/* line 79, ../scss/skin/_header.scss */
 #page-header i {
   bottom: 0rem;
   cursor: pointer;
@@ -5949,7 +5950,7 @@ figcaption {
   -webkit-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
 }
-/* line 92, ../scss/skin/_header.scss */
+/* line 93, ../scss/skin/_header.scss */
 #page-header.stuck {
   position: fixed;
   left: 0;
@@ -5957,12 +5958,12 @@ figcaption {
   width: 100%;
   z-index: 100;
 }
-/* line 99, ../scss/skin/_header.scss */
+/* line 100, ../scss/skin/_header.scss */
 #page-header.overlay {
   z-index: 100;
 }
 
-/* line 110, ../scss/skin/_header.scss */
+/* line 111, ../scss/skin/_header.scss */
 #page-wrapper {
   left: 0;
   width: 100%;
@@ -5971,13 +5972,13 @@ figcaption {
   -webkit-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
 }
-/* line 114, ../scss/skin/_header.scss */
+/* line 115, ../scss/skin/_header.scss */
 #page-wrapper .primary-nav {
   overflow: hidden;
   overflow-scrolling: touch;
   -webkit-overflow-scrolling: touch;
 }
-/* line 119, ../scss/skin/_header.scss */
+/* line 120, ../scss/skin/_header.scss */
 .phone #page-wrapper .primary-nav {
   background: #316791;
   height: 200%;
@@ -5991,15 +5992,15 @@ figcaption {
   -webkit-transition: left 0.25s ease-in;
   transition: left 0.25s ease-in;
 }
-/* line 129, ../scss/skin/_header.scss */
+/* line 130, ../scss/skin/_header.scss */
 .phone #page-wrapper .primary-nav .stem_class {
   padding-left: 10px !important;
 }
-/* line 131, ../scss/skin/_header.scss */
+/* line 132, ../scss/skin/_header.scss */
 .phone #page-wrapper .primary-nav .stem_class > li > a {
   border-color: #3775a4 !important;
 }
-/* line 137, ../scss/skin/_header.scss */
+/* line 138, ../scss/skin/_header.scss */
 #page-wrapper .primary-nav .case-menu a {
   color: #71a7d0;
 }
@@ -6011,7 +6012,7 @@ figcaption {
 .no-touch #page-wrapper .primary-nav .case-menu a:active {
   color: #bf6f6f;
 }
-/* line 142, ../scss/skin/_header.scss */
+/* line 143, ../scss/skin/_header.scss */
 #page-wrapper .primary-nav .case-menu .stem_class > li > a {
   border-color: #3d83b7;
   color: #3775a4;
@@ -6024,13 +6025,13 @@ figcaption {
 .no-touch #page-wrapper .primary-nav .case-menu .stem_class > li > a:active {
   color: #bf6f6f;
 }
-/* line 150, ../scss/skin/_header.scss */
+/* line 151, ../scss/skin/_header.scss */
 #page-wrapper.open {
   left: 75%;
   overflow: hidden;
   width: 25%;
 }
-/* line 154, ../scss/skin/_header.scss */
+/* line 155, ../scss/skin/_header.scss */
 #page-wrapper.open #page-header {
   left: 75%;
   -moz-transition: left 0.25s ease-in;
@@ -6039,25 +6040,25 @@ figcaption {
   transition: left 0.25s ease-in;
 }
 @media (orientation: landscape) {
-  /* line 158, ../scss/skin/_header.scss */
+  /* line 159, ../scss/skin/_header.scss */
   #page-wrapper.open #main-content,
   #page-wrapper.open #page-footer {
     width: 568px;
   }
 }
 @media (orientation: portrait) {
-  /* line 158, ../scss/skin/_header.scss */
+  /* line 159, ../scss/skin/_header.scss */
   #page-wrapper.open #main-content,
   #page-wrapper.open #page-footer {
     width: 320px;
   }
 }
-/* line 167, ../scss/skin/_header.scss */
+/* line 168, ../scss/skin/_header.scss */
 #page-wrapper.open .primary-nav {
   border-right: 4px solid #2d5f85;
   left: 0;
 }
-/* line 170, ../scss/skin/_header.scss */
+/* line 171, ../scss/skin/_header.scss */
 #page-wrapper.open .primary-nav > .block-views {
   height: 100%;
   overflow-y: scroll;
@@ -6065,13 +6066,18 @@ figcaption {
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 179, ../scss/skin/_header.scss */
+/* line 180, ../scss/skin/_header.scss */
 .sticky-wrapper {
   overflow: visible !important;
 }
 
-/* line 186, ../scss/skin/_header.scss */
+/* line 187, ../scss/skin/_header.scss */
 html.lt-ie9 .sticky-wrapper {
+  display: none;
+}
+
+/* line 193, ../scss/skin/_header.scss */
+.not-logged-in .icon-remove {
   display: none;
 }
 
@@ -7219,9 +7225,9 @@ div.show-sponsor {
   right: 0.5rem;
   top: 0.75rem;
 }
-/* line 49, ../../../../ysm_cases/_assets/scss/skin/_login.scss */
-.not-logged-in #edit-cas-login-redirection-message {
-  display: none !important;
+/* line 52, ../../../../ysm_cases/_assets/scss/skin/_login.scss */
+.not-logged-in .form-item-cas-identifier {
+  display: block !important;
 }
 /* line 54, ../../../../ysm_cases/_assets/scss/skin/_login.scss */
 .not-logged-in .form-item-cas-identifier #edit-cas-identifier {
@@ -7278,7 +7284,11 @@ div.show-sponsor {
   -webkit-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out;
 }
-/* line 87, ../../../../ysm_cases/_assets/scss/skin/_login.scss */
+/* line 88, ../../../../ysm_cases/_assets/scss/skin/_login.scss */
+.not-logged-in #user-login .cas-links {
+  display: none;
+}
+/* line 93, ../../../../ysm_cases/_assets/scss/skin/_login.scss */
 .not-logged-in .block-views-book-outline-block-1 {
   display: none;
 }
@@ -7837,9 +7847,4 @@ body:last-child .sheetview .defaultPeer {
 .cas-netid-block a.button, .cas-netid-block .not-logged-in .user-login a#edit-submit, .not-logged-in .user-login .cas-netid-block a#edit-submit {
   font-size: 1rem;
   display: inline-block;
-}
-
-/* line 19, ../../../../ysm_cases/_assets/scss/skin/_net-id-login-block.scss */
-.form-item-cas-identifier {
-  display: none;
 }

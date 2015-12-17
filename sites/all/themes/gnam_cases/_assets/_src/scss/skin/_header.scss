@@ -57,6 +57,7 @@
 		
 		.case-subtitle {
 			font-weight: 900;
+			min-height: 1rem;
 		}
 
 		.case-name {
@@ -184,6 +185,12 @@
 
 html.lt-ie9 {
 	.sticky-wrapper {
+		display: none;
+	}
+}
+
+.not-logged-in {
+	.icon-remove {
 		display: none;
 	}
 }
