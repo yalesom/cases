@@ -7,6 +7,7 @@ $pageURL 	= $fields['field_page_url']->content;
 $href		= ($document != '') ? $document : $pageURL;
 $teaser 	= $fields['field_teaser']->content;
 $image 		= $fields['field_image']->content;
+$image_uri 		= $fields['field_image']->uri;
 $isInline 	= $fields['field_inline_show']->content;
 $inlineHTML = $fields['field_inline_html']->content;
 ?>
@@ -17,7 +18,8 @@ $inlineHTML = $fields['field_inline_html']->content;
 		<div class="tile-wrap <?php print $color ?>">
 			<a href="<?php print $href ?>" target="_blank">
 			<span class="img">
-				<img src="<?php print $image ?>" />
+				<php print image_style_url('sidebar_document_grid', $image_uri); ?>
+				
 				<i class="<?php print $icon ?>"></i>
 			</span>
 			
