@@ -17,7 +17,7 @@ $inlineHTML = $fields['field_inline_html']->content;
 		<div class="tile-wrap <?php print $color ?>">
 			<a href="<?php print $href ?>" target="_blank">
 			<span class="img">
-				<?php print $image ?>
+				<img src="<?php print $image ?>" />
 				<i class="<?php print $icon ?>"></i>
 			</span>
 			
