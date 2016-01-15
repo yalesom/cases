@@ -3,7 +3,7 @@ var gutil = require('gulp-util');
 var pkg = require('./package.json');
 
 var notify = require('gulp-notify');
-var rimraf = require('gulp-rimraf');
+var clean = require('gulp-dest-clean');
 
 var compass = require('gulp-compass'), path = require('path');
 
@@ -73,10 +73,12 @@ gulp.task('scripts',function() {
 })
 
 gulp.task('cleanCSS', function(){
-	return gulp.src(['css/gnam*.css'],{read: false}).pipe(rimraf());
+	var destField = 'css';
+	return gulp.src(['css'],{read: false}).pipe(clean(destField));
 });
 gulp.task('cleanJS', function(){
-	return gulp.src(['js/gnam_cases.*.js'],{read: false}).pipe(rimraf());
+	var destField = 'js';
+	return gulp.src(['js/gnam_cases.*.js'],{read: false}).pipe(clean(destField));
 });
 
 gulp.task('default', function() {
