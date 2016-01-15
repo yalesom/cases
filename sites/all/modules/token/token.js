@@ -15,11 +15,6 @@ Drupal.behaviors.tokenDialog = {
       var url = $(this).attr('href');
       var dialog = $('<div style="display: none" class="loading">' + Drupal.t('Loading token browser...') + '</div>').appendTo('body');
 
-      // Emulate the AJAX data sent normally so that we get the same theme.
-      var data = {};
-      data['ajax_page_state[theme]'] = Drupal.settings.ajaxPageState.theme;
-      data['ajax_page_state[theme_token]'] = Drupal.settings.ajaxPageState.theme_token;
-
       dialog.dialog({
         title: $(this).attr('title') || Drupal.t('Available tokens'),
         width: 700,
@@ -27,19 +22,26 @@ Drupal.behaviors.tokenDialog = {
           dialog.remove();
         }
       });
-      // Load the token tree using AJAX.
-      dialog.load(
-        url,
-        data,
-        function (responseText, textStatus, XMLHttpRequest) {
-          dialog.removeClass('loading');
-        }
-      );
+
+      // Load the token tree using Drupal AJAX.
+      var ajax = new Drupal.ajax(false, false, {
+        url: url,
+        tokenDialog: dialog
+      });
+      ajax.eventResponse(this, {});
+
       // Prevent browser from following the link.
       return false;
     });
   }
-}
+};
+
+Drupal.ajax.prototype.commands.tokenDialog = function(ajax, response, status) {
+  ajax.element_settings.tokenDialog
+    .html(response.tree)
+    .removeClass('loading');
+  Drupal.attachBehaviors(ajax.element_settings.tokenDialog);
+};
 
 Drupal.behaviors.tokenInsert = {
   attach: function (context, settings) {
