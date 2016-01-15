@@ -61,10 +61,15 @@ function token_page_output_tree() {
   // a dialog.
   $options['dialog'] = FALSE;
 
-  $output = theme('token_tree', $options);
-  print '<html><head>' . drupal_get_css() . drupal_get_js() . '</head>';
-  print '<body class="token-tree">' . $output . '</body></html>';
-  drupal_exit();
+  $commands = array();
+  $commands[] = array(
+    'command' => 'tokenDialog',
+    'tree' => theme('token_tree', $options),
+  );
+  return array(
+    '#type' => 'ajax',
+    '#commands' => $commands,
+  );
 }
 
 /**

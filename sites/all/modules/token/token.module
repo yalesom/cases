@@ -79,6 +79,7 @@ function token_menu() {
     'type' => MENU_CALLBACK,
     'file' => 'token.pages.inc',
     'theme callback' => 'ajax_base_page_theme',
+    'delivery callback' => 'ajax_deliver',
   );
 
   // Devel token pages.
@@ -208,10 +209,13 @@ function token_library() {
     'title' => 'Token dialog',
     'version' => '1.0',
     'js' => array(
-      drupal_get_path('module', 'token') . '/token.js' => array(),
+      drupal_get_path('module', 'token') . '/token.js' => array(
+        'weight' => 3,
+      ),
     ),
     'dependencies' => array(
       array('system', 'ui.dialog'),
+      array('system', 'drupal.ajax'),
     ),
   );
 
