@@ -1,7 +1,7 @@
 /**
  * GNAM - Merge of Cases Platform and GNAM styles
  * @version 0.1.0
- * @build 2015-12-12 | 135609
+ * @build 2016-01-19 | 070759
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
 		}
 	});
 
-	console.info(jQuery('div.show-sponsor').text());
+	//console.info(jQuery('div.show-sponsor').text());
 	if(jQuery('div.show-sponsor').text() == 'hide'){ 
 		jQuery('div.sponsors').hide(); 
 	}
@@ -215,6 +215,13 @@ var highchartColors = [
 ],
 	chartContainer 	= '';
 
+Highcharts.setOptions({
+			lang: {
+					thousandsSep: ',',
+					decimalPoint: '.'
+			}
+	});
+
 /**
  * This reads the CSV and calls the correct parser based on the chart type
  *
@@ -230,7 +237,7 @@ function readInChartCSV() {
 		dataType: 'text',
 		success: function(result) {
 			var parseResult = $.parse(result,{header: false, dynamicTyping: true})
-			console.info(parseResult);
+			//console.info(parseResult);
 			var chartArray = parseResult.results;
 
 			$('#chart-data').html(result);
@@ -342,7 +349,9 @@ function genericChartParser(chartArray) {
 		for (var i = 1; i < categories.length; i++) {
 			// convert the string value to a number (float) 
 			// and add it the current seriesData index
-			seriesData[i-1] = parseFloat(chartArray[o][i]);
+			var rawtextNumber = chartArray[o][i];
+			var numberNoCommas = rawtextNumber.replace(/,/g, '');
+			seriesData[i-1] = parseFloat(numberNoCommas);
 		};
 
 		// update the series with seriesData
@@ -595,7 +604,7 @@ function stockChartPlotter(seriesOptions) {
 			selected: 5
 		},
 		tooltip: {
-			valueDecimals: 2
+			valueDecimals: 2,
 		},
 		series: seriesOptions
 	});
@@ -667,20 +676,21 @@ jQuery(document).ready(function($) {
 		jQuery(this).find('a').click(function(evt){
 			evt.preventDefault();
 
-			// disable page scroll
-			jQuery('html').css('overflow', 'hidden');
 
 			var url = jQuery(this).attr('href'),
 				template,
 				containerID;
 
 			if (url.indexOf(location.host) == '-1' || url.indexOf('files') > 0) {
+				// this is a link to a file or off site location
 				window.open(url);
 			
-			// } else if ($(this).hasClass('in-use')) {
-			// 	return false;
-
 			} else {
+				//this is a local link to load into a modal
+				
+				// disable page scroll
+				jQuery('html').css('overflow', 'hidden');
+
 				// clone the template
 				template 	= jQuery('#template').clone();
 				

@@ -8,20 +8,21 @@ jQuery(document).ready(function($) {
 		jQuery(this).find('a').click(function(evt){
 			evt.preventDefault();
 
-			// disable page scroll
-			jQuery('html').css('overflow', 'hidden');
 
 			var url = jQuery(this).attr('href'),
 				template,
 				containerID;
 
 			if (url.indexOf(location.host) == '-1' || url.indexOf('files') > 0) {
+				// this is a link to a file or off site location
 				window.open(url);
 			
-			// } else if ($(this).hasClass('in-use')) {
-			// 	return false;
-
 			} else {
+				//this is a local link to load into a modal
+				
+				// disable page scroll
+				jQuery('html').css('overflow', 'hidden');
+
 				// clone the template
 				template 	= jQuery('#template').clone();
 				
