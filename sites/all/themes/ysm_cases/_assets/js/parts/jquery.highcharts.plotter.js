@@ -11,6 +11,13 @@ var highchartColors = [
 ],
 	chartContainer 	= '';
 
+Highcharts.setOptions({
+			lang: {
+					thousandsSep: ',',
+					decimalPoint: '.'
+			}
+	});
+
 /**
  * This reads the CSV and calls the correct parser based on the chart type
  *
@@ -26,7 +33,7 @@ function readInChartCSV() {
 		dataType: 'text',
 		success: function(result) {
 			var parseResult = $.parse(result,{header: false, dynamicTyping: true})
-			console.info(parseResult);
+			//console.info(parseResult);
 			var chartArray = parseResult.results;
 
 			$('#chart-data').html(result);
@@ -138,7 +145,9 @@ function genericChartParser(chartArray) {
 		for (var i = 1; i < categories.length; i++) {
 			// convert the string value to a number (float) 
 			// and add it the current seriesData index
-			seriesData[i-1] = parseFloat(chartArray[o][i]);
+			var rawtextNumber = chartArray[o][i];
+			var numberNoCommas = rawtextNumber.replace(/,/g, '');
+			seriesData[i-1] = parseFloat(numberNoCommas);
 		};
 
 		// update the series with seriesData
@@ -391,7 +400,7 @@ function stockChartPlotter(seriesOptions) {
 			selected: 5
 		},
 		tooltip: {
-			valueDecimals: 2
+			valueDecimals: 2,
 		},
 		series: seriesOptions
 	});
