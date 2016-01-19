@@ -81,5 +81,5 @@ gulp.task('cleanJS', function(){
 
 gulp.task('default', function() {
 	gulp.watch('_src/scss/**/*.scss', ['cleanCSS','styles']);
-	gulp.watch(['_src/js/*.app.js','_src/js/parts/**/*.js'],['cleanJS','scripts']);
+	gulp.watch(['_src/js/*.app.js','_src/js/parts/**/*.js','../../ysm_cases/_assets/js/parts/**/*.js'],['cleanJS','scripts']);
 });
