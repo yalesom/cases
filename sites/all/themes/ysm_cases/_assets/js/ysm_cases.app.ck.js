@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2015-12-12 | 135605
+ * @build 2016-01-19 | 070759
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
 		}
 	});
 
-	void 0;
+	//console.info(jQuery('div.show-sponsor').text());
 	if(jQuery('div.show-sponsor').text() == 'hide'){ 
 		jQuery('div.sponsors').hide(); 
 	}
@@ -298,6 +298,13 @@ var highchartColors = [
 ],
 	chartContainer 	= '';
 
+Highcharts.setOptions({
+			lang: {
+					thousandsSep: ',',
+					decimalPoint: '.'
+			}
+	});
+
 /**
  * This reads the CSV and calls the correct parser based on the chart type
  *
@@ -313,7 +320,7 @@ function readInChartCSV() {
 		dataType: 'text',
 		success: function(result) {
 			var parseResult = $.parse(result,{header: false, dynamicTyping: true})
-			void 0;
+			//console.info(parseResult);
 			var chartArray = parseResult.results;
 
 			$('#chart-data').html(result);
@@ -425,7 +432,9 @@ function genericChartParser(chartArray) {
 		for (var i = 1; i < categories.length; i++) {
 			// convert the string value to a number (float) 
 			// and add it the current seriesData index
-			seriesData[i-1] = parseFloat(chartArray[o][i]);
+			var rawtextNumber = chartArray[o][i];
+			var numberNoCommas = rawtextNumber.replace(/,/g, '');
+			seriesData[i-1] = parseFloat(numberNoCommas);
 		};
 
 		// update the series with seriesData
@@ -678,7 +687,7 @@ function stockChartPlotter(seriesOptions) {
 			selected: 5
 		},
 		tooltip: {
-			valueDecimals: 2
+			valueDecimals: 2,
 		},
 		series: seriesOptions
 	});
