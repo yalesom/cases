@@ -31,27 +31,10 @@
 		position: relative;
 
 		background: $white url('../images/ajax-loader.gif') no-repeat center center;
-		
-		
-		
 
 		.tile-target {
 			margin-bottom: 4rem;
 			text-align: center;
-
-			.infographic-container {
-
-				img.scaled {
-					width: 100%;
-				}
-
-				.infographic-caption {
-					color: $white;
-					font-size: .875rem;
-					display: block;
-					margin-top: 1rem;
-				}
-			}
 
 			.tile-content {
 				text-align: center;

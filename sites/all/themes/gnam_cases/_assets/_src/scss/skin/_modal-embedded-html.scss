@@ -1,4 +1,6 @@
 .tile-content.html-embedded-content-container{
+	text-align: center;
+
 	figure {
 	 	margin-left: auto;
 		margin-right: auto;
@@ -8,6 +10,16 @@
 			max-width: 100% !important;
 		}
 	 }
+
+	 p, h1,h2,h3,h4,h5 {
+	 	text-align: left;
+	 }
+
+	 iframe, object, div {
+	 	display: inline-block;
+	 	margin: .5rem auto;
+	 }
+
 }
 
 .modal {
@@ -18,12 +30,18 @@
 					color: $white;
 					padding: 0 10%;
 					width: 100%;
+					text-align: left;
 				}
 
 				img { max-width: 100%; }
 
 				h1,h2,h3,h4,h5,h6 {
 					color: $white;
+				}
+				
+				iframe, object, div {
+					display: inline-block;
+					margin: .5rem auto;
 				}
 			}
 		}

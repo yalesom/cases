@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2016-01-04 | 110549
+ * @build 2016-01-21 | 044634
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -7048,17 +7048,6 @@ html.lt-ie9 .full-logo {
   margin-bottom: 4rem;
 }
 /* line 49, ../scss/skin/_modal-panel.scss */
-.modal .tile-wrapper .tile-target .infographic-container img.scaled {
-  width: 100%;
-}
-/* line 53, ../scss/skin/_modal-panel.scss */
-.modal .tile-wrapper .tile-target .infographic-container .infographic-caption {
-  color: #777777;
-  font-size: .875rem;
-  display: block;
-  margin-top: 1rem;
-}
-/* line 63, ../scss/skin/_modal-panel.scss */
 .modal .tile-wrapper .icon-remove {
   opacity: 0;
   border: 1px rgba(0, 69, 124, 0.1) solid;
@@ -7079,7 +7068,7 @@ html.lt-ie9 .full-logo {
   -webkit-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
 }
-/* line 77, ../scss/skin/_modal-panel.scss */
+/* line 63, ../scss/skin/_modal-panel.scss */
 .modal .tile-wrapper .icon-remove:hover {
   border-color: #00457c;
 }
@@ -7340,6 +7329,27 @@ body:last-child .sheetview .defaultPeer {
   filter: none;
 }
 
+/* line 1, ../scss/skin/_infographic.scss */
+.infographic-container {
+  text-align: center;
+}
+/* line 4, ../scss/skin/_infographic.scss */
+.infographic-container img {
+  margin: 0 auto;
+}
+/* line 7, ../scss/skin/_infographic.scss */
+.infographic-container img.scaled {
+  width: 100%;
+}
+/* line 12, ../scss/skin/_infographic.scss */
+.infographic-container .infographic-caption {
+  color: #fff;
+  font-size: .875rem;
+  display: block;
+  margin-top: 1rem;
+  text-align: left;
+}
+
 /* line 2, ../scss/skin/_mediacore.scss */
 .mediacore-video-container h3.modal-header {
   display: none;
@@ -7387,20 +7397,38 @@ body:last-child .sheetview .defaultPeer {
 .tile-content.html-embedded-content-container figure img {
   max-width: 100% !important;
 }
+/* line 12, ../scss/skin/_modal-embedded-html.scss */
+.tile-content.html-embedded-content-container p, .tile-content.html-embedded-content-container h1, .tile-content.html-embedded-content-container h2, .tile-content.html-embedded-content-container h3, .tile-content.html-embedded-content-container h4, .tile-content.html-embedded-content-container h5 {
+  text-align: left;
+}
+/* line 16, ../scss/skin/_modal-embedded-html.scss */
+.tile-content.html-embedded-content-container iframe, .tile-content.html-embedded-content-container object, .tile-content.html-embedded-content-container div {
+  display: inline-block;
+  margin: .5rem auto;
+}
 
-/* line 17, ../scss/skin/_modal-embedded-html.scss */
+/* line 25, ../scss/skin/_modal-embedded-html.scss */
+.modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container {
+  text-align: left;
+}
+/* line 28, ../scss/skin/_modal-embedded-html.scss */
 .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container p {
   color: #777777;
   padding: 0 10%;
   width: 100%;
 }
-/* line 23, ../scss/skin/_modal-embedded-html.scss */
+/* line 34, ../scss/skin/_modal-embedded-html.scss */
 .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container img {
   max-width: 100%;
 }
-/* line 25, ../scss/skin/_modal-embedded-html.scss */
+/* line 36, ../scss/skin/_modal-embedded-html.scss */
 .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h1, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h2, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h3, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h4, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h5, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h6 {
   color: #777777;
+}
+/* line 40, ../scss/skin/_modal-embedded-html.scss */
+.modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container iframe, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container object, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container div {
+  display: inline-block;
+  margin: .5rem auto;
 }
 
 @font-face {
@@ -7575,4 +7603,9 @@ body:last-child .sheetview .defaultPeer {
 .cas-netid-block a.button, .cas-netid-block .not-logged-in .user-login a#edit-submit, .not-logged-in .user-login .cas-netid-block a#edit-submit {
   font-size: 1rem;
   display: inline-block;
+}
+
+/* line 19, ../scss/skin/_net-id-login-block.scss */
+.form-item-cas-identifier {
+  display: none;
 }
