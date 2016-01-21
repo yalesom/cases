@@ -1,0 +1,19 @@
+.infographic-container {
+	text-align: center;
+
+	img{
+		margin: 0 auto;
+
+		&.scaled {
+			width: 100%;
+		}
+	}
+
+	.infographic-caption {
+		color: $white;
+		font-size: .875rem;
+		display: block;
+		margin-top: 1rem;
+		text-align: left;
+	}
+}

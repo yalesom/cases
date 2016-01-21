@@ -10,7 +10,7 @@
 <?php
 	print '<div id="sn-container-' . $nid . '" class="sheetnode-container tile-content" data-nid=' . $nid . '>';
 
-		// '<h3 class="modal-header">' . $title . '</h3>';
+		'<h3 class="modal-header">' . $title . '</h3>';
 
 		print $content['sheetnode']['#markup'];
 
