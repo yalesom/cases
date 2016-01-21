@@ -35,6 +35,9 @@ jQuery(document).ready(function($) {
 	if(jQuery('div.show-sponsor').text() == 'hide'){ 
 		jQuery('div.sponsors').hide(); 
 	}
+
+	$(".html-embedded-content-container iframe").unwrap();
+	
 });
 
 // !Call resize

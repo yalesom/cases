@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2016-01-19 | 070759
+ * @build 2016-01-21 | 045156
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -43,10 +43,14 @@ jQuery(document).ready(function($) {
 	if(jQuery('div.show-sponsor').text() == 'hide'){ 
 		jQuery('div.sponsors').hide(); 
 	}
+
+	$(".html-embedded-content-container iframe").unwrap();
+	
 });
 
 // !Call resize
 jQuery(window).bind("resize orientationchange", pageResize);
+
 
 //(function($) {
 /*
