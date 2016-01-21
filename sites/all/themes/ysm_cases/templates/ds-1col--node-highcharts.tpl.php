@@ -18,7 +18,7 @@
 				print 'data-' . str_replace('field', '', str_replace('_', '', strtolower($f))) . '="' . render($content[$f][0]) . '" ';
 			}
 		}
-		//print 'data-title="' . $title . '" ';
+		print 'data-title="' . $title . '" ';
 		print 'data-src="/sites/default/files/' . $node->field_src['und'][0]['filename'] . '">';
 			
 			print '<div style="display:none;" id="flags">';

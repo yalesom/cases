@@ -1,7 +1,7 @@
 /**
  * GNAM - Merge of Cases Platform and GNAM styles
  * @version 0.1.0
- * @build 2015-12-16 | 211935
+ * @build 2016-01-21 | 044522
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -7425,48 +7425,37 @@ html.lt-ie9 .full-logo {
   position: relative;
   background: #fff url("../images/ajax-loader.gif") no-repeat center center;
 }
-/* line 38, ../scss/skin/_modal-panel.scss */
+/* line 35, ../scss/skin/_modal-panel.scss */
 .modal .tile-wrapper .tile-target {
   margin-bottom: 4rem;
   text-align: center;
 }
-/* line 44, ../scss/skin/_modal-panel.scss */
-.modal .tile-wrapper .tile-target .infographic-container img.scaled {
-  width: 100%;
-}
-/* line 48, ../scss/skin/_modal-panel.scss */
-.modal .tile-wrapper .tile-target .infographic-container .infographic-caption {
-  color: #fff;
-  font-size: .875rem;
-  display: block;
-  margin-top: 1rem;
-}
-/* line 56, ../scss/skin/_modal-panel.scss */
+/* line 39, ../scss/skin/_modal-panel.scss */
 .modal .tile-wrapper .tile-target .tile-content {
   text-align: center;
   overflow: hidden;
   position: relative;
 }
-/* line 61, ../scss/skin/_modal-panel.scss */
+/* line 44, ../scss/skin/_modal-panel.scss */
 .modal .tile-wrapper .tile-target .tile-content h3 {
   color: #fff;
 }
-/* line 65, ../scss/skin/_modal-panel.scss */
+/* line 48, ../scss/skin/_modal-panel.scss */
 .modal .tile-wrapper .tile-target .tile-content p {
   text-align: left;
   width: 80%;
   line-height: 1.6rem;
   margin: .5rem auto;
 }
-/* line 75, ../scss/skin/_modal-panel.scss */
+/* line 58, ../scss/skin/_modal-panel.scss */
 .modal .tile-wrapper a {
   color: #fff;
 }
-/* line 77, ../scss/skin/_modal-panel.scss */
+/* line 60, ../scss/skin/_modal-panel.scss */
 .modal .tile-wrapper a:hover {
   color: #777777;
 }
-/* line 79, ../scss/skin/_modal-panel.scss */
+/* line 62, ../scss/skin/_modal-panel.scss */
 .modal .tile-wrapper a.icon-remove {
   opacity: 0;
   border: 1px solid #fff;
@@ -7487,7 +7476,7 @@ html.lt-ie9 .full-logo {
   -webkit-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
 }
-/* line 93, ../scss/skin/_modal-panel.scss */
+/* line 76, ../scss/skin/_modal-panel.scss */
 .modal .tile-wrapper a.icon-remove:hover {
   border-color: #777777;
 }
@@ -7750,6 +7739,27 @@ body:last-child .sheetview .defaultPeer {
   filter: none;
 }
 
+/* line 1, ../scss/skin/_infographic.scss */
+.infographic-container {
+  text-align: center;
+}
+/* line 4, ../scss/skin/_infographic.scss */
+.infographic-container img {
+  margin: 0 auto;
+}
+/* line 7, ../scss/skin/_infographic.scss */
+.infographic-container img.scaled {
+  width: 100%;
+}
+/* line 12, ../scss/skin/_infographic.scss */
+.infographic-container .infographic-caption {
+  color: #777777;
+  font-size: .875rem;
+  display: block;
+  margin-top: 1rem;
+  text-align: left;
+}
+
 /* line 1, ../scss/skin/_mediacore.scss */
 .mediacore-video-container {
   text-align: center;
@@ -7781,30 +7791,49 @@ body:last-child .sheetview .defaultPeer {
   width: 55%;
 }
 
-/* line 2, ../scss/skin/_modal-embedded-html.scss */
+/* line 1, ../scss/skin/_modal-embedded-html.scss */
+.tile-content.html-embedded-content-container {
+  text-align: center;
+}
+/* line 4, ../scss/skin/_modal-embedded-html.scss */
 .tile-content.html-embedded-content-container figure {
   margin-left: auto;
   margin-right: auto;
   max-width: 80%;
 }
-/* line 7, ../scss/skin/_modal-embedded-html.scss */
+/* line 9, ../scss/skin/_modal-embedded-html.scss */
 .tile-content.html-embedded-content-container figure img {
   max-width: 100% !important;
 }
+/* line 14, ../scss/skin/_modal-embedded-html.scss */
+.tile-content.html-embedded-content-container p, .tile-content.html-embedded-content-container h1, .tile-content.html-embedded-content-container h2, .tile-content.html-embedded-content-container h3, .tile-content.html-embedded-content-container h4, .tile-content.html-embedded-content-container h5 {
+  text-align: left;
+}
+/* line 18, ../scss/skin/_modal-embedded-html.scss */
+.tile-content.html-embedded-content-container iframe, .tile-content.html-embedded-content-container object, .tile-content.html-embedded-content-container div {
+  display: inline-block;
+  margin: .5rem auto;
+}
 
-/* line 17, ../scss/skin/_modal-embedded-html.scss */
+/* line 29, ../scss/skin/_modal-embedded-html.scss */
 .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container p {
   color: #fff;
   padding: 0 10%;
   width: 100%;
+  text-align: left;
 }
-/* line 23, ../scss/skin/_modal-embedded-html.scss */
+/* line 36, ../scss/skin/_modal-embedded-html.scss */
 .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container img {
   max-width: 100%;
 }
-/* line 25, ../scss/skin/_modal-embedded-html.scss */
+/* line 38, ../scss/skin/_modal-embedded-html.scss */
 .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h1, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h2, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h3, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h4, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h5, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container h6 {
   color: #fff;
+}
+/* line 42, ../scss/skin/_modal-embedded-html.scss */
+.modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container iframe, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container object, .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container div {
+  display: inline-block;
+  margin: .5rem auto;
 }
 
 /* line 3, ../scss/skin/_main-content-figures.scss */
@@ -7828,23 +7857,4 @@ body:last-child .sheetview .defaultPeer {
   white-space: normal;
   display: inline-block;
   line-height: 1.25rem;
-}
-
-/* line 1, ../../../../ysm_cases/_assets/scss/skin/_net-id-login-block.scss */
-.cas-netid-block {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid #ccc;
-}
-/* line 6, ../../../../ysm_cases/_assets/scss/skin/_net-id-login-block.scss */
-.cas-netid-block p {
-  color: #777777;
-  font-style: italic;
-  font-size: 0.75rem;
-  line-height: 1.25em;
-}
-/* line 13, ../../../../ysm_cases/_assets/scss/skin/_net-id-login-block.scss */
-.cas-netid-block a.button, .cas-netid-block .not-logged-in .user-login a#edit-submit, .not-logged-in .user-login .cas-netid-block a#edit-submit {
-  font-size: 1rem;
-  display: inline-block;
 }
