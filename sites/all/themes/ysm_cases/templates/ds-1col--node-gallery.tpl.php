@@ -37,7 +37,8 @@
 			$currentFieldCollectionItem 	= $currentFieldCollectionItem[$currentFieldCollectionItemKey];
 
 			// create the list item with the image
-			print '<li><img src="/sites/default/files/' . $currentFieldCollectionItem['field_gallery_image'][0]['#file']->filename . '" ';
+			print '<li><img src="' . file_create_url($currentFieldCollectionItem['field_gallery_image'][0]['#file']->uri) . '"';
+			
 
 			// check to make sure the there is an image caption
 			if (array_key_exists('field_image_caption', $currentFieldCollectionItem)) {
@@ -51,10 +52,8 @@
 
 		// close the image list collection
 		print '</ul>';
-
 	// close the div element
 	print '</div>';
-
 ?>
 
 </<?php print $ds_content_wrapper ?>>
