@@ -15,7 +15,6 @@ compass[css_dir] = "_assets/css"
 
 ; Styles
 stylesheets[all][] = _assets/css/ysm_cases.css
-stylesheets[all][] = _assets/css/jquery.bxslider.css
 stylesheets[print][] = _assets/css/print.css
 
 ; Scripts
