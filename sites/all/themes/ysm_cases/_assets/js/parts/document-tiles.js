@@ -59,6 +59,7 @@ jQuery(document).ready(function($) {
 							case 'gallery-container':
 								galleryContainer	= containerID;
 								mySlider = loadGallery();
+								mySlider.reloadSlider();
 							break;
 
 							case 'mediacore-video-container':
@@ -66,7 +67,7 @@ jQuery(document).ready(function($) {
 							break;
 
 							case 'html-embedded-content-container':
-								jQuery('#' + tileID).find('iframe').unwrap();
+								//jQuery('#' + tileID).find('iframe').unwrap();
 							break;
 							
 							/*case 'infographic-container':

@@ -16,7 +16,7 @@ function pageResize(){
 
 jQuery(document).ready(function($) {
 
-	//Login form reposition CAS
+	/*//Login form reposition CAS
 	jQuery('#edit-cas-login-redirection-message').appendTo('form#user-login-form');
 	jQuery('div.form-item-cas-identifier').appendTo('form#user-login-form');
 
@@ -29,14 +29,12 @@ jQuery(document).ready(function($) {
 			jQuery('#user-login-form .form-item-name').fadeIn(250);
 			jQuery('#user-login-form .form-item-pass').fadeIn(250);
 		}
-	});
+	});*/
 
 	//console.info(jQuery('div.show-sponsor').text());
 	if(jQuery('div.show-sponsor').text() == 'hide'){ 
 		jQuery('div.sponsors').hide(); 
 	}
-
-	$(".html-embedded-content-container iframe").unwrap();
 	
 });
 
