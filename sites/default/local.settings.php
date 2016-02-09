@@ -7,9 +7,9 @@ $databases = array (
   array (
     'default' => 
     array (
-      'database' => 'd7SOMCases',
-      'username' => 'd7Web',
-      'password' => 'Jd277g2f',
+      'database' => 'gnam_cases',
+      'username' => 'root',
+      'password' => 'Sputnik86',
       'host' => '127.0.0.1',
       'port' => '3306',
       'driver' => 'mysql',

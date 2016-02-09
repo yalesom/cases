@@ -11,6 +11,7 @@
 	if (arg(0) == 'node' && is_numeric(arg(1))) { 
 		$nodeid = arg(1); 
 		$options['attributes']['class'][] = 'button';
+		$options['attributes']['class'][] = 'cas';
 		$options['attributes']['class'][] = 'blue';
 		print '<p>Yale students and faculty may also login with their NetID.</p>';
 		print l('Login with NetID','https://secure.its.yale.edu/cas/login?service='.$protocol.$url.'%2Fcas%3Fdestination%3Dnode%2F'.$nodeid, $options); 

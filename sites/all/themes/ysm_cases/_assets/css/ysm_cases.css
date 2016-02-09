@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2016-01-28 | 125211
+ * @build 2016-02-09 | 085900
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -5814,20 +5814,21 @@ figcaption {
 /* line 64, ../scss/skin/_structure.scss */
 .not-logged-in #main-content .sidebar.one-sidebar {
   width: 25%;
+  min-height: 50vh;
 }
-/* line 70, ../scss/skin/_structure.scss */
+/* line 71, ../scss/skin/_structure.scss */
 .not-logged-in .credit {
   display: none;
 }
 
 /* Intuit grid hack */
-/* line 88, ../scss/skin/_structure.scss */
+/* line 89, ../scss/skin/_structure.scss */
 .grid, #main-content .section-wrap, .case-menu .item-list .stem_class, .case-tiles .view-content, .document-tiles .view-content, .document-list .view-content {
   letter-spacing: -0.31em;
 }
 
 /* Opera hack */
-/* line 93, ../scss/skin/_structure.scss */
+/* line 94, ../scss/skin/_structure.scss */
 .opera:-o-prefocus,
 .grid,
 #main-content .section-wrap,
@@ -5838,7 +5839,7 @@ figcaption {
   word-spacing: -0.43em;
 }
 
-/* line 98, ../scss/skin/_structure.scss */
+/* line 99, ../scss/skin/_structure.scss */
 .grid__item, #main-content .highlight, #main-content .main-content, #main-content .sidebar, .case-menu .item-list .stem_class > li, .case-tiles .view-content .tile, .document-tiles .view-content .tile, .document-list .view-content .view-grouping,
 .messages {
   letter-spacing: normal;
@@ -6795,104 +6796,49 @@ div.show-sponsor {
   font-size: 0.75rem;
   line-height: 1.25em;
 }
-/* line 20, ../scss/skin/_login.scss */
+/* line 21, ../scss/skin/_login.scss */
 .not-logged-in .user-login {
   margin-bottom: 3rem;
 }
-/* line 22, ../scss/skin/_login.scss */
+/* line 23, ../scss/skin/_login.scss */
 .not-logged-in .user-login label,
 .not-logged-in .user-login .item-list {
   display: none;
 }
-/* line 26, ../scss/skin/_login.scss */
+/* line 27, ../scss/skin/_login.scss */
 .not-logged-in .user-login #edit-name,
 .not-logged-in .user-login #edit-pass {
   border: 1px #ccc solid;
   padding: 0.5rem;
 }
-/* line 30, ../scss/skin/_login.scss */
+/* line 31, ../scss/skin/_login.scss */
 .not-logged-in .user-login #edit-name:focus,
 .not-logged-in .user-login #edit-pass:focus {
   border-color: #1f2021;
   outline: none;
 }
-/* line 35, ../scss/skin/_login.scss */
+/* line 36, ../scss/skin/_login.scss */
 .not-logged-in .user-login #edit-submit {
   background: #00457c;
   font-size: 1rem;
   padding-right: 5rem;
   position: relative;
 }
-/* line 41, ../scss/skin/_login.scss */
+/* line 42, ../scss/skin/_login.scss */
 .not-logged-in .user-login #edit-submit:after {
   position: absolute;
   right: 0.5rem;
   top: 0.75rem;
 }
-/* line 52, ../scss/skin/_login.scss */
-.not-logged-in .form-item-cas-identifier {
-  display: block !important;
-}
-/* line 54, ../scss/skin/_login.scss */
-.not-logged-in .form-item-cas-identifier #edit-cas-identifier {
-  display: none;
+/* line 50, ../scss/skin/_login.scss */
+.not-logged-in #edit-cas-login-redirection-message {
+  display: none !important;
 }
 /* line 56, ../scss/skin/_login.scss */
-.not-logged-in .form-item-cas-identifier #edit-cas-identifier:checked + label {
-  color: #79ba86;
-}
-/* line 13, ../scss/skin/_mixins.scss */
-.not-logged-in .form-item-cas-identifier #edit-cas-identifier:checked + label:before {
-  content: " ";
-  font-family: "ysm118-icomoon";
-  display: inline-block;
-}
-/* line 60, ../scss/skin/_login.scss */
-.not-logged-in .form-item-cas-identifier #edit-cas-identifier:checked ~ .description {
-  display: block;
-  visibility: visible;
-  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-  opacity: 1;
-}
-/* line 66, ../scss/skin/_login.scss */
-.not-logged-in .form-item-cas-identifier label {
-  color: #ababab;
-  display: inline-block;
-  font-weight: 700;
-  -moz-transition: all 0.25s ease-out;
-  -o-transition: all 0.25s ease-out;
-  -webkit-transition: all 0.25s ease-out;
-  transition: all 0.25s ease-out;
-}
-/* line 13, ../scss/skin/_mixins.scss */
-.not-logged-in .form-item-cas-identifier label:before {
-  content: " ";
-  font-family: "ysm118-icomoon";
-  display: inline-block;
-}
-/* line 72, ../scss/skin/_login.scss */
-.not-logged-in .form-item-cas-identifier label:before {
-  margin: 0 0.5rem 0 0;
-}
-/* line 76, ../scss/skin/_login.scss */
-.not-logged-in .form-item-cas-identifier .description {
-  display: none;
-  font-size: 12px;
-  line-height: 1em;
-  margin: 0;
-  visibility: hidden;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -moz-transition: all 0.25s ease-out;
-  -o-transition: all 0.25s ease-out;
-  -webkit-transition: all 0.25s ease-out;
-  transition: all 0.25s ease-out;
-}
-/* line 88, ../scss/skin/_login.scss */
 .not-logged-in #user-login .cas-links {
   display: none;
 }
-/* line 93, ../scss/skin/_login.scss */
+/* line 61, ../scss/skin/_login.scss */
 .not-logged-in .block-views-book-outline-block-1 {
   display: none;
 }
@@ -7576,19 +7522,21 @@ body:last-child .sheetview .defaultPeer {
 /* line 1, ../scss/skin/_infographic.scss */
 .infographic-container {
   text-align: center;
+  padding: 0 10%;
 }
-/* line 4, ../scss/skin/_infographic.scss */
+/* line 5, ../scss/skin/_infographic.scss */
 .infographic-container img {
   margin: 0 auto;
+  max-width: 100%;
 }
-/* line 7, ../scss/skin/_infographic.scss */
+/* line 9, ../scss/skin/_infographic.scss */
 .infographic-container img.scaled {
   width: 100%;
 }
-/* line 12, ../scss/skin/_infographic.scss */
+/* line 14, ../scss/skin/_infographic.scss */
 .infographic-container .infographic-caption {
-  color: #fff;
-  font-size: .875rem;
+  color: #1f2021;
+  font-size: 1rem;
   display: block;
   margin-top: 1rem;
   text-align: left;
@@ -7657,7 +7605,7 @@ body:last-child .sheetview .defaultPeer {
 }
 /* line 28, ../scss/skin/_modal-embedded-html.scss */
 .modal .tile-wrapper .tile-target .tile-content.html-embedded-content-container p {
-  color: #777777;
+  color: #1f2021;
   padding: 0 10%;
   width: 100%;
 }
@@ -7833,23 +7781,24 @@ body:last-child .sheetview .defaultPeer {
 /* line 1, ../scss/skin/_net-id-login-block.scss */
 .cas-netid-block {
   margin-top: 2rem;
-  padding-top: 2rem;
+  padding: 2rem 0;
   border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
-/* line 6, ../scss/skin/_net-id-login-block.scss */
+/* line 7, ../scss/skin/_net-id-login-block.scss */
 .cas-netid-block p {
   color: #777777;
   font-style: italic;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   line-height: 1.25em;
 }
-/* line 13, ../scss/skin/_net-id-login-block.scss */
+/* line 14, ../scss/skin/_net-id-login-block.scss */
 .cas-netid-block a.button, .cas-netid-block .not-logged-in .user-login a#edit-submit, .not-logged-in .user-login .cas-netid-block a#edit-submit {
   font-size: 1rem;
   display: inline-block;
 }
 
-/* line 19, ../scss/skin/_net-id-login-block.scss */
+/* line 20, ../scss/skin/_net-id-login-block.scss */
 .form-item-cas-identifier {
   display: none;
 }
