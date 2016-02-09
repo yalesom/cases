@@ -117,8 +117,8 @@ jQuery('#page-header .icon-cancel').bind('touch click', function(){
 jQuery('.user-login #edit-name').attr('placeholder','Username');
 jQuery('.user-login #edit-pass').attr('placeholder','Password');
 
-jQuery('.user-login #edit-submit').remove();
-jQuery('.user-login #edit-actions').append('<button type="submit" id="edit-submit" class="form-submit" name="op">Login</button>');
+//jQuery('.user-login #edit-submit').remove();
+//jQuery('.user-login #edit-actions').append('<button type="submit" id="edit-submit" class="form-submit" name="op">Login</button>');
 
 // !Add padding to fixed header for admin users
 var adminSticky = window.setTimeout(function(){

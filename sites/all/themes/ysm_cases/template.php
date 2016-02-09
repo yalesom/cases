@@ -29,19 +29,32 @@ _ysm_cases_load($files);
 /**
 * Custom login page
 */
-function ysm_cases_theme() {
-  $items = array();
-  // create custom user-login.tpl.php
-  $items['user_login'] = array(
-  'render element' => 'form',
-  'path' => drupal_get_path('theme', 'ysm_cases') . '/templates',
-  'template' => 'user-login',
-  'preprocess functions' => array(
-  'ysm_cases_preprocess_user_login'
-  ),
- );
-return $items;
+
+function ysm_cases_theme(&$existing, $type, $theme, $path) {
+   $hooks['user_login_block'] = array(
+     'template' => 'templates/user-login-block',
+     'render element' => 'form',
+   );
+   
+    $hooks['user_login'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('theme', 'ysm_cases') . '/templates',
+    'template' => 'user-login',
+    'preprocess functions' => array(
+    'ysm_cases_preprocess_user_login'
+    ),
+   );
+   return $hooks;
+ }
+
+function ysm_cases_preprocess_user_login_block(&$vars) {
+  $vars['name'] = render($vars['form']['name']);
+  $vars['pass'] = render($vars['form']['pass']);
+  $vars['submit'] = render($vars['form']['actions']['submit']);
+  $vars['rendered'] = drupal_render_children($vars['form']);
 }
+
+
 /**
  * Implements hook_html_head_alter().
  */
