@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2016-01-21 | 050351
+ * @build 2016-02-08 | 160153
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -24,7 +24,7 @@ function pageResize(){
 
 jQuery(document).ready(function($) {
 
-	//Login form reposition CAS
+	/*//Login form reposition CAS
 	jQuery('#edit-cas-login-redirection-message').appendTo('form#user-login-form');
 	jQuery('div.form-item-cas-identifier').appendTo('form#user-login-form');
 
@@ -37,14 +37,12 @@ jQuery(document).ready(function($) {
 			jQuery('#user-login-form .form-item-name').fadeIn(250);
 			jQuery('#user-login-form .form-item-pass').fadeIn(250);
 		}
-	});
+	});*/
 
 	//console.info(jQuery('div.show-sponsor').text());
 	if(jQuery('div.show-sponsor').text() == 'hide'){ 
 		jQuery('div.sponsors').hide(); 
 	}
-
-	$(".html-embedded-content-container iframe").unwrap();
 	
 });
 
@@ -171,8 +169,8 @@ jQuery('#page-header .icon-cancel').bind('touch click', function(){
 jQuery('.user-login #edit-name').attr('placeholder','Username');
 jQuery('.user-login #edit-pass').attr('placeholder','Password');
 
-jQuery('.user-login #edit-submit').remove();
-jQuery('.user-login #edit-actions').append('<button type="submit" id="edit-submit" class="form-submit" name="op">Login</button>');
+//jQuery('.user-login #edit-submit').remove();
+//jQuery('.user-login #edit-actions').append('<button type="submit" id="edit-submit" class="form-submit" name="op">Login</button>');
 
 // !Add padding to fixed header for admin users
 var adminSticky = window.setTimeout(function(){
@@ -758,6 +756,7 @@ jQuery(document).ready(function($) {
 							case 'gallery-container':
 								galleryContainer	= containerID;
 								mySlider = loadGallery();
+								mySlider.reloadSlider();
 							break;
 
 							case 'mediacore-video-container':
@@ -765,7 +764,7 @@ jQuery(document).ready(function($) {
 							break;
 
 							case 'html-embedded-content-container':
-								jQuery('#' + tileID).find('iframe').unwrap();
+								//jQuery('#' + tileID).find('iframe').unwrap();
 							break;
 							
 							/*case 'infographic-container':

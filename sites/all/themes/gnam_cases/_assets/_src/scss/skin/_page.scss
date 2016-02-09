@@ -5,6 +5,7 @@
 	float: right;
 	clear: both;
 	width: 30% !important;
+	z-index:15;
 	
 	@media #{$phoneMax}{ width: 100% !important; }
 	.view-content {
@@ -28,7 +29,10 @@
 				background: transparentize($black, 0.2);
 				// @include transition(all 0.25s ease-out);
 		
-				.header { line-height: 0.875rem; }
+				.header { 
+					display: block;
+					line-height: 1.2em; 
+				}
 			}
 
 			@include tooltip;
@@ -124,16 +128,22 @@
 		}
 	}
 }
+
+.block-views-document-grid-document-list {
+	z-index: 11;
+	width: 70%;
+	padding-right: 6%;
+}
 .document-list {
 	.view-content {
 		@extend .grid; 
 	    .view-grouping {
 		    @extend .grid__item;
-		    @extend .one-quarter;
+		    @extend .one-half;
 		    @extend .palm-one-whole;
 			margin-bottom: $base-spacing-unit;
 			&:only-child {
-				@extend .three-quarters;
+				@extend .two-thirds;
 				@extend .palm-one-whole;
 			}
 	    }

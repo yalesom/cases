@@ -11,7 +11,7 @@
 /*	!Theme styles ============ */
 @import "../../../../ysm_cases/_assets/scss/skin/ysm118-icomoon";
 @import "../../../../ysm_cases/_assets/scss/skin/common";
-@import "../../../../ysm_cases/_assets/scss/skin/structure";
+@import "skin/structure";
 @import "../../../../ysm_cases/_assets/scss/skin/admin";
 
 @import "skin/header";
@@ -25,6 +25,7 @@
 @import "skin/homepage";
 
 @import "../../../../ysm_cases/_assets/scss/skin/login";
+@import "../../../../ysm_cases/_assets/scss/skin/net-id-login-block";
 
 @import "skin/footer";
 @import "skin/modal-panel";
