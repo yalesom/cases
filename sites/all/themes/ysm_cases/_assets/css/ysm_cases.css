@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2016-02-09 | 085900
+ * @build 2016-02-12 | 111705
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -6486,6 +6486,10 @@ html.lt-ie9 .sticky-wrapper {
 body.not-logged-in .sponsors {
   display: none !important;
 }
+/* line 240, ../scss/skin/_case.scss */
+body.not-logged-in .case-abstract {
+  padding-right: 2rem;
+}
 
 /* !------------- Page content type styles ------------- */
 /* line 2, ../scss/skin/_page.scss */
@@ -6632,7 +6636,7 @@ body.not-logged-in .sponsors {
 }
 /* line 119, ../scss/skin/_page.scss */
 .document-list .view-content .view-grouping-content {
-  border-top: #ccc 10px solid;
+  border-top: #ccc 5px solid;
   padding-top: 0.75rem;
 }
 /* line 123, ../scss/skin/_page.scss */
