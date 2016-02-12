@@ -6507,6 +6507,10 @@ html.lt-ie9 .sticky-wrapper {
 body.not-logged-in .sponsors {
   display: none !important;
 }
+/* line 254, ../scss/skin/_case.scss */
+body.not-logged-in .case-abstract {
+  padding-right: 2rem;
+}
 
 /* !------------- Page content type styles ------------- */
 /* line 2, ../scss/skin/_page.scss */
