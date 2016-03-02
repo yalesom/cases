@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2016-02-08 | 160153
+ * @build 2016-03-02 | 083805
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -756,7 +756,7 @@ jQuery(document).ready(function($) {
 							case 'gallery-container':
 								galleryContainer	= containerID;
 								mySlider = loadGallery();
-								mySlider.reloadSlider();
+								//mySlider.reloadSlider();
 							break;
 
 							case 'mediacore-video-container':
@@ -764,7 +764,7 @@ jQuery(document).ready(function($) {
 							break;
 
 							case 'html-embedded-content-container':
-								//jQuery('#' + tileID).find('iframe').unwrap();
+								jQuery('#' + tileID).find('iframe').unwrap();
 							break;
 							
 							/*case 'infographic-container':
@@ -797,6 +797,8 @@ jQuery(document).ready(function($) {
 						};
 
 						$('#' + tileID + ' .tile-wrapper').css('background', 'none');
+						$(window).resize();
+						$(window).resize();
 					}
 				});
 			}

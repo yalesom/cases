@@ -7501,6 +7501,11 @@ html.lt-ie9 .full-logo {
   content: " and ";
   margin-left: 0;
 }
+/* line 51, ../scss/skin/_produced-by.scss */
+.produced-by-collection-names .view-content a:only-child:before {
+  content: "";
+  display: none;
+}
 
 /* line 1, ../scss/skin/_admin-roam.scss */
 html.admin-roam {

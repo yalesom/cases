@@ -104,6 +104,8 @@ jQuery(document).ready(function($) {
 						};
 
 						jQuery('#' + tileID + ' .tile-wrapper').css('background', 'none');
+						$(window).resize();
+						$(window).resize();
 					}
 				});
 			}
