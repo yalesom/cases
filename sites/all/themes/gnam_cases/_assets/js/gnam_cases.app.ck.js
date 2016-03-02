@@ -1,7 +1,7 @@
 /**
  * GNAM - Merge of Cases Platform and GNAM styles
  * @version 0.1.0
- * @build 2016-02-08 | 160153
+ * @build 2016-03-02 | 083805
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -774,6 +774,8 @@ jQuery(document).ready(function($) {
 						};
 
 						jQuery('#' + tileID + ' .tile-wrapper').css('background', 'none');
+						$(window).resize();
+						$(window).resize();
 					}
 				});
 			}

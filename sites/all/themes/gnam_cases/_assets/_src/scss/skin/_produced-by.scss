@@ -46,6 +46,13 @@
 					margin-left: 0;
 				}
 			}
+
+			&:only-child {
+				&:before {
+					content: "";
+					display: none;
+				}
+			}
 		}
 	}
 }
