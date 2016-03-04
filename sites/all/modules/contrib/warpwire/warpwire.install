@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implements hook_uninstall().
+ */
+function warpwire_uninstall() {
+  variable_del('warpwire_url');
+}

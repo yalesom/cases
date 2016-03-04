@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Warpwire Embed</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<style>
+	.hidden { display: none; }
+	body { margin: 0; font-family: Helvetica, sans-serif; font-weight: 300; font-size: 14px; }
+	.header { padding: 15px; background: #0073ba; }
+	.header img { height: 24px; width: auto; }
+	.content { margin: 30px 15px; }
+	.bold { font-weight: 500; }
+</style>
+
+<script type="text/javascript">
+
+	// function to get url parameters from a given input string
+	var GetURLParameter = function(sParam, sPageURL) {
+		if(typeof sPageURL == 'undefined')
+			sPageURL = window.location.search.substring(1);
+		else {
+			sPageURL = sPageURL.substring(sPageURL.indexOf("?")+1);
+		}
+		var sURLVariables = sPageURL.split('&');
+		for (var i = 0; i < sURLVariables.length; i++) {
+			var sParameterName = sURLVariables[i].split('=');
+			if (sParameterName[0] == sParam) {
+				return sParameterName[1];
+			}
+		}
+	};
+
+	var postData = function() {
+		try {
+			var jsonData = decodeURIComponent(GetURLParameter('jsonData'));
+			window.opener.postMessage({message: "deliverResult", result: jsonData}, "*");
+			window.close();			
+		} catch(e) { }
+	}
+
+</script>
+
+</head>
+<body onload="postData()">
+
+<div class="header"><img src="../images/icon-warpwire-circle.png" /></div>
+<div class="content">
+	<p>Warpwire Media is being embedded, please wait.</p>
+</div>
+
+</body>
+
+</html>
