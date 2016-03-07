@@ -1,9 +1,0 @@
-name = Warpwire
-description = Embed Warpwire content into your Drupal site.
-core = 7.x
-package = Warpwire
-
-version = "7.x-1.8.1"
-core = "7.x"
-project = "warpwire"
-datestamp = "1450314640"

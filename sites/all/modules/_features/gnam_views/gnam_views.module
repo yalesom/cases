@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the GNAM Views feature.
- */
-
-include_once 'gnam_views.features.inc';
