@@ -1,0 +1,4 @@
+name = Subscribers
+description = Auto logs in users buying Cases (SAGE)
+core = 7.x
+package = Subscriptions
