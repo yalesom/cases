@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the chart_node feature.
+ */
+
+include_once 'chart_node.features.inc';
