@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Walmex Sample Content feature.
- */
-
-include_once 'walmex_sample_content.features.inc';
