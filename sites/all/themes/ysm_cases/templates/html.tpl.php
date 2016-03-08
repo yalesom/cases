@@ -58,9 +58,6 @@
   <link rel="stylesheet" href="https://s3.amazonaws.com/icomoon.io/34850/YSMCases/style.css?dun8zl">
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
-  <div class="skip-link">
-    <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
-  </div>
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
