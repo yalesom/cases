@@ -11,11 +11,11 @@ function subscribers_menu() {
 
 function subscriber_check() {
   $referrer = $_SERVER['HTTP_REFERER'];
-  drupal_set_message("the referer is $referer);
+  drupal_set_message("the referer is $referer");
   if ($referrer == $referrer) {
     $query = new EntityFieldQuery();
     $query->entityCondition('entity_type' , 'user')
-      ->propertyCondition('status' ,1)
+      ->propertyCondition('status' , 1)
       ->propertyCondition('name', 'Subscription User');
 
     $result = $query->execute();
