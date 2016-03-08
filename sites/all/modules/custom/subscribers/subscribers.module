@@ -3,29 +3,44 @@
 function subscribers_menu() {
   $items = array();
   $items['case-subscriber'] = array(
-    'page callback' = 'subscriber_check',
-
+    'page callback' => 'subscriber_check',
+    'page access' => array('access content'),
   );
   return $items;
 }
 
 function subscriber_check() {
   $referrer = $_SERVER['HTTP_REFERER'];
-  dpm($referrer);
+  drupal_set_message("the referer is $referer);
   if ($referrer == $referrer) {
-    $done = FALSE;
-    $x = 0;
-    $arg_ary = array();
-    while (!$done) {
-      $arg = arg($x);
-      if ($arg) {
-        $arg_ary[] = $arg;
-        $x++;
-      } else {
-        $done = TRUE;
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type' , 'user')
+      ->propertyCondition('status' ,1)
+      ->propertyCondition('name', 'Subscription User');
+
+    $result = $query->execute();
+    if (array_key_exists('user' , $result)) {
+      $uid = key($result['user']);
+      $user = user_load($uid);
+      $GLOBALS['user'] = $user;
+      $form_state['uid'] = $uid;
+      user_login_finalize($form_state);
+
+      $done = FALSE;
+      $x = 0;
+      $arg_ary = array();
+      while (!$done) {
+        $arg = arg($x);
+        if ($arg) {
+          $arg_ary[] = $arg;
+          $x++;
+        } else {
+          $done = TRUE;
+        }
       }
+      unset($arg_ary[0]) // this is case-subsriber
+      $uri = implode('/', $arg_ary);
+      drupal_goto($uri);
     }
-    unset($arg_ary[0]) // this is case-subsriber
-    $uri = implode('/', $arg_ary);
-    drupal_goto($uri);
+  }
 }
