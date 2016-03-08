@@ -4,7 +4,7 @@ function subscribers_menu() {
   $items = array();
   $items['case-subscriber'] = array(
     'page callback' => 'subscriber_check',
-    'page access' => array('access content'),
+    'access arguments' => array('access content'),
   );
   return $items;
 }
