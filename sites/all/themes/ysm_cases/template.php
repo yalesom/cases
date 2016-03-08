@@ -446,6 +446,18 @@ function ysm_cases_preprocess_html(&$variables) {
   // !Empty variable for Typekit
   $variables['typekit'] = "wxc1xmi";
 
+  //fix page-title for non-logged in people
+  if (!$variables['logged_in']) {
+    if (drupal_get_title()) {
+      $head_title = array(
+        'title' => 'Please Log In',
+        'name' => check_plain(variable_get('site_name', 'Drupal')),
+      );
+    }
+    $variables['head_title_array'] = $head_title;
+    $variables['head_title'] = implode(' | ', $head_title);
+  }
+
 }
 function ysm_cases_process_html(&$vars) {
   $vars['head_scripts'] = drupal_get_js('head_scripts');
