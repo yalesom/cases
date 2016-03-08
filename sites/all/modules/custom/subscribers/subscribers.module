@@ -38,7 +38,7 @@ function subscriber_check() {
           $done = TRUE;
         }
       }
-      unset($arg_ary[0]) // this is case-subsriber
+      unset($arg_ary[0]); // this is case-subsriber
       $uri = implode('/', $arg_ary);
       drupal_goto($uri);
     }
