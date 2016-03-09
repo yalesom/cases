@@ -23,8 +23,8 @@ function subscribers_menu() {
     'access arguments' => array('access content'),
   );
 
-  $items['admin/config/subscriptions'] = array(
-    'title' => 'Configure Cases Subriptions',
+  $items['admin/config/system/subscriptions'] = array(
+    'title' => 'Configure Cases Subscriptions',
     'description' => 'Configuration of Cases Referring Sites',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('cases_subscription'),
@@ -35,25 +35,38 @@ function subscribers_menu() {
   return $items;
 }
 
-function cases_subscription() {
+function cases_subscription($form, &$form_state) {
   // get default values from variable and set all values
   $form = array();
   $form['#tree'] = TRUE;
   $form['referrer_list'] = array(
     '#type' => 'fieldset',
-    '#title' => t('URLs of valid referres for Cases'),
+    '#title' => t('URLs of valid referrers for Cases'),
     '#prefix' => '<div id="referrer_list-wrapper">',
     '#suffix' => '</div>',
   );
+
   if (empty($form_state['num_refs'])) {
-    $form_state['num_refs'] = 1;
+    if ($var = unserialize(variable_get('cases_referrers' , ''))) {
+      $form_state['num_refs'] = count($var);
+    } else {
+      $form_state['num_refs'] = 1;
+    }
   }
+
   for ($i = 0; $i < $form_state['num_refs']; $i++) {
     $form['referrer_list']['ref_'][$i] = array(
       '#type' => 'textfield',
-      '#title' => t('Referrer URL'),
+      '#title' => t('Referrer URL. Include protocol like http or https'),
     );
   }
+
+  if (isset($var)) {
+    for ($i = 0; $i < $form_state['num_refs']; $i++) {
+      $form['referrer_list']['ref_'][$i]['#default_value']  = $var[$i];
+    }
+  }
+
   $form['referrer_list']['add_name'] = array(
    '#type' => 'submit',
    '#value' => t('Add one more'),
@@ -73,11 +86,37 @@ function cases_subscription() {
 }
 
 function cases_subscription_validate($form, &$form_state) {
-  // validate each URL in form
+  $nform = array();
+  $x = 0;
+  for ($i = 0; $i < $form_state['num_refs']; $i++) {
+    if ($url = $form_state['values']['referrer_list']['ref_'][$i]) {
+      if($response = file_get_contents($url)) {
+        $nform['values']['referrer_list']['ref_'][$x] = $url;
+        $x++;
+      } else  {
+        $field = "referrer_list']['ref_']$i";
+        form_set_error($field , "$url is an Invalid URL");
+      }
+    }
+  }
+  // We may have had some blanks in the form values..so Lets reset all of form_state values
+  if ($x != $form_state['num_refs']) {
+    for ($i = 0; $i < $form_state['num_refs']; $i++) {
+      unset($form_state['values']['referrer_list']['ref_'][$i]);
+    }
+    for ($i = 0; $i < $x; $i++) {
+      $form_state['values']['referrer_list']['ref_'][$i] = $nform['values']['referrer_list']['ref_'][$i];
+    }
+    $form_state['num_refs'] = $x;
+  }
 }
 
 function cases_subscription_submit($form, &$form_state) {
-  //save to variable
+  $var = array();
+  for ($i = 0; $i < $form_state['num_refs']; $i++) {
+    $var[$i] = $form_state['values']['referrer_list']['ref_'][$i];
+  }
+  variable_set('cases_referrers' , serialize($var));
 }
 
 function ajax_add_one_more($form, &$form_state) {
