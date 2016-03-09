@@ -7,11 +7,11 @@ $databases = array (
   array (
     'default' => 
     array (
-      'database' => 'cases',
+      'database' => 'gnam_cases',
       'username' => 'root',
-      'password' => 'root',
+      'password' => 'Sputnik86',
       'host' => '127.0.0.1',
-      'port' => '8889',
+      'port' => '3306',
       'driver' => 'mysql',
       'prefix' => '',
     ),
