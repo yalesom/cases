@@ -1,5 +1,21 @@
 <?php
 
+/**
+ * * Implements hook_permission()
+ */
+function subscribers_permission(){
+  return array(
+    'config cases' => array(
+      'title' => t('Configure Cases Referrers'),
+      'restricted' => TRUE
+    )
+  );
+}
+
+/**
+ * * Implements hook_menu()
+ */
+
 function subscribers_menu() {
   $items = array();
   $items['case-subscriber'] = array(
@@ -17,6 +33,60 @@ function subscribers_menu() {
   );
 
   return $items;
+}
+
+function cases_subscription() {
+  // get default values from variable and set all values
+  $form = array();
+  $form['#tree'] = TRUE;
+  $form['referrer_list'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('URLs of valid referres for Cases'),
+    '#prefix' => '<div id="referrer_list-wrapper">',
+    '#suffix' => '</div>',
+  );
+  if (empty($form_state['num_refs'])) {
+    $form_state['num_refs'] = 1;
+  }
+  for ($i = 0; $i < $form_state['num_refs']; $i++) {
+    $form['referrer_list']['ref_'][$i] = array(
+      '#type' => 'textfield',
+      '#title' => t('Referrer URL'),
+    );
+  }
+  $form['referrer_list']['add_name'] = array(
+   '#type' => 'submit',
+   '#value' => t('Add one more'),
+   '#submit' => array('ajax_add_one_more'),
+
+   '#ajax' => array(
+     'callback' => 'ajax_add_one_more_callback',
+     'wrapper' => 'referrer_list-wrapper',
+   ),
+ );
+ $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  );
+
+  return $form;
+}
+
+function cases_subscription_validate($form, &$form_state) {
+  // validate each URL in form
+}
+
+function cases_subscription_submit($form, &$form_state) {
+  //save to variable
+}
+
+function ajax_add_one_more($form, &$form_state) {
+  $form_state['num_refs']++;
+  $form_state['rebuild'] = TRUE;
+}
+
+function ajax_add_one_more_callback($form, $form_state) {
+  return $form['referrer_list'];
 }
 
 function subscriber_check() {
@@ -53,17 +123,4 @@ function subscriber_check() {
       drupal_goto($uri);
     }
   }
-}
-
-/**
- * * Implements hook_permission()
- *
- */
-function subscribers_permission(){
-  return array(
-    'config cases' => array(
-      'title' => t('Configure Cases Referrers'),
-      'restricted' => TRUE
-    )
-  );
 }
