@@ -6,6 +6,16 @@ function subscribers_menu() {
     'page callback' => 'subscriber_check',
     'access arguments' => array('access content'),
   );
+
+  $items['admin/config/subscriptions'] = array(
+    'title' => 'Configure Cases Subriptions',
+    'description' => 'Configuration of Cases Referring Sites',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('cases_subscription'),
+    'access arguments' => array('config cases'),
+
+  );
+
   return $items;
 }
 
@@ -43,4 +53,17 @@ function subscriber_check() {
       drupal_goto($uri);
     }
   }
+}
+
+/**
+ * * Implements hook_permission()
+ *
+ */
+function subscribers_permission(){
+  return array(
+    'config cases' => array(
+      'title' => t('Configure Cases Referrers'),
+      'restricted' => TRUE
+    )
+  );
 }
