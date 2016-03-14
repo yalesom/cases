@@ -6,6 +6,7 @@
 /sites/default/**/private
 /sites/*/local.settings.php
 /sites/*/prod.settings.php
+sites/default/*.settings.php
 *.7z
 *.dmg
 *.gz
