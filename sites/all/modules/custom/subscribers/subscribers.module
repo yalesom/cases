@@ -129,9 +129,17 @@ function ajax_add_one_more_callback($form, $form_state) {
 }
 
 function subscriber_check() {
-  $referrer = $_SERVER['HTTP_REFERER'];
+  $referrer = trim($_SERVER['HTTP_REFERER']);
   drupal_set_message("the referer is $referer");
-  if ($referrer == $referrer) {
+  $valid_referrer = unserialize(variable_get('cases_referrers' , ''));
+  $ct = count($valid_referrer);
+  $valid = FALSE;
+  $x = 0;
+  while ($x < $ct && !($valid)) {
+    $valid = ($referer == trim($valid_referrer[$x]));
+    $x++;
+  }
+  if ($valid) {
     $query = new EntityFieldQuery();
     $query->entityCondition('entity_type' , 'user')
       ->propertyCondition('status' , 1)
