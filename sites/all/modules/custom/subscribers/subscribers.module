@@ -130,13 +130,19 @@ function ajax_add_one_more_callback($form, $form_state) {
 
 function subscriber_check() {
   $referrer = trim($_SERVER['HTTP_REFERER']);
-  drupal_set_message("the referer is $referer");
   $valid_referrer = unserialize(variable_get('cases_referrers' , ''));
   $ct = count($valid_referrer);
   $valid = FALSE;
   $x = 0;
+  $uri = '';
   while ($x < $ct && !($valid)) {
-    $valid = ($referer == trim($valid_referrer[$x]));
+    $tmp = $valid_referrer[$x];
+    $tmp = str_replace('/' , '\/', $tmp);
+    $tmp = str_replace('.' , '\.' , $tmp);
+    $tmp = "/^$tmp/";
+    if (preg_match($tmp , $referrer)) {
+      $valid = TRUE;
+    }
     $x++;
   }
   if ($valid) {
@@ -167,7 +173,12 @@ function subscriber_check() {
       }
       unset($arg_ary[0]); // this is case-subsriber
       $uri = implode('/', $arg_ary);
-      drupal_goto($uri);
+    } else {
+      // Valid User not found.  Add user Subscription User
+      drupal_set_message('Subscriber not found');
     }
+  } else {
+    drupal_set_message("Please log in to view cases");
   }
+  drupal_goto($uri);
 }
