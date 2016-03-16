@@ -36,6 +36,6 @@ else {
  * have issues if the domain settings are not included. ಠ_ಠ
  */
 if (!isset($_SERVER['SCRIPT_FILENAME']) || strpos($_SERVER['SCRIPT_FILENAME'], 'drush.php') === FALSE || strpos(implode(' ', $_SERVER['argv']), 'sql-') === FALSE) {
-  include DRUPAL_ROOT . '/sites/all/modules/domain/settings.inc';
+  include DRUPAL_ROOT . '/sites/all/modules/contrib/domain/settings.inc';
 }
 
