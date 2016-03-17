@@ -16,25 +16,25 @@ jQuery(document).ready(function($) {
 			if (url.indexOf(location.host) == '-1' || url.indexOf('files') > 0) {
 				// this is a link to a file or off site location
 				window.open(url);
-			
+
 			} else {
 				//this is a local link to load into a modal
-				
+
 				// disable page scroll
 				jQuery('html').css('overflow', 'hidden');
 
 				// clone the template
 				template 	= jQuery('#template').clone();
-				
+
 				// create unique ID
 				uid			= Math.floor(Math.random()*100)+1;
 
 				// generate a tileID
 				tileID		= 'tile-' + uid;
-				
+
 				// update the cloned template with the new tileID
 				template.attr('id', tileID);
-				
+
 				// add the cloned template the DOM structure
 				jQuery('#main-content').before(template);
 
@@ -42,7 +42,7 @@ jQuery(document).ready(function($) {
 				setTimeout(function() {
 					jQuery('#' + tileID).addClass('open');
 				},500);
-				
+
 				jQuery('#' + tileID + ' .tile-target').load(url + ' .tile-content', function(response, status, xhr) {
 					if (status == 'success') {
 						jQuery(document).bind('keyup', function(key) {
@@ -50,7 +50,7 @@ jQuery(document).ready(function($) {
 								closeModalWindow();
 							}
 						});
-						
+
 						containerID = jQuery('#' + jQuery('#' + tileID).find('.tile-content').attr('id'));
 
 						jQuery('html, body').animate({ scrollTop: jQuery('#' + tileID).offset().top + jQuery('#page-header').height }, 1000);
@@ -60,7 +60,7 @@ jQuery(document).ready(function($) {
 								chartContainer 		= jQuery('#' + jQuery(this).find('.chart-target').attr('id'));
 								readInChartCSV();
 							break;
-							
+
 							case 'gallery-container':
 								galleryContainer	= containerID;
 								mySlider = loadGallery();
@@ -88,7 +88,7 @@ jQuery(document).ready(function($) {
 										'entity-name': 'node',
 										oid: '"' + nid + '"'
 									},
-									imagePrefix: '/sites/all/modules/sheetnode/socialcalc/images/sc-',
+									imagePrefix: '<?php print drupal_get_path("module", "sheetnode") . "/socialcalc/images/sc-"; ?>',
 									permissions: {
 										'edit sheetnode settings': true
 									},
@@ -97,7 +97,7 @@ jQuery(document).ready(function($) {
 									value: sheetnodeValue,
 									viewMode: '2'
 								};
-								
+
 								Drupal.settings.sheetnode = sheetnode;
 								Drupal.behaviors.sheetnode.attach('#sn-container-' + nid, Drupal.settings);
 							break;
@@ -111,7 +111,7 @@ jQuery(document).ready(function($) {
 			}
 		});
 	});
-	
+
 	// remove the modal window
 	jQuery(document).on('click', '.modal-close', function(evt) {
 		evt.preventDefault();
