@@ -66,17 +66,23 @@
   <?php if ($typekit): ?>
 	  <script type="text/javascript" src="//use.typekit.net/<?php print $typekit; ?>.js"></script>
 	  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <?php endif; ?> 
-  
-<script src="/sites/all/modules/sheetnode/socialcalc/formatnumber2.js"></script>
-<script src="/sites/all/modules/sheetnode/socialcalc/formula1.js"></script>
-<script src="/sites/all/modules/sheetnode/socialcalc/socialcalcconstants.js"></script>
-<script src="/sites/all/modules/sheetnode/socialcalc/socialcalc-3.js"></script>
-<script src="/sites/all/modules/sheetnode/socialcalc/socialcalctableeditor.js"></script>
-<script src="/sites/all/modules/sheetnode/socialcalc/socialcalcpopup.js"></script>
-<script src="/sites/all/modules/sheetnode/socialcalc/socialcalcspreadsheetcontrol.js"></script>
-<script src="/sites/all/modules/sheetnode/socialcalc/socialcalcviewer.js"></script>
-<script src="/sites/all/modules/sheetnode/sheetnode.js"></script>
+  <?php endif; ?>
 
+  <?php
+    $path = drupal_get_path('module', 'sheetnode');
+    $sripts = array();
+    $scripts[] = "/socialcalc/formatnumber2.js";
+    $scripts[] = "/socialcalc/formula1.js";
+    $scripts[] = "/socialcalc/socialcalcconstants.js";
+    $scripts[] = "/socialcalc/socialcalc-3.js";
+    $scripts[] = "/socialcalc/socialcalctableeditor.js";
+    $scripts[] = "/socialcalc/socialcalcpopup.js";
+    $scripts[] = "/socialcalc/socialcalcspreadsheetcontrol.js";
+    $scripts[] = "/socialcalc/socialcalcviewer.js";
+    $scripts[] = "/sheetnode.js";
+    foreach($scripts as $script) {
+      drupal_add_js($script);
+    }
+  ?>
 </body>
 </html>
