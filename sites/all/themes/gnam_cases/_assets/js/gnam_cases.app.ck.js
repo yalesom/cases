@@ -19,7 +19,7 @@ function pageResize(){
 	// ! Move navigation container based on document width
 	if (document.body.clientWidth <= 568 && mobile) {
 		jQuery('.primary-nav > .block-views').height(window.innerHeight);
-	} 
+	}
 };
 
 jQuery(document).ready(function($) {
@@ -40,10 +40,10 @@ jQuery(document).ready(function($) {
 	});*/
 
 	//console.info(jQuery('div.show-sponsor').text());
-	if(jQuery('div.show-sponsor').text() == 'hide'){ 
-		jQuery('div.sponsors').hide(); 
+	if(jQuery('div.show-sponsor').text() == 'hide'){
+		jQuery('div.sponsors').hide();
 	}
-	
+
 });
 
 // !Call resize
@@ -62,7 +62,7 @@ function resizeHeader(){
 	if (document.body.clientWidth <= 568 && mobile) {
 		jQuery('.primary-nav > .block-views').height(window.innerHeight);
 		jQuery('#page-wrapper').toggleClass('open');
-	} 
+	}
 	// Desktop dropdown toggle
 	else {
 		console.log('here');
@@ -122,7 +122,7 @@ jQuery('.node-type-book #main-content, .node-type-page #main-content').waypoint(
 		var enableWaypoint = window.setTimeout(function(){
 			jQuery('.node-type-book #main-content').waypoint('enable');
 		},200);
-	} 
+	}
 	if (direction === 'up' && !oneAtATime) {
 		//console.log(direction);
 		oneAtATime = true;
@@ -137,7 +137,7 @@ jQuery('.node-type-book #main-content, .node-type-page #main-content').waypoint(
 	// subtract nav height from header container
 	return jQuery('#page-header .section-wrap').outerHeight(true) - 2 + jQuery('#toolbar').height();
 	 }//,
-  // triggerOnce: true 
+  // triggerOnce: true
 });
 
 // ! Move navigation container and disable waypoint outside page-wrapper for mobile
@@ -151,7 +151,7 @@ if (document.body.clientWidth <= 568 && mobile) {
 jQuery('#page-header .primary-nav').height( jQuery('#page-header .primary-nav > .block').outerHeight(true) );
 jQuery('#page-header').parent().height( jQuery('#page-header .section-wrap').outerHeight(true) );
 
-// ! Set conditions for interior 
+// ! Set conditions for interior
 // jQuery('#page-header').not('.node-type-book  #page-header').addClass('overlay').addClass('closed');
 
 // !Navigation click/touch event
@@ -179,7 +179,7 @@ var adminSticky = window.setTimeout(function(){
 
 
 var scrollElem = scrollableElement('html', 'body');
-// !Activate Top link in footer 
+// !Activate Top link in footer
 jQuery('.scrolltoTop').click(function(e){
 	e.preventDefault();
 	jQuery(scrollElem).animate({scrollTop: 0}, 400);
@@ -205,7 +205,7 @@ function scrollableElement(els) {
 //})(jQuery);
 
 var highchartColors = [
-	'#00457c', // dark blue 
+	'#00457c', // dark blue
 	'#c9b579', // light brown
 	'#3775a4', // medium blue
 	'#bf6f6f', // pale red
@@ -232,7 +232,7 @@ Highcharts.setOptions({
  */
 function readInChartCSV() {
 	var $ = jQuery;
-	
+
 	$.ajax({
 		url: chartContainer.data('src'),
 		type: 'get',
@@ -281,7 +281,7 @@ function convertDate(passedDate) {
 		// this is a SHIT Excel date and we have to make a real date out of it
 		utcDate 	= ExcelDateToJSDate(passedDate);
 	}
-	
+
 
 	// returns the converted date into the unix time code
 	return parseFloat(utcDate.getTime() / 1000.0 + '000');
@@ -289,7 +289,7 @@ function convertDate(passedDate) {
 
 function ExcelDateToJSDate(serial) {
 	 var utc_days  = Math.floor(serial - 25569);
-	 var utc_value = utc_days * 86400;                                        
+	 var utc_value = utc_days * 86400;
 	 var date_info = new Date(utc_value * 1000);
 
 	 var fractional_day = serial - Math.floor(serial) + 0.0000001;
@@ -334,7 +334,7 @@ function genericChartParser(chartArray) {
 		series 				= [],
 			seriesData		= [],
 			seriesCoutner	= 0;
-	
+
 	// loop through chartArray starting at the 2nd index
 	// this is because we already got the categories into it's own array
 	for (var o = 1; o < chartArray.length; o++) {
@@ -349,7 +349,7 @@ function genericChartParser(chartArray) {
 		// loop through the categories starting at the 2nd index
 		// because the first index is a "category" label, which we don't need
 		for (var i = 1; i < categories.length; i++) {
-			// convert the string value to a number (float) 
+			// convert the string value to a number (float)
 			// and add it the current seriesData index
 			var rawtextNumber = chartArray[o][i];
 			var numberNoCommas = rawtextNumber.replace(/,/g, '');
@@ -460,7 +460,7 @@ function pieChartParser(chartArray) {
 		// add the current array to the seriesData
 		seriesData[i] = [
 			chartArray[i][0],
-			// convert the string value to a number (float) 
+			// convert the string value to a number (float)
 			parseFloat(chartArray[i][1])
 		];
 	};
@@ -573,13 +573,13 @@ function stockChartParser(chartArray) {
 		$.each(flags, function(index, value) {
 			// call function to convert the series name
 			value.onSeries	= convertStringToID(value.onSeries);
-			
+
 			$.each(flags[index].data, function(index, value) {
 				// parse the "x" value into a number and add 3 zeros
 				value.x		= parseInt(value.x + '000');
 			});
 		});
-		
+
 		seriesOptions = seriesOptions.concat(flags);
 	}
 
@@ -664,7 +664,7 @@ jQuery(document).ready(function($){
 		$.get( "/sites/all/themes/ysm_cases/_assets/partials/browser-detect.html", function( data ) {
 			$('article.main-content').prepend(data);
 		});
-		
+
 	}
 });
 
@@ -686,25 +686,25 @@ jQuery(document).ready(function($) {
 			if (url.indexOf(location.host) == '-1' || url.indexOf('files') > 0) {
 				// this is a link to a file or off site location
 				window.open(url);
-			
+
 			} else {
 				//this is a local link to load into a modal
-				
+
 				// disable page scroll
 				jQuery('html').css('overflow', 'hidden');
 
 				// clone the template
 				template 	= jQuery('#template').clone();
-				
+
 				// create unique ID
 				uid			= Math.floor(Math.random()*100)+1;
 
 				// generate a tileID
 				tileID		= 'tile-' + uid;
-				
+
 				// update the cloned template with the new tileID
 				template.attr('id', tileID);
-				
+
 				// add the cloned template the DOM structure
 				jQuery('#main-content').before(template);
 
@@ -712,7 +712,7 @@ jQuery(document).ready(function($) {
 				setTimeout(function() {
 					jQuery('#' + tileID).addClass('open');
 				},500);
-				
+
 				jQuery('#' + tileID + ' .tile-target').load(url + ' .tile-content', function(response, status, xhr) {
 					if (status == 'success') {
 						jQuery(document).bind('keyup', function(key) {
@@ -720,7 +720,7 @@ jQuery(document).ready(function($) {
 								closeModalWindow();
 							}
 						});
-						
+
 						containerID = jQuery('#' + jQuery('#' + tileID).find('.tile-content').attr('id'));
 
 						jQuery('html, body').animate({ scrollTop: jQuery('#' + tileID).offset().top + jQuery('#page-header').height }, 1000);
@@ -730,7 +730,7 @@ jQuery(document).ready(function($) {
 								chartContainer 		= jQuery('#' + jQuery(this).find('.chart-target').attr('id'));
 								readInChartCSV();
 							break;
-							
+
 							case 'gallery-container':
 								galleryContainer	= containerID;
 								mySlider = loadGallery();
@@ -758,7 +758,7 @@ jQuery(document).ready(function($) {
 										'entity-name': 'node',
 										oid: '"' + nid + '"'
 									},
-									imagePrefix: '/sites/all/modules/sheetnode/socialcalc/images/sc-',
+									imagePrefix: '<?php print drupal_get_path("module", "sheetnode") . "/socialcalc/images/sc-"; ?>',
 									permissions: {
 										'edit sheetnode settings': true
 									},
@@ -767,7 +767,7 @@ jQuery(document).ready(function($) {
 									value: sheetnodeValue,
 									viewMode: '2'
 								};
-								
+
 								Drupal.settings.sheetnode = sheetnode;
 								Drupal.behaviors.sheetnode.attach('#sn-container-' + nid, Drupal.settings);
 							break;
@@ -781,7 +781,7 @@ jQuery(document).ready(function($) {
 			}
 		});
 	});
-	
+
 	// remove the modal window
 	jQuery(document).on('click', '.modal-close', function(evt) {
 		evt.preventDefault();
@@ -824,7 +824,7 @@ function closeModalWindow() {
 		} else if ( tile.hasClass('xlarge') && tile.find('img').attr('src') == ''){
 			$(this).find('img').attr('src','/sites/all/themes/ysm_cases/_assets/images/blank-xl.gif');
 		}
-		
+
 	});
 	// !Add blank images to case study tiles without a src
 	$('.document-tiles .tile').each(function(){
@@ -832,7 +832,7 @@ function closeModalWindow() {
 		if ( tile.find('img').attr('src') == ''){
 			tile.find('img').remove();
 			tile.addClass('no-img'); //.find('img').attr('src','/sites/all/themes/ysm_cases/_assets/images/blank-sq.gif');
-		} 
+		}
 	});
 	//remove icon from tiles with no image and no icon-class
 	$('.case-tiles .tile.no-img').each(function(){
@@ -876,7 +876,7 @@ function closeModalWindow() {
 		}
 
 
-		$("footer a#btnAdminToggle").click(function(){ 
+		$("footer a#btnAdminToggle").click(function(){
 			if (localStorage.getItem('adminRoamView') == 'true') {
 				//console.info('turning admin roam view off');
 				localStorage.setItem('adminRoamView','false');
