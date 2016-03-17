@@ -68,7 +68,7 @@
 
   <?php
     $path = drupal_get_path('module', 'sheetnode');
-    $sripts = array();
+    $scripts = array();
     $scripts[] = "/socialcalc/formatnumber2.js";
     $scripts[] = "/socialcalc/formula1.js";
     $scripts[] = "/socialcalc/socialcalcconstants.js";
