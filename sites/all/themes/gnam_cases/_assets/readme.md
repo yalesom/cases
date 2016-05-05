@@ -7,8 +7,12 @@ The packages.json file allows you to install the needed modules.
 1. make sure you have node.js and npm installed
 2. in the '_assets' folder run the following command
 
-```npm install```
+```
+npm install
+```
 
 3. Once the needed modules are installed now just run gulp
 
-```gulp```
+```
+gulp
+```

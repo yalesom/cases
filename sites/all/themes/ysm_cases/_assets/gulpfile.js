@@ -73,10 +73,10 @@ gulp.task('scripts',function() {
 })
 
 gulp.task('cleanCSS', function(){
-	return gulp.src(['css/gnam*.css'],{read: false}).pipe(rimraf());
+	return del(['css/ysm*.css']);
 });
 gulp.task('cleanJS', function(){
-	return gulp.src(['js/gnam_cases.*.js'],{read: false}).pipe(rimraf());
+	return del(['js/ysm_cases.*.js']);
 });
 
 gulp.task('default', function() {
