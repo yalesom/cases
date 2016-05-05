@@ -3,7 +3,7 @@ var gutil = require('gulp-util');
 var pkg = require('./package.json');
 
 var notify = require('gulp-notify');
-var rimraf = require('gulp-rimraf');
+var del = require('del');
 
 var compass = require('gulp-compass'), path = require('path');
 
