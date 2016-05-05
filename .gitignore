@@ -4,7 +4,7 @@
 /cache
 /sites/default/**/files
 /sites/default/**/private
-/sites/*/local.settings.php
+sites/default/local.settings.php
 /sites/*/prod.settings.php
 sites/default/*.settings.php
 *.7z
