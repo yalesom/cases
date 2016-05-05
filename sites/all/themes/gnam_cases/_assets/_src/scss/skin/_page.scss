@@ -110,9 +110,8 @@
 			}
 
 			&.inline {
-				.header {
-					border-bottom: 1px solid $mediumGrey;
-					margin-bottom: $base-spacing-unit/2;
+				.tile-wrap {
+					display:none;
 				}
 			}
 		
