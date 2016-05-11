@@ -1,0 +1,14 @@
+{
+  "name": "AdminimalCustomized",
+  "authors": [
+    "Square360"
+  ],
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "moment-timezone": "~0.5.0",
+    "compass-mixins": "~1.0.2",
+    "sass-toolkit": "~2.9.0",
+    "compass-breakpoint": "~2.6.1"
+  }
+}

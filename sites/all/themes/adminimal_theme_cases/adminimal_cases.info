@@ -1,0 +1,12 @@
+name = Adminimal Cases
+description = Adminimal plus Chosen
+base theme = adminimal
+core = 7.x
+
+stylesheets[all][] = assets/distribution/css/syle-overrides.app.min.css
+scripts[] = assets/distribution/js/vendors.app.min.js
+scripts[] = assets/distribution/js/scripts.app.min.js
+
+
+version = "7.x-beta-1"
+core = "7.x"
