@@ -683,4 +683,80 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .icon-file:before {
   content: "\f15b"; }
 
+/* line 2, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-icons.scss */
+#edit-field-document-grid-und-0-field-icon .description .icon-boundry {
+  -webkit-columns: 5;
+     -moz-columns: 5;
+          columns: 5;
+  display: block;
+  max-width: 90%;
+  white-space: normal; }
+  /* line 8, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-icons.scss */
+  #edit-field-document-grid-und-0-field-icon .description .icon-boundry > span {
+    display: block;
+    margin-bottom: .5rem; }
+    /* line 12, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-icons.scss */
+    #edit-field-document-grid-und-0-field-icon .description .icon-boundry > span i {
+      font-size: 18px; }
+
+/* line 17, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+#edit-field-document-grid-und-0-field-color .description {
+  -webkit-columns: 5;
+     -moz-columns: 5;
+          columns: 5;
+  display: block;
+  max-width: 90%;
+  white-space: normal; }
+  /* line 23, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  #edit-field-document-grid-und-0-field-color .description > span {
+    display: block;
+    margin-bottom: .5rem; }
+    /* line 27, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+    #edit-field-document-grid-und-0-field-color .description > span > div {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem; }
+  /* line 35, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  #edit-field-document-grid-und-0-field-color .description .aqua {
+    background: #42889b; }
+  /* line 38, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  #edit-field-document-grid-und-0-field-color .description .yale {
+    background: #00457c; }
+  /* line 41, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  #edit-field-document-grid-und-0-field-color .description .blue {
+    background: #3775a4; }
+  /* line 44, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  #edit-field-document-grid-und-0-field-color .description .brown {
+    background: #8b6a3f; }
+  /* line 47, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  #edit-field-document-grid-und-0-field-color .description .green {
+    background: #79ba86; }
+  /* line 50, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  #edit-field-document-grid-und-0-field-color .description .ltblue {
+    background: #7ab5b2; }
+  /* line 53, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  #edit-field-document-grid-und-0-field-color .description .ltgreen {
+    background: #94ae70; }
+  /* line 56, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  #edit-field-document-grid-und-0-field-color .description .ltpurple {
+    background: #9b6d9c; }
+  /* line 59, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  #edit-field-document-grid-und-0-field-color .description .orange {
+    background: #dd8d66; }
+  /* line 62, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  #edit-field-document-grid-und-0-field-color .description .purple {
+    background: #72717f; }
+  /* line 65, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  #edit-field-document-grid-und-0-field-color .description .red {
+    background: #bf6f6f; }
+  /* line 68, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  #edit-field-document-grid-und-0-field-color .description .slate {
+    background: #6fa2bf; }
+  /* line 71, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  #edit-field-document-grid-und-0-field-color .description .tan {
+    background: #c9b579; }
+  /* line 74, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  #edit-field-document-grid-und-0-field-color .description .gold {
+    background: #f0d63a; }
+
 /*# sourceMappingURL=style-overrides.app.min.css.map */

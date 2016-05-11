@@ -4,7 +4,7 @@ jQuery(document).ready(function($) {
 	
 // 
 // !----- Import Component Files -----
-//= require "components/chosen-enble.js";
+//= require "components/chosen-enable.js"
 
 
 });
