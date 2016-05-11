@@ -1,0 +1,78 @@
+$aqua:#42889b; 
+$brand:#00457c;
+$blue:#3775a4;
+$brown:#8b6a3f;
+$green:#79ba86;
+$ltblue:#7ab5b2;
+$ltgreen:#94ae70;
+$ltpurple:#9b6d9c;
+$orange:#dd8d66;
+$purple:#72717f;
+$red: #bf6f6f;
+$slate:#6fa2bf;
+$tan:#c9b579;
+$gold: #f0d63a;
+
+#edit-field-document-grid-und-0-field-color {
+	.description  {
+		columns:5;
+		display: block;
+		max-width: 90%;
+		white-space: normal;
+
+		> span {
+			display: block;
+			margin-bottom: .5rem;
+
+			>div {
+				display: inline-block;
+				width: 1rem;
+				height: 1rem;
+			}
+		}
+
+		// !Colors
+		.aqua {
+			background: $aqua;
+		} 
+		.yale {
+			background: $brand;
+		} 
+		.blue {
+			background: $blue;
+		} 
+		.brown {
+			background: $brown;
+		} 
+		.green {
+			background: $green;
+		} 
+		.ltblue {
+			background: $ltblue;
+		} 
+		.ltgreen {
+			background: $ltgreen;
+		} 
+		.ltpurple {
+			background: $ltpurple;
+		} 
+		.orange {
+			background: $orange;
+		} 
+		.purple {
+			background: $purple;
+		} 
+		.red {
+			background: $red;
+		} 
+		.slate {
+			background: $slate;
+		} 
+		.tan {
+			background: $tan;
+		}
+		.gold {
+			background: $gold;
+		}
+	}
+}
