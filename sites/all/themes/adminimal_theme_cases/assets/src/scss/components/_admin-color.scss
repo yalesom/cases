@@ -13,7 +13,7 @@ $slate:#6fa2bf;
 $tan:#c9b579;
 $gold: #f0d63a;
 
-#edit-field-document-grid-und-0-field-color {
+div[id*='edit-field'][id$='field-color'] {
 	.description  {
 		columns:5;
 		display: block;

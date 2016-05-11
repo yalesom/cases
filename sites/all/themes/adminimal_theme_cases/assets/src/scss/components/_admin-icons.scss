@@ -1,5 +1,5 @@
-#edit-field-document-grid-und-0-field-icon {
-	.description  .icon-boundry{
+div[id*='edit-field'][id$='field-icon']  {
+	.description {
 		columns:5;
 		display: block;
 		max-width: 90%;
