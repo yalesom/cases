@@ -92,16 +92,14 @@ function domain_content_list() {
     );
   }
 
-  if (variable_get('domain_use_all_affiliates', 1)) {
-    $all = array(
-      '-',
-      l(t('Content assigned to all affiliates'), 'admin/domain/content/all'),
-      number_format((int) db_query("SELECT COUNT(nid) FROM {domain_access} WHERE gid = :gid AND realm = :realm", array(':gid' => 0, ':realm' => 'domain_site'))->fetchField()),
-      number_format((int) db_query("SELECT COUNT(n.nid) FROM {node} n INNER JOIN {domain_access} da ON n.nid = da.nid WHERE da.gid = :gid AND da.realm = :realm AND n.status = 0", array(':gid' => 0, ':realm' => 'domain_site'))->fetchField()),
-      '',
-    );
-    array_unshift($rows, $all);
-  }
+  $all = array(
+    '-',
+    l(t('Content assigned to all affiliates'), 'admin/domain/content/all'),
+    number_format((int) db_query("SELECT COUNT(nid) FROM {domain_access} WHERE gid = :gid AND realm = :realm", array(':gid' => 0, ':realm' => 'domain_site'))->fetchField()),
+    number_format((int) db_query("SELECT COUNT(n.nid) FROM {node} n INNER JOIN {domain_access} da ON n.nid = da.nid WHERE da.gid = :gid AND da.realm = :realm AND n.status = 0", array(':gid' => 0, ':realm' => 'domain_site'))->fetchField()),
+    '',
+  );
+  array_unshift($rows, $all);
   if (!empty($rows)) {
     $output = '<p>' . t('The table below shows all the affiliates sites whose content you may edit. Click on the site name link to see all content assigned to that affiliate. Note that not all users may view unpublished content.') . '</p>';
     $build['header'] = array(

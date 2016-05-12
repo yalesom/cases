@@ -24,6 +24,7 @@
     "gulp-strip-debug": "^1.0.0",
     "gulp-uglify": "^0.3.1",
     "gulp-util": "^3.0.0",
-    "node-fs": "^0.1.7"
+    "node-fs": "^0.1.7",
+    "del": "^2.2.0"
   }
 }
