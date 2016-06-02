@@ -1,0 +1,17 @@
+div[id*='edit-field'][id$='field-icon']  {
+	.description {
+		columns:5;
+		display: block;
+		max-width: 90%;
+		white-space: normal;
+
+		> span {
+			display: block;
+			margin-bottom: .5rem;
+
+			i {
+				font-size: 18px;
+			}
+		}
+	}
+}

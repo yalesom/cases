@@ -265,14 +265,6 @@ function domain_configure_form($form, &$form_state, $user_submitted = FALSE) {
       easier to support. Use at your own risk.</em>'),
   );
 
-  $form['domain_advanced']['domain_use_all_affiliates'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Use the "Send to all affiliates" checkbox'),
-    '#default_value' => variable_get('domain_use_all_affiliates', 1),
-    '#description' => t('By default, content can be shared across all domains.
-      If you want to disable this behavior, uncheck this box.'),
-  );
-
   $options = array('-1' => t('Do not change domain'));
   foreach (domain_domains() as $data) {
     // The domain must be valid.
