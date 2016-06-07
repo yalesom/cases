@@ -12,7 +12,7 @@
 
 		//print '<h3 class="modal-header">' . $title . '</h3>';
 
-		print '<img src="/sites/default/files/' . $node->field_infographic_image['und'][0]['filename'] .'" ';
+		print '<img src="' . file_create_url($node->field_infographic_image['und'][0]['uri']) .'" ';
 
 		if(render($content['field_scale_infographic_image'][0]) == 'true') { print 'class="scaled"'; };
 
