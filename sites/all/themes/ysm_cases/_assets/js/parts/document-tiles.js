@@ -67,36 +67,13 @@ jQuery(document).ready(function($) {
 							break;
 
 							case 'html-embedded-content-container':
-								jQuery('#' + tileID).find('iframe').unwrap();
+								jQuery('#' + tileID).find('p>iframe').unwrap();
+								console.info('hello HTML');
 							break;
 							
 							/*case 'infographic-container':
 							break;*/
-							case 'sheetnode-container':
-								var nid = containerID.data('nid'),
-									sheetnode = {},
-									sheetnodeValue = containerID.find('#sheetnode-value').html();
 
-								sheetnode['sheetnode-' + nid] = {
-									aliases: ['sheetnode'],
-									containerElement: 'sheetnode-' + nid,
-									context: {
-										'entity-name': 'node',
-										oid: '"' + nid + '"'
-									},
-									imagePrefix: '/sites/all/modules/sheetnode/socialcalc/images/sc-',
-									permissions: {
-										'edit sheetnode settings': true
-									},
-									saveElement: false,
-									showToolbar: 0,
-									value: sheetnodeValue,
-									viewMode: '2'
-								};
-								
-								Drupal.settings.sheetnode = sheetnode;
-								Drupal.behaviors.sheetnode.attach('#sn-container-' + nid, Drupal.settings);
-							break;
 						};
 
 						$('#' + tileID + ' .tile-wrapper').css('background', 'none');
