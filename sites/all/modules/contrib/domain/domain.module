@@ -707,14 +707,13 @@ function domain_form_user_form_alter(&$form, &$form_state) {
     }
     $format = domain_select_format();
 
-    $form['domain_user'] = array(
+    $form['domain'] = array(
       '#type' => 'fieldset',
       '#title' => t('Domain access'),
       '#collapsible' => TRUE,
       '#collapsed' => FALSE,
-      '#weight' => 1
     );
-    $form['domain_user']['domain_user'] = array(
+    $form['domain']['domain_user'] = array(
       '#type' => empty($format) ? 'checkboxes' : 'select',
       '#options' => $options,
       '#title' => t('Domain access settings'),
@@ -722,12 +721,12 @@ function domain_form_user_form_alter(&$form, &$form_state) {
       '#default_value' => $default
     );
     if ($format) {
-      $form['domain_user']['domain_user']['#multiple'] = TRUE;
-      $form['domain_user']['domain_user']['#size'] = count($options) > 10 ? 10 : count($options);
+      $form['domain']['domain_user']['#multiple'] = TRUE;
+      $form['domain']['domain_user']['#size'] = count($options) > 10 ? 10 : count($options);
     }
   }
   else {
-    $form['domain_user'] = array(
+    $form['domain'] = array(
       '#type' => 'value',
       '#value' => $default
     );
@@ -1138,7 +1137,11 @@ function domain_lookup($domain_id = NULL, $subdomain = NULL, $reset = FALSE) {
  */
 function domain_default($reset = FALSE, $alter = TRUE) {
   $default = &drupal_static(__FUNCTION__);
+  $altered = &drupal_static(__FUNCTION__ . '_altered');
+
   if (empty($default) || $reset) {
+    $altered = FALSE;
+
     // Temporary hack for update to 7.x.3.
     if (db_table_exists('domain_export')) {
       $default = db_query("SELECT domain_id, subdomain, sitename, scheme, valid, weight, is_default, machine_name FROM {domain} WHERE is_default = 1")->fetchAssoc();
@@ -1158,11 +1161,14 @@ function domain_default($reset = FALSE, $alter = TRUE) {
         'machine_name' => domain_machine_name($default['subdomain']),
       );
     }
-    if ($alter) {
-      // Let submodules overwrite the defaults, if they wish.
-      $default = domain_api($default, $reset);
-    }
   }
+
+  // If an altered version is requested, has $default been altered before?
+  if ($alter && !$altered) {
+    // Let submodules overwrite the defaults, if they wish.
+    $default = domain_api($default, $reset);
+  }
+
   return $default;
 }
 
@@ -2462,15 +2468,13 @@ function domain_form_alter(&$form, &$form_state, $form_id) {
       '#collapsed' => FALSE,
       '#group' => variable_get('domain_vertical_tab', 0) ? 'additional_settings' : '',
     );
-    if (variable_get('domain_use_all_affiliates', 1)) {
-      $form['domain']['domain_site'] = array(
-        '#type' => 'checkbox',
-        '#title' => t('Send to all affiliates'),
-        '#required' => FALSE,
-        '#description' => t('Select if this content can be shown to all affiliates. This setting will override the options below, but you must still select a domain that "owns" this content.'),
-        '#default_value' => 0, //(isset($form['#node']->domain_site)) ? $form['#node']->domain_site : $default_domain_site
-      );
-    }
+    $form['domain']['domain_site'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Send to all affiliates'),
+      '#required' => FALSE,
+      '#description' => t('Select if this content can be shown to all affiliates. This setting will override the options below, but you must still select a domain that "owns" this content.'),
+      '#default_value' => (isset($form['#node']->domain_site)) ? $form['#node']->domain_site : $default_domain_site,
+    );
     $form['domain']['domains'] = array(
       '#type' => empty($format) ? 'checkboxes' : 'select',
       '#title' => t('Publish to'),
@@ -2707,18 +2711,16 @@ function domain_form_devel_generate_content_form_alter(&$form, &$form_state) {
     '#collapsed' => FALSE,
     '#weight' => 9,
   );
-  if (variable_get('domain_use_all_affiliates', 1)) {
-    $form['domain']['domain_site'] = array(
-      '#type' => 'select',
-      '#title' => t('Send to all affiliates'),
-      '#options' => array(
-        'none' => t('Never'),
-        'all' => t('Always'),
-        'random' => t('Randomly decide'),
-      ),
-      '#description'  => t('If you choose "always" or "randomly" you must select at least one domain below.'),
-    );
-  }
+  $form['domain']['domain_site'] = array(
+    '#type' => 'select',
+    '#title' => t('Send to all affiliates'),
+    '#options' => array(
+      'none' => t('Never'),
+      'all' => t('Always'),
+      'random' => t('Randomly decide'),
+    ),
+    '#description'  => t('If you choose "always" or "randomly" you must select at least one domain below.'),
+  );
   // Get the display format of the form element.
   $format = domain_select_format();
   foreach (domain_domains() as $data) {
@@ -3674,7 +3676,7 @@ function domain_features_api() {
 function domain_machine_name_load($machine_name, $full = FALSE) {
   $domain = db_query('SELECT domain_id, subdomain, sitename, scheme, valid, weight, is_default, machine_name FROM {domain} WHERE machine_name = :machine_name', array(':machine_name' => $machine_name))->fetchAssoc();
   if ($full && !empty($domain)) {
-    domain_api($domain, TRUE);
+    $domain = domain_api($domain, TRUE);
   }
   return $domain;
 }
