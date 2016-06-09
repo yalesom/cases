@@ -76,7 +76,7 @@ gulp.task('cleanCSS', function(){
 	return del(['css/ysm*.css']);
 });
 gulp.task('cleanJS', function(){
-	return del(['js/*.min.js']);
+	return del(['js/*.ck.js']);
 });
 
 gulp.task('default', function() {
