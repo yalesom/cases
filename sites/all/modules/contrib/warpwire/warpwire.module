@@ -57,7 +57,6 @@ function warpwire_external_content() {
       exit;
     }
 
-    print_r($url_parts['query']);
     $query_parts = array();
     parse_str($url_parts['query'], $query_parts);
 
@@ -483,5 +482,69 @@ function _mediacorechooser_process($text) {
       $text = str_replace($code, $iframe_html, $text);
     }
   }
+
+  if (preg_match_all('/\[mediacore(\:(.+))?( .+)?\]/isU', $text, $matches_code)) {
+
+    foreach ($matches_code[0] as $ci => $code) {
+
+      $video = array(
+        'source' => $matches_code[2][$ci], 'width' => '560', 'height' => '315'
+      );
+
+      if ($matches_code[3][$ci] &&
+          preg_match_all('/\s+([a-zA-Z_]+)\:(\s+)?([0-9a-zA-Z\/]+)/i', $matches_code[3][$ci], $matches_attributes)) {
+        foreach ($matches_attributes[0] AS $ai => $attribute) {
+          $video[$matches_attributes[1][$ai]] = $matches_attributes[3][$ai];
+        }
+      }
+
+      $url = $video['source'];
+      
+      $url_parts = parse_url($video['source']);
+      if(isset($url_parts['path']) && !empty($url_parts['path']) ) {
+        $url = rtrim(variable_get('warpwire_url'), '/') . $url_parts['path'];
+
+        if(isset($url_parts['query']) && !empty($url_parts['query']) ) {
+          $url .= '?' . $url_parts['query'];
+        }
+
+        if(user_is_logged_in()) {
+
+          $returnParts = array(
+            'returnContext' => $url
+          );
+
+          $returnPartsString = http_build_query($returnParts);
+
+          $parts = array(
+            'q' => 'warpwire/external_content',
+            'url' => variable_get('warpwire_lti_url') . '?' . $returnPartsString
+          );
+
+          $partsString = http_build_query($parts);
+
+          $url = '/?' . $partsString;
+        }
+        
+      }
+
+      // build the iframe html
+      $template = '<iframe src="URL"
+        width="WIDTH"
+        height="HEIGHT"
+        frameborder="0"
+        allowfullscreen="allowfullscreen"
+        mozallowfullscreen="mozallowfullscreen"
+        webkitallowfullscreen="webkitallowfullscreen">
+        </iframe>';
+      $patterns = array('/URL/', '/WIDTH/', '/HEIGHT/');
+      $replace = array($url, $video['width'], $video['height']);
+      $iframe_html = preg_replace($patterns, $replace, $template);
+
+      // replace the shortcode with the iframe html
+      $text = str_replace($code, $iframe_html, $text);
+    }
+  }
+
   return $text;
 }
