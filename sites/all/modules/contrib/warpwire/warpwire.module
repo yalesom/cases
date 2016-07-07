@@ -1,9 +1,22 @@
 <?php
+
+/**
+ * @file
+ * Main file for warpwire module.
+ */
+require_once ('OAuth.php');
+
 /**
  * Implementation of hook_init().
  */
 function warpwire_init() {
-  drupal_add_js(array('warpwire' => array('warpwire_url' => variable_get('warpwire_url'))), 'setting');
+  drupal_add_js(array(
+    'warpwire' => 
+      array(
+          'warpwire_url' => variable_get('warpwire_url'),
+          'warpwire_module_path' => drupal_get_path('module', 'warpwire')
+      )
+    ), 'setting');
 }
 
 /**
@@ -22,7 +35,112 @@ function warpwire_menu() {
     'type' => MENU_NORMAL_ITEM,
   );
 
+  $_menuItems['warpwire/external_content'] = array( 
+    'title' => 'Warpwire External Content',
+    'page callback' => 'warpwire_external_content',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,    
+  );
+
   return $_menuItems;
+}
+
+function warpwire_external_content() {
+  global $user, $base_url;
+
+  // if user is not logged in, do not forward them via LTI
+  if(!user_is_logged_in()) {
+
+    $url_parts = parse_url($_GET['url']);
+    if(!isset($url_parts['query']) || empty($url_parts['query']) || !stristr($url_parts['query'], 'returncontext')) {
+      drupal_goto($_GET['url']);
+      exit;
+    }
+
+    $query_parts = array();
+    parse_str($url_parts['query'], $query_parts);
+
+    if(!isset($query_parts['returnContext']) || empty($query_parts['returnContext'])) {
+      drupal_goto($_GET['url']);
+      exit;
+    }
+
+    drupal_goto($query_parts['returnContext']);
+    exit;
+  }
+
+  $ww_drupal_api = variable_get('warpwire_group_name');
+
+  // create a unique identifier for the group name - remove all non-alphanumeric
+  // characters and replace with dash
+  $ww_drupal_api_unique_id = preg_replace("/[^A-Za-z0-9]/", "-", strtolower($ww_drupal_api));
+
+  // LTI parameters
+  $params = array(
+    'oauth_signature_method' => 'HMAC-SHA1',
+    'oauth_consumer_key' => variable_get('warpwire_oauth_consumer_key'),
+    'oauth_version' => '1.0',
+    'oauth_timestamp' => time() + 300000,
+    'oauth_nonce' => md5(rand()),
+    'context_id' => $ww_drupal_api_unique_id,
+    'context_label' => $ww_drupal_api,
+    'context_title' => $ww_drupal_api,
+    'tool_consumer_info_product_family_code' => 'drupal',
+    'ext_lms' => 'drupal',
+    'lis_person_name_family' => 'User ' . $user->uid,
+    'lis_person_name_full' => 'Drupal User ' . $user->uid,
+    'lis_person_name_given' => 'Drupal',
+    'lis_person_contact_email_primary' => $user->mail,
+    'lti_message_type' => 'basic-lti-launch-request',
+    'lti_version' => 'LTI-1p0',
+    'returnContext' => $_GET['url'],
+    'roles' => implode(':',$user->roles),
+    'user_id' => $user->name,
+    'custom_context_id' => $ww_drupal_api_unique_id,
+    'custom_plugin_info' => '',
+  );
+
+  // build the OAuth signature
+  $oauthHMAC = new OAuthSignatureMethod_HMAC_SHA1();
+  $oauthConsumer = new OAuthConsumer(variable_get('warpwire_oauth_consumer_key'), variable_get('warpwire_oauth_secret'));
+  $req = OAuthRequest::from_request('POST', $_GET['url'], $params);
+  $sig = $oauthHMAC->build_signature($req, $oauthConsumer, '');
+
+  $params['oauth_signature'] = $sig;
+
+  // build the form to submit LTI credentials
+  $content = '<html><head></head><body><form id="warpwire_lti_post" method="POST" enctype="application/x-www-form-urlencoded" action="'.variable_get('warpwire_lti_url').'">'.PHP_EOL;
+  foreach($params AS $key => $value) {
+    $content .= '<input type="hidden" name="'.$key.'" value="'.$value.'" />';
+  }
+  $content .= '<div id="warpwire_display_submit"><p>Please press the Submit button to continue.</p>';
+  $content .= '<p><input type="submit" value="Submit"></p></div>';
+  $content .= '</form>';
+  $content .= '
+    <script>
+      (function(){
+        var warpwireDisplaySection = document.getElementById("warpwire_display_submit");
+        if( (warpwireDisplaySection) && (warpwireDisplaySection != null) ) {
+          warpwireDisplaySection.style.display = "none";
+
+          setTimeout(function(){
+            warpwireDisplaySection.style.display = "block";
+          }, 1000);
+        }
+
+        var warpwireLTIForm = document.getElementById("warpwire_lti_post");
+
+        if( (!warpwireLTIForm) || (warpwireLTIForm == null) )
+          return(false);
+
+        warpwireLTIForm.submit();
+      })();
+    </script>';
+
+  $content .= '</body></html>';
+
+  echo($content);
+  exit;
 }
 
 // Module configuration form
@@ -39,6 +157,46 @@ function warpwire_admin($form) {
     '#required' => TRUE,
   );
 
+  $_adminFormElements['warpwire_lti_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Your Warpwire LTI endpoint'),
+    '#default_value' => variable_get('warpwire_lti_url', '/api/lti/'),
+    '#size' => 40,
+    '#maxlength' => 255,
+    '#description' => t("The URL of your Warpwire LTI endpoint."),
+    '#required' => TRUE,
+  );  
+
+  $_adminFormElements['warpwire_group_name'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Your Warpwire Drupal Group Name'),
+    '#default_value' => variable_get('warpwire_group_name', 'Drupal Viewers'),
+    '#size' => 40,
+    '#maxlength' => 255,
+    '#description' => t("The name of your Warpwire Drupal Group."),
+    '#required' => TRUE,
+  );
+
+  $_adminFormElements['warpwire_oauth_consumer_key'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Your Warpwire OAuth Consumer Key'),
+    '#default_value' => variable_get('warpwire_oauth_consumer_key', 'warpwire_oauth_consumer_key'),
+    '#size' => 40,
+    '#maxlength' => 255,
+    '#description' => t("Your Warpwire OAuth Consumer Key."),
+    '#required' => TRUE,
+  );  
+
+  $_adminFormElements['warpwire_oauth_secret'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Your Warpwire OAuth Secret'),
+    '#default_value' => variable_get('warpwire_oauth_secret', 'warpwire_oauth_secret'),
+    '#size' => 40,
+    '#maxlength' => 255,
+    '#description' => t("Your Warpwire OAuth Secret."),
+    '#required' => TRUE,
+  );  
+
   return system_settings_form($_adminFormElements);
 }
 
@@ -48,7 +206,7 @@ function warpwire_admin($form) {
 function warpwire_permission() {
   return array('administer warpwire' => array(
     'title' => t('administer warpwire'),
-    'description' => t('Edit Warpwire settings.'),
+    'description' => t('Choose media sources and other warpwire settings.'),
   ));
 }
 
@@ -61,10 +219,10 @@ function warpwire_wysiwyg_plugin($editor, $version) {
   $_editorPath = '';
   $_filename = '';
   switch (strtolower($editor)) {
-    // case 'tinymce':
-    //   $_editorPath = '/editors/tinymce';
-    //   $_filename = 'editor_plugin.js';
-    //   break;
+    case 'tinymce':
+      $_editorPath = '/editors/tinymce';
+      $_filename = 'editor_plugin.js';
+      break;
     case 'ckeditor':
       $_editorPath = '/editors/ckeditor';
       $_filename = 'plugin.js';
@@ -102,6 +260,15 @@ function warpwire_filter_info() {
     'tips callback'  => 'warpwire_tips',
     'cache' => FALSE,
   );
+
+  $filters['full_html'] = array(
+    'title' => t('Warpwire Filter'),
+    'description' => t('Substitutes [warpwire:URL] with secure Warpwire player.'),
+    'process callback' => 'warpwire_filter',
+    'tips callback'  => 'warpwire_tips',
+    'cache' => FALSE,
+  );
+
   return $filters;
 }
 
@@ -111,7 +278,7 @@ function warpwire_filter_info() {
  */
 function warpwire_tips($delta, $format, $long = FALSE) {
   if ($long) {
-    return t('<p>You may insert videos from your Warpwire Media Libraries sites by embedding tags in the following manner: <code>[warpwire:URL]</code>.</p>');
+    return t('You may insert videos from your Warpwire Media Libraries sites by embedding tags in the following manner: <code>[warpwire:URL]</code>.');
   }
   else {
     return t('You may insert Warpwire media with [warpwire:URL]');
@@ -132,6 +299,7 @@ function warpwire_tips($delta, $format, $long = FALSE) {
  */
 
 function warpwire_filter($text, $filter, $format, $langcode, $cache, $cache_id) {
+  global $user;
 
   // iframe template element
   $iframe_template = '<iframe src="URL"
@@ -157,6 +325,24 @@ function warpwire_filter($text, $filter, $format, $langcode, $cache, $cache_id) 
         $iframe_height = 360;
 
         $url_parts = parse_url($url);
+
+        if(user_is_logged_in()) {
+
+          $returnParts = array(
+            'returnContext' => $url
+          );
+
+          $returnPartsString = http_build_query($returnParts);
+
+          $parts = array(
+            'q' => 'warpwire/external_content',
+            'url' => variable_get('warpwire_lti_url') . '?' . $returnPartsString
+          );
+
+          $partsString = http_build_query($parts);
+
+          $url = '/?' . $partsString;
+        }
 
         parse_str($url_parts['query'], $parameters);
 
@@ -192,6 +378,24 @@ function warpwire_filter($text, $filter, $format, $langcode, $cache, $cache_id) 
 
       $url_parts = parse_url($url);
 
+      if(user_is_logged_in()) {
+
+        $returnParts = array(
+          'returnContext' => $url
+        );
+
+        $returnPartsString = http_build_query($returnParts);
+
+        $parts = array(
+          'q' => 'warpwire/external_content',
+          'url' => variable_get('warpwire_lti_url') . '?' . $returnPartsString
+        );
+
+        $partsString = http_build_query($parts);
+
+        $url = '/?' . $partsString;
+      }
+
       $parameters = array();
       if(!empty($url_parts['query']))
         parse_str($url_parts['query'], $parameters);
@@ -207,6 +411,138 @@ function warpwire_filter($text, $filter, $format, $langcode, $cache, $cache_id) 
 
       // replace the shortcode with the iframe html
       $text = str_replace($textToReplace, $iframe_html, $text);
+    }
+  }
+
+  // run the Mediacore filter to translate Mediacore assets into Warpwire assets
+  $text = _mediacorechooser_process($text);
+
+  return $text;
+}
+
+// function to translate Mediacore urls into Warpwire urls
+function _mediacorechooser_process($text) {
+  if (preg_match_all('/\[mediacore(\:(.+))?( .+)?\](.+)?\/a>/isU', $text, $matches_code)) {
+
+    foreach ($matches_code[0] as $index => $code) {
+
+      $textToReplace = $matches_code[0][$index];
+
+      $url = '';
+      if (!empty($matches_code[3][$index])) {
+        $url = preg_replace('/^ href=("|\')/','',$matches_code[3][$index]);
+      }
+
+      $url_parts = parse_url($url);
+      if(isset($url_parts['path']) && !empty($url_parts['path']) ) {
+        $url = rtrim(variable_get('warpwire_url'), '/') . $url_parts['path'];
+
+        if(isset($url_parts['query']) && !empty($url_parts['query']) ) {
+          $url .= '?' . $url_parts['query'];
+        }
+
+        if(user_is_logged_in()) {
+
+          $returnParts = array(
+            'returnContext' => $url
+          );
+
+          $returnPartsString = http_build_query($returnParts);
+
+          $parts = array(
+            'q' => 'warpwire/external_content',
+            'url' => variable_get('warpwire_lti_url') . '?' . $returnPartsString
+          );
+
+          $partsString = http_build_query($parts);
+
+          $url = '/?' . $partsString;
+        }
+        
+      }
+
+      $video = array(
+        'width' => '560', 'height' => '315'
+      );
+
+      // build the iframe html
+      $template = '<iframe src="URL"
+        width="WIDTH"
+        height="HEIGHT"
+        frameborder="0"
+        allowfullscreen="allowfullscreen"
+        mozallowfullscreen="mozallowfullscreen"
+        webkitallowfullscreen="webkitallowfullscreen">
+        </iframe>';
+      $patterns = array('/URL/', '/WIDTH/', '/HEIGHT/');
+      $replace = array($url, $video['width'], $video['height']);
+      $iframe_html = preg_replace($patterns, $replace, $template);
+
+      // replace the shortcode with the iframe html
+      $text = str_replace($code, $iframe_html, $text);
+    }
+  }
+
+  if (preg_match_all('/\[mediacore(\:(.+))?( .+)?\]/isU', $text, $matches_code)) {
+
+    foreach ($matches_code[0] as $ci => $code) {
+
+      $video = array(
+        'source' => $matches_code[2][$ci], 'width' => '560', 'height' => '315'
+      );
+
+      if ($matches_code[3][$ci] &&
+          preg_match_all('/\s+([a-zA-Z_]+)\:(\s+)?([0-9a-zA-Z\/]+)/i', $matches_code[3][$ci], $matches_attributes)) {
+        foreach ($matches_attributes[0] AS $ai => $attribute) {
+          $video[$matches_attributes[1][$ai]] = $matches_attributes[3][$ai];
+        }
+      }
+
+      $url = $video['source'];
+      
+      $url_parts = parse_url($video['source']);
+      if(isset($url_parts['path']) && !empty($url_parts['path']) ) {
+        $url = rtrim(variable_get('warpwire_url'), '/') . $url_parts['path'];
+
+        if(isset($url_parts['query']) && !empty($url_parts['query']) ) {
+          $url .= '?' . $url_parts['query'];
+        }
+
+        if(user_is_logged_in()) {
+
+          $returnParts = array(
+            'returnContext' => $url
+          );
+
+          $returnPartsString = http_build_query($returnParts);
+
+          $parts = array(
+            'q' => 'warpwire/external_content',
+            'url' => variable_get('warpwire_lti_url') . '?' . $returnPartsString
+          );
+
+          $partsString = http_build_query($parts);
+
+          $url = '/?' . $partsString;
+        }
+        
+      }
+
+      // build the iframe html
+      $template = '<iframe src="URL"
+        width="WIDTH"
+        height="HEIGHT"
+        frameborder="0"
+        allowfullscreen="allowfullscreen"
+        mozallowfullscreen="mozallowfullscreen"
+        webkitallowfullscreen="webkitallowfullscreen">
+        </iframe>';
+      $patterns = array('/URL/', '/WIDTH/', '/HEIGHT/');
+      $replace = array($url, $video['width'], $video['height']);
+      $iframe_html = preg_replace($patterns, $replace, $template);
+
+      // replace the shortcode with the iframe html
+      $text = str_replace($code, $iframe_html, $text);
     }
   }
 

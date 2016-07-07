@@ -2,7 +2,7 @@
  * @name: AdminimalCustomized
  * @description: project_description
  * @version: 1.0.0
- * @build: 2016-05-11 | 100957
+ * @build: 2016-07-07 | 153042
  * @author: Square360, Inc.
  * @client: Square360
  */
@@ -758,5 +758,12 @@ div[id*='edit-field'][id$='field-color'] .description {
   /* line 74, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
   div[id*='edit-field'][id$='field-color'] .description .gold {
     background: #f0d63a; }
+
+/* line 5, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/pages/_warpwire-edit.scss */
+.page-node-edit.node-type-warpwire-video .field-name-field-warpwire-embed .cke_widget_wrapper {
+  max-width: 45%; }
+  /* line 7, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/pages/_warpwire-edit.scss */
+  .page-node-edit.node-type-warpwire-video .field-name-field-warpwire-embed .cke_widget_wrapper img {
+    width: 100%; }
 
 /*# sourceMappingURL=style-overrides.app.min.css.map */
