@@ -5,4 +5,5 @@
  */
 function warpwire_uninstall() {
   variable_del('warpwire_url');
+  variable_del('warpwire_module_path');
 }
