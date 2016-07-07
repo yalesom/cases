@@ -1,0 +1,14 @@
+.page-node-edit {
+	&.node-type-warpwire-video {
+		.field-name-field-warpwire-embed {
+			
+				.cke_widget_wrapper {
+					max-width: 45%;
+					img {
+						width: 100%;
+					}
+				}
+				
+		}
+	}
+}

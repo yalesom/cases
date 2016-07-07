@@ -22,8 +22,8 @@
 
 // 
 // !----- Import Component Files -----
-@import "components/_admin-icons.scss";
-@import "components/_admin-color.scss";
+@import "components/_admin-icons";
+@import "components/_admin-color";
 
 // 
 // !----- Import Layout Files -----
@@ -31,4 +31,4 @@
 
 // 
 // !----- Imports Page Files -----
-// @import "pages/";
+@import "pages/_warpwire-edit";
