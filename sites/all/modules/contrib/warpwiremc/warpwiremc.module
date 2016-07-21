@@ -89,6 +89,19 @@ function warpwiremc_filter($text, $filter, $format, $langcode, $cache, $cache_id
         $url = rtrim(variable_get('warpwire_url'), '/') . $url_parts['path'];
 
         if(isset($url_parts['query']) && !empty($url_parts['query']) ) {
+
+          $parameters = array();
+          if(!empty($url_parts['query']))
+            parse_str($url_parts['query'], $parameters);
+
+          if(!isset($parameters['share']) && (variable_get('warpwire_share_default') == 0))
+            $parameters['share'] = 'false';
+
+          if(!isset($parameters['title']) && (variable_get('warpwire_title_default') == 0))
+            $parameters['title'] = 'false';
+
+          $url_parts['query'] = http_build_query($parameters);
+
           $url .= '?' . $url_parts['query'];
         }
 
@@ -150,6 +163,19 @@ function warpwiremc_filter($text, $filter, $format, $langcode, $cache, $cache_id
         $url = rtrim(variable_get('warpwire_url'), '/') . $url_parts['path'];
 
         if(isset($url_parts['query']) && !empty($url_parts['query']) ) {
+
+          $parameters = array();
+          if(!empty($url_parts['query']))
+            parse_str($url_parts['query'], $parameters);
+
+          if(!isset($parameters['share']) && (variable_get('warpwire_share_default') == 0))
+            $parameters['share'] = 'false';
+
+          if(!isset($parameters['title']) && (variable_get('warpwire_title_default') == 0))
+            $parameters['title'] = 'false';
+
+          $url_parts['query'] = http_build_query($parameters);
+
           $url .= '?' . $url_parts['query'];
         }
 

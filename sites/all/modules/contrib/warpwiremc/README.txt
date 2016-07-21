@@ -27,6 +27,6 @@ INSTALLATION
 
 The Warpwire Mediacore Filter module can be installed via the standard Drupal installation process
 (http://drupal.org/node/895232).  Alternatively, simply extract the Warpwire module into
-/sites/all/modules/ - the resulting folder will be /sites/all/modules/warpwiremc.
+/sites/all/modules/ - the resulting folder will be /sites/all/modules/warpwire_mediacore.
 
 

@@ -57,7 +57,6 @@ function warpwire_external_content() {
       exit;
     }
 
-    print_r($url_parts['query']);
     $query_parts = array();
     parse_str($url_parts['query'], $query_parts);
 
@@ -198,6 +197,20 @@ function warpwire_admin($form) {
     '#required' => TRUE,
   );  
 
+  $_adminFormElements['warpwire_share_default'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable Share options for embedded Warpwire media.'),
+    '#default_value' => variable_get('warpwire_share_default', 1),
+    '#description' => t("Enable/disable sharing options for embedded Warpwire media."),
+  );
+
+  $_adminFormElements['warpwire_title_default'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable Title for embedded Warpwire media.'),
+    '#default_value' => variable_get('warpwire_title_default', 1),
+    '#description' => t("Enable/disable title for embedded Warpwire media."),
+  );  
+
   return system_settings_form($_adminFormElements);
 }
 
@@ -327,7 +340,21 @@ function warpwire_filter($text, $filter, $format, $langcode, $cache, $cache_id) 
 
         $url_parts = parse_url($url);
 
+        $parameters = array();
+        if(!empty($url_parts['query']))
+          parse_str($url_parts['query'], $parameters);
+
+        if(!isset($parameters['share']) && (variable_get('warpwire_share_default') == 0))
+          $parameters['share'] = 'false';
+
+        if(!isset($parameters['title']) && (variable_get('warpwire_title_default') == 0))
+          $parameters['title'] = 'false';
+
+        $url_parts['query'] = http_build_query($parameters);
+
         if(user_is_logged_in()) {
+
+          $url = $url_parts['scheme'].'://'.$url_parts['host'].$url_parts['path'].'?'.$url_parts['query'];
 
           $parts = array(
             'q' => 'warpwire/external_content',
@@ -338,8 +365,6 @@ function warpwire_filter($text, $filter, $format, $langcode, $cache, $cache_id) 
 
           $url = '/?' . $partsString;
         }
-
-        parse_str($url_parts['query'], $parameters);
 
         if(!empty($parameters['width']))
           $iframe_width = $parameters['width'];
@@ -367,13 +392,29 @@ function warpwire_filter($text, $filter, $format, $langcode, $cache, $cache_id) 
         $url = preg_replace('/^ href=("|\')/','',$matches_code[3][$index]);
       }
 
+      $url = htmlspecialchars_decode($url);
+
       // default width and height values for iframe
       $iframe_width = 480;
       $iframe_height = 360;
 
       $url_parts = parse_url($url);
 
+      $parameters = array();
+      if(!empty($url_parts['query']))
+        parse_str($url_parts['query'], $parameters);
+
+      if(!isset($parameters['share']) && (variable_get('warpwire_share_default') == 0))
+        $parameters['share'] = 'false';
+
+      if(!isset($parameters['title']) && (variable_get('warpwire_title_default') == 0))
+        $parameters['title'] = 'false';
+
+      $url_parts['query'] = http_build_query($parameters);
+
       if(user_is_logged_in()) {
+
+        $url = $url_parts['scheme'].'://'.$url_parts['host'].$url_parts['path'].'?'.$url_parts['query'];
 
         $parts = array(
           'q' => 'warpwire/external_content',
@@ -384,10 +425,6 @@ function warpwire_filter($text, $filter, $format, $langcode, $cache, $cache_id) 
 
         $url = '/?' . $partsString;
       }
-
-      $parameters = array();
-      if(!empty($url_parts['query']))
-        parse_str($url_parts['query'], $parameters);
 
       if(!empty($parameters['width']))
         $iframe_width = $parameters['width'];
