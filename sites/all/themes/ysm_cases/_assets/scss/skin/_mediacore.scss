@@ -3,12 +3,15 @@
 		display:none;
 	}
 
+	text-align: center;
+
 	iframe {
-		float: left;
+		margin: 0 auto;
+		width: 640px;
+		height: 360px;
 	}
 
 	p {
-		float: right;
-		width: 40%;
+		text-align: left;
 	}
 }

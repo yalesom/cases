@@ -9,7 +9,7 @@ INTRODUCTION
 ------------
 
 The Warpwire module allows for the embedding of Warpwire content within Drupal,
-either via a CKEditor WYWIWYG integration, or directly.
+via a WYWIWYG integration, the CKEditor, or directly.
 
 An example of an embeddable Warpwire asset is as follows:
 
