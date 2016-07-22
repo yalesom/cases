@@ -76,7 +76,6 @@ function warpwiremc_filter($text, $filter, $format, $langcode, $cache, $cache_id
   if (preg_match_all('/\[mediacore(\:(.+))?( .+)?\](.+)?\/a>/isU', $text, $matches_code)) {
 
     foreach ($matches_code[0] as $index => $code) {
-
       $textToReplace = $matches_code[0][$index];
 
       $url = '';
@@ -85,25 +84,25 @@ function warpwiremc_filter($text, $filter, $format, $langcode, $cache, $cache_id
       }
 
       $url_parts = parse_url($url);
+
       if(isset($url_parts['path']) && !empty($url_parts['path']) ) {
         $url = rtrim(variable_get('warpwire_url'), '/') . $url_parts['path'];
 
-        if(isset($url_parts['query']) && !empty($url_parts['query']) ) {
+				$parameters = array();
+				if(!empty($url_parts['query']))
+					parse_str($url_parts['query'], $parameters);
 
-          $parameters = array();
-          if(!empty($url_parts['query']))
-            parse_str($url_parts['query'], $parameters);
+				if(!isset($parameters['share']) && (variable_get('warpwire_share_default') == 0))
+					$parameters['share'] = 'false';
 
-          if(!isset($parameters['share']) && (variable_get('warpwire_share_default') == 0))
-            $parameters['share'] = 'false';
+				if(!isset($parameters['title']) && (variable_get('warpwire_title_default') == 0))
+					$parameters['title'] = 'false';
 
-          if(!isset($parameters['title']) && (variable_get('warpwire_title_default') == 0))
-            $parameters['title'] = 'false';
+				$url_parts['query'] = http_build_query($parameters);
 
-          $url_parts['query'] = http_build_query($parameters);
-
-          $url .= '?' . $url_parts['query'];
-        }
+				if(isset($url_parts['query']) && !empty($url_parts['query']) ) {
+					$url .= '?' . $url_parts['query'];
+				}
 
         if(user_is_logged_in()) {
 
@@ -116,7 +115,6 @@ function warpwiremc_filter($text, $filter, $format, $langcode, $cache, $cache_id
 
           $url = '/?' . $partsString;
         }
-        
       }
 
       $video = array(
@@ -162,22 +160,21 @@ function warpwiremc_filter($text, $filter, $format, $langcode, $cache, $cache_id
       if(isset($url_parts['path']) && !empty($url_parts['path']) ) {
         $url = rtrim(variable_get('warpwire_url'), '/') . $url_parts['path'];
 
-        if(isset($url_parts['query']) && !empty($url_parts['query']) ) {
+				$parameters = array();
+				if(!empty($url_parts['query']))
+					parse_str($url_parts['query'], $parameters);
 
-          $parameters = array();
-          if(!empty($url_parts['query']))
-            parse_str($url_parts['query'], $parameters);
+				if(!isset($parameters['share']) && (variable_get('warpwire_share_default') == 0))
+					$parameters['share'] = 'false';
 
-          if(!isset($parameters['share']) && (variable_get('warpwire_share_default') == 0))
-            $parameters['share'] = 'false';
+				if(!isset($parameters['title']) && (variable_get('warpwire_title_default') == 0))
+					$parameters['title'] = 'false';
 
-          if(!isset($parameters['title']) && (variable_get('warpwire_title_default') == 0))
-            $parameters['title'] = 'false';
+				$url_parts['query'] = http_build_query($parameters);
 
-          $url_parts['query'] = http_build_query($parameters);
-
-          $url .= '?' . $url_parts['query'];
-        }
+				if(isset($url_parts['query']) && !empty($url_parts['query']) ) {
+					$url .= '?' . $url_parts['query'];
+				}
 
         if(user_is_logged_in()) {
 
@@ -190,7 +187,6 @@ function warpwiremc_filter($text, $filter, $format, $langcode, $cache, $cache_id
 
           $url = '/?' . $partsString;
         }
-        
       }
 
       // build the iframe html
