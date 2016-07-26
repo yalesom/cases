@@ -31,6 +31,12 @@ jQuery(document).ready(function($) {
 		}
 	});*/
 
+	//unwrap all embeded iframes
+	jQuery('.warpwire-video-container, .mediacore-video-container, .html-embedded-content-container')
+		.not('.tile-wrapper')
+		.find('p>iframe')
+		.unwrap();
+
 	//console.info(jQuery('div.show-sponsor').text());
 	if(jQuery('div.show-sponsor').text() == 'hide'){ 
 		jQuery('div.sponsors').hide(); 

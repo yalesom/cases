@@ -302,7 +302,6 @@ function _imagefield_focus_file_save($file) {
 
   if ($affected) {
     image_path_flush($file->uri);
-    entity_get_controller('file')->resetCache(array($file->fid));
   }
 }
 
