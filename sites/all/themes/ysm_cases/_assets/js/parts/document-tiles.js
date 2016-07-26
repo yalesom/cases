@@ -63,7 +63,12 @@ jQuery(document).ready(function($) {
 							break;
 
 							case 'mediacore-video-container':
-								$('#' + tileID).find('iframe').unwrap();
+								$('#' + tileID).find('p>iframe').unwrap();
+							break;
+
+							case 'warpwire-video-container':
+								console.info('Warpwire video!!');
+								$('#' + tileID).find('p>iframe').unwrap();
 							break;
 
 							case 'html-embedded-content-container':
