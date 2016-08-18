@@ -98,6 +98,9 @@ function warpwiremc_filter($text, $filter, $format, $langcode, $cache, $cache_id
 				if(!isset($parameters['title']) && (variable_get('warpwire_title_default') == 0))
 					$parameters['title'] = 'false';
 
+        // Turn on autoplay - as per Greg, just for Cases
+        $parameters['autoplay'] = 'true';
+
 				$url_parts['query'] = http_build_query($parameters);
 
 				if(isset($url_parts['query']) && !empty($url_parts['query']) ) {
@@ -169,6 +172,9 @@ function warpwiremc_filter($text, $filter, $format, $langcode, $cache, $cache_id
 
 				if(!isset($parameters['title']) && (variable_get('warpwire_title_default') == 0))
 					$parameters['title'] = 'false';
+
+        // Turn on autoplay - as per Greg, just for Cases
+        $parameters['autoplay'] = 'true';
 
 				$url_parts['query'] = http_build_query($parameters);
 
