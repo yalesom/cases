@@ -103,7 +103,7 @@ function warpwire_external_content() {
   // build the OAuth signature
   $oauthHMAC = new OAuthSignatureMethod_HMAC_SHA1();
   $oauthConsumer = new OAuthConsumer(variable_get('warpwire_oauth_consumer_key'), variable_get('warpwire_oauth_secret'));
-  $req = OAuthRequest::from_request('POST', $_GET['url'], $params);
+  $req = OAuthRequest::from_request('POST', variable_get('warpwire_lti_url'), $params);
   $sig = $oauthHMAC->build_signature($req, $oauthConsumer, '');
 
   $params['oauth_signature'] = $sig;
@@ -125,7 +125,7 @@ function warpwire_external_content() {
 
           setTimeout(function(){
             warpwireDisplaySection.style.display = "block";
-          }, 1000);
+          }, 4000);
         }
 
         var warpwireLTIForm = document.getElementById("warpwire_lti_post");
@@ -197,6 +197,20 @@ function warpwire_admin($form) {
     '#required' => TRUE,
   );  
 
+  $_adminFormElements['warpwire_share_default'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable Share options for embedded Warpwire media.'),
+    '#default_value' => variable_get('warpwire_share_default', 1),
+    '#description' => t("Enable/disable sharing options for embedded Warpwire media."),
+  );
+
+  $_adminFormElements['warpwire_title_default'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable Title for embedded Warpwire media.'),
+    '#default_value' => variable_get('warpwire_title_default', 1),
+    '#description' => t("Enable/disable title for embedded Warpwire media."),
+  );  
+
   return system_settings_form($_adminFormElements);
 }
 
@@ -254,7 +268,7 @@ function warpwire_filter_info() {
   cache_clear_all('*', 'cache_field', TRUE);
 
   $filters['filter_html'] = array(
-    'title' => t('Warpwire Filter'),
+    'title' => t('Warpwire Filter - Filtered HTML'),
     'description' => t('Substitutes [warpwire:URL] with secure Warpwire player.'),
     'process callback' => 'warpwire_filter',
     'tips callback'  => 'warpwire_tips',
@@ -262,7 +276,7 @@ function warpwire_filter_info() {
   );
 
   $filters['full_html'] = array(
-    'title' => t('Warpwire Filter'),
+    'title' => t('Warpwire Filter - Full HTML'),
     'description' => t('Substitutes [warpwire:URL] with secure Warpwire player.'),
     'process callback' => 'warpwire_filter',
     'tips callback'  => 'warpwire_tips',
@@ -326,25 +340,34 @@ function warpwire_filter($text, $filter, $format, $langcode, $cache, $cache_id) 
 
         $url_parts = parse_url($url);
 
+        $parameters = array();
+        if(!empty($url_parts['query']))
+          parse_str($url_parts['query'], $parameters);
+
+        if(!isset($parameters['share']) && (variable_get('warpwire_share_default') == 0))
+          $parameters['share'] = 'false';
+
+        if(!isset($parameters['title']) && (variable_get('warpwire_title_default') == 0))
+          $parameters['title'] = 'false';
+
+        // Turn on autoplay - as per Greg, just for Cases
+        $parameters['autoplay'] = 'true';
+
+        $url_parts['query'] = http_build_query($parameters);
+
         if(user_is_logged_in()) {
 
-          $returnParts = array(
-            'returnContext' => $url
-          );
-
-          $returnPartsString = http_build_query($returnParts);
+          $url = $url_parts['scheme'].'://'.$url_parts['host'].$url_parts['path'].'?'.$url_parts['query'];
 
           $parts = array(
             'q' => 'warpwire/external_content',
-            'url' => variable_get('warpwire_lti_url') . '?' . $returnPartsString
+            'url' => $url
           );
 
           $partsString = http_build_query($parts);
 
           $url = '/?' . $partsString;
         }
-
-        parse_str($url_parts['query'], $parameters);
 
         if(!empty($parameters['width']))
           $iframe_width = $parameters['width'];
@@ -372,33 +395,42 @@ function warpwire_filter($text, $filter, $format, $langcode, $cache, $cache_id) 
         $url = preg_replace('/^ href=("|\')/','',$matches_code[3][$index]);
       }
 
+      $url = htmlspecialchars_decode($url);
+
       // default width and height values for iframe
       $iframe_width = 480;
       $iframe_height = 360;
 
       $url_parts = parse_url($url);
 
+      $parameters = array();
+      if(!empty($url_parts['query']))
+        parse_str($url_parts['query'], $parameters);
+
+      if(!isset($parameters['share']) && (variable_get('warpwire_share_default') == 0))
+        $parameters['share'] = 'false';
+
+      if(!isset($parameters['title']) && (variable_get('warpwire_title_default') == 0))
+        $parameters['title'] = 'false';
+
+      // Turn on autoplay - as per Greg, just for Cases
+      $parameters['autoplay'] = 'true';
+
+      $url_parts['query'] = http_build_query($parameters);
+
       if(user_is_logged_in()) {
 
-        $returnParts = array(
-          'returnContext' => $url
-        );
-
-        $returnPartsString = http_build_query($returnParts);
+        $url = $url_parts['scheme'].'://'.$url_parts['host'].$url_parts['path'].'?'.$url_parts['query'];
 
         $parts = array(
           'q' => 'warpwire/external_content',
-          'url' => variable_get('warpwire_lti_url') . '?' . $returnPartsString
+          'url' => $url
         );
 
         $partsString = http_build_query($parts);
 
         $url = '/?' . $partsString;
       }
-
-      $parameters = array();
-      if(!empty($url_parts['query']))
-        parse_str($url_parts['query'], $parameters);
 
       if(!empty($parameters['width']))
         $iframe_width = $parameters['width'];
@@ -411,138 +443,6 @@ function warpwire_filter($text, $filter, $format, $langcode, $cache, $cache_id) 
 
       // replace the shortcode with the iframe html
       $text = str_replace($textToReplace, $iframe_html, $text);
-    }
-  }
-
-  // run the Mediacore filter to translate Mediacore assets into Warpwire assets
-  $text = _mediacorechooser_process($text);
-
-  return $text;
-}
-
-// function to translate Mediacore urls into Warpwire urls
-function _mediacorechooser_process($text) {
-  if (preg_match_all('/\[mediacore(\:(.+))?( .+)?\](.+)?\/a>/isU', $text, $matches_code)) {
-
-    foreach ($matches_code[0] as $index => $code) {
-
-      $textToReplace = $matches_code[0][$index];
-
-      $url = '';
-      if (!empty($matches_code[3][$index])) {
-        $url = preg_replace('/^ href=("|\')/','',$matches_code[3][$index]);
-      }
-
-      $url_parts = parse_url($url);
-      if(isset($url_parts['path']) && !empty($url_parts['path']) ) {
-        $url = rtrim(variable_get('warpwire_url'), '/') . $url_parts['path'];
-
-        if(isset($url_parts['query']) && !empty($url_parts['query']) ) {
-          $url .= '?' . $url_parts['query'];
-        }
-
-        if(user_is_logged_in()) {
-
-          $returnParts = array(
-            'returnContext' => $url
-          );
-
-          $returnPartsString = http_build_query($returnParts);
-
-          $parts = array(
-            'q' => 'warpwire/external_content',
-            'url' => variable_get('warpwire_lti_url') . '?' . $returnPartsString
-          );
-
-          $partsString = http_build_query($parts);
-
-          $url = '/?' . $partsString;
-        }
-        
-      }
-
-      $video = array(
-        'width' => '560', 'height' => '315'
-      );
-
-      // build the iframe html
-      $template = '<iframe src="URL"
-        width="WIDTH"
-        height="HEIGHT"
-        frameborder="0"
-        allowfullscreen="allowfullscreen"
-        mozallowfullscreen="mozallowfullscreen"
-        webkitallowfullscreen="webkitallowfullscreen">
-        </iframe>';
-      $patterns = array('/URL/', '/WIDTH/', '/HEIGHT/');
-      $replace = array($url, $video['width'], $video['height']);
-      $iframe_html = preg_replace($patterns, $replace, $template);
-
-      // replace the shortcode with the iframe html
-      $text = str_replace($code, $iframe_html, $text);
-    }
-  }
-
-  if (preg_match_all('/\[mediacore(\:(.+))?( .+)?\]/isU', $text, $matches_code)) {
-
-    foreach ($matches_code[0] as $ci => $code) {
-
-      $video = array(
-        'source' => $matches_code[2][$ci], 'width' => '560', 'height' => '315'
-      );
-
-      if ($matches_code[3][$ci] &&
-          preg_match_all('/\s+([a-zA-Z_]+)\:(\s+)?([0-9a-zA-Z\/]+)/i', $matches_code[3][$ci], $matches_attributes)) {
-        foreach ($matches_attributes[0] AS $ai => $attribute) {
-          $video[$matches_attributes[1][$ai]] = $matches_attributes[3][$ai];
-        }
-      }
-
-      $url = $video['source'];
-      
-      $url_parts = parse_url($video['source']);
-      if(isset($url_parts['path']) && !empty($url_parts['path']) ) {
-        $url = rtrim(variable_get('warpwire_url'), '/') . $url_parts['path'];
-
-        if(isset($url_parts['query']) && !empty($url_parts['query']) ) {
-          $url .= '?' . $url_parts['query'];
-        }
-
-        if(user_is_logged_in()) {
-
-          $returnParts = array(
-            'returnContext' => $url
-          );
-
-          $returnPartsString = http_build_query($returnParts);
-
-          $parts = array(
-            'q' => 'warpwire/external_content',
-            'url' => variable_get('warpwire_lti_url') . '?' . $returnPartsString
-          );
-
-          $partsString = http_build_query($parts);
-
-          $url = '/?' . $partsString;
-        }
-        
-      }
-
-      // build the iframe html
-      $template = '<iframe src="URL"
-        width="WIDTH"
-        height="HEIGHT"
-        frameborder="0"
-        allowfullscreen="allowfullscreen"
-        mozallowfullscreen="mozallowfullscreen"
-        webkitallowfullscreen="webkitallowfullscreen">
-        </iframe>';
-      $patterns = array('/URL/', '/WIDTH/', '/HEIGHT/');
-      $replace = array($url, $video['width'], $video['height']);
-      $iframe_html = preg_replace($patterns, $replace, $template);
-
-      // replace the shortcode with the iframe html
-      $text = str_replace($code, $iframe_html, $text);
     }
   }
 

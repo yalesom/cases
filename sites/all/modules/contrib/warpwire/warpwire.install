@@ -4,6 +4,11 @@
  * Implements hook_uninstall().
  */
 function warpwire_uninstall() {
-  variable_del('warpwire_url');
-  variable_del('warpwire_module_path');
+	variable_del('warpwire_url');
+	variable_del('warpwire_lti_url');
+	variable_del('warpwire_group_name');
+	variable_del('warpwire_oauth_consumer_key');
+	variable_del('warpwire_oauth_secret');
+	variable_del('warpwire_share_default');
+	variable_del('warpwire_title_default');		
 }
