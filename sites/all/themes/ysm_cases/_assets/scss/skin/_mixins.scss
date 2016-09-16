@@ -59,7 +59,7 @@
 		width: calc(100% + 30px);
 		z-index: 100;
 		@include opacity(0);
-		@include transform(translatey(-60%));
+		@include transform(translatey(-55%));
 		@include transition(opacity 0.25s ease-out);
 		&:after {
 		    border: 15px solid transparent;
