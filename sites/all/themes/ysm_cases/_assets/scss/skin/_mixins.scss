@@ -54,11 +54,12 @@
 		pointer-events: none;
 		position: absolute;
 		top:0;
+		left: -15px;
 		visibility: hidden;
-		width: 100%;
+		width: calc(100% + 30px);
 		z-index: 100;
 		@include opacity(0);
-		@include transform(translatey(-100%));
+		@include transform(translatey(-70%));
 		@include transition(opacity 0.25s ease-out);
 		&:after {
 		    border: 15px solid transparent;
@@ -66,15 +67,15 @@
 		    content: '';
 		    display: block;
 		    height: 0;
-		    margin: -5px 0 -13px 0.5em;
+		    margin: -5px 0 -13px 1em;
 		    position: relative;
 		    width: 0;
 		}
 		.tooltext {
 		    background: $black;
 		    display: block;
-		    font-size: 0.88rem;
-		    line-height: 1.29rem;
+		    font-size: 0.85rem;
+		    line-height: 1.25em;
 		    padding: 10px;
 		}
 	}
