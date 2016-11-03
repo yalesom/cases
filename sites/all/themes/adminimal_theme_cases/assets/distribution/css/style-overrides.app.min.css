@@ -2,7 +2,7 @@
  * @name: AdminimalCustomized
  * @description: project_description
  * @version: 1.0.0
- * @build: 2016-07-07 | 153042
+ * @build: 2016-11-03 | 085651
  * @author: Square360, Inc.
  * @client: Square360
  */
@@ -19,7 +19,7 @@
  * A partial implementation of the Ruby display functions from Compass:
  * https://github.com/Compass/compass/blob/stable/core/lib/compass/core/sass_extensions/functions/display.rb
  */
-/* line 5, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
+/* line 5, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -40,43 +40,43 @@ time, mark, audio, video {
   font-size: 100%;
   vertical-align: baseline; }
 
-/* line 22, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
+/* line 22, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
 html {
   line-height: 1; }
 
-/* line 24, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
+/* line 24, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none; }
 
-/* line 26, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
+/* line 26, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/* line 28, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
+/* line 28, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle; }
 
-/* line 30, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
+/* line 30, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none; }
-  /* line 103, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
+  /* line 103, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
   q:before, q:after, blockquote:before, blockquote:after {
     content: "";
     content: none; }
 
-/* line 32, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
+/* line 32, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
 a img {
   border: none; }
 
-/* line 116, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
+/* line 116, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block; }
 
 /* @group Base */
-/* line 9, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 9, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container {
   position: relative;
   display: inline-block;
@@ -86,10 +86,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -moz-user-select: none;
   -ms-user-select: none;
       user-select: none; }
-  /* line 15, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 15, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-container * {
     box-sizing: border-box; }
-  /* line 18, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 18, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-container .chosen-drop {
     position: absolute;
     top: 100%;
@@ -100,13 +100,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     border-top: 0;
     background: #fff;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15); }
-  /* line 29, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 29, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-container.chosen-with-drop .chosen-drop {
     left: 0; }
-  /* line 32, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 32, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-container a {
     cursor: pointer; }
-  /* line 37, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 37, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-container .search-choice .group-name, .chosen-container .chosen-single .group-name {
     margin-right: 4px;
     overflow: hidden;
@@ -114,7 +114,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     text-overflow: ellipsis;
     font-weight: normal;
     color: #999999; }
-    /* line 44, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+    /* line 44, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
     .chosen-container .search-choice .group-name:after, .chosen-container .chosen-single .group-name:after {
       content: ":";
       padding-left: 2px;
@@ -122,7 +122,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* @end */
 /* @group Single Chosen */
-/* line 56, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 56, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-single .chosen-single {
   position: relative;
   display: block;
@@ -144,11 +144,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   white-space: nowrap;
   line-height: 24px; }
 
-/* line 73, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 73, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-single .chosen-default {
   color: #999; }
 
-/* line 76, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 76, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-single .chosen-single span {
   display: block;
   overflow: hidden;
@@ -156,11 +156,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   text-overflow: ellipsis;
   white-space: nowrap; }
 
-/* line 83, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 83, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-single .chosen-single-with-deselect span {
   margin-right: 38px; }
 
-/* line 86, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 86, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-single .chosen-single abbr {
   position: absolute;
   top: 6px;
@@ -170,15 +170,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 12px;
   background: image-url("chosen-sprite.png") -42px 1px no-repeat;
   font-size: 1px; }
-  /* line 95, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 95, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-container-single .chosen-single abbr:hover {
     background-position: -42px -10px; }
 
-/* line 99, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 99, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-single.chosen-disabled .chosen-single abbr:hover {
   background-position: -42px -10px; }
 
-/* line 102, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 102, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-single .chosen-single div {
   position: absolute;
   top: 0;
@@ -186,21 +186,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
   width: 18px;
   height: 100%; }
-  /* line 109, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 109, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-container-single .chosen-single div b {
     display: block;
     width: 100%;
     height: 100%;
     background: image-url("chosen-sprite.png") no-repeat 0px 2px; }
 
-/* line 116, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 116, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-single .chosen-search {
   position: relative;
   z-index: 1010;
   margin: 0;
   padding: 3px 4px;
   white-space: nowrap; }
-  /* line 122, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 122, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-container-single .chosen-search input[type="text"] {
     margin: 1px 0;
     padding: 4px 20px 4px 5px;
@@ -219,20 +219,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     line-height: normal;
     border-radius: 0; }
 
-/* line 137, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 137, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-single .chosen-drop {
   margin-top: -1px;
   border-radius: 0 0 4px 4px;
   background-clip: padding-box; }
 
-/* line 142, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 142, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-single.chosen-container-single-nosearch .chosen-search {
   position: absolute;
   left: -9999px; }
 
 /* @end */
 /* @group Results */
-/* line 150, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 150, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container .chosen-results {
   color: #444;
   position: relative;
@@ -242,7 +242,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   padding: 0 0 0 4px;
   max-height: 240px;
   -webkit-overflow-scrolling: touch; }
-  /* line 159, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 159, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-container .chosen-results li {
     display: none;
     margin: 0;
@@ -251,16 +251,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     line-height: 15px;
     word-wrap: break-word;
     -webkit-touch-callout: none; }
-    /* line 167, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+    /* line 167, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
     .chosen-container .chosen-results li.active-result {
       display: list-item;
       cursor: pointer; }
-    /* line 171, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+    /* line 171, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
     .chosen-container .chosen-results li.disabled-result {
       display: list-item;
       color: #ccc;
       cursor: default; }
-    /* line 176, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+    /* line 176, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
     .chosen-container .chosen-results li.highlighted {
       background-color: #3875d7;
       background-image: -owg(compact(linear-gradient(#3875d7 20%, #2a62bc 90%), false, false, false, false, false, false, false, false, false));
@@ -269,27 +269,27 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
       background-image: -o(compact(linear-gradient(#3875d7 20%, #2a62bc 90%), false, false, false, false, false, false, false, false, false));
       background-image: compact(linear-gradient(#3875d7 20%, #2a62bc 90%), false, false, false, false, false, false, false, false, false);
       color: #fff; }
-    /* line 181, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+    /* line 181, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
     .chosen-container .chosen-results li.no-results {
       color: #777;
       display: list-item;
       background: #f4f4f4; }
-    /* line 186, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+    /* line 186, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
     .chosen-container .chosen-results li.group-result {
       display: list-item;
       font-weight: bold;
       cursor: default; }
-    /* line 191, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+    /* line 191, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
     .chosen-container .chosen-results li.group-option {
       padding-left: 15px; }
-    /* line 194, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+    /* line 194, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
     .chosen-container .chosen-results li em {
       font-style: normal;
       text-decoration: underline; }
 
 /* @end */
 /* @group Multi Chosen */
-/* line 204, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 204, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-multi .chosen-choices {
   position: relative;
   overflow: hidden;
@@ -307,16 +307,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background-image: compact(linear-gradient(#eee 1%, #fff 15%), false, false, false, false, false, false, false, false, false);
   cursor: text; }
 
-/* line 217, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 217, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-multi .chosen-choices li {
   float: left;
   list-style: none; }
-  /* line 220, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 220, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-container-multi .chosen-choices li.search-field {
     margin: 0;
     padding: 0;
     white-space: nowrap; }
-    /* line 224, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+    /* line 224, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
     .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
       margin: 1px 0;
       padding: 0;
@@ -330,7 +330,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
       font-family: sans-serif;
       line-height: normal;
       border-radius: 0; }
-  /* line 239, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 239, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-container-multi .chosen-choices li.search-choice {
     position: relative;
     margin: 3px 5px 3px 0;
@@ -351,10 +351,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     color: #333;
     line-height: 13px;
     cursor: default; }
-    /* line 255, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+    /* line 255, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
     .chosen-container-multi .chosen-choices li.search-choice span {
       word-wrap: break-word; }
-    /* line 258, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+    /* line 258, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
     .chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
       position: absolute;
       top: 4px;
@@ -364,10 +364,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
       height: 12px;
       background: image-url("chosen-sprite.png") -42px 1px no-repeat;
       font-size: 1px; }
-      /* line 267, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+      /* line 267, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
       .chosen-container-multi .chosen-choices li.search-choice .search-choice-close:hover {
         background-position: -42px -10px; }
-  /* line 272, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 272, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-container-multi .chosen-choices li.search-choice-disabled {
     padding-right: 5px;
     border: 1px solid #ccc;
@@ -378,19 +378,19 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     background-image: -o(compact(linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%), false, false, false, false, false, false, false, false, false));
     background-image: compact(linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%), false, false, false, false, false, false, false, false, false);
     color: #666; }
-  /* line 279, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 279, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-container-multi .chosen-choices li.search-choice-focus {
     background: #d4d4d4; }
-    /* line 281, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+    /* line 281, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
     .chosen-container-multi .chosen-choices li.search-choice-focus .search-choice-close {
       background-position: -42px -10px; }
 
-/* line 286, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 286, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-multi .chosen-results {
   margin: 0;
   padding: 0; }
 
-/* line 290, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 290, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-multi .chosen-drop .result-selected {
   display: list-item;
   color: #ccc;
@@ -398,12 +398,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* @end */
 /* @group Active  */
-/* line 300, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 300, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-active .chosen-single {
   border: 1px solid #5897fb;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); }
 
-/* line 305, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 305, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-active.chosen-with-drop .chosen-single {
   border: 1px solid #aaa;
   border-bottom-right-radius: 0;
@@ -415,90 +415,90 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background-image: compact(linear-gradient(#eee 20%, #fff 80%), false, false, false, false, false, false, false, false, false);
   box-shadow: 0 1px 0 #fff inset; }
 
-/* line 314, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 314, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-active.chosen-with-drop .chosen-single div {
   border-left: none;
   background: transparent; }
-  /* line 317, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 317, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-container-active.chosen-with-drop .chosen-single div b {
     background-position: -18px 2px; }
 
-/* line 322, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 322, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-container-active .chosen-choices {
   border: 1px solid #5897fb;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); }
-  /* line 325, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 325, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-container-active .chosen-choices li.search-field input[type="text"] {
     color: #222 !important; }
 
 /* @end */
 /* @group Disabled Support */
-/* line 333, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 333, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-disabled {
   opacity: 0.5 !important;
   cursor: default; }
-  /* line 336, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 336, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-disabled .chosen-single {
     cursor: default; }
-  /* line 339, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 339, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-disabled .chosen-choices .search-choice .search-choice-close {
     cursor: default; }
 
 /* @end */
 /* @group Right to Left */
-/* line 346, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+/* line 346, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
 .chosen-rtl {
   text-align: right; }
-  /* line 348, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 348, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-rtl .chosen-single {
     overflow: visible;
     padding: 0 8px 0 0; }
-  /* line 352, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 352, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-rtl .chosen-single span {
     margin-right: 0;
     margin-left: 26px;
     direction: rtl; }
-  /* line 357, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 357, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-rtl .chosen-single-with-deselect span {
     margin-left: 38px; }
-  /* line 360, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 360, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-rtl .chosen-single div {
     right: auto;
     left: 3px; }
-  /* line 364, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 364, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-rtl .chosen-single abbr {
     right: auto;
     left: 26px; }
-  /* line 368, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 368, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-rtl .chosen-choices li {
     float: right; }
-    /* line 370, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+    /* line 370, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
     .chosen-rtl .chosen-choices li.search-field input[type="text"] {
       direction: rtl; }
-    /* line 373, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+    /* line 373, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
     .chosen-rtl .chosen-choices li.search-choice {
       margin: 3px 5px 3px 0;
       padding: 3px 5px 3px 19px; }
-      /* line 376, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+      /* line 376, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
       .chosen-rtl .chosen-choices li.search-choice .search-choice-close {
         right: auto;
         left: 4px; }
-  /* line 382, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 382, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-rtl.chosen-container-single-nosearch .chosen-search,
   .chosen-rtl .chosen-drop {
     left: 9999px; }
-  /* line 386, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 386, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-rtl.chosen-container-single .chosen-results {
     margin: 0 0 4px 4px;
     padding: 0 4px 0 0; }
-  /* line 390, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 390, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-rtl .chosen-results li.group-option {
     padding-right: 15px;
     padding-left: 0; }
-  /* line 394, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 394, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-rtl.chosen-container-active.chosen-with-drop .chosen-single div {
     border-right: none; }
-  /* line 397, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 397, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-rtl .chosen-search input[type="text"] {
     padding: 4px 5px 4px 20px;
     background: #fff image-url("chosen-sprite.png") no-repeat -30px -20px;
@@ -508,17 +508,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     background: -o(compact(image-url("chosen-sprite.png") no-repeat -30px -20px, false, false, false, false, false, false, false, false, false));
     background: compact(image-url("chosen-sprite.png") no-repeat -30px -20px, false, false, false, false, false, false, false, false, false);
     direction: rtl; }
-  /* line 404, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 404, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-rtl.chosen-container-single .chosen-single div b {
     background-position: 6px 2px; }
-  /* line 408, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 408, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-rtl.chosen-container-single.chosen-with-drop .chosen-single div b {
     background-position: -12px 2px; }
 
 /* @end */
 /* @group Retina compatibility */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
-  /* line 419, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
+  /* line 419, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/vendors/chosen.scss */
   .chosen-rtl .chosen-search input[type="text"],
   .chosen-container-single .chosen-single abbr,
   .chosen-container-single .chosen-single div b,
@@ -537,7 +537,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-weight: normal;
   font-style: normal; }
 
-/* line 8, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 8, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'ysm118-icomoon' !important;
@@ -551,218 +551,216 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-/* line 23, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 23, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-corp-doc:before {
   content: "\e900"; }
 
-/* line 26, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 26, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-cv:before {
   content: "\e901"; }
 
-/* line 29, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 29, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-org-chart:before {
   content: "\e902"; }
 
-/* line 32, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 32, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-slide:before {
   content: "\e903"; }
 
-/* line 35, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 35, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-financials:before {
   content: "\e904"; }
 
-/* line 38, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 38, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-dollar:before {
   content: "\e904"; }
 
-/* line 41, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 41, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-graduation-cap:before {
   content: "\f155"; }
 
-/* line 44, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 44, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-mortar-board:before {
   content: "\f155"; }
 
-/* line 47, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 47, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-newspaper:before {
   content: "\f1ea"; }
 
-/* line 50, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 50, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-info-sign:before {
   content: "\f05a"; }
 
-/* line 53, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 53, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-angle-double-up:before {
   content: "\f102"; }
 
-/* line 56, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 56, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-angle-double-down:before {
   content: "\f103"; }
 
-/* line 59, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 59, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-picture:before {
   content: "\f030"; }
 
-/* line 62, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 62, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-external-link:before {
   content: "\f08e"; }
 
-/* line 65, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 65, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-camera:before {
   content: "\f030"; }
 
-/* line 68, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 68, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-book:before {
   content: "\f02d"; }
 
-/* line 71, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 71, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-table:before {
   content: "\f0ce"; }
 
-/* line 74, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 74, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-globe:before {
   content: "\f0ac"; }
 
-/* line 77, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 77, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-bar-chart:before {
   content: "\f080"; }
 
-/* line 80, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 80, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-play-sign:before {
   content: "\f144"; }
 
-/* line 83, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 83, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-question:before {
   content: "\f059"; }
 
-/* line 86, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 86, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-remove:before {
   content: "\f067"; }
 
-/* line 89, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 89, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-calendar:before {
   content: "\f073"; }
 
-/* line 92, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 92, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-check-circle:before {
   content: "\f05d"; }
 
-/* line 95, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 95, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-circle:before {
   content: "\f10c"; }
 
-/* line 98, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 98, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-map-marker:before {
   content: "\f041"; }
 
-/* line 101, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 101, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-home:before {
   content: "\f015"; }
 
-/* line 104, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 104, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-chevron-right:before {
   content: "\f054"; }
 
-/* line 107, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 107, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-chevron-left:before {
   content: "\f053"; }
 
-/* line 110, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 110, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-angle-right:before {
   content: "\f105"; }
 
-/* line 113, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 113, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-angle-left:before {
   content: "\f104"; }
 
-/* line 116, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 116, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-reorder:before {
   content: "\f0c9"; }
 
-/* line 119, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
+/* line 119, /Volumes/Drobo/git/YSM/cases/sites/all/themes/ysm_cases/_assets/scss/skin/_ysm118-icomoon.scss */
 .icon-file:before {
   content: "\f15b"; }
 
-/* line 2, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-icons.scss */
+/* line 2, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-icons.scss */
 div[id*='edit-field'][id$='field-icon'] .description {
-  -webkit-columns: 5;
-     -moz-columns: 5;
-          columns: 5;
+  -moz-columns: 5;
+       columns: 5;
   display: block;
   max-width: 90%;
   white-space: normal; }
-  /* line 8, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-icons.scss */
+  /* line 8, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-icons.scss */
   div[id*='edit-field'][id$='field-icon'] .description > span {
     display: block;
     margin-bottom: .5rem; }
-    /* line 12, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-icons.scss */
+    /* line 12, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-icons.scss */
     div[id*='edit-field'][id$='field-icon'] .description > span i {
       font-size: 18px; }
 
-/* line 17, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+/* line 17, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
 div[id*='edit-field'][id$='field-color'] .description {
-  -webkit-columns: 5;
-     -moz-columns: 5;
-          columns: 5;
+  -moz-columns: 5;
+       columns: 5;
   display: block;
   max-width: 90%;
   white-space: normal; }
-  /* line 23, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  /* line 23, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
   div[id*='edit-field'][id$='field-color'] .description > span {
     display: block;
     margin-bottom: .5rem; }
-    /* line 27, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+    /* line 27, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
     div[id*='edit-field'][id$='field-color'] .description > span > div {
       display: inline-block;
       width: 1rem;
       height: 1rem; }
-  /* line 35, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  /* line 35, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
   div[id*='edit-field'][id$='field-color'] .description .aqua {
     background: #42889b; }
-  /* line 38, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  /* line 38, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
   div[id*='edit-field'][id$='field-color'] .description .yale {
     background: #00457c; }
-  /* line 41, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  /* line 41, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
   div[id*='edit-field'][id$='field-color'] .description .blue {
     background: #3775a4; }
-  /* line 44, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  /* line 44, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
   div[id*='edit-field'][id$='field-color'] .description .brown {
     background: #8b6a3f; }
-  /* line 47, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  /* line 47, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
   div[id*='edit-field'][id$='field-color'] .description .green {
     background: #79ba86; }
-  /* line 50, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  /* line 50, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
   div[id*='edit-field'][id$='field-color'] .description .ltblue {
     background: #7ab5b2; }
-  /* line 53, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  /* line 53, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
   div[id*='edit-field'][id$='field-color'] .description .ltgreen {
     background: #94ae70; }
-  /* line 56, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  /* line 56, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
   div[id*='edit-field'][id$='field-color'] .description .ltpurple {
     background: #9b6d9c; }
-  /* line 59, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  /* line 59, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
   div[id*='edit-field'][id$='field-color'] .description .orange {
     background: #dd8d66; }
-  /* line 62, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  /* line 62, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
   div[id*='edit-field'][id$='field-color'] .description .purple {
     background: #72717f; }
-  /* line 65, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  /* line 65, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
   div[id*='edit-field'][id$='field-color'] .description .red {
     background: #bf6f6f; }
-  /* line 68, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  /* line 68, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
   div[id*='edit-field'][id$='field-color'] .description .slate {
     background: #6fa2bf; }
-  /* line 71, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  /* line 71, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
   div[id*='edit-field'][id$='field-color'] .description .tan {
     background: #c9b579; }
-  /* line 74, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
+  /* line 74, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/components/_admin-color.scss */
   div[id*='edit-field'][id$='field-color'] .description .gold {
     background: #f0d63a; }
 
-/* line 5, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/pages/_warpwire-edit.scss */
+/* line 5, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/pages/_warpwire-edit.scss */
 .page-node-edit.node-type-warpwire-video .field-name-field-warpwire-embed .cke_widget_wrapper {
   max-width: 45%; }
-  /* line 7, /Volumes/DataDrive/WorkSpaces/Square360_Workspaces/Yale SOM Cases/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/pages/_warpwire-edit.scss */
+  /* line 7, /Volumes/Drobo/git/YSM/cases/sites/all/themes/adminimal_theme_cases/assets/src/scss/pages/_warpwire-edit.scss */
   .page-node-edit.node-type-warpwire-video .field-name-field-warpwire-embed .cke_widget_wrapper img {
     width: 100%; }
 
