@@ -1,0 +1,18 @@
+.footnotes {
+	background:transparent;
+	padding: 1rem 0 0;
+	header {
+		display:none;
+	}
+	ol {
+		counter-reset: counter;
+		font-size:$micro-size;
+		margin-left:0;
+		cite {
+			font-style:normal;
+		}
+		sup {
+			top:0;
+		}
+	}
+}

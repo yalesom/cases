@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2016-06-22 | 214856
+ * @build 2016-11-03 | 205439
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -866,6 +866,22 @@ jQuery(document).ready(function($) {
 });
 
 
+// JQuery page modifications for footnotes
+
+jQuery(document).ready(function($) {
+	//set the figure captions width to match the image
+	$('#main-content').on('click','a[rel="footnote"]',function(e){
+
+	var footnote = $($(this).attr('href')).offset();
+		$('html, body').animate({
+			 scrollTop: footnote.top - 120
+	 }, 500);
+	e.preventDefault();
+ });
+
+});
+
+
 //detect ie8 and show modal to suggest chrome
 jQuery(document).ready(function($){
 	if ($('html.lt-ie9').length > 0){
@@ -875,3 +891,4 @@ jQuery(document).ready(function($){
 		
 	}
 });
+

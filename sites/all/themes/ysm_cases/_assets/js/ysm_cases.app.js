@@ -7,4 +7,5 @@
 //= require "parts/document-tiles.js"
 //= require "parts/jquery.loadGallery.js"
 //= require "parts/figures.js"
+//= require "parts/footnotes.js"
 //= require "parts/browser-detect.js"

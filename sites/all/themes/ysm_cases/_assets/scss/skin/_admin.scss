@@ -12,4 +12,8 @@
 #ckeditor_custom_id {
 	background:$white;
 	padding:$column-gutter;
+	.footnotes {
+		background:transparent;
+		padding: 1rem 0 0;
+	}
 }
