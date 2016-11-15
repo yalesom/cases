@@ -29,7 +29,7 @@ a {
 	text-decoration: none;
 	@include transition(all 0.25s ease-out);
 	.no-touch & {
-		&:hover, 
+		&:hover,
 		&:focus {
 			color: $black;
 		}
@@ -38,11 +38,19 @@ a {
 			outline: none;
 		}
 	}
+	&[id]::before {
+		content:'';
+		display:inline-block;
+		position:relative;
+		margin-top:-6rem;
+		padding-top:6rem;
+		visibility:hidden;
+	}
 }
 b, strong {
 }
 i, em {
-	
+
 }
 blockquote {
 	border-left: 1px $ltblue solid;
@@ -116,7 +124,7 @@ img {
 		li {
 			&:before {
 				content: '\e811';
-				display: block; 
+				display: block;
 				font-family: "fontello";
 				left: 0;
 				position: absolute;
@@ -176,40 +184,40 @@ img {
 // !Colors
 .aqua {
 	background: $aqua;
-} 
+}
 .yale {
 	background: $brand;
-} 
+}
 .blue {
 	background: $blue;
-} 
+}
 .brown {
 	background: $brown;
-} 
+}
 .green {
 	background: $green;
-} 
+}
 .ltblue {
 	background: $ltblue;
-} 
+}
 .ltgreen {
 	background: $ltgreen;
-} 
+}
 .ltpurple {
 	background: $ltpurple;
-} 
+}
 .orange {
 	background: $orange;
-} 
+}
 .purple {
 	background: $purple;
-} 
+}
 .red {
 	background: $red;
-} 
+}
 .slate {
 	background: $slate;
-} 
+}
 .tan {
 	background: $tan;
 }
