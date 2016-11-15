@@ -1,5 +1,5 @@
 /* !Libraries ========================*/
-@import "compass/css3";           // Uncomment to use CSS3 mixins (http://compass-style.org/reference/compass/css3/)  
+@import "compass/css3";           // Uncomment to use CSS3 mixins (http://compass-style.org/reference/compass/css3/)
 
 /* !Local mixins and variables ======================*/
 @import "skin/settings";
@@ -30,13 +30,14 @@
 @import "skin/footer";
 @import "skin/modal-panel";
 @import "skin/produced-by";
+@import "skin/admin";
 @import "skin/admin-roam";
 
 @import "skin/bxslider";
 @import "skin/highcharts";
 @import "skin/sheetnode";
 @import "skin/infographic";
-@import "skin/mediacore"; 
-@import "skin/warpwire"; 
+@import "skin/mediacore";
+@import "skin/warpwire";
 @import "skin/modal-embedded-html";
 @import "skin/main-content-figures";

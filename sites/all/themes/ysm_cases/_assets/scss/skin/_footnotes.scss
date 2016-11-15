@@ -1,0 +1,27 @@
+.footnotes {
+	background:transparent;
+	padding: 1rem 0 0;
+	header {
+		display:none;
+	}
+	ol {
+		counter-reset: counter;
+		font-size:$milli-size;
+		margin-left:0;
+		cite {
+			font-style:normal;
+		}
+		sup {
+			top:0;
+		}
+	}
+}
+section.footnotes {
+	&::before {
+		border-top:1px solid $lightGrey;
+		content:'';
+		display:block;
+		margin:2rem 0;
+		width:10rem;
+	}
+}
