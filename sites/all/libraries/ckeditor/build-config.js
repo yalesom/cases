@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -13,10 +13,10 @@
  * (1) http://ckeditor.com/builder
  *     Visit online builder to build CKEditor from scratch.
  *
- * (2) http://ckeditor.com/builder/0f273fcc48de4195110fe033d79c79b6
+ * (2) http://ckeditor.com/builder/50d8ad885fed25a4dae3692443276054
  *     Visit online builder to build CKEditor, starting with the same setup as before.
  *
- * (3) http://ckeditor.com/builder/download/0f273fcc48de4195110fe033d79c79b6
+ * (3) http://ckeditor.com/builder/download/50d8ad885fed25a4dae3692443276054
  *     Straight download link to the latest version of CKEditor (Optimized) with the same setup as before.
  *
  * NOTE:
@@ -56,13 +56,13 @@ var CKBUILDER_CONFIG = {
 		'blockquote' : 1,
 		'clipboard' : 1,
 		'contextmenu' : 1,
-		'divarea' : 1,
 		'elementspath' : 1,
 		'enterkey' : 1,
 		'entities' : 1,
 		'filebrowser' : 1,
 		'find' : 1,
 		'floatingspace' : 1,
+		'footnotes' : 1,
 		'format' : 1,
 		'gg' : 1,
 		'horizontalrule' : 1,
@@ -71,6 +71,7 @@ var CKBUILDER_CONFIG = {
 		'iframedialog' : 1,
 		'image' : 1,
 		'image2' : 1,
+		'imageresize' : 1,
 		'indentlist' : 1,
 		'link' : 1,
 		'list' : 1,
@@ -85,6 +86,7 @@ var CKBUILDER_CONFIG = {
 		'removeformat' : 1,
 		'resize' : 1,
 		'scayt' : 1,
+		'showblocks' : 1,
 		'showborders' : 1,
 		'sourcearea' : 1,
 		'sourcedialog' : 1,

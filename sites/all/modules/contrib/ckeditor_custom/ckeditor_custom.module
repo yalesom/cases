@@ -36,7 +36,7 @@ function ckeditor_custom_wysiwyg_editor_settings_alter(&$settings, $context) {
       $preferred_groupings[] = array('Undo', 'Redo');
       $preferred_groupings[] = array('Image', 'Link', 'Unlink', 'Anchor', '-');
       $preferred_groupings[] = array('TextColor', 'BGColor');
-      $preferred_groupings[] = array('Superscript', 'Subscript', 'Blockquote');
+      $preferred_groupings[] = array('Superscript', 'Subscript', 'Blockquote','Footnotes');
       $preferred_groupings[] = array('HorizontalRule', 'break');
       $preferred_groupings[] = array('Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord');
       $preferred_groupings[] = array('ShowBlocks', 'RemoveFormat', 'SpecialChar', '/');
@@ -88,5 +88,29 @@ function ckeditor_custom_wysiwyg_editor_settings_alter(&$settings, $context) {
       $settings['toolbar'] = $new_grouped_toolbar;
 
     }
+  }
+}
+/**
+ * Implements hook_wysiwyg_plugin().
+ *
+ * @see hook_wysiwyg_plugin()
+ */
+function ckeditor_custom_wysiwyg_plugin($editor, $version) {
+  $path = wysiwyg_get_path('ckeditor');
+  switch ($editor) {
+    case 'ckeditor':
+      return array(
+        'footnotes' => array(
+          'url' =>'http://ckeditor.com/addon/footnotes',
+          'path' => $path.'/plugins/footnotes',
+          //'filename' => 'footnotes.js',
+          'buttons' => array(
+            'Footnotes' => t('Footnotes'),
+          ),
+          'load' => TRUE,
+          // 'internal' => TRUE
+        ),
+      );
+      break;
   }
 }
