@@ -89,9 +89,11 @@
 	@include transition(all 0.25s ease-in);
 	.primary-nav {
 		overflow: hidden;
-		@media #{$small}{
-			overflow-scrolling: touch;
-			-webkit-overflow-scrolling: touch;
+		overflow-scrolling: touch;
+		-webkit-overflow-scrolling: touch;
+		@media #{$medium}{
+			overflow-scrolling: none;
+			-webkit-overflow-scrolling: none;
 		}	
 		// Left toggle nav 
 		.phone & {
