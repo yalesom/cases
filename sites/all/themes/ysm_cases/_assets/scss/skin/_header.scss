@@ -90,7 +90,11 @@
 	.primary-nav {
 		overflow: hidden;
 		overflow-scrolling: touch;
-		-webkit-overflow-scrolling: touch;	
+		-webkit-overflow-scrolling: touch;
+		@media #{$medium}{
+			overflow-scrolling: none;
+			-webkit-overflow-scrolling: none;
+		}	
 		// Left toggle nav 
 		.phone & {
 		    background: darken($blue,5%);
