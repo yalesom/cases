@@ -47,6 +47,9 @@
 			// Basic tile attributes
 			a {
 				display: block;
+				&::before {
+					display: none;
+				}
 			}
 			img {
 				display: block;
