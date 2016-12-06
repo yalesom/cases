@@ -4,7 +4,7 @@
   "author": "Square360, Inc.",
   "client": "Yale School of Management",
   "description": "Cases Platform",
-  "environment": "production",
+  "environment": "development",
   "private": true,
    "devDependencies": {
      "date-utils": "^1.2.16",
