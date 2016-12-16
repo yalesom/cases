@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2016-11-09 | 195047
+ * @build 2016-12-16 | 113101
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -56,31 +56,41 @@ jQuery(document).ready(function($) {
 jQuery(window).bind("resize orientationchange", pageResize);
 
 
-//(function($) {
+var headerHeight, navHeight, pageHeader;
+
+(function($) {
 /*
 *  Header scripts
 */
-
+$(document).ready(function(){
+	$('#page-header .primary-nav').niceScroll({
+		cursorcolor:"#00457c",
+		cursorborder:"none",
+		horizrailenabled:false
+	});
+})
 // !Toggle animation for top header
-var headerHeight, navHeight, pageHeader;
 function resizeHeader(){
 	// Mobile left menu toggle
 	if (document.body.clientWidth <= 568 && mobile) {
 		jQuery('.primary-nav > .block-views').height(window.innerHeight);
 		jQuery('#page-wrapper').toggleClass('open');
-	} 
+	}
 	// Desktop dropdown toggle
 	else {
-		void 0;
+		// console.log('here');
 
 		// ! Test if header is open or closed
 		pageHeader = jQuery('#page-header');
+
 		if ( pageHeader.hasClass('closed') ){
+			$('#page-header .primary-nav').getNiceScroll().show();
 			oneAtATime = true;
 			pageHeader.removeClass('closed').find('.primary-nav').height(0).show();
 			headerHeight = pageHeader.find('.section-wrap').outerHeight(true) + pageHeader.find('.primary-nav > .block').outerHeight(true);
 			navHeight = pageHeader.find('.primary-nav > .block').outerHeight(true);
 		} else {
+			$('#page-header .primary-nav').getNiceScroll().hide();
 			oneAtATime = false;
 			headerHeight = pageHeader.find('.section-wrap').outerHeight(true) - pageHeader.find('.primary-nav > .block').outerHeight(true);
 			navHeight = 0;
@@ -99,7 +109,7 @@ function resizeHeader(){
 		}, 500, 'easeInOutQuad',
 		function(){
 				// callback
-				jQuery('.touch #page-header .primary-nav').css('overflow','scroll');
+				// jQuery('.touch #page-header .primary-nav').css('overflow','scroll');
 			});
 	}
 };
@@ -128,7 +138,7 @@ jQuery('.node-type-book #main-content, .node-type-page #main-content').waypoint(
 		var enableWaypoint = window.setTimeout(function(){
 			jQuery('.node-type-book #main-content').waypoint('enable');
 		},200);
-	} 
+	}
 	if (direction === 'up' && !oneAtATime) {
 		//console.log(direction);
 		oneAtATime = true;
@@ -143,7 +153,7 @@ jQuery('.node-type-book #main-content, .node-type-page #main-content').waypoint(
 	// subtract nav height from header container
 	return jQuery('#page-header .section-wrap').outerHeight(true) - 2 + jQuery('#toolbar').height();
 	 }//,
-  // triggerOnce: true 
+  // triggerOnce: true
 });
 
 // ! Move navigation container and disable waypoint outside page-wrapper for mobile
@@ -157,7 +167,7 @@ if (document.body.clientWidth <= 568 && mobile) {
 jQuery('#page-header .primary-nav').height( jQuery('#page-header .primary-nav > .block').outerHeight(true) );
 jQuery('#page-header').parent().height( jQuery('#page-header .section-wrap').outerHeight(true) );
 
-// ! Set conditions for interior 
+// ! Set conditions for interior
 // jQuery('#page-header').not('.node-type-book  #page-header').addClass('overlay').addClass('closed');
 
 // !Navigation click/touch event
@@ -185,7 +195,7 @@ var adminSticky = window.setTimeout(function(){
 
 
 var scrollElem = scrollableElement('html', 'body');
-// !Activate Top link in footer 
+// !Activate Top link in footer
 jQuery('.scrolltoTop').click(function(e){
 	e.preventDefault();
 	jQuery(scrollElem).animate({scrollTop: 0}, 400);
@@ -208,7 +218,8 @@ function scrollableElement(els) {
 	}
 	return [];
 }
-//})(jQuery);
+})(jQuery);
+
 
 (function($) {
 	/*

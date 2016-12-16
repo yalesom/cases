@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2016-12-01 | 103012
+ * @build 2016-12-16 | 113044
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -6133,7 +6133,7 @@ html.lt-ie9 .sticky-wrapper {
 /* line 2, ../scss/skin/_navigation.scss */
 .case-menu {
   font-size: 0.82rem;
-  margin-top: 0.75rem;
+  padding-top: 0.75rem;
 }
 /* line 5, ../scss/skin/_navigation.scss */
 .case-menu .attachment {
