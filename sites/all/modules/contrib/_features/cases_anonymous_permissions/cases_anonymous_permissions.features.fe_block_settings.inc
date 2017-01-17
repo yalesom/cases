@@ -185,7 +185,7 @@ function cases_anonymous_permissions_default_fe_block_settings() {
         'weight' => -18,
       ),
     ),
-    'title' => 'case details',
+    'title' => '',
     'visibility' => 0,
   );
 
