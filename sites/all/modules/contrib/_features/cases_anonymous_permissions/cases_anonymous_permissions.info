@@ -1,9 +1,17 @@
 name = Cases Anonymous Permissions
 core = 7.x
 package = Features
+dependencies[] = fe_block
 dependencies[] = features
 dependencies[] = node
 dependencies[] = nodeaccess
+dependencies[] = views
+features[fe_block_boxes][] = disclaimer
+features[fe_block_settings][] = block-disclaimer
+features[fe_block_settings][] = views-case_details-block
+features[fe_block_settings][] = views-case_details-block_1
+features[fe_block_settings][] = views-case_details-block_2
+features[fe_block_settings][] = views-case_details-block_3
 features[features_api][] = api:2
 features[user_permission][] = access content
 features[user_permission][] = access content overview

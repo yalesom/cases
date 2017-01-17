@@ -593,20 +593,20 @@ function ysm_cases_preprocess_page(&$variables) {
 
   //fix page-title for non-logged in people and no access to node
 
-  $variables['showAnonymous'] = FALSE;
+  $showAnonymous = FALSE;
   $node = $variables['node'];
 
   if (!$variables['logged_in']) {
     if (isset($node)) {
       // See if the book is accessible to anonymous users
-      $variables['showAnonymous']  = _get_nodeaccess($node);
-      if ($variables['showAnonymous']) {
+      $showAnonymous  = _get_nodeaccess($node);
+      if ($showAnonymous) {
         $variables['main_grid'] = '';
         $variables['sidebar_first_grid'] = '';
         $variables['sidebar_sec_grid'] = '';
       }
     }
-    if (!$variables['showAnonymous']) {
+    if (!showAnonymous) {
       if (drupal_get_title()) {
         $head_title = array(
           'title' => 'Please Log In',
