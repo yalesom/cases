@@ -55,6 +55,94 @@ function cases_anonymous_permissions_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['views-book_outline-block'] = array(
+    'cache' => -1,
+    'css_class' => 'hide-title',
+    'custom' => 0,
+    'delta' => 'book_outline-block',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(
+      'administrator' => 3,
+      'anonymous user' => 1,
+      'authenticated user' => 2,
+      'case editor' => 4,
+    ),
+    'themes' => array(
+      'adminimal' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'adminimal',
+        'weight' => -11,
+      ),
+      'adminimal_cases' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'adminimal_cases',
+        'weight' => -11,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 6,
+      ),
+      'ysm_cases' => array(
+        'region' => 'navigation',
+        'status' => 1,
+        'theme' => 'ysm_cases',
+        'weight' => -11,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['views-book_outline-block_1'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'book_outline-block_1',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(
+      'administrator' => 3,
+      'anonymous user' => 1,
+      'authenticated user' => 2,
+      'case editor' => 4,
+    ),
+    'themes' => array(
+      'adminimal' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'adminimal',
+        'weight' => -17,
+      ),
+      'adminimal_cases' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'adminimal_cases',
+        'weight' => -17,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 5,
+      ),
+      'ysm_cases' => array(
+        'region' => 'footer_first',
+        'status' => 1,
+        'theme' => 'ysm_cases',
+        'weight' => -17,
+      ),
+    ),
+    'title' => '<none>',
+    'visibility' => 0,
+  );
+
   $export['views-case_details-block'] = array(
     'cache' => -1,
     'css_class' => '',
