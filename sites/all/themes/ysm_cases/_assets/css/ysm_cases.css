@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2017-01-11 | 142834
+ * @build 2017-01-11 | 161352
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -5855,10 +5855,6 @@ figcaption {
 .not-logged-in #main-content .sidebar.one-sidebar {
   width: 25%;
   min-height: 50vh;
-}
-/* line 71, ../scss/skin/_structure.scss */
-.not-logged-in .credit {
-  display: none;
 }
 
 /* Intuit grid hack */
