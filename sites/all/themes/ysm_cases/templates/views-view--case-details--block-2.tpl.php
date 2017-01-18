@@ -31,17 +31,17 @@
   $logged_in = user_is_logged_in();
   if (!$logged_in) {
     if (arg(0) == 'node' && is_numeric(arg(1))) {
-      $disp_view = FALSE;
+      $hide_view = FALSE;
       $node = node_load(arg(1));
       if (isset($node)) {
-        $disp_view = _get_nodeaccess($node);
+        $hide_view = !_get_nodeaccess($node);
       }
     }
   } else {
-    $disp_view = TRUE;
+    $hide_view = FALSE;
   }
 ?>
-<?php if ($disp_view): ?>
+<?php if ($hide_view): ?>
   <div class="<?php print $classes; ?>">
     <?php print render($title_prefix); ?>
     <?php if ($title): ?>
