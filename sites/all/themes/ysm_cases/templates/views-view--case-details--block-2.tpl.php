@@ -30,8 +30,8 @@
 <?php
   $logged_in = user_is_logged_in();
   if (!$logged_in) {
+    $hide_view = TRUE;
     if (arg(0) == 'node' && is_numeric(arg(1))) {
-      $hide_view = FALSE;
       $node = node_load(arg(1));
       if (isset($node)) {
         $hide_view = !_get_nodeaccess($node);

@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2017-01-11 | 161352
+ * @build 2017-01-19 | 163912
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -6831,10 +6831,6 @@ div.show-sponsor {
 
 /* !------------- Homepage styles ------------- */
 /* !----------- Login ------------ */
-/* line 3, ../scss/skin/_login.scss */
-.not-logged-in #page-title {
-  display: none;
-}
 @media only screen and (min-width: 768px) {
   /* line 7, ../scss/skin/_login.scss */
   .not-logged-in #sidebar-second {
