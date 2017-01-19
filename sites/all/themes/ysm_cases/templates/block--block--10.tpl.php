@@ -48,7 +48,7 @@
     $show_block = TRUE;
   } else {
     $show_block = FALSE;
-    if (arg(0) == 'node' && is_numeric(arg(1)) && !user_is_logged_in()) {
+    if (arg(0) == 'node' && is_numeric(arg(1))) {
       $node = node_load(arg(1));
       if (isset($node)) {
         $show_block = _get_nodeaccess($node);
