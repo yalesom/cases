@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Cases Anonymous Permissions feature.
+ */
+
+include_once 'cases_anonymous_permissions.features.inc';

@@ -35,7 +35,7 @@ function ysm_cases_theme(&$existing, $type, $theme, $path) {
      'template' => 'templates/user-login-block',
      'render element' => 'form',
    );
-   
+
     $hooks['user_login'] = array(
     'render element' => 'form',
     'path' => drupal_get_path('theme', 'ysm_cases') . '/templates',
@@ -67,33 +67,33 @@ function ysm_cases_html_head_alter(&$head_elements) {
   // Add touch icons
   $head_elements['touch-icon'] = array(
   '#type' => 'html_tag',
-  '#tag' => 'link', 
+  '#tag' => 'link',
   '#attributes' => array(
-  	'href' => '/' . $theme_path . '/_assets/images/apple-touch-icon-precomposed.png', 
+  	'href' => '/' . $theme_path . '/_assets/images/apple-touch-icon-precomposed.png',
   	'rel' => 'apple-touch-icon-precomposed',),
   );
   $head_elements['touch-icon-72'] = array(
   '#type' => 'html_tag',
-  '#tag' => 'link', 
+  '#tag' => 'link',
   '#attributes' => array(
   	'href' => '/' . $theme_path . '/_assets/images/apple-touch-icon-72x72-precomposed.png',
-  	'sizes' => '72x72', 
+  	'sizes' => '72x72',
 	'rel' => 'apple-touch-icon-precomposed',),
   );
   $head_elements['touch-icon-114'] = array(
   '#type' => 'html_tag',
-  '#tag' => 'link', 
+  '#tag' => 'link',
   '#attributes' => array(
   	'href' => '/' . $theme_path . '/_assets/images/apple-touch-icon-114x114-precomposed.png',
-  	'sizes' => '114x114', 
+  	'sizes' => '114x114',
   	'rel' => 'apple-touch-icon-precomposed',),
   );
   $head_elements['touch-icon-144'] = array(
   '#type' => 'html_tag',
-  '#tag' => 'link', 
+  '#tag' => 'link',
   '#attributes' => array(
   	'href' => '/' . $theme_path . '/_assets/images/apple-touch-icon-144x144-precomposed.png',
-  	'sizes' => '144x144', 
+  	'sizes' => '144x144',
   	'rel' => 'apple-touch-icon-precomposed',),
   );
   // Optimize mobile viewport.
@@ -133,7 +133,7 @@ function ysm_cases_html_head_alter(&$head_elements) {
         'content' =>  'yes',
         'name' => 'apple-touch-fullscreen',
       ),
-    ); 
+    );
   $head_elements['mobile-web-app'] = array(
       '#type' => 'html_tag',
       '#tag' => 'meta',
@@ -165,7 +165,7 @@ function ysm_cases_breadcrumb($variables) {
 
     $title = strip_tags(drupal_get_title());
     $breadcrumbs .= '<li class="current"><a href="#"><span>' . $title. '</span></a></li>';*/
-    
+
     $array_size = count($breadcrumb);
     $i = 0;
     while ( $i < $array_size) {
@@ -428,12 +428,12 @@ function ysm_cases_preprocess_html(&$variables) {
         break;
     }
   }
-  
+
   // Move JS files "$scripts" to page bottom for perfs/logic.
   // Add JS files that *needs* to be loaded in the head in a new "$head_scripts" scope.
   // For instance the Modernizr lib.
-  drupal_add_js('/sites/all/libraries/modernizr/modernizr.min.js', array('scope' => 'head_scripts', 'weight' => -1, 'preprocess' => FALSE)); 
-  
+  drupal_add_js('/sites/all/libraries/modernizr/modernizr.min.js', array('scope' => 'head_scripts', 'weight' => -1, 'preprocess' => FALSE));
+
   /*
    * Zepto Fallback
    *   Use with caution
@@ -445,20 +445,8 @@ function ysm_cases_preprocess_html(&$variables) {
 
   // !Empty variable for Typekit
   $variables['typekit'] = "wxc1xmi";
-
-  //fix page-title for non-logged in people
-  if (!$variables['logged_in']) {
-    if (drupal_get_title()) {
-      $head_title = array(
-        'title' => 'Please Log In',
-        'name' => check_plain(variable_get('site_name', 'Drupal')),
-      );
-    }
-    $variables['head_title_array'] = $head_title;
-    $variables['head_title'] = implode(' | ', $head_title);
-  }
-
 }
+
 function ysm_cases_process_html(&$vars) {
   $vars['head_scripts'] = drupal_get_js('head_scripts');
 }
@@ -480,6 +468,7 @@ function ysm_cases_preprocess_node(&$variables) {
   }
 
   $variables['title_attributes_array']['class'][] = 'node-title';
+  // Some Books made be made available to Anonumous users
 
 //  // Add classes based on node type.
 //  switch ($variables['type']) {
@@ -581,6 +570,8 @@ function ysm_cases_preprocess_page(&$variables) {
   $left = $variables['page']['sidebar_first'];
   $right = $variables['page']['sidebar_second'];
 
+
+
   // Dynamic sidebars
   if (!empty($left) && !empty($right)) {
     $variables['main_grid'] = 'two-sidebars';
@@ -598,6 +589,31 @@ function ysm_cases_preprocess_page(&$variables) {
     $variables['main_grid'] = '';
     $variables['sidebar_first_grid'] = '';
     $variables['sidebar_sec_grid'] = '';
+  }
+
+  //fix page-title for non-logged in people and no access to node
+
+  $showAnonymous = FALSE;
+  $node = $variables['node'];
+
+  if (!$variables['logged_in']) {
+    if (isset($node)) {
+      // See if the book is accessible to anonymous users
+      $showAnonymous  = _get_nodeaccess($node);
+      if ($showAnonymous) {
+        $variables['main_grid'] = '';
+        $variables['sidebar_first_grid'] = '';
+        $variables['sidebar_sec_grid'] = '';
+      }
+    }
+    if (!showAnonymous) {
+      if (drupal_get_title()) {
+        $head_title = array(
+          'title' => 'Please Log In',
+          'name' => check_plain(variable_get('site_name', 'Drupal')),
+        );
+      }
+    }
   }
 }
 
@@ -646,7 +662,7 @@ function ysm_cases_js_alter(&$js) {
  */
 function ysm_cases_preprocess_book_navigation(&$variables) {
   template_preprocess_book_navigation($variables);
-  
+
   $currentPageType = node_load($variables['book_link']['nid'])->type;
 
   if ($currentPageType != 'page') {
@@ -665,3 +681,23 @@ function ysm_cases_preprocess_book_navigation(&$variables) {
     }
   }
 }
+
+/**
+ * Helper function which gets the Nodeaccess for Books
+ */
+ function _get_nodeaccess($node) {
+
+   $nid = $node->nid;
+   $result = db_query("SELECT r.rid, nra.name, na.grant_view, na.grant_update, na.grant_delete , nid
+     FROM {role} r
+     LEFT JOIN {nodeaccess_role_alias} nra ON r.rid = nra.rid
+     LEFT JOIN {node_access} na ON r.rid = na.gid AND na.realm = :realm AND na.nid = :nid
+     where nra.name = 'anonymous user'", array(':realm' => 'nodeaccess_rid', ':nid' => $nid));
+   if ($result->rowCount() == 1) {
+     $records = $result->fetchAll();
+     $record = $records[0];
+     return $record->grant_view;
+   } else {
+     return FALSE;
+   }
+ }
