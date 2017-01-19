@@ -10,7 +10,6 @@ dependencies[] = views
 dependencies[] = views_tree
 features[ctools][] = views:views_default:3.0
 features[fe_block_boxes][] = disclaimer
-features[fe_block_settings][] = block-disclaimer
 features[fe_block_settings][] = views-book_outline-block
 features[fe_block_settings][] = views-book_outline-block_1
 features[fe_block_settings][] = views-case_details-block

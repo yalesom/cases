@@ -12,49 +12,6 @@ function cases_anonymous_permissions_default_fe_block_settings() {
 
   $export['version'] = '2.0';
 
-  $export['block-disclaimer'] = array(
-    'cache' => -1,
-    'css_class' => 'disclaimer',
-    'custom' => 0,
-    'machine_name' => 'disclaimer',
-    'module' => 'block',
-    'node_types' => array(),
-    'pages' => 'admin/*
-/*#overlay',
-    'roles' => array(
-      'anonymous user' => 1,
-      'authenticated user' => 2,
-    ),
-    'themes' => array(
-      'adminimal' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'adminimal',
-        'weight' => -14,
-      ),
-      'adminimal_cases' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
-        'theme' => 'adminimal_cases',
-        'weight' => -14,
-      ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => -14,
-      ),
-      'ysm_cases' => array(
-        'region' => 'footer_first',
-        'status' => 1,
-        'theme' => 'ysm_cases',
-        'weight' => -14,
-      ),
-    ),
-    'title' => '<none>',
-    'visibility' => 0,
-  );
-
   $export['views-book_outline-block'] = array(
     'cache' => -1,
     'css_class' => 'hide-title',
