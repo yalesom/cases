@@ -10,7 +10,7 @@ function resizeHeader(){
 	if (document.body.clientWidth <= 568 && mobile) {
 		jQuery('.primary-nav > .block-views').height(window.innerHeight);
 		jQuery('#page-wrapper').toggleClass('open');
-	} 
+	}
 	// Desktop dropdown toggle
 	else {
 		console.log('here');
@@ -70,7 +70,7 @@ jQuery('.node-type-book #main-content, .node-type-page #main-content').waypoint(
 		var enableWaypoint = window.setTimeout(function(){
 			jQuery('.node-type-book #main-content').waypoint('enable');
 		},200);
-	} 
+	}
 	if (direction === 'up' && !oneAtATime) {
 		//console.log(direction);
 		oneAtATime = true;
@@ -85,7 +85,7 @@ jQuery('.node-type-book #main-content, .node-type-page #main-content').waypoint(
 	// subtract nav height from header container
 	return jQuery('#page-header .section-wrap').outerHeight(true) - 2 + jQuery('#toolbar').height();
 	 }//,
-  // triggerOnce: true 
+  // triggerOnce: true
 });
 
 // ! Move navigation container and disable waypoint outside page-wrapper for mobile
@@ -99,11 +99,11 @@ if (document.body.clientWidth <= 568 && mobile) {
 jQuery('#page-header .primary-nav').height( jQuery('#page-header .primary-nav > .block').outerHeight(true) );
 jQuery('#page-header').parent().height( jQuery('#page-header .section-wrap').outerHeight(true) );
 
-// ! Set conditions for interior 
+// ! Set conditions for interior
 // jQuery('#page-header').not('.node-type-book  #page-header').addClass('overlay').addClass('closed');
 
 // !Navigation click/touch event
-jQuery('.logged-in #page-header, .logged-in .primary-nav').bind('touch click', function(){
+jQuery('#page-header, .primary-nav').bind('touch click', function(){
 	resizeHeader();
 });
 // !Add navigation close button
@@ -127,7 +127,7 @@ var adminSticky = window.setTimeout(function(){
 
 
 var scrollElem = scrollableElement('html', 'body');
-// !Activate Top link in footer 
+// !Activate Top link in footer
 jQuery('.scrolltoTop').click(function(e){
 	e.preventDefault();
 	jQuery(scrollElem).animate({scrollTop: 0}, 400);
