@@ -8,4 +8,5 @@
 //= require "../../../../ysm_cases/_assets/js/parts/browser-detect.js"
 //= require "./parts/document-tiles.js"
 //= require "./parts/case-tiles.js"
+//= require "./parts/footnotes.js"
 //= require "./parts/admin-roam.js"
