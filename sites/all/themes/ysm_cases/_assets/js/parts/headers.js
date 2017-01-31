@@ -1,17 +1,10 @@
-var headerHeight, navHeight, pageHeader;
-
-(function($) {
+//(function($) {
 /*
 *  Header scripts
 */
-$(document).ready(function(){
-	$('#page-header .primary-nav').niceScroll({
-		cursorcolor:"#00457c",
-		cursorborder:"none",
-		horizrailenabled:false
-	});
-})
+
 // !Toggle animation for top header
+var headerHeight, navHeight, pageHeader;
 function resizeHeader(){
 	// Mobile left menu toggle
 	if (document.body.clientWidth <= 568 && mobile) {
@@ -20,19 +13,16 @@ function resizeHeader(){
 	}
 	// Desktop dropdown toggle
 	else {
-		// console.log('here');
+		console.log('here');
 
 		// ! Test if header is open or closed
 		pageHeader = jQuery('#page-header');
-
 		if ( pageHeader.hasClass('closed') ){
-			$('#page-header .primary-nav').getNiceScroll().show();
 			oneAtATime = true;
 			pageHeader.removeClass('closed').find('.primary-nav').height(0).show();
 			headerHeight = pageHeader.find('.section-wrap').outerHeight(true) + pageHeader.find('.primary-nav > .block').outerHeight(true);
 			navHeight = pageHeader.find('.primary-nav > .block').outerHeight(true);
 		} else {
-			$('#page-header .primary-nav').getNiceScroll().hide();
 			oneAtATime = false;
 			headerHeight = pageHeader.find('.section-wrap').outerHeight(true) - pageHeader.find('.primary-nav > .block').outerHeight(true);
 			navHeight = 0;
@@ -51,7 +41,7 @@ function resizeHeader(){
 		}, 500, 'easeInOutQuad',
 		function(){
 				// callback
-				// jQuery('.touch #page-header .primary-nav').css('overflow','scroll');
+				jQuery('.touch #page-header .primary-nav').css('overflow','scroll');
 			});
 	}
 };
@@ -113,7 +103,7 @@ jQuery('#page-header').parent().height( jQuery('#page-header .section-wrap').out
 // jQuery('#page-header').not('.node-type-book  #page-header').addClass('overlay').addClass('closed');
 
 // !Navigation click/touch event
-jQuery('.logged-in #page-header, .logged-in .primary-nav').bind('touch click', function(){
+jQuery('#page-header, .primary-nav').bind('touch click', function(){
 	resizeHeader();
 });
 // !Add navigation close button
@@ -160,4 +150,4 @@ function scrollableElement(els) {
 	}
 	return [];
 }
-})(jQuery);
+//})(jQuery);

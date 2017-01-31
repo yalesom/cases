@@ -48,7 +48,7 @@
 		@media #{$smallMax}{
 			padding: 0;
 		}
-		&#sidebar-first {	
+		&#sidebar-first {
 			@extend .pull--lap-and-up-seven-twelfths;
 			@extend .lap-and-up-one-quarter;
 			&.one-sidebar {
@@ -69,20 +69,20 @@
 	}
 
 	.credit {
-		display: none;
+		//display: none;
 	}
 }
 
 .main-content {
 	article {
-		
+
 	}
 	.breadcrumb {
-		
-		} 
+
+		}
 }
 .sidebar {
-	
+
 }
 
 /* Intuit grid hack */
