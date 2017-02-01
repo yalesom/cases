@@ -683,21 +683,20 @@ function ysm_cases_preprocess_book_navigation(&$variables) {
 }
 
 /**
- * Helper function which gets the Nodeaccess for Books
+ * Helper function which determines if the user has access to book page
  */
  function _get_nodeaccess($node) {
-
-   $nid = $node->nid;
-   $result = db_query("SELECT r.rid, nra.name, na.grant_view, na.grant_update, na.grant_delete , nid
-     FROM {role} r
-     LEFT JOIN {nodeaccess_role_alias} nra ON r.rid = nra.rid
-     LEFT JOIN {nodeaccess} na ON r.rid = na.gid AND na.realm = :realm AND na.nid = :nid
-     where nra.name = 'anonymous user'", array(':realm' => 'nodeaccess_rid', ':nid' => $nid));
-   if ($result->rowCount() == 1) {
-     $records = $result->fetchAll();
-     $record = $records[0];
-     return $record->grant_view;
-   } else {
-     return FALSE;
-   }
+   $grant = FALSE;
+   if (isset($node->book)) {
+     $bid = $node->book['bid'];
+     $qry = "SELECT b.grant_view
+        FROM {book_access_role} b
+        INNER JOIN {role} ON b.rid = role.rid
+        where role.name = 'anonymous user' and b.nid = :bid ";
+    $ary =   array(':bid' => $bid);
+    $result = db_query($qry, $ary);
+    $records = $result->fetchAll();
+    $grant  = $records[0]->grant_view;
+  }
+  return $grant;
  }
