@@ -1,0 +1,5 @@
+name = YSOM Cases
+description = Cases Custom funcitons and updates
+core = 7.x
+package = Cases
+version = 7.01

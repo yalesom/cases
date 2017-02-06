@@ -1,0 +1,20 @@
+<?php
+/**
+ * Changes the field length for gallery image captions 
+ */
+function ysom_cases_update_7001() {
+
+ if(  field_info_field('field_image_caption') ){
+  // Alter columns length
+  db_query("ALTER TABLE field_data_field_image_caption CHANGE COLUMN field_image_caption_value field_image_caption_value VARCHAR(255) NULL DEFAULT NULL");
+  db_query("ALTER TABLE field_revision_field_image_caption CHANGE COLUMN field_image_caption_value field_image_caption_value VARCHAR(255) NULL DEFAULT NULL");
+  // Update field config
+  $result = db_query("SELECT data FROM field_config WHERE field_name = 'field_image_caption'")->fetchObject();
+  $data = unserialize($result->data);
+  $data['settings']['max_length'] = "255";
+  $qry = "UPDATE field_config SET data = :data WHERE field_name = 'field_image_caption'";
+  db_query($qry, array(':data' => serialize($data) ));
+ }
+}
+
+?>

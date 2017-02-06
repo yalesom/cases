@@ -98,8 +98,8 @@ function warpwiremc_filter($text, $filter, $format, $langcode, $cache, $cache_id
 				if(!isset($parameters['title']) && (variable_get('warpwire_title_default') == 0))
 					$parameters['title'] = 'false';
 
-        // Turn on autoplay - as per Greg, just for Cases
-        $parameters['autoplay'] = 'true';
+        if(!isset($parameters['autoplay']) && (variable_get('warpwire_autoplay_default') == 1))
+          $parameters['autoplay'] = 'true';
 
 				$url_parts['query'] = http_build_query($parameters);
 
@@ -107,17 +107,14 @@ function warpwiremc_filter($text, $filter, $format, $langcode, $cache, $cache_id
 					$url .= '?' . $url_parts['query'];
 				}
 
-        if(user_is_logged_in()) {
+        $parts = array(
+          'q' => 'warpwire/external_content',
+          'url' => $url
+        );
 
-          $parts = array(
-            'q' => 'warpwire/external_content',
-            'url' => $url
-          );
+        $partsString = http_build_query($parts);
 
-          $partsString = http_build_query($parts);
-
-          $url = '/?' . $partsString;
-        }
+        $url = '/?' . $partsString;
       }
 
       $video = array(
@@ -173,8 +170,8 @@ function warpwiremc_filter($text, $filter, $format, $langcode, $cache, $cache_id
 				if(!isset($parameters['title']) && (variable_get('warpwire_title_default') == 0))
 					$parameters['title'] = 'false';
 
-        // Turn on autoplay - as per Greg, just for Cases
-        $parameters['autoplay'] = 'true';
+        if(!isset($parameters['autoplay']) && (variable_get('warpwire_autoplay_default') == 1))
+          $parameters['autoplay'] = 'true';
 
 				$url_parts['query'] = http_build_query($parameters);
 
@@ -182,17 +179,14 @@ function warpwiremc_filter($text, $filter, $format, $langcode, $cache, $cache_id
 					$url .= '?' . $url_parts['query'];
 				}
 
-        if(user_is_logged_in()) {
+        $parts = array(
+          'q' => 'warpwire/external_content',
+          'url' => $url
+        );
 
-          $parts = array(
-            'q' => 'warpwire/external_content',
-            'url' => $url
-          );
+        $partsString = http_build_query($parts);
 
-          $partsString = http_build_query($parts);
-
-          $url = '/?' . $partsString;
-        }
+        $url = '/?' . $partsString;
       }
 
       // build the iframe html
