@@ -14,7 +14,10 @@ function warpwire_init() {
     'warpwire' => 
       array(
           'warpwire_url' => variable_get('warpwire_url'),
-          'warpwire_module_path' => drupal_get_path('module', 'warpwire')
+          'warpwire_module_path' => drupal_get_path('module', 'warpwire'),
+          'warpwire_share_default' => variable_get('warpwire_share_default'),
+          'warpwire_title_default' => variable_get('warpwire_title_default'),
+          'warpwire_autoplay_default' => variable_get('warpwire_autoplay_default')
       )
     ), 'setting');
 }
@@ -209,7 +212,14 @@ function warpwire_admin($form) {
     '#title' => t('Enable Title for embedded Warpwire media.'),
     '#default_value' => variable_get('warpwire_title_default', 1),
     '#description' => t("Enable/disable title for embedded Warpwire media."),
-  );  
+  );
+
+  $_adminFormElements['warpwire_autoplay_default'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Enable Autoplay for embedded Warpwire media.'),
+    '#default_value' => variable_get('warpwire_autoplay_default', 0),
+    '#description' => t("Enable/disable autoplay for embedded Warpwire media."),
+  );     
 
   return system_settings_form($_adminFormElements);
 }
@@ -350,24 +360,21 @@ function warpwire_filter($text, $filter, $format, $langcode, $cache, $cache_id) 
         if(!isset($parameters['title']) && (variable_get('warpwire_title_default') == 0))
           $parameters['title'] = 'false';
 
-        // Turn on autoplay - as per Greg, just for Cases
-        $parameters['autoplay'] = 'true';
+        if(!isset($parameters['autoplay']) && (variable_get('warpwire_autoplay_default') == 1))
+          $parameters['autoplay'] = 'true';
 
         $url_parts['query'] = http_build_query($parameters);
 
-        if(user_is_logged_in()) {
+        $url = $url_parts['scheme'].'://'.$url_parts['host'].$url_parts['path'].'?'.$url_parts['query'];
 
-          $url = $url_parts['scheme'].'://'.$url_parts['host'].$url_parts['path'].'?'.$url_parts['query'];
+        $parts = array(
+          'q' => 'warpwire/external_content',
+          'url' => $url
+        );
 
-          $parts = array(
-            'q' => 'warpwire/external_content',
-            'url' => $url
-          );
+        $partsString = http_build_query($parts);
 
-          $partsString = http_build_query($parts);
-
-          $url = '/?' . $partsString;
-        }
+        $url = '/?' . $partsString;
 
         if(!empty($parameters['width']))
           $iframe_width = $parameters['width'];
@@ -413,24 +420,21 @@ function warpwire_filter($text, $filter, $format, $langcode, $cache, $cache_id) 
       if(!isset($parameters['title']) && (variable_get('warpwire_title_default') == 0))
         $parameters['title'] = 'false';
 
-      // Turn on autoplay - as per Greg, just for Cases
-      $parameters['autoplay'] = 'true';
+      if(!isset($parameters['autoplay']) && (variable_get('warpwire_autoplay_default') == 1))
+        $parameters['autoplay'] = 'true';
 
       $url_parts['query'] = http_build_query($parameters);
 
-      if(user_is_logged_in()) {
+      $url = $url_parts['scheme'].'://'.$url_parts['host'].$url_parts['path'].'?'.$url_parts['query'];
 
-        $url = $url_parts['scheme'].'://'.$url_parts['host'].$url_parts['path'].'?'.$url_parts['query'];
+      $parts = array(
+        'q' => 'warpwire/external_content',
+        'url' => $url
+      );
 
-        $parts = array(
-          'q' => 'warpwire/external_content',
-          'url' => $url
-        );
+      $partsString = http_build_query($parts);
 
-        $partsString = http_build_query($parts);
-
-        $url = '/?' . $partsString;
-      }
+      $url = '/?' . $partsString;
 
       if(!empty($parameters['width']))
         $iframe_width = $parameters['width'];
