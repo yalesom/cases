@@ -202,21 +202,21 @@ function warpwire_admin($form) {
 
   $_adminFormElements['warpwire_share_default'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Enable Share options for embedded Warpwire media.'),
+    '#title' => t('Display share links for embedded Warpwire media.'),
     '#default_value' => variable_get('warpwire_share_default', 1),
     '#description' => t("Enable/disable sharing options for embedded Warpwire media."),
   );
 
   $_adminFormElements['warpwire_title_default'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Enable Title for embedded Warpwire media.'),
+    '#title' => t('Display title for embedded Warpwire videos.'),
     '#default_value' => variable_get('warpwire_title_default', 1),
     '#description' => t("Enable/disable title for embedded Warpwire media."),
   );
 
   $_adminFormElements['warpwire_autoplay_default'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Enable Autoplay for embedded Warpwire media.'),
+    '#title' => t('Enable autoplay for embedded Warpwire media.'),
     '#default_value' => variable_get('warpwire_autoplay_default', 0),
     '#description' => t("Enable/disable autoplay for embedded Warpwire media."),
   );     
