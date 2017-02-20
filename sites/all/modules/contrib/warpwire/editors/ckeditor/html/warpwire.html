@@ -35,7 +35,7 @@
 	var postData = function() {
 		try {
 			var jsonData = decodeURIComponent(GetURLParameter('jsonData'));
-			window.opener.postMessage({message: "deliverResult", result: jsonData}, "*");
+			window.opener.postMessage(JSON.stringify({message: "deliverResult", result: jsonData}), "*");
 			window.close();			
 		} catch(e) { }
 	}
