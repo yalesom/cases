@@ -69,8 +69,9 @@
 				margin-top: .5rem;
 				text-align: center;
 				position: absolute;
-				right: -2.5rem;
-				top: -.5rem;
+				right: 0rem;
+				top: -3rem;
+				z-index: 10001;
 				@include border-radius(100px);
 				@include transition(all 0.25s ease-in);
 				&:hover { border-color: $mediumGrey; }
