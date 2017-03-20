@@ -19,7 +19,7 @@ function pageResize(){
 	// ! Move navigation container based on document width
 	if (document.body.clientWidth <= 568 && mobile) {
 		jQuery('.primary-nav > .block-views').height(window.innerHeight);
-	} 
+	}
 };
 
 jQuery(document).ready(function($) {
@@ -46,10 +46,10 @@ jQuery(document).ready(function($) {
 		.unwrap();
 
 	//console.info(jQuery('div.show-sponsor').text());
-	if(jQuery('div.show-sponsor').text() == 'hide'){ 
-		jQuery('div.sponsors').hide(); 
+	if(jQuery('div.show-sponsor').text() == 'hide'){
+		jQuery('div.sponsors').hide();
 	}
-	
+
 });
 
 // !Call resize
@@ -238,14 +238,14 @@ function scrollableElement(els) {
 		} else if ( tile.hasClass('xlarge') && tile.find('img').attr('src') == ''){
 			$(this).find('img').attr('src','/sites/all/themes/ysm_cases/_assets/images/blank-xl.gif');
 		}
-		
+
 	});
 	// !Add blank images to case study tiles without a src
 	$('.document-tiles .tile').each(function(){
 		var tile = $(this);
 		if ( tile.find('img').attr('src') == ''){
 			tile.addClass('no-img').find('img').attr('src','/sites/all/themes/ysm_cases/_assets/images/blank-sq.gif');
-		} 
+		}
 	});
 	//remove icon from tiles with no image and no icon-class
 	$('.case-tiles .tile.no-img').each(function(){
@@ -278,8 +278,8 @@ function scrollableElement(els) {
 		container.addClass('processed');
 
 		if (container.find('.view-content .tile').first().hasClass('tile-1of1')) {
-			container.addClass('one-sixth');	
-		
+			container.addClass('one-sixth');
+
 		} else if (container.find('.view-content .tile').first().hasClass('tile-1of2')) {
 			container.addClass('one-third');
 
@@ -298,7 +298,7 @@ function scrollableElement(els) {
 })(jQuery);
 
 var highchartColors = [
-	'#00457c', // dark blue 
+	'#00457c', // dark blue
 	'#c9b579', // light brown
 	'#3775a4', // medium blue
 	'#bf6f6f', // pale red
@@ -325,7 +325,7 @@ Highcharts.setOptions({
  */
 function readInChartCSV() {
 	var $ = jQuery;
-	
+
 	$.ajax({
 		url: chartContainer.data('src'),
 		type: 'get',
@@ -374,7 +374,7 @@ function convertDate(passedDate) {
 		// this is a SHIT Excel date and we have to make a real date out of it
 		utcDate 	= ExcelDateToJSDate(passedDate);
 	}
-	
+
 
 	// returns the converted date into the unix time code
 	return parseFloat(utcDate.getTime() / 1000.0 + '000');
@@ -382,7 +382,7 @@ function convertDate(passedDate) {
 
 function ExcelDateToJSDate(serial) {
 	 var utc_days  = Math.floor(serial - 25569);
-	 var utc_value = utc_days * 86400;                                        
+	 var utc_value = utc_days * 86400;
 	 var date_info = new Date(utc_value * 1000);
 
 	 var fractional_day = serial - Math.floor(serial) + 0.0000001;
@@ -427,7 +427,7 @@ function genericChartParser(chartArray) {
 		series 				= [],
 			seriesData		= [],
 			seriesCoutner	= 0;
-	
+
 	// loop through chartArray starting at the 2nd index
 	// this is because we already got the categories into it's own array
 	for (var o = 1; o < chartArray.length; o++) {
@@ -442,7 +442,7 @@ function genericChartParser(chartArray) {
 		// loop through the categories starting at the 2nd index
 		// because the first index is a "category" label, which we don't need
 		for (var i = 1; i < categories.length; i++) {
-			// convert the string value to a number (float) 
+			// convert the string value to a number (float)
 			// and add it the current seriesData index
 			var rawtextNumber = chartArray[o][i];
 			var numberNoCommas = rawtextNumber.replace(/,/g, '');
@@ -553,7 +553,7 @@ function pieChartParser(chartArray) {
 		// add the current array to the seriesData
 		seriesData[i] = [
 			chartArray[i][0],
-			// convert the string value to a number (float) 
+			// convert the string value to a number (float)
 			parseFloat(chartArray[i][1])
 		];
 	};
@@ -666,13 +666,13 @@ function stockChartParser(chartArray) {
 		$.each(flags, function(index, value) {
 			// call function to convert the series name
 			value.onSeries	= convertStringToID(value.onSeries);
-			
+
 			$.each(flags[index].data, function(index, value) {
 				// parse the "x" value into a number and add 3 zeros
 				value.x		= parseInt(value.x + '000');
 			});
 		});
-		
+
 		seriesOptions = seriesOptions.concat(flags);
 	}
 
@@ -719,14 +719,14 @@ jQuery(document).ready(function($) {
 
 			if (url.indexOf(location.host) == '-1' || url.indexOf('files') > 0) {
 				window.open(url);
-			
+
 			} else if ($(this).hasClass('in-use')) {
 				return false;
 
 			} else {
 				// clone the template
 				template 	= $('#template').clone();
-				
+
 				// create unique ID
 				uid			= Math.floor(Math.random()*100)+1;
 
@@ -739,10 +739,10 @@ jQuery(document).ready(function($) {
 				// update button attributes
 				$(this).attr('id', buttonID);
 				$(this).attr('class', 'in-use');
-				
+
 				// update the cloned template with the new tileID
 				template.attr('id', tileID);
-				
+
 				// add the cloned template the DOM structure
 				$('#main-content').prepend(template);
 
@@ -750,7 +750,7 @@ jQuery(document).ready(function($) {
 				setTimeout(function() {
 					$('#' + tileID).addClass('open');
 				},500);
-				
+
 				$('#' + tileID + ' .tile-target').load(url + ' .tile-content', function(response, status, xhr) {
 					if (status == 'success') {
 						containerID = $('#' + $('#' + tileID).find('.tile-content').attr('id'));
@@ -762,7 +762,7 @@ jQuery(document).ready(function($) {
 								chartContainer 		= $('#' + $(this).find('.chart-target').attr('id'));
 								readInChartCSV();
 							break;
-							
+
 							case 'gallery-container':
 								galleryContainer	= containerID;
 								mySlider = loadGallery();
@@ -782,7 +782,7 @@ jQuery(document).ready(function($) {
 								jQuery('#' + tileID).find('p>iframe').unwrap();
 								void 0;
 							break;
-							
+
 							/*case 'infographic-container':
 							break;*/
 
@@ -796,7 +796,7 @@ jQuery(document).ready(function($) {
 			}
 		});
 	});
-	
+
 	// remove the modal window
 	$(document).on('click', '.modal-close', function(evt) {
 		evt.preventDefault();
@@ -804,7 +804,7 @@ jQuery(document).ready(function($) {
 		// remove the "in-use" class from the correct button ID
 		// using the closed modal ID
 		$('#button-' + $(this).closest('.modal').attr('id').split('-')[1]).removeClass('in-use');
-		
+
 		// destory the modal
 		$(this).closest('.modal').remove();
 	});
@@ -894,7 +894,6 @@ jQuery(document).ready(function($){
 		$.get( "/sites/all/themes/ysm_cases/_assets/partials/browser-detect.html", function( data ) {
 			$('article.main-content').prepend(data);
 		});
-		
+
 	}
 });
-
