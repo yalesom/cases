@@ -1,10 +1,11 @@
-//(function($) {
+var headerHeight, navHeight, pageHeader;
+
+(function($) {
 /*
 *  Header scripts
 */
 
 // !Toggle animation for top header
-var headerHeight, navHeight, pageHeader;
 function resizeHeader(){
 	// Mobile left menu toggle
 	if (document.body.clientWidth <= 568 && mobile) {
@@ -18,11 +19,13 @@ function resizeHeader(){
 		// ! Test if header is open or closed
 		pageHeader = jQuery('#page-header');
 		if ( pageHeader.hasClass('closed') ){
+			$('#page-header .primary-nav').getNiceScroll().show();
 			oneAtATime = true;
 			pageHeader.removeClass('closed').find('.primary-nav').height(0).show();
 			headerHeight = pageHeader.find('.section-wrap').outerHeight(true) + pageHeader.find('.primary-nav > .block').outerHeight(true);
 			navHeight = pageHeader.find('.primary-nav > .block').outerHeight(true);
 		} else {
+			$('#page-header .primary-nav').getNiceScroll().hide();
 			oneAtATime = false;
 			headerHeight = pageHeader.find('.section-wrap').outerHeight(true) - pageHeader.find('.primary-nav > .block').outerHeight(true);
 			navHeight = 0;
@@ -41,7 +44,7 @@ function resizeHeader(){
 		}, 500, 'easeInOutQuad',
 		function(){
 				// callback
-				jQuery('.touch #page-header .primary-nav').css('overflow','scroll');
+				// jQuery('.touch #page-header .primary-nav').css('overflow','scroll');
 			});
 	}
 };
@@ -150,4 +153,4 @@ function scrollableElement(els) {
 	}
 	return [];
 }
-//})(jQuery);
+})(jQuery);

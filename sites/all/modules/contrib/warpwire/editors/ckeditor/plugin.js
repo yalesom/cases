@@ -6,36 +6,37 @@
     (document.body || document.head || document.documentElement).appendChild(script);
   }
 
-  function isIE() {
-    var ua = window.navigator.userAgent;
-    var msie = ua.indexOf('MSIE ');
-    var trident = ua.indexOf('Trident/');
-    
-    // is internet explorer
-    if (msie > 0 || trident > 0)
-      return(true);
-    
-    // other browser
-    return false; 
-  };
+  function GetURLParameter(sParam, sPageURL) {
+    if(typeof sPageURL == 'undefined')
+      return(null);
 
-  function createCORSRequest(method, url){
-      var xhr = new XMLHttpRequest();
-      if ("withCredentials" in xhr){
-          xhr.open(method, url, true);
-      } else if (typeof XDomainRequest != "undefined"){
-          xhr = new XDomainRequest();
-          xhr.open(method, url);
-      } else {
-          xhr = null;
+    sPageURL = sPageURL.substring(sPageURL.indexOf("?")+1);
+
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) {
+      var sParameterName = sURLVariables[i].split('=');
+      if (sParameterName[0] == sParam) {
+        return sParameterName[1];
       }
-      return xhr;
-  }
+    }
+
+    return(null);
+  };
 
   // fn arg can be an object or a function, thanks to handleEvent
   // read more about the explanation at: http://www.thecssninja.com/javascript/handleevent
   function addEvt(el, evt, fn, bubble) {
-      if ('addEventListener' in el) {
+      if ('attachEvent' in el) {
+          // check if the callback is an object and contains handleEvent
+          if (typeof fn == 'object' && fn.handleEvent) {
+              el.attachEvent('on' + evt, function(){
+                  // Bind fn as this
+                  fn.handleEvent.call(fn);
+              });
+          } else {
+              el.attachEvent('on' + evt, fn);
+          }
+      } else if ('addEventListener' in el) {
           // BBOS6 doesn't support handleEvent, catch and polyfill
           try {
               el.addEventListener(evt, fn, bubble);
@@ -49,51 +50,7 @@
                   throw e;
               }
           }
-      } else if ('attachEvent' in el) {
-          // check if the callback is an object and contains handleEvent
-          if (typeof fn == 'object' && fn.handleEvent) {
-              el.attachEvent('on' + evt, function(){
-                  // Bind fn as this
-                  fn.handleEvent.call(fn);
-              });
-          } else {
-              el.attachEvent('on' + evt, fn);
-          }
       }
-  }
-
-  function checkIEGet(editor, pluginId, checkGetCounter) {
-                          
-    if(checkGetCounter >= 10) {
-      return(false);
-    }
-                            
-    var xmlhttp = createCORSRequest("GET", Drupal.settings.warpwire.warpwire_url.replace(/(\/)+$/g,'')+'/api/staging/c/'+pluginId+'/o/'+pluginId);
-    
-    if (xmlhttp){
-      xmlhttp.onload = function(){
-        var frames = JSON.parse(xmlhttp.responseText);
-        for(var i=0; i < frames.length; i++) {
-          imgNode  = new CKEDITOR.dom.element('img');
-
-          imgNode.setAttribute('class', "_ww_img");
-          imgNode.setAttribute('longdesc', frames[i]._ww_src.replace("http://","https://"));
-          imgNode.setAttribute('src', frames[i]._ww_img.replace("http://","https://"));
-          
-          if (editor.mode === 'wysiwyg' && frames[i]) {
-            editor.insertElement(imgNode);
-          }
-        }
-        
-        return(true);
-      };
-      xmlhttp.onerror = function(){
-        checkGetCounter = checkGetCounter + 1;
-        setTimeout(checkIEGet(editor, pluginId, checkGetCounter),1000);
-      };
-      xmlhttp.send();
-    }
-    
   }
 
   CKEDITOR.plugins.add( 'warpwire', {
@@ -125,35 +82,72 @@
       editor.addCommand( 'warpwire', {
         exec : function () {
 
-          addEvt(window, "message", function(ev) {
-              if (ev.data.message === "deliverResult") {
-                var frames = JSON.parse(ev.data.result);
-                for(var i=0; i < frames.length; i++) {
-                  imgNode  = new CKEDITOR.dom.element('img');
+          Drupal.settings.warpwire.pluginId = '';
+          for (i = 0; i < 32; i++) {
+            Drupal.settings.warpwire.pluginId += Math.floor(Math.random() * 16).toString(16);
+          }
+          var pluginId = Drupal.settings.warpwire.pluginId;
 
-                  imgNode.setAttribute('class', "_ww_img");
-                  imgNode.setAttribute('longdesc', frames[i]._ww_src.replace("http://","https://"));
-                  imgNode.setAttribute('src', frames[i]._ww_img.replace("http://","https://"));
-                  
-                  if (editor.mode === 'wysiwyg' && frames[i]) {
-                    editor.insertElement(imgNode);
-                  }
+          addEvt(window, "message", function(ev) {
+            if(Drupal.settings.warpwire.pluginId != pluginId)
+              return(false);
+            var parsedData = JSON.parse(ev.data);
+            if (parsedData.message === "deliverResult") {
+              var frames = JSON.parse(parsedData.result);
+              for(var i=0; i < frames.length; i++) {
+                var imgNode  = new CKEDITOR.dom.element('img');
+
+                imgNode.setAttribute('class', "_ww_img");
+
+                var img_src = frames[i]._ww_img.replace("http://","https://");
+                var source = frames[i]._ww_src.replace("http://","https://");
+
+                var sourceUrl = decodeURIComponent(source);
+                sourceUrl = sourceUrl.replace(/^\[warpwire:/,'');
+                sourceUrl = sourceUrl.replace(/]$/,'');
+
+                var img_width = GetURLParameter('width', sourceUrl);
+                if(img_width == null)
+                  img_width = 400;
+                imgNode.setAttribute('width', img_width);
+                var img_height = GetURLParameter('height', sourceUrl);
+                if(img_height == null)
+                  img_height = 400;         
+                imgNode.setAttribute('height', img_height);
+
+                var sep = img_src.indexOf('?') == -1 ? '?' : '&';
+                img_src = img_src + sep + 'ww_code=' + source;
+
+                imgNode.setAttribute('src', img_src);
+
+                if (frames[i]) {
+                  try {
+                  editor.insertElement(imgNode);
+                  } catch(e){ }
                 }
-                ev.data.message = '';
               }
+              ev.data.message = '';
+            }
           });
 
-          var pluginId = "";
-          var checkGetCounter = 0;
-          if(isIE()) {
-            for (i = 0; i < 32; i++) {
-              pluginId += Math.floor(Math.random() * 16).toString(16);
-            }
-          } else {
-            pluginId = "0";
-          }
+          var ww_defaults = {
+            share: Drupal.settings.warpwire.warpwire_share_default,
+            title: Drupal.settings.warpwire.warpwire_title_default,
+            autoplay: Drupal.settings.warpwire.warpwire_autoplay_default,
+          };
 
-          var child = window.open(Drupal.settings.warpwire.warpwire_url.replace(/(\/)+$/g,'')+"/w/all?pl=1&showSelector=1&externalContext=drupal&pluginLaunchReturnUrl="+encodeURIComponent(self.editor.baseUrl+self.editor.path+"html/warpwire.html")+"&pluginId="+pluginId,'_wwPlugin','width=400, height=500');
+          var launch_url = Drupal.settings.warpwire.warpwire_url.replace(/(\/)+$/g,'')
+            +"/w/all?pl=1&showSelector=1&externalContext=drupal&pluginLaunchReturnUrl="
+            +encodeURIComponent(
+            self.editor.baseUrl+self.editor.path+"html/warpwire.html")
+            +"&pluginId=0";
+
+          var launch_url_with_defaults = launch_url + "&warpwire_defaults=" + JSON.stringify(ww_defaults); 
+
+          if(launch_url_with_defaults.length <= 2000)
+            launch_url = launch_url_with_defaults;
+
+          var child = window.open(self.editor.baseUrl+self.editor.path+"html/redirect.html?redirectURL="+encodeURIComponent(launch_url), '_wwPlugin', 'width=400, height=500');
 
           var leftDomain = false;
           var interval = setInterval(function() {
@@ -178,10 +172,6 @@
                   // we're here when the child window has been navigated away or closed
                   if (child.closed) {
                       clearInterval(interval);
-                      // if IE, we are using a GET method rather than a window listener
-                      if(isIE()) {
-                        var checkGet = checkIEGet(editor, pluginId, 0);
-                      }
                       return; 
                   }
                   // navigated to another domain  
