@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2017-01-19 | 163912
+ * @build 2017-03-20 | 163109
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -5911,65 +5911,82 @@ figcaption {
   position: relative;
 }
 /* line 6, ../scss/skin/_header.scss */
+#page-header a[id]::before {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+}
+/* line 11, ../scss/skin/_header.scss */
 .logged-in #page-header {
   cursor: pointer;
 }
-/* line 9, ../scss/skin/_header.scss */
+/* line 14, ../scss/skin/_header.scss */
 #page-header .site-logo {
   position: absolute;
   right: 5px;
   top: 1.25rem;
   z-index: 11;
 }
-/* line 14, ../scss/skin/_header.scss */
+/* line 19, ../scss/skin/_header.scss */
 #page-header .site-logo img {
   max-height: 75px;
 }
 @media only screen and (min-width: 768px) {
-  /* line 14, ../scss/skin/_header.scss */
+  /* line 19, ../scss/skin/_header.scss */
   #page-header .site-logo img {
     max-height: 95px;
   }
 }
-/* line 21, ../scss/skin/_header.scss */
+/* line 26, ../scss/skin/_header.scss */
 #page-header .section-wrap {
   min-height: 4rem;
   padding: 0.75rem 5px;
 }
-/* line 25, ../scss/skin/_header.scss */
+/* line 30, ../scss/skin/_header.scss */
 #page-header .header-main {
   margin-right: 4.29rem;
 }
-/* line 28, ../scss/skin/_header.scss */
+/* line 33, ../scss/skin/_header.scss */
 #page-header .primary-nav,
 #page-header .header-sections {
   margin-right: 4.29rem;
 }
-/* line 34, ../scss/skin/_header.scss */
+/* line 39, ../scss/skin/_header.scss */
 .not-front.node-type-book #page-header .primary-nav, .not-front.node-type-book
 #page-header .header-sections {
   display: block;
 }
-/* line 40, ../scss/skin/_header.scss */
+/* line 45, ../scss/skin/_header.scss */
 #page-header .case-details i {
   font-size: 1.63rem;
   position: absolute;
 }
-/* line 44, ../scss/skin/_header.scss */
+/* line 49, ../scss/skin/_header.scss */
 #page-header .case-details .case-name,
-#page-header .case-details .case-num {
+#page-header .case-details .case-num,
+#page-header .case-details .case-subtitle {
   padding-left: 1.85rem;
   margin-bottom: 0rem;
 }
-/* line 49, ../scss/skin/_header.scss */
-#page-header .case-details .case-num {
+/* line 55, ../scss/skin/_header.scss */
+#page-header .case-details .case-num,
+#page-header .case-details .case-subtitle {
   font-size: 0.88rem;
+  line-height: 1.5;
 }
-/* line 54, ../scss/skin/_header.scss */
+/* line 60, ../scss/skin/_header.scss */
+#page-header .case-details .case-subtitle {
+  font-weight: 700;
+}
+/* line 63, ../scss/skin/_header.scss */
+#page-header .case-details .case-num {
+  color: rgba(255, 255, 255, 0.6);
+}
+/* line 68, ../scss/skin/_header.scss */
 #page-header .case-menu {
   padding-left: 1.85rem;
 }
-/* line 58, ../scss/skin/_header.scss */
+/* line 72, ../scss/skin/_header.scss */
 #page-header .icon-remove {
   border: 1px rgba(255, 255, 255, 0.1) solid;
   bottom: 1rem;
@@ -5988,11 +6005,11 @@ figcaption {
   -webkit-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
 }
-/* line 70, ../scss/skin/_header.scss */
+/* line 84, ../scss/skin/_header.scss */
 #page-header .icon-remove:hover {
   border-color: #fff;
 }
-/* line 74, ../scss/skin/_header.scss */
+/* line 88, ../scss/skin/_header.scss */
 #page-header.stuck {
   position: fixed;
   left: 0;
@@ -6000,12 +6017,16 @@ figcaption {
   width: 100%;
   z-index: 100;
 }
-/* line 81, ../scss/skin/_header.scss */
+/* line 94, ../scss/skin/_header.scss */
+.adminimal-menu #page-header.stuck {
+  top: 29px;
+}
+/* line 98, ../scss/skin/_header.scss */
 #page-header.overlay {
   z-index: 100;
 }
 
-/* line 86, ../scss/skin/_header.scss */
+/* line 103, ../scss/skin/_header.scss */
 #page-wrapper {
   left: 0;
   width: 100%;
@@ -6014,20 +6035,20 @@ figcaption {
   -webkit-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
 }
-/* line 90, ../scss/skin/_header.scss */
+/* line 107, ../scss/skin/_header.scss */
 #page-wrapper .primary-nav {
   overflow: hidden;
   overflow-scrolling: touch;
   -webkit-overflow-scrolling: touch;
 }
 @media only screen and (min-width: 1280px) {
-  /* line 90, ../scss/skin/_header.scss */
+  /* line 107, ../scss/skin/_header.scss */
   #page-wrapper .primary-nav {
     overflow-scrolling: none;
     -webkit-overflow-scrolling: none;
   }
 }
-/* line 99, ../scss/skin/_header.scss */
+/* line 116, ../scss/skin/_header.scss */
 .phone #page-wrapper .primary-nav {
   background: #316791;
   height: 200%;
@@ -6041,15 +6062,15 @@ figcaption {
   -webkit-transition: left 0.25s ease-in;
   transition: left 0.25s ease-in;
 }
-/* line 109, ../scss/skin/_header.scss */
+/* line 126, ../scss/skin/_header.scss */
 .phone #page-wrapper .primary-nav .stem_class {
   padding-left: 10px !important;
 }
-/* line 111, ../scss/skin/_header.scss */
+/* line 128, ../scss/skin/_header.scss */
 .phone #page-wrapper .primary-nav .stem_class > li > a {
   border-color: #3775a4 !important;
 }
-/* line 117, ../scss/skin/_header.scss */
+/* line 134, ../scss/skin/_header.scss */
 #page-wrapper .primary-nav .case-menu a {
   color: #bed6e9;
 }
@@ -6061,7 +6082,7 @@ figcaption {
 .no-touch #page-wrapper .primary-nav .case-menu a:active {
   color: #bf6f6f;
 }
-/* line 122, ../scss/skin/_header.scss */
+/* line 139, ../scss/skin/_header.scss */
 #page-wrapper .primary-nav .case-menu .stem_class > li > a {
   border-color: #3d83b7;
   color: #fff;
@@ -6074,13 +6095,13 @@ figcaption {
 .no-touch #page-wrapper .primary-nav .case-menu .stem_class > li > a:active {
   color: #bf6f6f;
 }
-/* line 130, ../scss/skin/_header.scss */
+/* line 147, ../scss/skin/_header.scss */
 #page-wrapper.open {
   left: 75%;
   overflow: hidden;
   width: 25%;
 }
-/* line 134, ../scss/skin/_header.scss */
+/* line 151, ../scss/skin/_header.scss */
 #page-wrapper.open #page-header {
   left: 75%;
   -moz-transition: left 0.25s ease-in;
@@ -6089,25 +6110,25 @@ figcaption {
   transition: left 0.25s ease-in;
 }
 @media (orientation: landscape) {
-  /* line 138, ../scss/skin/_header.scss */
+  /* line 155, ../scss/skin/_header.scss */
   #page-wrapper.open #main-content,
   #page-wrapper.open #page-footer {
     width: 568px;
   }
 }
 @media (orientation: portrait) {
-  /* line 138, ../scss/skin/_header.scss */
+  /* line 155, ../scss/skin/_header.scss */
   #page-wrapper.open #main-content,
   #page-wrapper.open #page-footer {
     width: 320px;
   }
 }
-/* line 147, ../scss/skin/_header.scss */
+/* line 164, ../scss/skin/_header.scss */
 #page-wrapper.open .primary-nav {
   border-right: 4px solid #2d5f85;
   left: 0;
 }
-/* line 150, ../scss/skin/_header.scss */
+/* line 167, ../scss/skin/_header.scss */
 #page-wrapper.open .primary-nav > .block-views {
   height: 100%;
   overflow-y: scroll;
@@ -6115,12 +6136,12 @@ figcaption {
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 159, ../scss/skin/_header.scss */
+/* line 176, ../scss/skin/_header.scss */
 .sticky-wrapper {
   overflow: visible !important;
 }
 
-/* line 166, ../scss/skin/_header.scss */
+/* line 183, ../scss/skin/_header.scss */
 html.lt-ie9 .sticky-wrapper {
   display: none;
 }
@@ -6129,7 +6150,7 @@ html.lt-ie9 .sticky-wrapper {
 /* line 2, ../scss/skin/_navigation.scss */
 .case-menu {
   font-size: 0.82rem;
-  margin-top: 0.75rem;
+  margin-top: 1rem;
 }
 /* line 5, ../scss/skin/_navigation.scss */
 .case-menu .attachment {
