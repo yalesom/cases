@@ -25,6 +25,7 @@
 
 					// if the user is in the book content type
 					if(isset($node->book)) {
+
 						$bookParent = node_load($node->book['bid']);
 
 						// if the custom logo field isn't empty
@@ -111,6 +112,19 @@
 		      <?php endif; ?>
 		
 		    <?php print render($page['content']); ?>
+<?php // krumo($bookParent); ?>
+<?php  if($bookParent->field_bottom_logo['und'][0]['uri'] && $bookParent->field_bottom_content['und'][0]['value']) { ?>
+<div id = "bottom-branding-override" class="hide">
+<?php print $bookParent->field_bottom_content['und'][0]['value']; ?>
+<?php 
+print theme('image', array(
+'path' => file_create_url($bookParent->field_bottom_logo['und'][0]['uri']),
+'style' => 'medium',
+));
+?>
+
+</div>
+<?php  }  ?>
 		  </article><!--/#main -->
 		
 		
@@ -166,3 +180,4 @@
 		</div>
 	</div>
 </div>
+
