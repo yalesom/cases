@@ -82,6 +82,15 @@
     foreach($scripts as $script) {
       drupal_add_js($script);
     }
+    
   ?>
+  <script>
+jQuery( document ).ready(function() {
+var $myDiv = jQuery('#bottom-branding-override');
+  if ( $myDiv.length){
+  jQuery("#bottom-branding-override").detach().appendTo('.disclaimer');
+  }
+});
+</script>
 </body>
 </html>
