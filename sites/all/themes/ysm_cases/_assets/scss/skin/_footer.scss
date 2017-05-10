@@ -89,12 +89,14 @@
     margin-top: 30px;
     border-top: solid 1px #000;
 }
- 
+
 
 #bottom-branding-override img {
 	margin: 10px auto;
 	text-align: center;
 	display: block;
+	max-width: 150px;
+	width: auto;
 }
 
 html.lt-ie9 {
