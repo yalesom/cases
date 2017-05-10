@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Cases Branding Update  feature.
+ */
+
+include_once 'cases_branding_update_.features.inc';
