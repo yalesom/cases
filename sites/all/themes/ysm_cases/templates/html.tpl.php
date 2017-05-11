@@ -88,6 +88,7 @@
 jQuery( document ).ready(function() {
 var $myDiv = jQuery('#bottom-branding-override');
 var $myDiv2 = jQuery('#footer-link-replacment');
+var $myDiv3 = jQuery('#bottom-logo-override');
 // add bottom info if it exists...
   if ( $myDiv.length){
   jQuery("#bottom-branding-override").detach();
@@ -96,6 +97,10 @@ var $myDiv2 = jQuery('#footer-link-replacment');
   // replace the bottom link if an override exists
   if( $myDiv2.length) {
     jQuery('li#footer-link').replaceWith($myDiv2);
+  }
+
+  if( $myDiv3.length) {
+    jQuery('p#bottom-of-page-image').replaceWith($myDiv3);
   }
 });
 </script>
