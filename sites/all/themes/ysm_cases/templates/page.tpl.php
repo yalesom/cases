@@ -131,8 +131,8 @@ print theme('image', array(
 
 
 <?php var_dump($bookParent->field_below_copyright_logo); ?>
-<?php  if($bookParent->field_below_copyright_logo['und'][0]['uri'] && $bookParent->field_below_copyright_logo['und'][0]['value']) { ?>
-<p id = "bottom-logo-override">
+<?php  if($bookParent->field_below_copyright_logo['und'][0]['uri'] && $bookParent->field_below_copyright_logo['und'][0]['uri']) { ?>
+<p id = "bottom-logo-override">new logo here...
 <?php // print $bookParent->field_below_copyright_logo['und'][0]['value']; ?>
 <?php 
 print theme('image', array(
