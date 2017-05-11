@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2017-05-10 | 200410
+ * @build 2017-05-11 | 113056
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -7006,7 +7006,7 @@ div.show-sponsor {
 }
 
 /* line 96, ../scss/skin/_footer.scss */
-#bottom-branding-override img {
+#bottom-branding-override img, #bottom-logo-override img {
   margin: 10px auto;
   text-align: center;
   display: block;
