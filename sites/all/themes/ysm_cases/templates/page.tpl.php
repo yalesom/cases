@@ -128,10 +128,12 @@ print theme('image', array(
 <?php if($bookParent->field_below_copyright_link['und'][0]['url']) { ?>
 <li id = "footer-link-replacment"><a href = "<?php print ($bookParent->field_below_copyright_link['und'][0]['url']); ?>" target = "_blank"><?php print ($bookParent->field_below_copyright_link['und'][0]['title']); ?></a></li>
 <?php } ?>
+
+
 <?php var_dump($bookParent->field_below_copyright_logo); ?>
 <?php  if($bookParent->field_below_copyright_logo['und'][0]['uri'] && $bookParent->field_below_copyright_logo['und'][0]['value']) { ?>
 <p id = "bottom-logo-override">
-<?php print $bookParent->field_below_copyright_logo['und'][0]['value']; ?>
+<?php // print $bookParent->field_below_copyright_logo['und'][0]['value']; ?>
 <?php 
 print theme('image', array(
 'path' => file_create_url($bookParent->field_below_copyright_logo['und'][0]['uri']),
