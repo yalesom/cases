@@ -93,12 +93,12 @@
 }
 
 
-#bottom-branding-override img {
+#bottom-branding-override img, #bottom-logo-override img {
 	margin: 10px auto;
 	text-align: center;
 	display: block;
 	max-width: 150px;
-	width: auto;
+	width: auto; 
 }
 
 html.lt-ie9 {
