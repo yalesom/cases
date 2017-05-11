@@ -87,8 +87,15 @@
   <script>
 jQuery( document ).ready(function() {
 var $myDiv = jQuery('#bottom-branding-override');
+var $myDiv2 = jQuery('#footer-link-replacment');
+// add bottom info if it exists...
   if ( $myDiv.length){
-  jQuery("#bottom-branding-override").detach().appendTo('.disclaimer');
+  jQuery("#bottom-branding-override").detach();
+  jQuery('.disclaimer').replaceWith($myDiv);
+  }
+  // replace the bottom link if an override exists
+  if( $myDiv2.length) {
+    jQuery('li#footer-link').replaceWith($myDiv2);
   }
 });
 </script>
