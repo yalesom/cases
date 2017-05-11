@@ -113,7 +113,9 @@
 		
 		    <?php print render($page['content']); ?>
 
-<?php  if($bookParent->field_bottom_logo['und'][0]['uri'] && $bookParent->field_bottom_content['und'][0]['value']) { ?>
+<?php 
+// branding text and logo
+ if($bookParent->field_bottom_logo['und'][0]['uri'] && $bookParent->field_bottom_content['und'][0]['value']) { ?>
 <div id = "bottom-branding-override" class="hide">
 <?php print $bookParent->field_bottom_content['und'][0]['value']; ?>
 <?php 
@@ -125,19 +127,20 @@ print theme('image', array(
 </div>
 <?php  }  ?>
 
-<?php if($bookParent->field_below_copyright_link['und'][0]['url']) { ?>
+<?php 
+// below copyright link
+if($bookParent->field_below_copyright_link['und'][0]['url']) { ?>
 <li id = "footer-link-replacment"><a href = "<?php print ($bookParent->field_below_copyright_link['und'][0]['url']); ?>" target = "_blank"><?php print ($bookParent->field_below_copyright_link['und'][0]['title']); ?></a></li>
 <?php } ?>
 
-
-<?php var_dump($bookParent->field_below_copyright_logo); ?>
-<?php  if($bookParent->field_below_copyright_logo['und'][0]['uri'] && $bookParent->field_below_copyright_logo['und'][0]['uri']) { ?>
+<?php  
+// logo in copyright area..
+if($bookParent->field_below_copyright_logo['und'][0]['uri'] && $bookParent->field_below_copyright_logo['und'][0]['uri']) { ?>
 <p id = "bottom-logo-override">
 <?php 
 print theme('image', array(
 'path' => file_create_url($bookParent->field_below_copyright_logo['und'][0]['uri']),
 'style' => 'medium',
-'alt' => $bookParent->field_below_copyright_logo['und'][0]['field_file_image_alt_text'][0],
 ));
 ?>
 </div>
