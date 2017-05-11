@@ -88,7 +88,7 @@
 jQuery( document ).ready(function() {
 var $myDiv = jQuery('#bottom-branding-override');
 var $myDiv2 = jQuery('#footer-link-replacment');
-var $myDiv3 = jQuery('#bottom-of-page-replacement');
+var $myDiv3 = jQuery('#bottom-logo-override');
 // add bottom info if it exists...
   if ( $myDiv.length){
   jQuery("#bottom-branding-override").detach();
