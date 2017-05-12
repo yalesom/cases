@@ -3,7 +3,6 @@ description = Adminimal plus Chosen
 base theme = adminimal
 core = 7.x
 
-stylesheets[all][] = assets/distribution/css/style-overrides.app.min.css
 scripts[] = assets/distribution/js/vendors.app.min.js
 scripts[] = assets/distribution/js/scripts.app.min.js
 
