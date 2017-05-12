@@ -1,7 +1,7 @@
 /**
  * YaleSOM - Cases Platform
  * @version 0.1.0
- * @build 2017-05-11 | 113056
+ * @build 2017-05-12 | 133106
  * @author Square360, Inc.
  * @client Yale School of Management
  */
@@ -411,7 +411,7 @@
 /*
  * Correct `block` display not defined in IE 8/9.
  */
-/* line 22, ../scss/inuit.css-master/generic/_normalize.scss */
+/* line 11, ../scss/inuit.css-master/generic/_normalize.scss */
 article,
 aside,
 details,
@@ -430,7 +430,7 @@ summary {
 /*
  * Correct `inline-block` display not defined in IE 8/9.
  */
-/* line 32, ../scss/inuit.css-master/generic/_normalize.scss */
+/* line 30, ../scss/inuit.css-master/generic/_normalize.scss */
 audio,
 canvas,
 video {
@@ -495,7 +495,7 @@ a:focus {
 /*
  * Improve readability when focused and also mouse hovered in all browsers.
  */
-/* line 95, ../scss/inuit.css-master/generic/_normalize.scss */
+/* line 94, ../scss/inuit.css-master/generic/_normalize.scss */
 a:active,
 a:hover {
   outline: 0;
@@ -525,7 +525,7 @@ abbr[title] {
 /*
  * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
  */
-/* line 126, ../scss/inuit.css-master/generic/_normalize.scss */
+/* line 125, ../scss/inuit.css-master/generic/_normalize.scss */
 b,
 strong {
   font-weight: bold;
@@ -561,7 +561,7 @@ mark {
 /*
  * Correct font family set oddly in Safari 5 and Chrome.
  */
-/* line 164, ../scss/inuit.css-master/generic/_normalize.scss */
+/* line 161, ../scss/inuit.css-master/generic/_normalize.scss */
 code,
 kbd,
 pre,
@@ -597,7 +597,7 @@ small {
 /*
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
-/* line 198, ../scss/inuit.css-master/generic/_normalize.scss */
+/* line 197, ../scss/inuit.css-master/generic/_normalize.scss */
 sub,
 sup {
   font-size: 75%;
@@ -676,7 +676,7 @@ legend {
  * 2. Correct font size not being inherited in all browsers.
  * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
  */
-/* line 278, ../scss/inuit.css-master/generic/_normalize.scss */
+/* line 275, ../scss/inuit.css-master/generic/_normalize.scss */
 button,
 input,
 select,
@@ -693,7 +693,7 @@ textarea {
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
-/* line 290, ../scss/inuit.css-master/generic/_normalize.scss */
+/* line 289, ../scss/inuit.css-master/generic/_normalize.scss */
 button,
 input {
   line-height: normal;
@@ -705,7 +705,7 @@ input {
  * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
  * Correct `select` style inheritance in Firefox 4+ and Opera.
  */
-/* line 302, ../scss/inuit.css-master/generic/_normalize.scss */
+/* line 301, ../scss/inuit.css-master/generic/_normalize.scss */
 button,
 select {
   text-transform: none;
@@ -718,7 +718,7 @@ select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
-/* line 317, ../scss/inuit.css-master/generic/_normalize.scss */
+/* line 314, ../scss/inuit.css-master/generic/_normalize.scss */
 button,
 html input[type="button"],
 input[type="reset"],
@@ -732,7 +732,7 @@ input[type="submit"] {
 /*
  * Re-set default cursor for disabled elements.
  */
-/* line 327, ../scss/inuit.css-master/generic/_normalize.scss */
+/* line 326, ../scss/inuit.css-master/generic/_normalize.scss */
 button[disabled],
 html input[disabled] {
   cursor: default;
@@ -742,7 +742,7 @@ html input[disabled] {
  * 1. Address box sizing set to `content-box` in IE 8/9.
  * 2. Remove excess padding in IE 8/9.
  */
-/* line 337, ../scss/inuit.css-master/generic/_normalize.scss */
+/* line 336, ../scss/inuit.css-master/generic/_normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -770,7 +770,7 @@ input[type="search"] {
  * Remove inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
  */
-/* line 361, ../scss/inuit.css-master/generic/_normalize.scss */
+/* line 360, ../scss/inuit.css-master/generic/_normalize.scss */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -779,7 +779,7 @@ input[type="search"]::-webkit-search-decoration {
 /*
  * Remove inner padding and border in Firefox 4+.
  */
-/* line 370, ../scss/inuit.css-master/generic/_normalize.scss */
+/* line 369, ../scss/inuit.css-master/generic/_normalize.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -820,7 +820,7 @@ table {
 /**
 * Let’s make the box model all nice, shall we...?
 */
-/* line 16, ../scss/inuit.css-master/generic/_reset.scss */
+/* line 14, ../scss/inuit.css-master/generic/_reset.scss */
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -832,7 +832,7 @@ table {
 /**
  * The usual...
  */
-/* line 30, ../scss/inuit.css-master/generic/_reset.scss */
+/* line 25, ../scss/inuit.css-master/generic/_reset.scss */
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 dl, dd, ol, ul,
@@ -873,7 +873,7 @@ img {
 /**
  * Give form elements some cursor interactions...
  */
-/* line 71, ../scss/inuit.css-master/generic/_reset.scss */
+/* line 66, ../scss/inuit.css-master/generic/_reset.scss */
 label,
 input,
 textarea,
@@ -883,7 +883,7 @@ option {
   cursor: pointer;
 }
 
-/* line 77, ../scss/inuit.css-master/generic/_reset.scss */
+/* line 74, ../scss/inuit.css-master/generic/_reset.scss */
 .text-input:active,
 .text-input:focus,
 textarea:active,
@@ -918,7 +918,7 @@ textarea:focus {
 /**
  * Base elements
  */
-/* line 24, ../scss/inuit.css-master/generic/_shared.scss */
+/* line 12, ../scss/inuit.css-master/generic/_shared.scss */
 h1, h2, h3, h4, h5, h6, hgroup,
 ul, ol, dl,
 blockquote, p, address,
@@ -1087,7 +1087,7 @@ hgroup .hN {
  * The `.lede` class is used to make the introductory text (usually a paragraph)
  * of a document slightly larger.
  */
-/* line 9, ../scss/inuit.css-master/base/_paragraphs.scss */
+/* line 8, ../scss/inuit.css-master/base/_paragraphs.scss */
 .lede,
 .lead {
   font-size: 18px;
@@ -1101,7 +1101,7 @@ hgroup .hN {
 /**
  * A series of classes for setting tiny type; for use in smallprint etc.
  */
-/* line 8, ../scss/inuit.css-master/base/_smallprint.scss */
+/* line 7, ../scss/inuit.css-master/base/_smallprint.scss */
 .smallprint,
 .milli {
   font-size: 12px;
@@ -1130,7 +1130,7 @@ hgroup .hN {
  */
 /* line 20, ../scss/inuit.css-master/base/_quotes.scss */
 q {
-  quotes: "\2018" "\2019" "\201C" "\201D";
+  quotes: "‘" "’" "\\201C" "\\201D";
 }
 /* line 23, ../scss/inuit.css-master/base/_quotes.scss */
 q:before {
@@ -1155,11 +1155,11 @@ q q:after {
 
 /* line 42, ../scss/inuit.css-master/base/_quotes.scss */
 blockquote {
-  quotes: "\201C" "\201D";
+  quotes: "\\201C" "\\201D";
 }
 /* line 45, ../scss/inuit.css-master/base/_quotes.scss */
 blockquote p:before {
-  content: "\201C";
+  content: "\\201C";
   content: open-quote;
 }
 /* line 49, ../scss/inuit.css-master/base/_quotes.scss */
@@ -1169,7 +1169,7 @@ blockquote p:after {
 }
 /* line 53, ../scss/inuit.css-master/base/_quotes.scss */
 blockquote p:last-of-type:after {
-  content: "\201D";
+  content: "\\201D";
   content: close-quote;
 }
 /* line 58, ../scss/inuit.css-master/base/_quotes.scss */
@@ -1305,7 +1305,7 @@ img {
 /**
  * Non-fluid images if you specify `width` and/or `height` attributes.
  */
-/* line 19, ../scss/inuit.css-master/base/_images.scss */
+/* line 18, ../scss/inuit.css-master/base/_images.scss */
 img[width],
 img[height] {
   max-width: none;
@@ -1379,7 +1379,7 @@ figure > img {
 /**
  * Remove vertical spacing from nested lists.
  */
-/* line 9, ../scss/inuit.css-master/base/_lists.scss */
+/* line 8, ../scss/inuit.css-master/base/_lists.scss */
 li > ul,
 li > ol {
   margin-bottom: 0;
@@ -1456,14 +1456,14 @@ table {
   width: 100%;
 }
 
-/* line 62, ../scss/inuit.css-master/base/_tables.scss */
+/* line 61, ../scss/inuit.css-master/base/_tables.scss */
 th,
 td {
   padding: 5px;
   text-align: left;
 }
 @media screen and (min-width: 480px) {
-  /* line 62, ../scss/inuit.css-master/base/_tables.scss */
+  /* line 61, ../scss/inuit.css-master/base/_tables.scss */
   th,
   td {
     padding: 10px;
@@ -1641,10 +1641,10 @@ td {
 /**
  * Bordered tables
  */
-/* line 129, ../scss/inuit.css-master/base/_tables.scss */
+/* line 128, ../scss/inuit.css-master/base/_tables.scss */
 .table--bordered th,
 .table--bordered td {
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
 }
 /* line 132, ../scss/inuit.css-master/base/_tables.scss */
 .table--bordered th:empty,
@@ -1700,7 +1700,7 @@ fieldset {
    <input type=password class=text-input>
  *
  */
-/* line 25, ../scss/inuit.css-master/base/_forms.scss */
+/* line 24, ../scss/inuit.css-master/base/_forms.scss */
 .text-input,
 textarea {
   /**
@@ -1764,7 +1764,7 @@ textarea {
    </li>
  *
  */
-/* line 90, ../scss/inuit.css-master/base/_forms.scss */
+/* line 89, ../scss/inuit.css-master/base/_forms.scss */
 label,
 .label {
   display: block;
@@ -1806,7 +1806,7 @@ label,
 /*
  * Labels in check-lists
  */
-/* line 129, ../scss/inuit.css-master/base/_forms.scss */
+/* line 127, ../scss/inuit.css-master/base/_forms.scss */
 .check-label,
 .check-list label,
 .check-list .label {
@@ -1853,7 +1853,7 @@ label,
   visibility: hidden;
 }
 
-/* line 172, ../scss/inuit.css-master/base/_forms.scss */
+/* line 171, ../scss/inuit.css-master/base/_forms.scss */
 .text-input:active + .extra-help,
 .text-input:focus + .extra-help {
   visibility: visible;
@@ -2058,7 +2058,7 @@ html.flexbox {
   list-style: none;
   margin-left: 0;
 }
-/* line 29, ../scss/inuit.css-master/objects/_nav.scss */
+/* line 28, ../scss/inuit.css-master/objects/_nav.scss */
 .nav > li, .tabs.primary > li, .breadcrumbs > li,
 .nav > li > a,
 .tabs.primary > li > a,
@@ -2197,7 +2197,7 @@ html.flexbox {
  */
 /* line 26, ../scss/inuit.css-master/objects/_options.scss */
 .options > li > a {
-  border: 0 solid #cccccc;
+  border: 0 solid #ccc;
   border-width: 1px;
   border-left-width: 0;
 }
@@ -2319,7 +2319,7 @@ html.flexbox {
  */
 /* line 51, ../scss/inuit.css-master/objects/_breadcrumb.scss */
 .breadcrumb > li + li[data-breadcrumb]:before, .breadcrumbs > li + li[data-breadcrumb]:before {
-  content: attr(data-breadcrumb) "\00A0";
+  content: attr(data-breadcrumb) " ";
 }
 
 /**
@@ -2358,7 +2358,7 @@ html.flexbox {
   padding-left: 0.3125em;
   /* =1.50em */
   text-align: center;
-  background-color: #cccccc;
+  background-color: #ccc;
   color: #fff;
   /* Override this color in your theme stylesheet */
   /**
@@ -2385,7 +2385,7 @@ html.flexbox {
  */
 /* line 12, ../scss/inuit.css-master/objects/_rules.scss */
 .rule {
-  color: #cccccc;
+  color: #ccc;
   border: none;
   border-bottom-width: 1px;
   border-bottom-style: solid;
@@ -4873,16 +4873,16 @@ html.flexbox {
  */
 /* line 8, ../scss/inuit.css-master/generic/_brand.scss */
 .brand {
-  font-family: "ff-meta-web-pro", clean, sans-serif!important;
+  font-family: ff-meta-web-pro, clean, sans-serif!important;
   color: #00457c!important;
 }
 
 /* line 12, ../scss/inuit.css-master/generic/_brand.scss */
 .brand-face {
-  font-family: "ff-meta-web-pro", clean, sans-serif!important;
+  font-family: ff-meta-web-pro, clean, sans-serif!important;
 }
 
-/* line 16, ../scss/inuit.css-master/generic/_brand.scss */
+/* line 15, ../scss/inuit.css-master/generic/_brand.scss */
 .brand-color,
 .brand-colour {
   color: #00457c!important;
@@ -5233,7 +5233,7 @@ html.flexbox {
  */
 /* line 144, ../scss/inuit.css-master/generic/_helper.scss */
 .go:after {
-  content: "\00A0" "\00BB" !important;
+  content: " " "»" !important;
 }
 
 /**
@@ -5248,7 +5248,7 @@ html.flexbox {
  * Hide content off-screen without resorting to `display:none;`, also provide
  * breakpoint specific hidden elements.
  */
-/* line 172, ../scss/inuit.css-master/generic/_helper.scss */
+/* line 171, ../scss/inuit.css-master/generic/_helper.scss */
 .accessibility,
 .visuallyhidden {
   border: 0 !important;
@@ -5262,7 +5262,7 @@ html.flexbox {
 }
 
 @media only screen and (max-width: 767px) {
-  /* line 179, ../scss/inuit.css-master/generic/_helper.scss */
+  /* line 178, ../scss/inuit.css-master/generic/_helper.scss */
   .accessibility--palm,
   .visuallyhidden--palm {
     border: 0 !important;
@@ -5276,7 +5276,7 @@ html.flexbox {
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  /* line 179, ../scss/inuit.css-master/generic/_helper.scss */
+  /* line 178, ../scss/inuit.css-master/generic/_helper.scss */
   .accessibility--lap,
   .visuallyhidden--lap {
     border: 0 !important;
@@ -5290,7 +5290,7 @@ html.flexbox {
   }
 }
 @media only screen and (min-width: 768px) {
-  /* line 179, ../scss/inuit.css-master/generic/_helper.scss */
+  /* line 178, ../scss/inuit.css-master/generic/_helper.scss */
   .accessibility--lap-and-up,
   .visuallyhidden--lap-and-up {
     border: 0 !important;
@@ -5304,7 +5304,7 @@ html.flexbox {
   }
 }
 @media only screen and (max-width: 1023px) {
-  /* line 179, ../scss/inuit.css-master/generic/_helper.scss */
+  /* line 178, ../scss/inuit.css-master/generic/_helper.scss */
   .accessibility--portable,
   .visuallyhidden--portable {
     border: 0 !important;
@@ -5318,7 +5318,7 @@ html.flexbox {
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 179, ../scss/inuit.css-master/generic/_helper.scss */
+  /* line 178, ../scss/inuit.css-master/generic/_helper.scss */
   .accessibility--desk,
   .visuallyhidden--desk {
     border: 0 !important;
@@ -5332,7 +5332,7 @@ html.flexbox {
   }
 }
 @media only screen and (min-width: 1280px) {
-  /* line 179, ../scss/inuit.css-master/generic/_helper.scss */
+  /* line 178, ../scss/inuit.css-master/generic/_helper.scss */
   .accessibility--desk-wide,
   .visuallyhidden--desk-wide {
     border: 0 !important;
@@ -5353,7 +5353,6 @@ html.flexbox {
   font-weight: normal;
   font-style: normal;
 }
-
 /* line 8, ../scss/skin/_ysm118-icomoon.scss */
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
@@ -5567,12 +5566,12 @@ a {
   color: #3775a4;
   position: relative;
   text-decoration: none;
-  -webkit-transition: all 0.25s ease-out;
   -moz-transition: all 0.25s ease-out;
   -o-transition: all 0.25s ease-out;
+  -webkit-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out;
 }
-/* line 33, ../scss/skin/_common.scss */
+/* line 32, ../scss/skin/_common.scss */
 .no-touch a:hover, .no-touch a:focus {
   color: #1f2021;
 }
@@ -5643,14 +5642,14 @@ figcaption {
 /* line 99, ../scss/skin/_common.scss */
 ::-moz-selection {
   background: #1f2021;
-  color: white;
+  color: #fff;
   text-shadow: none;
 }
 
 /* line 105, ../scss/skin/_common.scss */
 ::selection {
   background: #1f2021;
-  color: white;
+  color: #fff;
   text-shadow: none;
 }
 
@@ -5683,10 +5682,10 @@ figcaption {
 /* line 149, ../scss/skin/_common.scss */
 .button, .not-logged-in .user-login #edit-submit {
   border: none;
-  -webkit-box-shadow: none;
   -moz-box-shadow: none;
+  -webkit-box-shadow: none;
   box-shadow: none;
-  color: white;
+  color: #fff;
   display: block;
   font-size: 1.29rem;
   padding: 0.5em;
@@ -5701,7 +5700,7 @@ figcaption {
 /* line 163, ../scss/skin/_common.scss */
 .no-touch .button:hover, .no-touch .not-logged-in .user-login #edit-submit:hover, .not-logged-in .user-login .no-touch #edit-submit:hover {
   background: #1f2021;
-  color: white;
+  color: #fff;
 }
 
 /* line 170, ../scss/skin/_common.scss */
@@ -5825,8 +5824,8 @@ figcaption {
 
 /* line 13, ../scss/skin/_structure.scss */
 #main-content {
-  background: white;
-  border-bottom: 1px #cccccc solid;
+  background: #fff;
+  border-bottom: 1px #ccc solid;
   padding-top: 1.75rem;
   position: relative;
   z-index: 10;
@@ -5865,7 +5864,7 @@ figcaption {
 }
 
 /* Opera hack */
-/* line 95, ../scss/skin/_structure.scss */
+/* line 94, ../scss/skin/_structure.scss */
 .opera:-o-prefocus,
 .grid,
 #main-content .section-wrap,
@@ -5876,7 +5875,7 @@ figcaption {
   word-spacing: -0.43em;
 }
 
-/* line 100, ../scss/skin/_structure.scss */
+/* line 99, ../scss/skin/_structure.scss */
 .grid__item, #main-content .highlight, #main-content .main-content, #main-content .sidebar, .case-menu .item-list .stem_class > li, .case-tiles .view-content .tile, .document-tiles .view-content .tile, .document-list .view-content .view-grouping,
 .messages {
   letter-spacing: normal;
@@ -5895,7 +5894,7 @@ figcaption {
 
 /* line 12, ../scss/skin/_admin.scss */
 #ckeditor_custom_id {
-  background: white;
+  background: #fff;
   padding: 1.875em;
 }
 /* line 15, ../scss/skin/_admin.scss */
@@ -5908,7 +5907,7 @@ figcaption {
 /* line 2, ../scss/skin/_header.scss */
 #page-header {
   background: #3775a4;
-  color: white;
+  color: #fff;
   position: relative;
 }
 /* line 6, ../scss/skin/_header.scss */
@@ -5941,7 +5940,7 @@ figcaption {
 #page-header .header-main {
   margin-right: 4.29rem;
 }
-/* line 29, ../scss/skin/_header.scss */
+/* line 28, ../scss/skin/_header.scss */
 #page-header .primary-nav,
 #page-header .header-sections {
   margin-right: 4.29rem;
@@ -5956,7 +5955,7 @@ figcaption {
   font-size: 1.63rem;
   position: absolute;
 }
-/* line 45, ../scss/skin/_header.scss */
+/* line 44, ../scss/skin/_header.scss */
 #page-header .case-details .case-name,
 #page-header .case-details .case-num {
   padding-left: 1.85rem;
@@ -5981,19 +5980,17 @@ figcaption {
   position: absolute;
   right: 1.625rem;
   text-align: center;
-  -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
-  -ms-border-radius: 100px;
-  -o-border-radius: 100px;
+  -webkit-border-radius: 100px;
   border-radius: 100px;
-  -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   -o-transition: all 0.25s ease-in;
+  -webkit-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
 }
 /* line 70, ../scss/skin/_header.scss */
 #page-header .icon-remove:hover {
-  border-color: white;
+  border-color: #fff;
 }
 /* line 74, ../scss/skin/_header.scss */
 #page-header.stuck {
@@ -6012,9 +6009,9 @@ figcaption {
 #page-wrapper {
   left: 0;
   width: 100%;
-  -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   -o-transition: all 0.25s ease-in;
+  -webkit-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
 }
 /* line 90, ../scss/skin/_header.scss */
@@ -6039,9 +6036,9 @@ figcaption {
   top: 0;
   width: 75%;
   z-index: 200;
-  -webkit-transition: left 0.25s ease-in;
   -moz-transition: left 0.25s ease-in;
   -o-transition: left 0.25s ease-in;
+  -webkit-transition: left 0.25s ease-in;
   transition: left 0.25s ease-in;
 }
 /* line 109, ../scss/skin/_header.scss */
@@ -6067,7 +6064,7 @@ figcaption {
 /* line 122, ../scss/skin/_header.scss */
 #page-wrapper .primary-nav .case-menu .stem_class > li > a {
   border-color: #3d83b7;
-  color: white;
+  color: #fff;
 }
 /* line 33, ../scss/skin/_mixins.scss */
 .no-touch #page-wrapper .primary-nav .case-menu .stem_class > li > a:hover {
@@ -6086,20 +6083,20 @@ figcaption {
 /* line 134, ../scss/skin/_header.scss */
 #page-wrapper.open #page-header {
   left: 75%;
-  -webkit-transition: left 0.25s ease-in;
   -moz-transition: left 0.25s ease-in;
   -o-transition: left 0.25s ease-in;
+  -webkit-transition: left 0.25s ease-in;
   transition: left 0.25s ease-in;
 }
 @media (orientation: landscape) {
-  /* line 139, ../scss/skin/_header.scss */
+  /* line 138, ../scss/skin/_header.scss */
   #page-wrapper.open #main-content,
   #page-wrapper.open #page-footer {
     width: 568px;
   }
 }
 @media (orientation: portrait) {
-  /* line 139, ../scss/skin/_header.scss */
+  /* line 138, ../scss/skin/_header.scss */
   #page-wrapper.open #main-content,
   #page-wrapper.open #page-footer {
     width: 320px;
@@ -6168,7 +6165,7 @@ html.lt-ie9 .sticky-wrapper {
 }
 /* line 13, ../scss/skin/_mixins.scss */
 .case-menu .item-list .stem_class > li a.active:before {
-  content: " \f041";
+  content: " ";
   font-family: "ysm118-icomoon";
   display: inline-block;
 }
@@ -6183,7 +6180,7 @@ html.lt-ie9 .sticky-wrapper {
 }
 /* line 41, ../scss/skin/_navigation.scss */
 .case-menu .item-list .stem_class > li > a {
-  border-top: 1px #cccccc solid;
+  border-top: 1px #ccc solid;
   color: #00457c;
   font-weight: 700;
   padding-top: 0.5rem;
@@ -6211,7 +6208,7 @@ html.lt-ie9 .sticky-wrapper {
 }
 /* line 13, ../scss/skin/_mixins.scss */
 .case-menu .item-list .stem_class > li .item-list ul li a.active:before {
-  content: " \f041";
+  content: " ";
   font-family: "ysm118-icomoon";
   display: inline-block;
 }
@@ -6246,19 +6243,19 @@ html.lt-ie9 .sticky-wrapper {
 .breadcrumbs li:first-child span {
   display: none;
 }
-/* line 15, ../scss/skin/_breadcrumb.scss */
+/* line 14, ../scss/skin/_breadcrumb.scss */
 .breadcrumbs li:first-child a, .breadcrumbs li:first-child.current {
   font-size: 1.29rem;
 }
 /* line 13, ../scss/skin/_mixins.scss */
 .breadcrumbs li:first-child a:before, .breadcrumbs li:first-child.current:before {
-  content: " \f015";
+  content: " ";
   font-family: "ysm118-icomoon";
   display: inline-block;
 }
 /* line 19, ../scss/skin/_breadcrumb.scss */
 .breadcrumbs li:first-child.current:after {
-  color: #cccccc;
+  color: #ccc;
   content: "\f105";
   display: inline-block;
   font-family: 'ysm118-icomoon';
@@ -6266,13 +6263,13 @@ html.lt-ie9 .sticky-wrapper {
 }
 /* line 13, ../scss/skin/_mixins.scss */
 .breadcrumbs > li + li:before {
-  content: " \f105";
+  content: " ";
   font-family: "ysm118-icomoon";
   display: inline-block;
 }
 /* line 29, ../scss/skin/_breadcrumb.scss */
 .breadcrumbs > li + li:before {
-  color: #cccccc;
+  color: #ccc;
   font-size: 1.29rem;
   margin: 0 0.5em;
 }
@@ -6295,8 +6292,8 @@ html.lt-ie9 .sticky-wrapper {
 }
 /* line 17, ../scss/skin/_case.scss */
 .case-tiles .view-content .tile i {
-  border: 2px white solid;
-  color: white;
+  border: 2px #fff solid;
+  color: #fff;
   display: none;
   font-size: 3.43rem;
   left: 0.5em;
@@ -6306,10 +6303,8 @@ html.lt-ie9 .sticky-wrapper {
   text-align: center;
   top: 0.25em;
   width: 2em;
-  -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
-  -ms-border-radius: 1em;
-  -o-border-radius: 1em;
+  -webkit-border-radius: 1em;
   border-radius: 1em;
 }
 /* line 31, ../scss/skin/_case.scss */
@@ -6322,19 +6317,19 @@ html.lt-ie9 .sticky-wrapper {
   background: #1f2021;
   background: rgba(31, 32, 33, 0.8);
   bottom: 0;
-  color: #cccccc;
+  color: #ccc;
   height: 33%;
   padding: 1em;
   position: absolute;
   width: 100%;
-  -webkit-transition: all 0.25s ease-out;
   -moz-transition: all 0.25s ease-out;
   -o-transition: all 0.25s ease-out;
+  -webkit-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out;
 }
 /* line 46, ../scss/skin/_case.scss */
 .case-tiles .view-content .tile .header {
-  color: white;
+  color: #fff;
   margin-bottom: 0.5em;
 }
 /* line 49, ../scss/skin/_case.scss */
@@ -6352,9 +6347,9 @@ html.lt-ie9 .sticky-wrapper {
   visibility: hidden;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
-  -webkit-transition: opacity 0.25s ease-out;
   -moz-transition: opacity 0.25s ease-out;
   -o-transition: opacity 0.25s ease-out;
+  -webkit-transition: opacity 0.25s ease-out;
   transition: opacity 0.25s ease-out;
 }
 /* line 65, ../scss/skin/_case.scss */
@@ -6384,13 +6379,13 @@ html.lt-ie9 .sticky-wrapper {
   background: rgba(31, 32, 33, 0.8);
   height: 100%;
 }
-/* line 94, ../scss/skin/_case.scss */
+/* line 93, ../scss/skin/_case.scss */
 .case-tiles .view-content .tile:hover .teaser,
 .case-tiles .view-content .tile:hover .button,
 .case-tiles .view-content .tile:hover .not-logged-in .user-login #edit-submit,
 .not-logged-in .user-login .case-tiles .view-content .tile:hover #edit-submit {
   visibility: visible;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 /* line 99, ../scss/skin/_case.scss */
@@ -6409,13 +6404,13 @@ html.lt-ie9 .sticky-wrapper {
     right: 0;
     width: 50%;
   }
-  /* line 120, ../scss/skin/_case.scss */
+  /* line 119, ../scss/skin/_case.scss */
   .case-tiles .view-content .tile.xlarge .teaser,
   .case-tiles .view-content .tile.xlarge .button,
   .case-tiles .view-content .tile.xlarge .not-logged-in .user-login #edit-submit,
   .not-logged-in .user-login .case-tiles .view-content .tile.xlarge #edit-submit {
     visibility: visible;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
     opacity: 1;
   }
   /* line 124, ../scss/skin/_case.scss */
@@ -6429,7 +6424,7 @@ html.lt-ie9 .sticky-wrapper {
     position: relative;
     right: auto;
     visibility: visible;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
     opacity: 1;
   }
   /* line 136, ../scss/skin/_case.scss */
@@ -6461,7 +6456,7 @@ html.lt-ie9 .sticky-wrapper {
   .case-tiles .view-content .tile.xlarge .teaser, .case-tiles .view-content .tile.large .teaser, .case-tiles .view-content .tile.medium .teaser, .case-tiles .view-content .tile.small .teaser {
     font-size: 0.88rem;
   }
-  /* line 181, ../scss/skin/_case.scss */
+  /* line 180, ../scss/skin/_case.scss */
   .case-tiles .view-content .tile.xlarge .header,
   .case-tiles .view-content .tile.xlarge .button,
   .case-tiles .view-content .tile.xlarge .not-logged-in .user-login #edit-submit,
@@ -6484,7 +6479,7 @@ html.lt-ie9 .sticky-wrapper {
   }
 }
 @media only screen and (max-width: 568px) {
-  /* line 192, ../scss/skin/_case.scss */
+  /* line 191, ../scss/skin/_case.scss */
   .case-tiles .view-content .tile.xlarge .teaser,
   .case-tiles .view-content .tile.xlarge .button,
   .case-tiles .view-content .tile.xlarge .not-logged-in .user-login #edit-submit,
@@ -6532,7 +6527,7 @@ html.lt-ie9 .sticky-wrapper {
 
 /* line 226, ../scss/skin/_case.scss */
 .sponsor {
-  border: 2px #cccccc solid;
+  border: 2px #ccc solid;
   padding: 2rem;
   text-align: center;
 }
@@ -6553,7 +6548,7 @@ body.not-logged-in .case-abstract {
 /* !------------- Page content type styles ------------- */
 /* line 2, ../scss/skin/_page.scss */
 .document-tiles {
-  border-top: #cccccc 5px solid;
+  border-top: #ccc 5px solid;
   padding-top: 0.75rem;
 }
 @media only screen and (min-width: 568px) {
@@ -6580,12 +6575,12 @@ body.not-logged-in .case-abstract {
 /* line 45, ../scss/skin/_mixins.scss */
 .document-tiles .view-content .tile:hover .tooltip {
   visibility: visible;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 /* line 50, ../scss/skin/_mixins.scss */
 .document-tiles .view-content .tile .tooltip {
-  color: #cccccc;
+  color: #ccc;
   display: block;
   min-width: 100px;
   pointer-events: none;
@@ -6597,9 +6592,9 @@ body.not-logged-in .case-abstract {
   z-index: 100;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
-  -webkit-transition: opacity 0.25s ease-out;
   -moz-transition: opacity 0.25s ease-out;
   -o-transition: opacity 0.25s ease-out;
+  -webkit-transition: opacity 0.25s ease-out;
   transition: opacity 0.25s ease-out;
 }
 /* line 64, ../scss/skin/_mixins.scss */
@@ -6640,7 +6635,7 @@ body.not-logged-in .case-abstract {
 }
 /* line 58, ../scss/skin/_page.scss */
 .document-tiles .view-content .tile i {
-  color: white;
+  color: #fff;
   display: none;
   font-size: 2.57rem;
   left: 0.5em;
@@ -6658,18 +6653,18 @@ body.not-logged-in .case-abstract {
   background: #1f2021;
   background: rgba(31, 32, 33, 0.8);
   bottom: 0;
-  color: #cccccc;
+  color: #ccc;
   padding: 0.5em;
   position: absolute;
   width: 100%;
-  -webkit-transition: all 0.25s ease-out;
   -moz-transition: all 0.25s ease-out;
   -o-transition: all 0.25s ease-out;
+  -webkit-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out;
 }
 /* line 81, ../scss/skin/_page.scss */
 .document-tiles .view-content .tile .header {
-  color: white;
+  color: #fff;
   line-height: 1.25em;
   display: inline-block;
 }
@@ -6696,7 +6691,7 @@ body.not-logged-in .case-abstract {
 }
 /* line 122, ../scss/skin/_page.scss */
 .document-list .view-content .view-grouping-content {
-  border-top: #cccccc 5px solid;
+  border-top: #ccc 5px solid;
   padding-top: 0.75rem;
 }
 /* line 126, ../scss/skin/_page.scss */
@@ -6711,12 +6706,12 @@ body.not-logged-in .case-abstract {
 /* line 45, ../scss/skin/_mixins.scss */
 .document-list .item-list .item:hover .tooltip {
   visibility: visible;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 /* line 50, ../scss/skin/_mixins.scss */
 .document-list .item-list .item .tooltip {
-  color: #cccccc;
+  color: #ccc;
   display: block;
   min-width: 100px;
   pointer-events: none;
@@ -6728,9 +6723,9 @@ body.not-logged-in .case-abstract {
   z-index: 100;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
-  -webkit-transition: opacity 0.25s ease-out;
   -moz-transition: opacity 0.25s ease-out;
   -o-transition: opacity 0.25s ease-out;
+  -webkit-transition: opacity 0.25s ease-out;
   transition: opacity 0.25s ease-out;
 }
 /* line 64, ../scss/skin/_mixins.scss */
@@ -6767,7 +6762,7 @@ body.not-logged-in .case-abstract {
   top: 0.3rem;
   font-size: 125%;
 }
-/* line 148, ../scss/skin/_page.scss */
+/* line 147, ../scss/skin/_page.scss */
 .document-list .item-list .item .filetype,
 .document-list .item-list .item .filesize {
   color: #777777;
@@ -6780,7 +6775,7 @@ body.not-logged-in .case-abstract {
 
 /* line 159, ../scss/skin/_page.scss */
 .page-node #page-title {
-  border-top: 1px #cccccc solid;
+  border-top: 1px #ccc solid;
   padding-top: 0.5rem;
 }
 @media only screen and (min-width: 568px) {
@@ -6799,12 +6794,12 @@ body.not-logged-in .case-abstract {
 /* line 174, ../scss/skin/_page.scss */
 .book-navigation .page-links {
   border-bottom: none;
-  border-top-color: #cccccc;
+  border-top-color: #ccc;
 }
 
 /* line 180, ../scss/skin/_page.scss */
 .browser-detect-notice {
-  background: white;
+  background: #fff;
   border: 4px solid #dd8d66;
   height: 5em;
   margin-bottom: 1em;
@@ -6839,7 +6834,7 @@ div.show-sponsor {
 @media only screen and (min-width: 768px) {
   /* line 7, ../scss/skin/_login.scss */
   .not-logged-in #sidebar-second {
-    border-left: #cccccc 1px solid;
+    border-left: #ccc 1px solid;
   }
   /* line 10, ../scss/skin/_login.scss */
   .not-logged-in .sidebar {
@@ -6857,15 +6852,15 @@ div.show-sponsor {
 .not-logged-in .user-login {
   margin-bottom: 3rem;
 }
-/* line 24, ../scss/skin/_login.scss */
+/* line 23, ../scss/skin/_login.scss */
 .not-logged-in .user-login label,
 .not-logged-in .user-login .item-list {
   display: none;
 }
-/* line 28, ../scss/skin/_login.scss */
+/* line 27, ../scss/skin/_login.scss */
 .not-logged-in .user-login #edit-name,
 .not-logged-in .user-login #edit-pass {
-  border: 1px #cccccc solid;
+  border: 1px #ccc solid;
   padding: 0.5rem;
 }
 /* line 31, ../scss/skin/_login.scss */
@@ -6929,7 +6924,7 @@ div.show-sponsor {
 }
 /* line 25, ../scss/skin/_footer.scss */
 #page-footer .case-sponsors {
-  background: #cccccc;
+  background: #ccc;
   font-size: 0.88rem;
   margin: 1rem 0;
   padding: 2rem;
@@ -6980,7 +6975,7 @@ div.show-sponsor {
 }
 /* line 73, ../scss/skin/_footer.scss */
 #page-footer .footer-last {
-  border-top: 1px #cccccc solid;
+  border-top: 1px #ccc solid;
   font-size: 0.88rem;
   margin-top: 1rem;
   padding-top: 1rem;
@@ -7000,13 +6995,13 @@ div.show-sponsor {
 
 /* line 89, ../scss/skin/_footer.scss */
 #bottom-branding-override p {
-  font-size: 19px !important;
-  text-align: left;
+  color: #777777;
+  font-size: 0.75rem;
   padding: 15px 0;
 }
 
 /* line 96, ../scss/skin/_footer.scss */
-#bottom-branding-override img, #bottom-logo-override img {
+#bottom-branding-override img {
   margin: 10px auto;
   text-align: center;
   display: block;
@@ -7014,7 +7009,19 @@ div.show-sponsor {
   width: auto;
 }
 
-/* line 105, ../scss/skin/_footer.scss */
+/* line 104, ../scss/skin/_footer.scss */
+#bottom-logo-override img {
+  max-width: 80%;
+  height: auto;
+}
+@media screen and (min-width: 768px) {
+  /* line 104, ../scss/skin/_footer.scss */
+  #bottom-logo-override img {
+    max-width: 40%;
+  }
+}
+
+/* line 113, ../scss/skin/_footer.scss */
 html.lt-ie9 .full-logo {
   display: none;
 }
@@ -7025,7 +7032,7 @@ html.lt-ie9 .full-logo {
   height: 0em;
   top: -20em;
   overflow: hidden;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #ccc;
   padding-top: 2.5rem;
   padding-bottom: 1rem;
   position: absolute;
@@ -7041,9 +7048,9 @@ html.lt-ie9 .full-logo {
   min-height: 20em;
   height: auto;
   position: relative;
-  -webkit-transition: all 0.25s ease-out;
   -moz-transition: all 0.25s ease-out;
   -o-transition: all 0.25s ease-out;
+  -webkit-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out;
 }
 /* line 25, ../scss/skin/_modal-panel.scss */
@@ -7081,14 +7088,12 @@ html.lt-ie9 .full-logo {
   position: absolute;
   right: 0em;
   bottom: .5em;
-  -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
-  -ms-border-radius: 100px;
-  -o-border-radius: 100px;
+  -webkit-border-radius: 100px;
   border-radius: 100px;
-  -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   -o-transition: all 0.25s ease-in;
+  -webkit-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
 }
 /* line 63, ../scss/skin/_modal-panel.scss */
@@ -7122,7 +7127,7 @@ html.lt-ie9 .full-logo {
 
 /* line 20, ../scss/skin/_footnotes.scss */
 section.footnotes::before {
-  border-top: 1px solid #cccccc;
+  border-top: 1px solid #ccc;
   content: '';
   display: block;
   margin: 2rem 0;
@@ -7168,7 +7173,7 @@ section.footnotes::before {
   background: #fff;
 }
 
-/* line 42, ../scss/skin/_bxslider.scss */
+/* line 41, ../scss/skin/_bxslider.scss */
 .bx-wrapper .bx-pager,
 .bx-wrapper .bx-controls-auto {
   position: absolute;
@@ -7180,7 +7185,7 @@ section.footnotes::before {
 /* line 50, ../scss/skin/_bxslider.scss */
 .bx-wrapper .bx-loading {
   min-height: 50px;
-  background: url(../images/bx_loader.gif) center center no-repeat white;
+  background: url(../images/bx_loader.gif) center center no-repeat #fff;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -7200,7 +7205,7 @@ section.footnotes::before {
   padding-top: 20px;
 }
 
-/* line 73, ../scss/skin/_bxslider.scss */
+/* line 72, ../scss/skin/_bxslider.scss */
 .bx-wrapper .bx-pager .bx-pager-item,
 .bx-wrapper .bx-controls-auto .bx-controls-auto-item {
   display: inline-block;
@@ -7222,7 +7227,7 @@ section.footnotes::before {
   border-radius: 5px;
 }
 
-/* line 93, ../scss/skin/_bxslider.scss */
+/* line 92, ../scss/skin/_bxslider.scss */
 .bx-wrapper .bx-pager.bx-default-pager a:hover,
 .bx-wrapper .bx-pager.bx-default-pager a.active {
   background: #000;
@@ -7289,7 +7294,7 @@ section.footnotes::before {
   margin: 0 3px;
 }
 
-/* line 153, ../scss/skin/_bxslider.scss */
+/* line 152, ../scss/skin/_bxslider.scss */
 .bx-wrapper .bx-controls-auto .bx-start:hover,
 .bx-wrapper .bx-controls-auto .bx-start.active {
   background-position: -86px 0;
@@ -7306,7 +7311,7 @@ section.footnotes::before {
   margin: 0 3px;
 }
 
-/* line 168, ../scss/skin/_bxslider.scss */
+/* line 167, ../scss/skin/_bxslider.scss */
 .bx-wrapper .bx-controls-auto .bx-stop:hover,
 .bx-wrapper .bx-controls-auto .bx-stop.active {
   background-position: -86px -33px;
@@ -7331,7 +7336,7 @@ section.footnotes::before {
   position: absolute;
   bottom: 0;
   left: 0;
-  background: #666666 \9;
+  background: #666 \9;
   background: rgba(80, 80, 80, 0.75);
   width: 100%;
 }
@@ -7375,7 +7380,7 @@ section.footnotes::before {
 
 /* line 1, ../scss/skin/_highcharts.scss */
 .chart-footnote {
-  border-top: 1px solid #cccccc;
+  border-top: 1px solid #ccc;
   margin-top: 0.625rem;
 }
 
@@ -7401,9 +7406,9 @@ section.footnotes::before {
   width: auto;
   background: white !important;
   vertical-align: top;
-  -webkit-box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3) 2px;
-  -moz-box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3) 2px;
-  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3) 2px;
+  -moz-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
 }
 /* line 22, ../scss/skin/_sheetnode.scss */
 .sheetview table tbody {
@@ -7444,7 +7449,7 @@ section.footnotes::before {
 }
 /* line 54, ../scss/skin/_sheetnode.scss */
 .sheetview table tr:nth-child(odd) > td {
-  background-color: white;
+  background-color: #fff;
 }
 /* line 55, ../scss/skin/_sheetnode.scss */
 .sheetview table tr:nth-child(even) > td {
@@ -7453,13 +7458,13 @@ section.footnotes::before {
 /* line 57, ../scss/skin/_sheetnode.scss */
 .sheetview table tr:nth-child(2) > td {
   background-color: #3775a4;
-  color: white;
+  color: #fff;
   padding-top: .55rem !important;
   padding-bottom: .55rem !important;
 }
 /* line 64, ../scss/skin/_sheetnode.scss */
 .sheetview table tr:nth-child(3) > td {
-  background-color: #cccccc;
+  background-color: #ccc;
 }
 /* line 70, ../scss/skin/_sheetnode.scss */
 .sheetview img {
@@ -7480,9 +7485,9 @@ section.footnotes::before {
 }
 /* line 83, ../scss/skin/_sheetnode.scss */
 .sheetview .defaultPeer {
-  -webkit-box-shadow: inset 0 0 2px blue 0;
-  -moz-box-shadow: inset 0 0 2px blue 0;
-  box-shadow: inset 0 0 2px blue 0;
+  -moz-box-shadow: inset 0 0 0 2px blue;
+  -webkit-box-shadow: inset 0 0 0 2px blue;
+  box-shadow: inset 0 0 0 2px blue;
 }
 
 /* line 88, ../scss/skin/_sheetnode.scss */
@@ -7659,7 +7664,6 @@ body:last-child .sheetview .defaultPeer {
   font-weight: normal;
   font-style: normal;
 }
-
 /* line 8, ../scss/skin/_ysm118-icomoon.scss */
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
