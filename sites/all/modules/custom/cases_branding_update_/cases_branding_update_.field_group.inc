@@ -20,7 +20,7 @@ function cases_branding_update__field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_case';
   $field_group->data = array(
-    'label' => 'Branding',
+    'label' => 'Custom Branding',
     'weight' => '16',
     'children' => array(
       0 => 'field_custom_logo',
@@ -31,19 +31,20 @@ function cases_branding_update__field_group_info() {
     ),
     'format_type' => 'htab',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'label' => 'Custom Branding',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-branding field-group-htab',
         'required_fields' => 1,
+        'classes' => 'group-branding field-group-htab',
+        'description' => '',
       ),
+      'formatter' => 'closed',
     ),
   );
   $field_groups['group_branding|node|book|form'] = $field_group;
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Branding');
+  t('Custom Branding');
 
   return $field_groups;
 }

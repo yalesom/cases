@@ -188,6 +188,7 @@ function cases_branding_update__field_default_field_instances() {
     'default_value' => array(
       0 => array(
         'value' => '',
+        'format' => 'full_html',
       ),
     ),
     'deleted' => 0,
@@ -216,7 +217,7 @@ function cases_branding_update__field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_bottom_content',
-    'label' => 'Bottom Content',
+    'label' => 'Custom Footer Content',
     'required' => 0,
     'settings' => array(
       'better_formats' => array(
@@ -379,8 +380,8 @@ function cases_branding_update__field_default_field_instances() {
   t('Allows you to override the default link and text ');
   t('Below Copyright Link');
   t('Below Copyright Logo');
-  t('Bottom Content');
   t('Bottom Logo');
+  t('Custom Footer Content');
 
   return $field_instances;
 }
