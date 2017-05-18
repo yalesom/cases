@@ -25,6 +25,7 @@
 
 					// if the user is in the book content type
 					if(isset($node->book)) {
+
 						$bookParent = node_load($node->book['bid']);
 
 						// if the custom logo field isn't empty
@@ -111,6 +112,39 @@
 		      <?php endif; ?>
 		
 		    <?php print render($page['content']); ?>
+
+<?php 
+// branding text and logo
+ if($bookParent->field_bottom_logo['und'][0]['uri'] && $bookParent->field_bottom_content['und'][0]['value']) { ?>
+<div id = "bottom-branding-override" class="hide">
+<?php print $bookParent->field_bottom_content['und'][0]['value']; ?>
+<?php 
+print theme('image', array(
+'path' => file_create_url($bookParent->field_bottom_logo['und'][0]['uri']),
+'style' => 'medium',
+));
+?>
+</div>
+<?php  }  ?>
+
+<?php 
+// below copyright link
+if($bookParent->field_below_copyright_link['und'][0]['url']) { ?>
+<li id = "footer-link-replacment"><a href = "<?php print ($bookParent->field_below_copyright_link['und'][0]['url']); ?>" target = "_blank"><?php print ($bookParent->field_below_copyright_link['und'][0]['title']); ?></a></li>
+<?php } ?>
+
+<?php  
+// logo in copyright area..
+if($bookParent->field_below_copyright_logo['und'][0]['uri'] && $bookParent->field_below_copyright_logo['und'][0]['uri']) { ?>
+<p id = "bottom-logo-override">
+<?php 
+print theme('image', array(
+'path' => file_create_url($bookParent->field_below_copyright_logo['und'][0]['uri']),
+'style' => 'medium',
+));
+?>
+</div>
+<?php  }  ?>
 		  </article><!--/#main -->
 		
 		
@@ -166,3 +200,4 @@
 		</div>
 	</div>
 </div>
+

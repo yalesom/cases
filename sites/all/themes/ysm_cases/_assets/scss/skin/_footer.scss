@@ -82,9 +82,36 @@
 		margin: 3rem auto; 
 	}
 }
+#bottom-branding-override {
+	border-top: solid 1px #ccc;
+	margin-top: 15px; 
+}
+ #bottom-branding-override p {
+    color: $mediumGrey;
+	font-size: 0.75rem;
+	padding: 15px 0;
+}
+
+
+#bottom-branding-override img {
+	margin: 10px auto;
+	text-align: center;
+	display: block;
+	max-width: 150px;
+	width: auto; 
+}
+
+ #bottom-logo-override img {
+	 max-width: 80%;
+	 height: auto;
+	 @media screen and (min-width:768px){
+		 max-width: 40%;
+	 }
+ }
 
 html.lt-ie9 {
 	.full-logo {
 		display: none;
 	}
 }
+
