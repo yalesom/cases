@@ -1,4 +1,19 @@
-node_modules
+# Ignore paths that contain user-generated content.
+/sites/default/files
+/sites/default/private
+/files/*
+/cache
+
+# ** Only works in OSs that support newer versions of fnmatch (Bash 4+)
+/sites/default/default/files
+/sites/default/default/private
+
+# Private settings files
+/sites/default/local.settings.php
+/sites/default/prod.settings.php
+
+# Packages #
+############
 *.7z
 *.dmg
 *.gz
@@ -9,36 +24,61 @@ node_modules
 *.tar
 *.zip
 *.tgz
+
+# Logs and databases #
+######################
 *.log
 *.sql
+
+# OS generated files #
+######################
 .DS_Store*
 ehthumbs.db
 Icon?
 Thumbs.db
 ._*
+
+# Vim generated files #
+######################
 *.un~
+
+# SASS #
+##########
 .sass-cache
+
+
+# SUBL & other editors #
+########################
 sftp-config.json
 .idea
 .buildpath
 .project
 .settings*
-*.sublime-project
-*.sublime-workspace
+
+/test.php
+
 codekit-config.json
 config.codekit
-.codekit-cache
-temp
-.DS_Store
-.htacess
-sites/all/themes/ysm_cases/_assets/.sass-cache*
-sites/all/themes/gnam_cases/_assets/.sass-cache*
-sites/*/files
-sites/*/private
-files/*
-cache
-sites/default/**/files
-sites/default/**/private
-sites/default/local.settings.php
-sites/default/prod.settings.php
-sites/default/*.settings.php
+/yale.komodoproject
+
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+/nbproject/private/
+
+node_modules
+sites/all/themes/yale_portal/Gemfile.lock
+
+#MBA and eMBA were moved to their own repos
+MBA
+eMBA
+sites/all/themes/yale/Gemfile.lock
+
+#Composer build we only want to keep composer.json , .gitignore and sites/all
+/*
+!.gitignore
+!composer_post_install.sh
+!composer.json
+!README.md
+!sites/
+!sites/all/
