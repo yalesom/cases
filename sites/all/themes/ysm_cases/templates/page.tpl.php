@@ -115,14 +115,20 @@
 
 <?php 
 // branding text and logo
- if($bookParent->field_bottom_logo['und'][0]['uri'] && $bookParent->field_bottom_content['und'][0]['value']) { ?>
-<div id = "bottom-branding-override" class="hide">
-<?php print $bookParent->field_bottom_content['und'][0]['value']; ?>
-<?php 
-print theme('image', array(
-'path' => file_create_url($bookParent->field_bottom_logo['und'][0]['uri']),
-'style' => 'medium',
-));
+// create the div if either exists.
+if(isset($bookParent->field_bottom_content['und'][0]['value']) 
+|| isset($bookParent->field_bottom_logo['und'][0]['uri'])) {	
+print '<div id = "bottom-branding-override" class="hide">';
+	if(isset($bookParent->field_bottom_content['und'][0]['value'])) { 
+   print $bookParent->field_bottom_content['und'][0]['value']; 
+ 	}
+	 
+	if(isset($bookParent->field_bottom_logo['und'][0]['uri'])) {
+	print theme('image', array(
+	'path' => file_create_url($bookParent->field_bottom_logo['und'][0]['uri']),
+	'style' => 'medium',
+	));
+	}
 ?>
 </div>
 <?php  }  ?>
