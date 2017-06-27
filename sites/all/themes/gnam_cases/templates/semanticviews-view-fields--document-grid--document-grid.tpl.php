@@ -38,5 +38,3 @@ $inlineHTML = $fields['field_inline_html']->content;
 	</div>
 
 <?php endif ?>
-
-<img src=“image.jpg” alt=“image description” title=“image tooltip”>
