@@ -25,7 +25,26 @@ function ysom_cases_update_7002() {
 }
 
 /**
- * Implements hook_node_presave
+ * Implements hook_node_validate
+ *  Make sure the three part date is a valid date
+ */
+function ysom_cases_node_validate($node, $form, &$form_state) {
+  $values = $form_state['values'];
+  $y = substr($values['field_video_year'][LANGUAGE_NONE][0]['value'] , 0 , 4);
+  $m = $values['field_video_month'][LANGUAGE_NONE][0]['value'];
+  $d = $values['field_video_day'][LANGUAGE_NONE][0]['value'];
+
+  if (isset($d)) {
+    $entered_date = "$m $d $y";
+    $computed_date = date('F j Y' ,strtotime($entered_date));
+    if ($entered_date != $computed_date) {
+      $msg = "Invalid Video Date entered";
+      form_set_error('field_video_day' , $msg);
+    }
+  }
+}
+
+ /* Implements hook_node_presave
  *  this is needed because the fields dependecy module does not always
  *  resets dependent fields when dependee is not set
  */
@@ -34,13 +53,13 @@ function ysom_cases_node_presave($node){
     $remove = 0;
     $month = $node->field_warpwire_month;
     $day = $node->field_warpwire_day;
-    if (array_key_exists('value' , $node->field_warpwire_year[LANGUAGE_NONE][0])) {
-      if (!is_string($node->field_warpwire_year[LANGUAGE_NONE][0]['value'])) {
+    if (array_key_exists('value' , $node->field_video_year[LANGUAGE_NONE][0])) {
+      if (!is_string($node->field_video_year[LANGUAGE_NONE][0]['value'])) {
         $remove = 2;
       } else {
         // we have a year and its valid...lets check to see if we have a month
-        if (array_key_exists('value' , $node->field_warpwire_month[LANGUAGE_NONE][0])) {
-          if (!is_string($node->field_warpwire_month[LANGUAGE_NONE][0]['value'])) {
+        if (array_key_exists('value' , $node->field_video_month[LANGUAGE_NONE][0])) {
+          if (!is_string($node->field_video_month[LANGUAGE_NONE][0]['value'])) {
             $remove = 1;
           }
         } else {
@@ -52,8 +71,8 @@ function ysom_cases_node_presave($node){
     }
     if ($remove) {
       $index_ary = array(
-        1 => 'field_warpwire_day',
-        2 => 'field_warpwire_month',
+        1 => 'field_video_day',
+        2 => 'field_video_month',
       );
       for ($x = 1 ; $x<=$remove ; $x++) {
         $index = $index_ary[$x];
