@@ -291,15 +291,8 @@ function warpwire_video_node_type_field_default_field_instances() {
       'default' => array(
         'label' => 'inline',
         'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-          'show_remaining_days' => FALSE,
-        ),
-        'type' => 'date_default',
+        'settings' => array(),
+        'type' => 'date_plain',
         'weight' => 1,
       ),
       'full' => array(
