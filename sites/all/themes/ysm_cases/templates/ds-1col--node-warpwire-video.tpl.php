@@ -42,7 +42,7 @@
 		} else {
 			$dash = '';
 		}
-		print "<i> $date $dash $location </i>";
+		print "<p><i> $date $dash $location </i></p>";
 
 	// close the div element
 	print '</div>';
