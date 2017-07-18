@@ -21,7 +21,7 @@ function warpwire_video_node_type_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'hidden',
-    'weight' => '6',
+    'weight' => '10',
     'children' => array(
       0 => 'body',
     ),

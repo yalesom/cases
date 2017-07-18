@@ -17,14 +17,22 @@
 		// Warpwire Video Date and Location logic
 		$date = null;
 		$location = null;
+		$day = null;
 		if (array_key_exists('field_video_month' , $content)) {
-			$date = $content['field_video_month'][0]['#markup'];
+			$month = $content['field_video_month'][0]['#markup'];
 		}
 		if (array_key_exists('field_video_day' , $content)) {
-			$date .= ' ' . $content['field_video_day'][0]['#markup'];
+			$day = $content['field_video_day'][0]['#markup'];
 		}
 		if (array_key_exists('field_video_year' , $content)) {
-			$date .= ' ' .substr($content['field_video_year'][0]['#markup'] , 0 , 4);
+			$year = substr($content['field_video_year'][0]['#markup'] , 0 , 4);
+		}
+		if (isset($day)) {
+			$date = "$month $day, $year";
+		} else {
+			if (isset($month) || isset($day) || isset($year)) {
+				$date = "$month $day $year";
+			}
 		}
 		if (array_key_exists('field_video_location' , $content)) {
 			$location = ' ' . $content['field_video_location'][0]['#markup'];

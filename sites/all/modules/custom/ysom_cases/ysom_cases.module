@@ -30,16 +30,32 @@ function ysom_cases_update_7002() {
  */
 function ysom_cases_node_validate($node, $form, &$form_state) {
   $values = $form_state['values'];
-  $y = substr($values['field_video_year'][LANGUAGE_NONE][0]['value'] , 0 , 4);
-  $m = $values['field_video_month'][LANGUAGE_NONE][0]['value'];
-  $d = $values['field_video_day'][LANGUAGE_NONE][0]['value'];
 
-  if (isset($d)) {
+  if (isset($values['field_video_year'][LANGUAGE_NONE][0]['value']) &&
+    isset($values['field_video_month'][LANGUAGE_NONE][0]['value']) &&
+    isset($values['field_video_day'][LANGUAGE_NONE][0]['value'])) {
+
+    $y = substr($values['field_video_year'][LANGUAGE_NONE][0]['value'] , 0 , 4);
+    $m = $values['field_video_month'][LANGUAGE_NONE][0]['value'];
+    $d = $values['field_video_day'][LANGUAGE_NONE][0]['value'];
+
     $entered_date = "$m $d $y";
     $computed_date = date('F j Y' ,strtotime($entered_date));
     if ($entered_date != $computed_date) {
-      $msg = "Invalid Video Date entered";
+      $msg = "Invalid Video Date entered:  $entered_date";
       form_set_error('field_video_day' , $msg);
+    }
+  }
+}
+
+function ysom_cases_date_select_process_alter(&$element, &$form_state, $context) {
+  if ($context['form']['#form_id'] == 'warpwire_video_node_form') {
+    if (array_key_exists('year' , $element)) {
+      if (is_array($element['year']) && array_key_exists('#options' , $element['year'])) {
+        reset($element['year']['#options']);
+        $k = key($element['year']['#options']);
+        $element['year']['#options'][$k] = '- None -';
+      }
     }
   }
 }
