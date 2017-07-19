@@ -170,24 +170,10 @@ function warpwire_video_node_type_field_default_field_bases() {
     ),
     'indexes' => array(),
     'locked' => 0,
-    'module' => 'date',
-    'settings' => array(
-      'cache_count' => 4,
-      'cache_enabled' => 0,
-      'granularity' => array(
-        'day' => 0,
-        'hour' => 0,
-        'minute' => 0,
-        'month' => 0,
-        'second' => 0,
-        'year' => 'year',
-      ),
-      'timezone_db' => '',
-      'todate' => '',
-      'tz_handling' => 'none',
-    ),
+    'module' => 'number',
+    'settings' => array(),
     'translatable' => 0,
-    'type' => 'datetime',
+    'type' => 'number_integer',
   );
 
   // Exported field_base: 'field_warpwire_embed'.

@@ -27,7 +27,7 @@ function warpwire_video_node_type_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 16,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -76,7 +76,7 @@ function warpwire_video_node_type_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 18,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -144,7 +144,7 @@ function warpwire_video_node_type_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 6,
+      'weight' => 5,
     ),
     'workbench_access_field' => 0,
   );
@@ -231,7 +231,7 @@ function warpwire_video_node_type_field_default_field_instances() {
         'size' => 125,
       ),
       'type' => 'text_textfield',
-      'weight' => 7,
+      'weight' => 6,
     ),
     'workbench_access_field' => 0,
   );
@@ -277,7 +277,7 @@ function warpwire_video_node_type_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 5,
+      'weight' => 4,
     ),
     'workbench_access_field' => 0,
   );
@@ -285,21 +285,32 @@ function warpwire_video_node_type_field_default_field_instances() {
   // Exported field_instance: 'node-warpwire_video-field_video_year'.
   $field_instances['node-warpwire_video-field_video_year'] = array(
     'bundle' => 'warpwire_video',
+    'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Enter year of video, if available (YYYY).',
     'display' => array(
       'default' => array(
-        'label' => 'inline',
-        'module' => 'date',
-        'settings' => array(),
-        'type' => 'date_plain',
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => 0,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
         'weight' => 1,
       ),
       'full' => array(
-        'label' => 'hidden',
-        'module' => 'date',
-        'settings' => array(),
-        'type' => 'date_plain',
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
         'weight' => 1,
       ),
       'teaser' => array(
@@ -315,27 +326,18 @@ function warpwire_video_node_type_field_default_field_instances() {
     'label' => 'Video Year',
     'required' => 0,
     'settings' => array(
-      'default_value' => 'blank',
-      'default_value2' => 'same',
-      'default_value_code' => '',
-      'default_value_code2' => '',
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'date',
-      'settings' => array(
-        'display_all_day' => 0,
-        'increment' => 15,
-        'input_format' => 'custom',
-        'input_format_custom' => '\'y\'',
-        'label_position' => 'above',
-        'no_fieldset' => 0,
-        'text_parts' => array(),
-        'year_range' => '+1:-10',
-      ),
-      'type' => 'date_select',
-      'weight' => 4,
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 3,
     ),
     'workbench_access_field' => 0,
   );
@@ -435,6 +437,7 @@ function warpwire_video_node_type_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Access Control');
   t('Body');
+  t('Enter year of video, if available (YYYY).');
   t('Video Day');
   t('Video Location');
   t('Video Month');

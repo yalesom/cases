@@ -48,18 +48,6 @@ function ysom_cases_node_validate($node, $form, &$form_state) {
   }
 }
 
-function ysom_cases_date_select_process_alter(&$element, &$form_state, $context) {
-  if ($context['form']['#form_id'] == 'warpwire_video_node_form') {
-    if (array_key_exists('year' , $element)) {
-      if (is_array($element['year']) && array_key_exists('#options' , $element['year'])) {
-        reset($element['year']['#options']);
-        $k = key($element['year']['#options']);
-        $element['year']['#options'][$k] = '- None -';
-      }
-    }
-  }
-}
-
  /* Implements hook_node_presave
  *  this is needed because the fields dependecy module does not always
  *  resets dependent fields when dependee is not set

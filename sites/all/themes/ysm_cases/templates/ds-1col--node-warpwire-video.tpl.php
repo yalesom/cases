@@ -18,6 +18,7 @@
 		$date = null;
 		$location = null;
 		$day = null;
+		dpm($content);
 		if (array_key_exists('field_video_month' , $content)) {
 			$month = $content['field_video_month'][0]['#markup'];
 		}
@@ -25,7 +26,7 @@
 			$day = $content['field_video_day'][0]['#markup'];
 		}
 		if (array_key_exists('field_video_year' , $content)) {
-			$year = substr($content['field_video_year'][0]['#markup'] , 0 , 4);
+			$year = $content['field_video_year'][0]['#markup'];
 		}
 		if (isset($day)) {
 			$date = "$month $day, $year";
