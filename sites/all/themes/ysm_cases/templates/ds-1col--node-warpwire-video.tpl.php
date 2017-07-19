@@ -18,7 +18,6 @@
 		$date = null;
 		$location = null;
 		$day = null;
-		dpm($content);
 		if (array_key_exists('field_video_month' , $content)) {
 			$month = $content['field_video_month'][0]['#markup'];
 		}
