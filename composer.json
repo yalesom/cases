@@ -11,7 +11,6 @@
     "require": {
         "composer/installers": "~1.0",
         "cweagans/composer-patches": "~1.0",
-        "derhasi/composer-preserve-paths": "0.1.*",
         "drupal/drupal": "7.56",
         "drupal/admin_views": "1.6",
         "drupal/media": "2.9",
@@ -22,7 +21,7 @@
     },
     "scripts": {
         "post-update-cmd": [
-          "rm -rf core-sites/sites",
+          "mv core-sites/sites tmp",
           "./composer_post_install.sh",
           "rm -rf core-sites"
         ]
