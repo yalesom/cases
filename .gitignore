@@ -87,3 +87,7 @@ sites/all/themes/yale/Gemfile.lock
 sites/all/modules/contrib/media
 sites/all/modules/contrib/views
 sites/all/modules/contrib/admin_views
+sites/all/modules/contrib/ctools
+sites/all/modules/contrib/entity
+sites/all/modules/contrib/file_entity
+sites/all/modules/contrib/views_bulk_operation

@@ -36,6 +36,10 @@
         "core-sites":["type:drupal-core"],
         "sites/all/modules/contrib/admin_views": ["type:drupal-module"],
         "sites/all/modules/contrib/media": ["type:drupal-module"],
+        "sites/all/modules/contrib/ctools": ["type:drupal-module"],
+        "sites/all/modules/contrib/entity": ["type:drupal-module"],
+        "sites/all/modules/contrib/file_entity": ["type:drupal-module"],
+        "sites/all/modules/contrib/views_bulk_operation": ["type:drupal-module"],
         "sites/all/modules/contrib/views": ["type:drupal-module"]
       },
       "preserve-paths": [
