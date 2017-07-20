@@ -21,7 +21,7 @@
     },
     "scripts": {
         "post-update-cmd": [
-          "mv core-sites/sites tmp",
+          "rm -rf core-sites/sites",
           "./composer_post_install.sh",
           "rm -rf core-sites"
         ]
