@@ -1,28 +1,19 @@
 
-/**
- *  @file
- *  README for the Media Module.
- */
+Welcome to Views 3. Please see the advanced help for more information.
 
-See -https://www.drupal.org/documentation/modules/media
+If you're having trouble installing this module, please ensure that your
+tar program is not flattening the directory tree, truncating filenames
+or losing files.
 
-Site Building Guide ->
- \/ Media and files
-    \/ Media 
-- https://www.drupal.org/documentation/modules/media
-     > Media Internet Sources
-     . Media and file cleanup
-     . Media: YouTube upload
-     > Upgrading Media 7.x-1.x to 7.x-2.x
-     . Using existing files (FTP uploads etc)
-     . Media Installation and distributions
-     . Media 2.x Quick Start Guide
-     . Displaying Media
-     . Media Library
-     . Media Roadmap
-     > Media Recipes (custom FORM, developer recipes)
-     > Media Developer Documentation (Outdated)
-     > Media FAQ (Outdated)
-     . Media Vimeo Uploader  
+Installing Views:
 
-items preceded with a '>' indicate more available media module documentation sub categories
+Place the entirety of this directory in sites/all/modules/views
+You must also install the CTools module (http://www.drupal.org/project/ctools)  to use Views.
+
+Navigate to administer >> build >> modules. Enable Views and Views UI.
+
+If you're new to Views, try the Simple Views module which can create some
+often used Views for you, this might save you some time.
+
+Here you can find many modules extending the functionality of Views:
+  http://drupal.org/taxonomy/term/89
