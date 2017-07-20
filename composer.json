@@ -16,9 +16,9 @@
         "drupal/ctools": "1.12",
         "drupal/entity": "1.8",
         "drupal/file_entity": "2.3",
-        "drupal/views_bulk_operations": "3.4",
         "drupal/media": "2.9",
-        "drupal/views": "3.16.0-rc1"
+        "drupal/views": "3.16.0-rc1",
+        "drupal/views_bulk_operations": "3.4"
     },
     "conflict": {
       "drupal/core": "8.*"
@@ -39,12 +39,12 @@
       "installer-paths": {
         "core-sites":["type:drupal-core"],
         "sites/all/modules/contrib/admin_views": ["type:drupal-module"],
-        "sites/all/modules/contrib/media": ["type:drupal-module"],
         "sites/all/modules/contrib/ctools": ["type:drupal-module"],
         "sites/all/modules/contrib/entity": ["type:drupal-module"],
         "sites/all/modules/contrib/file_entity": ["type:drupal-module"],
-        "sites/all/modules/contrib/views_bulk_operatios": ["type:drupal-module"],
-        "sites/all/modules/contrib/views": ["type:drupal-module"]
+        "sites/all/modules/contrib/media": ["type:drupal-module"],
+        "sites/all/modules/contrib/views": ["type:drupal-module"],
+        "sites/all/modules/contrib/views_bulk_operatios": ["type:drupal-module"]
       },
       "preserve-paths": [
         "sites/all/drush",
