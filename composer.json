@@ -1,6 +1,6 @@
 {
     "name": "Cases-site",
-    "description": "Somweb Composer install",
+    "description": "Cases Composer install",
      "repositories": {
         "drupal": {
             "type": "composer",
@@ -12,7 +12,10 @@
         "composer/installers": "~1.0",
         "cweagans/composer-patches": "~1.0",
         "derhasi/composer-preserve-paths": "0.1.*",
-        "drupal/drupal": "7.54"
+        "drupal/drupal": "7.56",
+        "drupal/admin_views": "1.6",
+        "drupal/media": "2.9",
+        "drupal/views": "3.16.0-rc1"
     },
     "conflict": {
       "drupal/core": "8.*"
@@ -31,7 +34,10 @@
     "prefer-stable": true,
     "extra": {
       "installer-paths": {
-        "core-sites/":["type:drupal-core"]
+        "core-sites":["type:drupal-core"],
+        "sites/all/modules/contrib/admin_views": ["type:drupal-module"],
+        "sites/all/modules/contrib/media": ["type:drupal-module"],
+        "sites/all/modules/contrib/views": ["type:drupal-module"]
       },
       "preserve-paths": [
         "sites/all/drush",
@@ -40,4 +46,3 @@
       ]
     }
 }
-

@@ -82,3 +82,8 @@ sites/all/themes/yale/Gemfile.lock
 !README.md
 !sites/
 !sites/all/
+
+# Now we have started adding contrib modules to composer so lets ignore those folders
+sites/all/modules/contrib/media
+sites/all/modules/contrib/views
+sites/all/modules/contrib/admin_views
