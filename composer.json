@@ -9,8 +9,8 @@
         }
     },
     "require": {
-        "composer/installers": "~1.0",
-        "cweagans/composer-patches": "~1.0",
+        "davidbarratt/custom-installer": "dev-master",
+        "derhasi/composer-preserve-paths": "0.1.*",
         "drupal/drupal": "7.56",
         "drupal/admin_views": "1.6",
         "drupal/ctools": "1.12",
@@ -36,15 +36,13 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {
-      "installer-paths": {
-        "core-sites":["type:drupal-core"],
-        "sites/all/modules/contrib/admin_views": ["type:drupal-module"],
-        "sites/all/modules/contrib/ctools": ["type:drupal-module"],
-        "sites/all/modules/contrib/entity": ["type:drupal-module"],
-        "sites/all/modules/contrib/file_entity": ["type:drupal-module"],
-        "sites/all/modules/contrib/media": ["type:drupal-module"],
-        "sites/all/modules/contrib/views": ["type:drupal-module"],
-        "sites/all/modules/contrib/views_bulk_operatios": ["type:drupal-module"]
+      "custom-installer": {
+        "drupal-module": "sites/all/modules/contrib/{$name}/",
+        "drupal-theme": "sites/all/themes/contrib/{$name}/",
+        "drupal-library": "sites/all/libraries/{$name}/",
+        "drupal-drush": "sites/all/drush/{$name}/",
+        "drupal-profile": "profiles/{$name}/",
+        "drupal-core": "core-sites/"
       },
       "preserve-paths": [
         "sites/all/drush",
@@ -54,3 +52,4 @@
       ]
     }
 }
+
