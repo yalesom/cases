@@ -49,7 +49,8 @@
       "preserve-paths": [
         "sites/all/drush",
         "sites/default/settings.php",
-        "sites/default/files"
+        "sites/default/files",
+        "sites/all/modules/contrib"
       ]
     }
 }
