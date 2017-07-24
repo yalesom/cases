@@ -1,5 +1,5 @@
 {
-    "name": "Cases-site",
+    "name": "cases/som",
     "description": "Cases Composer install",
      "repositories": {
         "drupal": {
