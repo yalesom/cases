@@ -1,6 +1,6 @@
 {
-    "name": "Cases-site",
-    "description": "Somweb Composer install",
+    "name": "cases/som",
+    "description": "Cases Composer install",
      "repositories": {
         "drupal": {
             "type": "composer",
@@ -9,10 +9,16 @@
         }
     },
     "require": {
-        "composer/installers": "~1.0",
-        "cweagans/composer-patches": "~1.0",
+        "davidbarratt/custom-installer": "dev-master",
         "derhasi/composer-preserve-paths": "0.1.*",
-        "drupal/drupal": "7.54"
+        "drupal/drupal": "7.56",
+        "drupal/admin_views": "1.6",
+        "drupal/ctools": "1.12",
+        "drupal/entity": "1.8",
+        "drupal/file_entity": "2.3",
+        "drupal/media": "2.9",
+        "drupal/views": "3.16.0-rc1",
+        "drupal/views_bulk_operations": "3.4"
     },
     "conflict": {
       "drupal/core": "8.*"
@@ -30,13 +36,19 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {
-      "installer-paths": {
-        "core-sites/":["type:drupal-core"]
+      "custom-installer": {
+        "drupal-module": "sites/all/modules/contrib/{$name}/",
+        "drupal-theme": "sites/all/themes/contrib/{$name}/",
+        "drupal-library": "sites/all/libraries/{$name}/",
+        "drupal-drush": "sites/all/drush/{$name}/",
+        "drupal-profile": "profiles/{$name}/",
+        "drupal-core": "core-sites/"
       },
       "preserve-paths": [
         "sites/all/drush",
         "sites/default/settings.php",
-        "sites/default/files"
+        "sites/default/files",
+        "sites/all/modules/contrib"
       ]
     }
 }
