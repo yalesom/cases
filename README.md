@@ -11,7 +11,8 @@ composer  -- See https://getcomposer.org/
 
 ## Notes
 * All of your changes should be done in sites/all (libraries, modules, themes)
-* For now all Contrib modules will be Versioned.  In the future this will be done with composer
+* ~For now all Contrib modules will be Versioned.  In the future this will be done with composer~
+* The contrib changes have started in composer.  For any new or updated Contrib Module require the exact version on composer.  Also .gitignore the module.
 * If you create / modify a file outside of sites/all your changes will be ignored by git
 
 ## Roadmap
