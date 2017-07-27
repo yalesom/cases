@@ -29,8 +29,10 @@ function ysom_cases_update_7002() {
  *  Make sure the three part date is a valid date
  */
 function ysom_cases_node_validate($node, $form, &$form_state) {
+  if ($form_state['values']['field_video_year'][LANGUAGE_NONE][0]['value'] ==  '') {
+    $form_state['values']['field_video_year'][LANGUAGE_NONE][0]['value'] = null;
+  }
   $values = $form_state['values'];
-
   if (isset($values['field_video_year'][LANGUAGE_NONE][0]['value']) &&
     isset($values['field_video_month'][LANGUAGE_NONE][0]['value']) &&
     isset($values['field_video_day'][LANGUAGE_NONE][0]['value'])) {
