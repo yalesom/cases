@@ -681,23 +681,3 @@ function ysm_cases_preprocess_book_navigation(&$variables) {
     }
   }
 }
-
-/**
- * Helper function which gets the Nodeaccess for Books
- */
- function _get_nodeaccess($node) {
-
-   $nid = $node->nid;
-   $result = db_query("SELECT r.rid, nra.name, na.grant_view, na.grant_update, na.grant_delete , nid
-     FROM {role} r
-     LEFT JOIN {nodeaccess_role_alias} nra ON r.rid = nra.rid
-     LEFT JOIN {nodeaccess} na ON r.rid = na.gid AND na.realm = :realm AND na.nid = :nid
-     where nra.name = 'anonymous user'", array(':realm' => 'nodeaccess_rid', ':nid' => $nid));
-   if ($result->rowCount() == 1) {
-     $records = $result->fetchAll();
-     $record = $records[0];
-     return $record->grant_view;
-   } else {
-     return FALSE;
-   }
- }
