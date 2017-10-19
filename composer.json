@@ -9,16 +9,57 @@
         }
     },
     "require": {
+        "cweagans/composer-patches": "^1.6",
         "davidbarratt/custom-installer": "dev-master",
-        "derhasi/composer-preserve-paths": "0.1.*",
-        "drupal/drupal": "7.56",
+        "drupal-composer/preserve-paths": "^0.1.4",
+        "drupal/admin_menu": "3.x-dev",
         "drupal/admin_views": "1.6",
+        "drupal/adminimal_admin_menu": "^1.7",
+        "drupal/advagg": "^2.26",
+        "drupal/advanced_link": "^1.3",
+        "drupal/block_class": "^2.3",
+        "drupal/book_access": "^2.1",
+        "drupal/book_helper": "^1.0@beta",
+        "drupal/book_title_override": "^1.2",
+        "drupal/conditional_fields": "^3.0@alpha",
         "drupal/ctools": "1.12",
+        "drupal/custom_search": "^1.20",
+        "drupal/date": "^2.10",
+        "drupal/drupal": "7.56",
+        "drupal/ds": "^2.14",
+        "drupal/elfinder": "^0.8.0",
+        "drupal/empty_front_page": "^1.0",
         "drupal/entity": "1.8",
+        "drupal/features": "^2.10",
+        "drupal/field_collection": "^1.0@beta",
+        "drupal/field_collection_views": "^1.0@beta",
+        "drupal/field_group": "^1.5",
         "drupal/file_entity": "2.3",
-        "drupal/media": "2.9",
+        "drupal/filefield_sources": "^1.10",
+        "drupal/fontyourface": "^2.8",
+        "drupal/format_number": "1.x-dev",
+        "drupal/html5_tools": "^1.3",
+        "drupal/imagefield_focus": "^1.0",
+        "drupal/imce": "^1.11",
+        "drupal/jquery_update": "^2.7",
+        "drupal/libraries": "^2.3",
+        "drupal/link": "^1.4",
+        "drupal/media": "^2.11",
+        "drupal/menu_block": "^2.7",
+        "drupal/menu_position": "^1.2",
+        "drupal/pathauto": "^1.3",
+        "drupal/querypath": "^2.1",
+        "drupal/rules": "^2.10",
+        "drupal/semanticviews": "1.x-dev",
+        "drupal/taxonomy_menu": "^1.5",
         "drupal/views": "3.16.0-rc1",
-        "drupal/views_bulk_operations": "3.4"
+        "drupal/views_bulk_operations": "3.4",
+        "drupal/views_conditional": "^1.3",
+        "drupal/views_content": "^1.12",
+        "drupal/views_php": "^1.0@alpha",
+        "drupal/views_tree": "^2.0",
+        "drupal/workbench": "^1.2",
+        "drupal/wysiwyg": "^2.4"
     },
     "conflict": {
       "drupal/core": "8.*"
@@ -49,7 +90,9 @@
         "sites/default/settings.php",
         "sites/default/files",
         "sites/all/modules/contrib"
-      ]
+      ],
+      "patches-file": "composer.patches.json",
+      "enable-patching": true,
+      "composer-exit-on-patch-failure": true
     }
 }
-

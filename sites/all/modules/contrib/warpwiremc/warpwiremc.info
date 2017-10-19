@@ -1,6 +1,0 @@
-name = Warpwire Mediacore Filter
-description = Warpwire filter for translation of Mediacore assets.
-core = 7.x
-dependencies[] = warpwire
-package = Warpwire Mediacore Filter
-

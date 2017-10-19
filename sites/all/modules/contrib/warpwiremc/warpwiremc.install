@@ -1,7 +1,0 @@
-<?php
-
-/**
- * Implements hook_uninstall().
- */
-function warpwiremc_uninstall() {
-}
