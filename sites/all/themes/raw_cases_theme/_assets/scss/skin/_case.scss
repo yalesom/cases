@@ -1,0 +1,243 @@
+/* !------------- Case main page styles ------------- */
+.case-tiles {
+	.view-content {
+		@extend .grid;
+		.tile {
+			margin-bottom: $base-spacing-unit;
+			position: relative;
+			@extend .grid__item;
+			.tile-wrap {
+				position: relative;
+			}
+			// Basic tile attributes
+			img {
+				display: block;
+				width: 100%;
+			}
+			i {
+				border: 2px $white solid;
+				color: $white;
+				display: none;
+				font-size: 3.43rem;
+				left: 0.5em;
+				line-height: 3rem;
+				padding: 0.5em;
+				position: absolute;
+				text-align: center;
+				top:0.25em;
+				width: 2em;
+				@include border-radius(1em);
+			}
+			.img {
+				position: relative;
+				overflow: hidden;
+			}
+			.text {
+				background: $black;
+				background: transparentize($black, 0.2);
+				bottom: 0;
+				color: $lightGrey;
+				height: 33%;
+				padding: 1em;
+				position: absolute;
+				width: 100%;
+				@include transition(all 0.25s ease-out);
+			}
+			.header {
+				color: $white;
+				margin-bottom: 0.5em;
+				&:after {
+					bottom: 0;
+					content:"\f067";
+					display:block;
+					font-family: 'ysm118-icomoon';
+				    margin: 0.5em;
+				    position: absolute;
+				    right: 0;
+					}
+			}
+			.teaser {
+				visibility: hidden;
+				@include opacity(0);
+				@include transition(opacity 0.25s ease-out);
+			}
+			
+			.button {
+				bottom: 0;
+				position: absolute;
+				right: 0;
+				visibility: hidden;
+				@include opacity(0);
+			}
+			&.no-img {
+				.text {
+					background: transparent;
+				}
+				i {
+					display: block;
+				}
+			}
+			&.no-icon {
+				i {
+					display: none;
+				}
+			}
+			// Hover effects
+			&:hover {
+				//cursor: pointer;
+				.text {
+					background: $black;
+					background: transparentize($black, 0.2);
+					height: 100%;
+				}
+				.teaser,
+				.button {
+					visibility: visible;
+					@include opacity(1);
+				}
+				.header {
+					&:after {
+						display:none;
+					}
+				}
+			}
+			
+			// Custom tile attributes
+			&.xlarge {
+				@extend .one-whole;
+				@media #{$small}{
+					h3 {
+						display: none;
+					}
+					
+					.text {
+						height: 100%;
+						padding: 8.333%;
+						right: 0;
+						width: 50%;
+					}
+					.teaser,
+					.button {
+						visibility: visible;
+						@include opacity(1);
+					}
+					.teaser {
+						font-size: 1.29rem;
+					}
+					.button {
+						bottom: auto;
+						display: inline-block;
+						position: relative;
+						right: auto;
+						visibility: visible;
+						@include opacity(1);
+					}
+					.header {
+						&:after {
+							display:none;
+						}
+					}
+				}
+				@media #{$smallMax}{
+					img {
+						max-width: 150%;
+						width: auto;
+					}
+				}
+				// Tablet adjustments
+				@media #{$small} and (max-width:#{$tablet-landscape}) {
+					.teaser{
+						font-size: 1rem !important;
+					}
+				}
+				@media (min-width:#{$tablet-landscape}) {
+					.teaser{
+						font-size: 1.29rem !important;
+					}
+				}
+				
+			}
+			
+			&.large {
+				@extend .seven-twelfths;
+			}
+			&.medium {
+				@extend .five-twelfths;
+			}
+			&.small {
+				@extend .one-third;
+			}
+			&.xlarge,
+			&.large,
+			&.medium,
+			&.small {
+				@extend .palm-one-whole;
+				// Tablet adjustments
+				@media #{$small} and (max-width:#{$tablet-landscape}) {
+					.teaser {
+						font-size: 0.88rem;
+					}
+					.header,
+					.button {
+						font-size: 1rem;
+					}
+					i {
+						font-size: 2.43rem;
+						line-height: 2rem;
+					}
+				}
+				// Phone adjustments
+				@media #{$phoneMax} {
+					.teaser,
+					.button{
+						font-size: 0.88rem !important;
+					}
+				}
+			}
+		}
+	}
+}
+.field-collection-item-field-credits {
+	div {
+		display: inline;
+		font-size: 0.86rem;
+		padding-right: 1rem;
+		// Reset clearfix
+		&:after {
+			display: none;
+		}
+	}
+	h3 {
+		margin: 1rem 0 0.25rem;
+		text-transform: uppercase;
+	}
+	.name {
+		padding-right: 0.5rem;
+	}
+	.title {
+		&:after {
+			content:'; ';
+		}
+		&:last-child:after {
+			content:'';
+		}
+	}
+}
+.sponsor {
+	border: 2px $lightGrey solid;
+	padding: 2rem;
+	text-align: center;
+	.name {
+		display: block;
+	}
+}
+
+body.not-logged-in {
+	.sponsors  {
+		display: none !important;
+	}
+
+	.case-abstract {
+		padding-right: 2rem;
+	}
+}
