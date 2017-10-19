@@ -1,0 +1,16 @@
+{
+  "patches": {
+    "drupal/compass": {
+      "node/1194138 - Notice: Undefined property: stdClass::$base_theme in _compass_update() (line 52 of compass.inc)": "https://www.drupal.org/files/issues/1194138_2-Undefined_property_base_theme.patch"
+    },
+    "drupal/blockcache_alter": {
+      "project/blockcache_alter - block caching smarter": "https://www.drupal.org/files/issues/blockcache_alter_core_patch.patch"
+    },
+    "drupal/token": {
+      "node/2023423 - Token list not made into tree table when loaded via dialog": "https://www.drupal.org/files/issues/token-2023423-11.patch"
+    },
+    "drupal/views_tree": {
+      "node/1508258 - Token list not made into tree table when loaded via dialog": "https://www.drupal.org/files/view_tree_items_classes.patch"
+    }
+  }
+}
