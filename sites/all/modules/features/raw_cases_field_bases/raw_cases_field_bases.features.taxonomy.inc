@@ -1,17 +1,17 @@
 <?php
 /**
  * @file
- * warpwire_video_node_type.features.taxonomy.inc
+ * raw_cases_field_bases.features.taxonomy.inc
  */
 
 /**
  * Implements hook_taxonomy_default_vocabularies().
  */
-function warpwire_video_node_type_taxonomy_default_vocabularies() {
+function raw_cases_field_bases_taxonomy_default_vocabularies() {
   return array(
-    'new_workbench_access' => array(
-      'name' => 'Workbench Access',
-      'machine_name' => 'new_workbench_access',
+    'icons' => array(
+      'name' => 'Icons',
+      'machine_name' => 'icons',
       'description' => '',
       'hierarchy' => 0,
       'module' => 'taxonomy',

@@ -1,0 +1,16 @@
+name = Raw cases views
+description = Views for raw case distributions
+core = 7.x
+package = Raw cases
+version = 7.x-1.0
+dependencies[] = field_collection_views
+dependencies[] = semanticviews
+dependencies[] = views
+dependencies[] = views_tree
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = book_outline
+features[views_view][] = case_details
+features[views_view][] = document_grid
+features[views_view][] = tiles
+features_exclude[dependencies][ctools] = ctools

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Raw cases views feature.
+ */
+
+include_once 'raw_cases_views.features.inc';

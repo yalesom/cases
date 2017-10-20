@@ -1,16 +1,58 @@
 <?php
 /**
  * @file
- * walmex_sample_content.features.wysiwyg.inc
+ * raw_cases_content_types.features.wysiwyg.inc
  */
 
 /**
  * Implements hook_wysiwyg_default_profiles().
  */
-function walmex_sample_content_wysiwyg_default_profiles() {
+function raw_cases_content_types_wysiwyg_default_profiles() {
   $profiles = array();
 
-  // Exported profile: full_html
+  // Exported profile: filtered_html.
+  $profiles['filtered_html'] = array(
+    'format' => 'filtered_html',
+    'editor' => 'ckeditor',
+    'settings' => array(
+      'default' => 1,
+      'user_choose' => 0,
+      'show_toggle' => 1,
+      'theme' => 'advanced',
+      'language' => 'en',
+      'buttons' => array(
+        'default' => array(
+          'Bold' => 1,
+          'Italic' => 1,
+          'Underline' => 1,
+          'Paste' => 1,
+          'PasteText' => 1,
+        ),
+        'imce' => array(
+          'imce' => 1,
+        ),
+      ),
+      'toolbar_loc' => 'top',
+      'toolbar_align' => 'left',
+      'path_loc' => 'bottom',
+      'resizing' => 1,
+      'verify_html' => 1,
+      'preformatted' => 0,
+      'convert_fonts_to_spans' => 1,
+      'remove_linebreaks' => 1,
+      'apply_source_formatting' => 1,
+      'paste_auto_cleanup_on_paste' => 0,
+      'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
+      'css_setting' => 'theme',
+      'css_path' => '',
+      'css_classes' => '',
+    ),
+    'preferences' => array(),
+    'name' => 'formatfiltered_html',
+    'rdf_mapping' => array(),
+  );
+
+  // Exported profile: full_html.
   $profiles['full_html'] = array(
     'format' => 'full_html',
     'editor' => 'ckeditor',
@@ -38,6 +80,7 @@ function walmex_sample_content_wysiwyg_default_profiles() {
           'Redo' => 1,
           'Link' => 1,
           'Unlink' => 1,
+          'Anchor' => 1,
           'Image' => 1,
           'Superscript' => 1,
           'Subscript' => 1,
@@ -46,10 +89,13 @@ function walmex_sample_content_wysiwyg_default_profiles() {
           'Cut' => 1,
           'Copy' => 1,
           'Paste' => 1,
+          'PasteText' => 1,
+          'PasteFromWord' => 1,
           'RemoveFormat' => 1,
           'SpecialChar' => 1,
           'Styles' => 1,
           'Table' => 1,
+          'Find' => 1,
           'CreateDiv' => 1,
           'Maximize' => 1,
           'SpellChecker' => 1,
@@ -60,9 +106,6 @@ function walmex_sample_content_wysiwyg_default_profiles() {
         ),
         'mediacorechooser' => array(
           'mediacorechooser' => 1,
-        ),
-        'drupal' => array(
-          'break' => 1,
         ),
       ),
       'toolbar_loc' => 'top',
@@ -75,11 +118,13 @@ function walmex_sample_content_wysiwyg_default_profiles() {
       'remove_linebreaks' => 0,
       'apply_source_formatting' => 1,
       'paste_auto_cleanup_on_paste' => 0,
-      'block_formats' => 'p,h1,h2,h3,h4,h5,h6,div,blockquote,address,pre,code,dt,dd',
+      'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
       'css_setting' => 'self',
-      'css_path' => '%bsites/all/themes/gnam_cases/_assets/css/gnam_cases.css',
+      'css_path' => '%bsites/all/themes/ysm_cases/_assets/css/ysm_cases.css',
       'css_classes' => '',
     ),
+    'preferences' => array(),
+    'name' => 'formatfull_html',
     'rdf_mapping' => array(),
   );
 
