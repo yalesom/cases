@@ -1475,51 +1475,6 @@ Images not meeting these requirements will be automatically cropped and scaled.'
     ),
   );
 
-  // Exported field_instance: 'node-book-field_access_control'.
-  $field_instances['node-book-field_access_control'] = array(
-    'bundle' => 'book',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 22,
-      ),
-      'full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_access_control',
-    'label' => 'Access Control',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 4,
-    ),
-    'workbench_access_field' => 1,
-  );
-
   // Exported field_instance: 'node-book-field_case_number'.
   $field_instances['node-book-field_case_number'] = array(
     'bundle' => 'book',
@@ -2047,85 +2002,6 @@ Images not meeting these requirements will be automatically cropped and scaled.'
     ),
   );
 
-  // Exported field_instance:
-  // 'node-case_study_chapter_header-field_access_control'.
-  $field_instances['node-case_study_chapter_header-field_access_control'] = array(
-    'bundle' => 'case_study_chapter_header',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_access_control',
-    'label' => 'Access Control',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 2,
-    ),
-    'workbench_access_field' => TRUE,
-  );
-
-  // Exported field_instance: 'node-html_for_modal-field_access_control'.
-  $field_instances['node-html_for_modal-field_access_control'] = array(
-    'bundle' => 'html_for_modal',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 1,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_access_control',
-    'label' => 'Access Control',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 2,
-    ),
-    'workbench_access_field' => TRUE,
-  );
-
   // Exported field_instance: 'node-html_for_modal-field_content'.
   $field_instances['node-html_for_modal-field_content'] = array(
     'bundle' => 'html_for_modal',
@@ -2203,45 +2079,6 @@ Images not meeting these requirements will be automatically cropped and scaled.'
       'type' => 'text_textarea',
       'weight' => 4,
     ),
-  );
-
-  // Exported field_instance: 'node-infographic-field_access_control'.
-  $field_instances['node-infographic-field_access_control'] = array(
-    'bundle' => 'infographic',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 3,
-      ),
-      'full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_access_control',
-    'label' => 'Access Control',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 2,
-    ),
-    'workbench_access_field' => TRUE,
   );
 
   // Exported field_instance: 'node-infographic-field_infographic_caption'.
@@ -2520,51 +2357,6 @@ Images not meeting these requirements will be automatically cropped and scaled.'
       'type' => 'text_textarea_with_summary',
       'weight' => 3,
     ),
-  );
-
-  // Exported field_instance: 'node-page-field_access_control'.
-  $field_instances['node-page-field_access_control'] = array(
-    'bundle' => 'page',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 21,
-      ),
-      'full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_access_control',
-    'label' => 'Access Control',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 5,
-    ),
-    'workbench_access_field' => TRUE,
   );
 
   // Exported field_instance: 'node-page-field_document_grid'.
@@ -2913,44 +2705,6 @@ Images not meeting these requirements will be automatically cropped and scaled.'
     ),
   );
 
-  // Exported field_instance: 'node-video_embed-field_access_control'.
-  $field_instances['node-video_embed-field_access_control'] = array(
-    'bundle' => 'video_embed',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_access_control',
-    'label' => 'Access Control',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 1,
-    ),
-    'workbench_access_field' => 1,
-  );
-
   // Exported field_instance: 'node-video_embed-field_video_embed'.
   $field_instances['node-video_embed-field_video_embed'] = array(
     'bundle' => 'video_embed',
@@ -3075,7 +2829,6 @@ However, you should still include a <em>Headline</em> for the page outline.');
 <span class="color-example"><div class="slate"></div> Slate</span>
 <span class="color-example"><div class="tan"></div> Tan</span>');
   t('Abstract');
-  t('Access Control');
   t('Add a teaser image to convey the content of the referenced item');
   t('Add an embed code or configure the <a href="/admin/config/content/formats/video_embed_filter">Video Embed Filter</a> to accept replacement tokens for your video service.');
   t('Add an external or internal URL to which this tile will link');
