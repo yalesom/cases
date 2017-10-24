@@ -11,6 +11,9 @@
     },
     "drupal/views_tree": {
       "node/1508258 - Token list not made into tree table when loaded via dialog": "https://www.drupal.org/files/view_tree_items_classes.patch"
+    },
+    "drupal/adminimal_admin_menu": {
+      "node/2407007 - Uncaught TypeError when using with Media" : "https://www.drupal.org/files/issues/adminimal_admin_menu-2407007-24-fix-type-error.patch"
     }
   }
 }
