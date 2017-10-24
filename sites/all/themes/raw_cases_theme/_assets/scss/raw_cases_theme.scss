@@ -12,7 +12,8 @@
 @import "inuit.css-master/inuit";
 
 /*	!Theme styles ============ */
-@import "skin/ysm118-icomoon";
+$icomoon-font-path: "../font/ysm118-icomoon/fonts";
+@import "../font/ysm118-icomoon/style";
 @import "skin/common";
 @import "skin/structure";
 @import "skin/admin";

@@ -1,5 +1,6 @@
 /* !Libraries ========================*/
-@import "compass/css3";           // Uncomment to use CSS3 mixins (http://compass-style.org/reference/compass/css3/)
+@import "compass/css3";
+// Uncomment to use CSS3 mixins (http://compass-style.org/reference/compass/css3/)
 // @import "partials/mixins";        // Uncomment to call your own mixins partial (check your /partials directory)
 // @import "sprites/smart";          // Uncomment to call your 'smart' sprite (check your /images/sprites directory)
 
@@ -11,7 +12,8 @@
 @import "inuit.css-master/inuit";
 
 /*	!Theme styles ============ */
-@import "skin/ysm118-icomoon";
+$icomoon-font-path: "../font/ysm118-icomoon/fonts";
+@import "../font/ysm118-icomoon/style";
 @import "skin/common";
 @import "skin/structure";
 @import "skin/admin";
