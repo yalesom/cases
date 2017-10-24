@@ -129,6 +129,7 @@
         "post-update-cmd": [
           "rm -rf core-sites/sites",
           "./composer_post_install.sh",
+          "./composer_clone_profile.sh",
           "rm -rf core-sites"
         ]
     },

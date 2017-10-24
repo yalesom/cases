@@ -78,6 +78,7 @@ sites/all/themes/yale/Gemfile.lock
 /*
 !.gitignore
 !composer_post_install.sh
+!composer_clone_profile.sh
 !composer.json
 !composer.patches.json
 !README.md
