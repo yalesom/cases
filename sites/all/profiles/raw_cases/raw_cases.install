@@ -1,0 +1,285 @@
+<?php
+/**
+ * Implement hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ */
+function raw_cases_install() {
+
+  // Add text formats.
+  $filtered_html_format = array(
+    'format' => 'filtered_html',
+    'name' => 'Filtered HTML',
+    'weight' => 0,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // HTML filter.
+      'filter_html' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 2,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+      // Internal link title filter.
+      'filter_intlinks_title' => array(
+        'weight' => 11,
+        'status' => 1,
+      ),
+    ),
+  );
+  $filtered_html_format = (object) $filtered_html_format;
+  filter_format_save($filtered_html_format);
+
+  $full_html_format = array(
+    'format' => 'full_html',
+    'name' => 'Full HTML',
+    'weight' => 1,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 1,
+        'status' => 0,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+    ),
+  );
+  $full_html_format = (object) $full_html_format;
+  filter_format_save($full_html_format);
+
+  // Enable default themes
+   $theme_enable = array(
+       'theme_default' => 'raw_cases_theme',
+       'admin_theme' => 'adminimal_cases',
+       'node_admin_theme' => 1,
+   );
+   theme_enable(array('raw_cases_theme', 'adminimal_cases','adminimal_theme'));
+   foreach ($theme_enable as $var => $theme) {
+       variable_set($var, $theme);
+     }
+   // Disable default Bartik theme
+   theme_disable(array('bartik'));
+
+   // Enable default permissions for system roles.
+   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content'));
+   user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content'));
+
+   // Create a default role for site administrators, with all available permissions assigned.
+   $admin_role = new stdClass();
+   $admin_role->name = 'administrator';
+   $admin_role->weight = 2;
+   user_role_save($admin_role);
+
+   // Set this as the administrator role.
+   variable_set('user_admin_role', $admin_role->rid);
+   // Assign user 1 the "administrator" role.
+   db_insert('users_roles')
+     ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
+     ->execute();
+
+  // Enable features that contain exported blocks. These can't be placed as
+  // dependencies in the .info file as they depend on the themes enabled above.
+  module_enable(array('raw_cases_field_bases'));
+  module_enable(array('raw_cases_content_types'));
+  module_enable(array('raw_cases_views'));
+  module_enable(array('raw_cases_roles'));
+  module_enable(array('ckeditor_custom'));
+  module_enable(array('chart_node'));
+  module_enable(array('gallery'));
+
+  // Array of default icon terms
+  $terms = array(
+    'bar-chart','book','calendar','camera','corp-doc','cv','external-link','financials','globe','info-sign','mortar-board','newspaper','org-chart','play-sign','slide','table'
+  );
+  // Get Icon vocabulary
+  $icon_vocab = taxonomy_vocabulary_machine_name_load('icons');
+  // Create default terms
+  foreach($terms as $term) {
+    // Create a new term programmatically.
+    $newterm = new stdClass();
+    $newterm->name = 'icon-'.$term; // The name of the term
+    $newterm->vid = $icon_vocab->vid; // The ID of the parent vocabulary
+    $newterm->parent = 0; // This tells taxonomy that this is a top-level
+    taxonomy_term_save($newterm);
+  }
+
+  // clear privious block settings if any
+  db_delete('block')->execute();
+
+  $default_theme = variable_get('theme_default', 'raw_cases_theme');
+  $admin_theme = 'adminimal_theme_cases';
+
+  $blocks = array(
+    array(
+      'module' => 'views',
+      'delta' => 'case_details-block_1',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'header',
+      'pages' => '',
+      'cache' => -1,
+      'title' => '',
+      'css_class' => '',
+    ),
+    array(
+      'module' => 'views',
+      'delta' => 'book_outline-block',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => -1,
+      'region' => 'navigation',
+      'pages' => '',
+      'cache' => -1,
+      'title' => '',
+      'css_class' => 'hide-title',
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'help',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => 'help',
+      'pages' => '',
+      'cache' => -1,
+      'title' => '<none>',
+      'css_class' => '',
+    ),
+    array(
+      'module' => 'views',
+      'delta' => 'case_details-block_2',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 1,
+      'region' => 'content',
+      'pages' => '',
+      'cache' => -1,
+      'title' => '<none>',
+      'css_class' => '',
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => 'content',
+      'pages' => '',
+      'cache' => -1,
+      'title' => '',
+      'css_class' => '',
+    ),
+    array(
+      'module' => 'book_helper',
+      'delta' => 'book-helper-inline-navigation',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 11,
+      'region' => 'content',
+      'pages' => '',
+      'cache' => -1,
+      'title' => '',
+      'css_class' => '',
+    ),
+    array(
+      'module' => 'user',
+      'delta' => 'login',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'sidebar_second',
+      'pages' => '',
+      'cache' => -1,
+      'title' => '<none>',
+      'css_class' => 'user-login',
+    ),
+    array(
+      'module' => 'views',
+      'delta' => 'case_details-block',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'footer_first',
+      'pages' => '',
+      'cache' => -1,
+      'title' => '<none>',
+      'css_class' => '',
+    ),
+    array(
+      'module' => 'views',
+      'delta' => 'book_outline-block_1',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 1,
+      'region' => 'footer_first',
+      'pages' => '',
+      'cache' => -1,
+      'title' => '<none>',
+      'css_class' => '',
+    ),
+    array(
+      'module' => 'views',
+      'delta' => 'case_details-block_3',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 2,
+      'region' => 'footer_first',
+      'pages' => '',
+      'cache' => -1,
+      'title' => '<none>',
+      'css_class' => '',
+    ),
+  );
+  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache','title','css_class'));
+  foreach ($blocks as $block) {
+    $query->values($block);
+  }
+  $query->execute();
+
+  //Set default DS variables
+  variable_set('ds_extras_field_template', 1);
+  variable_set('ft-default', 'theme_ds_field_reset');
+  variable_set('ds_extras_hide_page_title', 1);
+  variable_set('ds_extras_hide_page_sidebars', 1);
+  variable_set('ds_extras_field_permissions', 1);
+  variable_set('ds_extras_region_to_block', 1);
+
+  //Set default Book variables
+  variable_set('book_allowed_types', array('book','page','case_study_chapter_header'));
+  variable_set('book_helper_create_new', array('book'));
+  variable_set('book_helper_navigation_options', array('prev','next'));
+  variable_set('book_helper_remove_book_navigation', 1);
+  variable_set('book_helper_order_disable_revisions', 1);
+
+  // Set medium date format
+  variable_set('date_format_medium', 'F j, Y - g:ia');
+
+  // Give the administrator roll all available permissions
+  user_role_grant_permissions($admin_role->rid, array_keys(module_invoke_all('permission')));
+}
