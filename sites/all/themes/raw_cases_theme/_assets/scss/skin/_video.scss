@@ -1,0 +1,18 @@
+.video-container {
+	text-align: center;
+
+	p {
+		text-align: left;
+		padding   : 0 10%;
+	}
+
+	h3.modal-header {
+		display: none;
+	}
+
+	iframe {
+		margin: 0 auto;
+		width : 640px;
+		height: 360px;
+	}
+}

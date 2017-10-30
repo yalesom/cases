@@ -1,0 +1,65 @@
+/* !----------- Login ------------ */
+.not-logged-in {
+	#page-title {
+		//display: none;
+	}
+	@media #{$small}{
+		#sidebar-second {
+			border-left: $lightGrey 1px solid;
+		}
+		.sidebar {
+			margin-top: 2rem;
+		}
+	}
+	.login-message {
+		color: $mediumGrey;
+		font-style: italic;
+		font-size: 0.75rem;
+		line-height: 1.25em;
+	}
+
+	.user-login {
+		margin-bottom: 3rem;
+		label,
+		.item-list {
+			display: none;
+		}
+		#edit-name,
+		#edit-pass {
+			border: 1px $lightGrey solid;
+			padding: 0.5rem;
+			&:focus {
+				border-color: $black;
+				outline: none;
+			}
+		}
+		#edit-submit {
+			@extend .button;
+			background: $brand;
+			font-size: 1rem;
+			padding-right: 5rem;
+			position: relative;
+			&:after {
+				position: absolute;
+				right: 0.5rem;
+				top:0.75rem;
+			}
+		}
+	}
+	// !CAS
+	#edit-cas-login-redirection-message {
+		display: none !important;
+	}
+
+
+	#user-login {
+		.cas-links {
+			display: none;
+		}
+	}
+
+	.block-views-book-outline-block-1 {
+		//display: none;
+
+	}
+}

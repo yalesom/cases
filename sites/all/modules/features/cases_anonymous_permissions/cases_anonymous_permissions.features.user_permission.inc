@@ -18,6 +18,8 @@ function cases_anonymous_permissions_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -28,6 +30,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -75,6 +78,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -86,6 +90,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -97,6 +102,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -108,6 +114,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -119,6 +126,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -130,6 +138,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -140,8 +149,6 @@ function cases_anonymous_permissions_user_default_permissions() {
     'name' => 'create mediacore_video content',
     'roles' => array(
       'administrator' => 'administrator',
-      'case editor' => 'case editor',
-      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -152,6 +159,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -160,7 +168,12 @@ function cases_anonymous_permissions_user_default_permissions() {
   // Exported permission: 'create warpwire_video content'.
   $permissions['create warpwire_video content'] = array(
     'name' => 'create warpwire_video content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
+    ),
     'module' => 'node',
   );
 
@@ -180,6 +193,8 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -190,6 +205,8 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -200,6 +217,8 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -210,6 +229,8 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -229,6 +250,8 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -238,7 +261,6 @@ function cases_anonymous_permissions_user_default_permissions() {
     'name' => 'delete any mediacore_video content',
     'roles' => array(
       'administrator' => 'administrator',
-      'case editor' => 'case editor',
     ),
     'module' => 'node',
   );
@@ -249,6 +271,8 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -256,7 +280,9 @@ function cases_anonymous_permissions_user_default_permissions() {
   // Exported permission: 'delete any warpwire_video content'.
   $permissions['delete any warpwire_video content'] = array(
     'name' => 'delete any warpwire_video content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'node',
   );
 
@@ -275,6 +301,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -286,6 +313,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -297,6 +325,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -308,6 +337,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -319,6 +349,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -330,6 +361,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -341,6 +373,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -352,6 +385,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -360,7 +394,12 @@ function cases_anonymous_permissions_user_default_permissions() {
   // Exported permission: 'delete own warpwire_video content'.
   $permissions['delete own warpwire_video content'] = array(
     'name' => 'delete own warpwire_video content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
+    ),
     'module' => 'node',
   );
 
@@ -380,6 +419,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -391,6 +431,8 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -401,6 +443,8 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -411,6 +455,8 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -421,6 +467,8 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -431,6 +479,8 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -441,6 +491,8 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -451,6 +503,8 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -461,6 +515,8 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -468,7 +524,12 @@ function cases_anonymous_permissions_user_default_permissions() {
   // Exported permission: 'edit any warpwire_video content'.
   $permissions['edit any warpwire_video content'] = array(
     'name' => 'edit any warpwire_video content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
+    ),
     'module' => 'node',
   );
 
@@ -487,6 +548,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -498,6 +560,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -509,6 +572,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -520,6 +584,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -531,6 +596,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -542,6 +608,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -553,6 +620,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -564,6 +632,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -572,7 +641,12 @@ function cases_anonymous_permissions_user_default_permissions() {
   // Exported permission: 'edit own warpwire_video content'.
   $permissions['edit own warpwire_video content'] = array(
     'name' => 'edit own warpwire_video content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
+    ),
     'module' => 'node',
   );
 
@@ -628,6 +702,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
@@ -640,6 +715,8 @@ function cases_anonymous_permissions_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
+      'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',
   );
@@ -650,6 +727,7 @@ function cases_anonymous_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'case editor' => 'case editor',
+      'student editor' => 'student editor',
       'workshop editor' => 'workshop editor',
     ),
     'module' => 'node',

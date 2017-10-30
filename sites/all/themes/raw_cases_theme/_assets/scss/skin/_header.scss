@@ -1,0 +1,197 @@
+/* !----------- Theme header ------------ */
+#page-header {
+	background: $blue;
+	color     : $white;
+	position  : relative;
+
+	.logged-in & {
+		cursor: pointer;
+	}
+
+	.site-logo {
+		position: absolute;
+		right   : 5px;
+		top     : 1.25rem;
+		z-index : 11;
+
+		img {
+			max-height: 75px;
+			@media #{$small} {
+				max-height: 95px;
+			}
+		}
+	}
+
+	.section-wrap {
+		min-height: 4rem;
+		padding   : 0.75rem 5px;
+	}
+
+	.header-main {
+		margin-right: 4.29rem;
+	}
+
+	.header-sections,
+	.primary-nav {
+		margin-right: 4.29rem;
+		// .not-front & {
+		// 	display: none;
+		// }
+		.not-front.node-type-book & {
+			display: block;
+		}
+	}
+	// !Case details
+	.case-details {
+		i {
+			font-size: 1.63rem;
+			position : absolute;
+		}
+
+		.case-name,
+		.case-num {
+			padding-left : 1.85rem;
+			margin-bottom: 0;
+		}
+
+		.case-num {
+			font-size: 0.88rem;
+		}
+	}
+	// !Case study menu
+	.case-menu {
+		padding-left: 1.85rem;
+	}
+	// !Close button
+	.icon-remove {
+		border     : 1px transparentize($white,0.9) solid;
+		bottom     : 1rem;
+		cursor     : pointer;
+		font-size  : 1.25rem;
+		line-height: 1rem;
+		opacity    : 1;
+		padding    : 0.5rem;
+		position   : absolute;
+		right      : 1.625rem;
+		text-align : center;
+		@include border-radius(100px);
+		@include transition(all 0.25s ease-in);
+
+		&:hover {
+			border-color: $white;
+		}
+	}
+
+	&.closed {
+		.icon-remove {
+			opacity: 0;
+		}
+	}
+
+	&.stuck {
+		position: fixed;
+		left    : 0;
+		top     : 0;
+		width   : 100%;
+		z-index : 100;
+	}
+
+	&.overlay {
+		z-index: 100;
+	}
+}
+// !Shift page-wrapper for left toggle nav
+#page-wrapper {
+	left : 0;
+	width: 100%;
+	@include transition(all 0.25s ease-in);
+
+	.primary-nav {
+		overflow                  : hidden;
+		overflow-scrolling        : touch;
+		-webkit-overflow-scrolling: touch;
+		@media #{$medium} {
+			overflow-scrolling        : none;
+			-webkit-overflow-scrolling: none;
+		}
+		// Left toggle nav
+		.phone & {
+			background: darken($blue,5%);
+			height    : 200%;
+			left      : -75%;
+			position  : fixed;
+			top       : 0;
+			width     : 75%;
+			z-index   : 200;
+			@include transition(left 0.25s ease-in);
+
+			.stem_class {
+				padding-left: 10px !important;
+
+				> li > a {
+					border-color: $blue !important;
+				}
+			}
+		}
+
+		.case-menu {
+			a {
+				color: lighten($blue,40%);
+				@include reHover;
+			}
+
+			.stem_class {
+				> li > a {
+					border-color: lighten($blue,5%);
+					color       : $white;
+					@include reHover;
+				}
+			}
+		}
+	}
+
+	&.open {
+		left    : 75%;
+		overflow: hidden;
+		width   : 25%;
+
+		#page-header {
+			left: 75%;
+			@include transition(left 0.25s ease-in);
+		}
+
+		#main-content,
+		#page-footer {
+			@media #{$landscape} {
+				width: 568px;
+			}
+			@media #{$portrait} {
+				width: 320px;
+			}
+		}
+
+		.primary-nav {
+			border-right: 4px solid darken($blue, 8%);
+			left        : 0;
+
+			> .block-views {
+				height                    : 100%;
+				overflow-y                : scroll;
+				overflow-scrolling        : touch;
+				-webkit-overflow-scrolling: touch;
+			}
+		}
+	}
+}
+
+.sticky-wrapper {
+	overflow: visible !important;
+	//position: relative;
+	//z-index: 1;
+}
+
+html.lt-ie9 {
+	.sticky-wrapper {
+		display: none;
+	}
+}

@@ -1,0 +1,103 @@
+/* !------------- Theme structures ------------- */
+.page-wrapper {
+	min-height: 100%;
+	position:relative;
+	@include clearfix;
+}
+.section-wrap {
+	margin: 0 auto;
+	padding: 0 5px;
+	max-width: $row-width;
+	position: relative;
+}
+#main-content {
+	background: $white;
+	border-bottom: 1px $lightGrey solid;
+	padding-top: 1.75rem;
+	position: relative;
+	z-index: 10;
+	.highlight {
+		@extend .grid__item;
+		@extend .one-whole;
+	}
+	.section-wrap {
+		@extend .grid;
+		margin-left: auto;
+	}
+	.main-content {
+		position: relative;
+		@extend .grid__item;
+		margin-bottom:1em;
+		padding:0;
+		&.one-sidebar-right {
+			@extend .lap-and-up-three-quarters;
+		}
+		&.one-sidebar-left {
+			@extend .lap-and-up-three-quarters;
+			@extend .push--lap-and-up-one-quarter;
+		}
+		&.two-sidebars {
+			@extend .lap-and-up-seven-twelfths;
+			@extend .push--lap-and-up-one-quarter;
+		}
+	}
+	.sidebar {
+		position: relative;
+		@extend .grid__item;
+		@extend .lap-and-up-one-sixth;
+		@media #{$smallMax}{
+			padding: 0;
+		}
+		&#sidebar-first {
+			@extend .pull--lap-and-up-seven-twelfths;
+			@extend .lap-and-up-one-quarter;
+			&.one-sidebar {
+				@extend .pull--lap-and-up-three-quarters;
+			}
+		}
+	}
+}
+
+.not-logged-in {
+	#main-content {
+		.sidebar {
+			&.one-sidebar {
+				width: 25%;
+				min-height: 50vh;
+			}
+		}
+	}
+
+	.credit {
+		//display: none;
+	}
+}
+
+.main-content {
+	article {
+
+	}
+	.breadcrumb {
+
+		}
+}
+.sidebar {
+
+}
+
+/* Intuit grid hack */
+.grid {
+  letter-spacing: -0.31em;
+}
+
+/* Opera hack */
+.opera:-o-prefocus,
+.grid {
+  word-spacing: -0.43em;
+}
+
+.grid__item,
+.messages {
+  letter-spacing: normal;
+  word-spacing: normal;
+}

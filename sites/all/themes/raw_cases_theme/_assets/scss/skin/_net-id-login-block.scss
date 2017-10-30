@@ -1,0 +1,22 @@
+.cas-netid-block {
+	margin-top: 2rem;
+	padding: 2rem 0;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+
+	p {
+		color: #777777;
+		font-style: italic;
+		font-size: 0.875rem;
+		line-height: 1.25em;
+	}
+
+	a.button {
+		font-size: 1rem;
+		display: inline-block;
+	}
+}
+
+.form-item-cas-identifier {
+	display: none;
+}

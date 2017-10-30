@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Warpwire Video Node Type feature.
- */
-
-include_once 'warpwire_video_node_type.features.inc';

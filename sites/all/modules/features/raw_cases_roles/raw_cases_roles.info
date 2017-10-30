@@ -1,0 +1,11 @@
+name = Raw cases roles
+description = User roles for raw case distributions
+core = 7.x
+package = Raw cases
+version = 7.x-1.0
+dependencies[] = features
+features[features_api][] = api:2
+features[user_role][] = administrator
+features[user_role][] = case editor
+features[user_role][] = student editor
+features[user_role][] = workshop editor

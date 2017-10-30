@@ -1,0 +1,92 @@
+/* !----------- Book outline menu ------------ */
+.case-menu {
+	font-size: 0.82rem;
+	padding-top: 0.75rem;
+	.attachment {
+		display: none;
+	}
+	.item-list {
+		ul {
+			list-style: none;
+			li {
+				margin: 0;
+				vertical-align: top;
+			}
+		}
+		.stem_class {
+			@extend .grid;
+			margin-left: -1rem;
+			padding: 0 0 0.5rem;
+			> li {
+				@extend .grid__item;
+				@extend .one-quarter;
+				@extend .palm-one-whole;
+				padding: 0 1rem 1rem;
+				a {
+					display: block;
+					line-height: 1.05rem;
+					&.active {
+						@include font-icon("\f041");
+						padding: .5rem 0 0 1rem;
+						&:before {
+							margin-right: 0.5rem;
+							margin-left: -1rem;
+						}
+						color: $black !important;
+						#page-footer & {
+							color: $mediumGrey !important;
+						}
+					}
+				}
+				> a {
+					border-top: 1px $lightGrey solid;
+					color: $brand;
+					font-weight: 700;
+					padding-top: 0.5rem;
+					@include reHover;
+				}
+				.item-list {
+					margin-top: .5rem;
+					ul {
+						li {
+							line-height: 1.05rem;
+							margin-bottom: .5rem;
+							a {
+								&.active {
+									@include font-icon("\f041");
+									padding: 0 0 0 1rem !important;
+									&:before {
+										margin-right: 0.5rem;
+										margin-left: -1rem;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+		.section {
+			li {
+				a {
+					padding: 0;
+				}
+			}
+		}
+	}
+}
+
+.block-book-helper-book-helper-inline-navigation {
+	.book-navigation {
+		.menu {
+			display: none;
+		}
+
+		.page-links {
+			a.page-up {
+				display: none;
+			}
+		}
+	}
+}
